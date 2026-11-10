@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>متابعين إنستقرام – Flash Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-type="rashq">
+<header class="w"><div class="hd"><a class="logo" href="index.html">FLASH<small>STORE</small></a>
+<nav class="nav"><a class="" href="index.html">الرئيسية</a><a href="category.html">الأقسام</a><a href="#">العروض</a><a href="#">حسابي</a></nav><div class="sp"></div>
+<a class="ib" href="#" aria-label="السلة">🛒</a><a class="ib" href="#" aria-label="حسابي">👤</a><a class="ib mm" href="category.html" aria-label="الأقسام">☰</a></div>
+<input class="sr" type="search" placeholder="🔍 ابحث عن خدمة أو منتج…" aria-label="بحث"></header>
+<main class="w">
+<div class="bc"><a href="index.html">الرئيسية</a> › <a href="category.html">خدمات الرشق</a></div>
+<div class="pp">
+<div class="big" aria-hidden="true">👥</div>
+<div>
+<h1 class="s" style="margin-bottom:4px">متابعين إنستقرام</h1>
+<div class="mut" style="margin-bottom:8px">زيادة متابعين لحسابك بشكل تدريجي.</div>
+<div class="price">29.99 ر.س</div>
+<div class="box" style="margin-top:12px">
+<h4>اختر الباقة</h4>
+<div class="chips" id="o" style="margin:0"><button class="chip on">1000</button><button class="chip">3000</button><button class="chip">5000</button></div>
+<div class="rashq">
+<label class="fl" for="u">رابط الحساب أو المنشور</label><input class="fld" id="u" dir="ltr" placeholder="https://instagram.com/…">
+<label class="fl" for="q">الكمية</label><input class="fld" id="q" value="1000" inputmode="numeric">
+</div>
+</div>
+<div class="two"><a class="cta" href="#">شراء الآن</a><button class="sec" type="button">أضف للسلة</button></div>
+</div>
+</div>
+<div class="box" style="margin-top:18px"><h4>تفاصيل الخدمة وطريقة التنفيذ</h4>
+<ol class="ol"><li>أدخل رابط الحساب (يجب أن يكون عاماً).</li><li>اختر الكمية وأتم الدفع.</li><li>يبدأ التنفيذ خلال وقت قصير.</li></ol></div>
+<div class="box"><h4>الشروط والسياسات</h4>
+<ol class="ol"><li>لا نطلب كلمة مرور حسابك أبداً.</li><li>راجع سياسة الاستبدال والاسترجاع قبل الشراء.</li></ol></div>
+</main>
+<footer><div class="w"><span class="logo">FLASH STORE</span>منصة الخدمات الرقمية<br><a href="#">عن المتجر</a>·<a href="#">تواصل معنا</a>·<a href="#">السياسات</a>·<a href="#">الأسئلة الشائعة</a></div></footer>
+<script>
+document.getElementById('o').onclick=function(e){var b=e.target.closest('.chip');if(!b)return;
+[].forEach.call(this.children,function(c){c.classList.toggle('on',c===b)});
+var q=document.getElementById('q');if(q)q.value=b.textContent};
+</script>
+</body></html>

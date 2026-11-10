@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>خدمات الرشق – Flash Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="w"><div class="hd"><a class="logo" href="index.html">FLASH<small>STORE</small></a>
+<nav class="nav"><a class="" href="index.html">الرئيسية</a><a href="category.html">الأقسام</a><a href="#">العروض</a><a href="#">حسابي</a></nav><div class="sp"></div>
+<a class="ib" href="#" aria-label="السلة">🛒</a><a class="ib" href="#" aria-label="حسابي">👤</a><a class="ib mm" href="category.html" aria-label="الأقسام">☰</a></div>
+<input class="sr" type="search" placeholder="🔍 ابحث عن خدمة أو منتج…" aria-label="بحث"></header>
+<main class="w">
+<div class="bc"><a href="index.html">الرئيسية</a> › الأقسام › خدمات الرشق</div>
+<h1 class="s">خدمات الرشق</h1>
+<div class="chips" id="f">
+<button class="chip on" data-f="">الكل</button><button class="chip" data-f="f">متابعين</button><button class="chip" data-f="v">مشاهدات</button><button class="chip" data-f="l">لايكات</button><button class="chip" data-f="s">مشاركات وحفظ</button>
+</div>
+<div class="grid" id="g">
+<a class="pc" data-k="f" href="product.html"><div class="th" aria-hidden="true">👥</div><h3>متابعين إنستقرام</h3><div class="pr">29.99 ر.س</div></a>
+<a class="pc" data-k="v" href="product.html"><div class="th" aria-hidden="true">👁</div><h3>مشاهدات ريلز</h3><div class="pr">29.99 ر.س</div></a>
+<a class="pc" data-k="l" href="product.html"><div class="th" aria-hidden="true">❤</div><h3>لايكات إنستقرام</h3><div class="pr">29.99 ر.س</div></a>
+<a class="pc" data-k="f" href="product.html"><div class="th" aria-hidden="true">👥</div><h3>متابعين تيك توك</h3><div class="pr">29.99 ر.س</div></a>
+<a class="pc" data-k="v" href="product.html"><div class="th" aria-hidden="true">👁</div><h3>مشاهدات تيك توك</h3><div class="pr">29.99 ر.س</div></a>
+<a class="pc" data-k="l" href="product.html"><div class="th" aria-hidden="true">❤</div><h3>لايكات تيك توك</h3><div class="pr">29.99 ر.س</div></a>
+<a class="pc" data-k="s" href="product.html"><div class="th" aria-hidden="true">🔖</div><h3>مشاركات ريلز</h3><div class="pr">29.99 ر.س</div></a>
+<a class="pc" data-k="s" href="product.html"><div class="th" aria-hidden="true">🔖</div><h3>حفظ منشورات</h3><div class="pr">29.99 ر.س</div></a>
+</div></main>
+<footer><div class="w"><span class="logo">FLASH STORE</span>منصة الخدمات الرقمية<br><a href="#">عن المتجر</a>·<a href="#">تواصل معنا</a>·<a href="#">السياسات</a>·<a href="#">الأسئلة الشائعة</a></div></footer>
+<script>
+document.getElementById('f').onclick=function(e){var b=e.target.closest('.chip');if(!b)return;
+[].forEach.call(this.children,function(c){c.classList.toggle('on',c===b)});
+var k=b.getAttribute('data-f');
+[].forEach.call(document.querySelectorAll('#g .pc'),function(p){p.hidden=k&&p.getAttribute('data-k')!==k})};
+</script>
+</body></html>

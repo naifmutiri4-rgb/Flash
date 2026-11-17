@@ -130,7 +130,7 @@ salla-product-options[options*="single-option"]:not(.hydrated){min-height:555px}
 .s-product-options-grid-mode{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;justify-items:stretch!important}
 .s-product-options-grid-mode>label{display:flex!important;margin:0!important;width:100%!important;min-width:0}
 .s-product-options-grid-mode>label>.s-product-options-grid-mode-span{flex:1 1 auto}
-.s-product-options-grid-mode-span{width:100%;min-height:54px!important;display:flex!important;align-items:center;justify-content:center;border-radius:12px!important;border:1px solid rgba(255,255,255,.14)!important;background:var(--fl-bg)!important;color:var(--fl-fg)!important;font-size:15px!important;font-weight:700!important;padding:8px 10px!important;line-height:1.35;text-align:center;transition:border-color .15s ease,background-color .15s ease,color .15s ease}
+.s-product-options-grid-mode-span{width:100%;min-height:54px!important;display:flex!important;align-items:center;justify-content:center;border-radius:12px!important;border:1px solid rgba(255,255,255,.14)!important;background:var(--fl-bg)!important;color:var(--fl-fg)!important;font-size:15px!important;font-weight:700!important;padding:8px 10px!important;line-height:1.35;text-align:center;text-wrap:balance;transition:border-color .15s ease,background-color .15s ease,color .15s ease}
 .s-product-options-grid-mode>label:hover .s-product-options-grid-mode-span{border-color:var(--fl-pd)!important}
 .s-product-options-grid-mode input:checked+div{background:rgba(252,158,1,.12)!important;border-color:var(--fl-p)!important;color:var(--fl-pl)!important;font-weight:900!important}
 .s-product-options-grid-mode input:focus-visible+div{outline:2px solid var(--fl-pl);outline-offset:2px}
@@ -278,6 +278,17 @@ body#app.product-single .sticky-product-bar{background-color:transparent!importa
 body#app .s-comments-item-timestamp{color:var(--fl-mut)!important}
 /* فلاتر صفحة القسم: مساحة لمس أكبر */
 body#app .s-filters-label{min-height:40px;display:flex;align-items:center}
+
+/* 14. صفحة المنتج: تحسينات الجوال ---------------------------------------- */
+/* الصورة أصغر في الجوال عشان الاسم والكميات يبانون من أول شاشة */
+@media (max-width:767px){
+  .product-single .sidebar{max-width:300px;align-self:center;margin-inline:auto;padding-top:12px}
+  .product-single .sidebar salla-slider,.product-single .sidebar .swiper{border-radius:20px;overflow:hidden}
+}
+/* تحت عنوان الكمية تطلع كلمة «اختر» بس، فنخفيها (حقل الرابط يبقى وصفه) */
+.s-product-options-option-container:has(.s-product-options-grid-mode) .s-product-options-option-label small{display:none!important}
+/* سطر طمأنة تحت زر الإضافة */
+.product-single .sticky-product-bar::after{content:"التنفيذ آلي بعد الدفع، ونحتاج رابط المقطع فقط.";display:block;width:100%;text-align:center;color:var(--fl-mut);font-size:13px;margin-top:10px}
 
 /* 11. الفوتر ------------------------------------------------------------- */
 .store-footer{background:#0B0B0B!important;border-top:1px solid var(--fl-line)}

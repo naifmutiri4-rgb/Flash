@@ -25,7 +25,7 @@ HEAD = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#F5F4F0">
+<meta name="theme-color" content="#18181C">
 <link rel="preload" href="fonts/readex-pro-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 {preload}<link rel="stylesheet" href="style.css">
 </head>
@@ -80,7 +80,7 @@ def metric_tile(s):
             f'<div><h3>{s["name"].replace(" تيك توك", "")}</h3><span>يبدأ من<b>{money(lo)} ر.س</b></span></div></a>')
 
 
-total_sold = sum(p["sold"] for p in D["packs"]) + sum(s["sold"] for s in D["singles"])
+total_sold = sum(p["sold"] for p in D["packs"]) + sum(s["sold"] for s in D["singles"]) + D.get("hidden_sold", 0)
 home = HEAD.format(
     title="فلاش ستور — مشاهدات ولايكات تيك توك بتنفيذ آلي فوري",
     desc="باقات تفاعل تيك توك تبدأ من 9.99 ر.س: مشاهدات، لايكات، شير وحفظ. تنفيذ آلي فوري بدون كلمة مرور.",
@@ -102,7 +102,7 @@ home = HEAD.format(
 </div>
 
 <section class="blk" id="services">
-  <div class="hg"><div><h2>اختر اللي تحتاجه</h2><p>كل خدمة بلونها، وحدد الكمية بالضبط.</p></div></div>
+  <div class="hg"><div><h2>اختر اللي تحتاجه</h2><p>اختر الخدمة، وحدد الكمية بالضبط.</p></div></div>
   <div class="metrics">{"".join(metric_tile(s) for s in D["singles"])}</div>
 </section>
 

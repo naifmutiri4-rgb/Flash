@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>معاينة فلاش ستور</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* لوحة تجربة: إطار جوال في المنتصف وأزرار الصفحات فوقه. شكل واحد داكن مثل المتجر */
+:root{
+  --bg:#0B0B0B; --panel:#161616; --line:#2E2E2E; --fg:#FFFFFF; --mut:#A8A8A8; --acc:#FC9E01; --acc-ink:#111111;
+  --f:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--f);direction:rtl;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 32px}
+.wrap{max-width:1040px;margin:0 auto;display:grid;gap:20px}
+header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px}
+h1{font-size:clamp(22px,5vw,30px);margin:0;font-weight:800;text-wrap:balance}
+header p{margin:0;color:var(--mut);font-size:14px;line-height:1.6;max-width:40em}
+.layout{display:grid;gap:20px;grid-template-columns:1fr}
+@media (min-width:860px){.layout{grid-template-columns:260px 1fr;align-items:start}}
+nav{display:grid;gap:14px}
+nav section{display:grid;gap:8px}
+nav h2{font-size:13px;color:var(--mut);font-weight:700;margin:0;letter-spacing:.02em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:inherit;font-size:14px;font-weight:700;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px;min-height:40px;cursor:pointer}
+.chips button:hover{border-color:var(--acc)}
+.chips button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--acc-ink)}
+.chips button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.note{font-size:13px;color:var(--mut);line-height:1.7;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0}
+.note b{color:var(--fg)}
+.stage{display:flex;flex-direction:column;align-items:center;gap:10px;min-width:0}
+.phone{width:min(100%,400px);height:min(820px,78vh);border:10px solid #1D1D1D;border-radius:38px;overflow:hidden;background:#111;box-shadow:0 0 0 1px var(--line)}
+.phone iframe{width:100%;height:100%;border:0;display:block;background:#111}
+.open{font-size:13px;color:var(--acc);font-weight:700}
+@media (max-width:520px){.phone{border-width:6px;border-radius:28px;height:74vh}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>معاينة فلاش ستور</h1>
+    <p>صفحاتك الحقيقية مع التصميم الجديد (ملف CSS ومسودة «ترتيب ذكاء»). اضغط على الكميات وجرّب، والأسعار بالريال.</p>
+  </header>
+  <div class="layout">
+    <nav aria-label="صفحات المعاينة">
+      <section>
+        <h2>الرئيسية</h2>
+        <div class="chips"><button type="button" data-p="index" aria-pressed="true">الرئيسية</button></div>
+      </section>
+      <section>
+        <h2>خدمة مفردة</h2>
+        <div class="chips">
+          <button type="button" data-p="views">مشاهدات</button>
+          <button type="button" data-p="likes">لايكات</button>
+          <button type="button" data-p="shares">شير</button>
+          <button type="button" data-p="saves">حفظ</button>
+        </div>
+      </section>
+      <section>
+        <h2>الباقات</h2>
+        <div class="chips">
+          <button type="button" data-p="saver">التوفير</button>
+          <button type="button" data-p="saver-plus">التوفير المطور</button>
+          <button type="button" data-p="interact">التفاعل</button>
+          <button type="button" data-p="gold">الذهبي</button>
+          <button type="button" data-p="explore">اكسبلور</button>
+        </div>
+      </section>
+      <p class="note"><b>معاينة ثابتة:</b> الشكل والترتيب وأزرار الكميات تشتغل. السلة والدفع ما تشتغل هنا، تشتغل في المتجر نفسه بعد النشر.</p>
+    </nav>
+    <div class="stage">
+      <div class="phone"><iframe id="screen" title="صفحة المتجر" src="index.html"></iframe></div>
+      <a class="open" id="open" href="index.html">افتح الصفحة كاملة</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var frame = document.getElementById('screen');
+  var open = document.getElementById('open');
+  var buttons = document.querySelectorAll('[data-p]');
+  function show(name, push) {
+    var ok = false;
+    buttons.forEach(function (b) { var on = b.getAttribute('data-p') === name; b.setAttribute('aria-pressed', on ? 'true' : 'false'); if (on) ok = true; });
+    if (!ok) name = "index";
+    frame.src = name + '.html';
+    open.href = name + '.html';
+    if (push) location.hash = name;
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute('data-p'), true); }); });
+  // روابط داخل الإطار (مثل بطاقة منتج) تفتح صفحتها، ونحدّث الزر المختار
+  frame.addEventListener('load', function () {
+    try { var n = frame.contentWindow.location.pathname.split('/').pop().replace('.html', ''); buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-p') === n ? 'true' : 'false'); }); } catch (e) {}
+  });
+  function fromHash() { var h = (location.hash || '').slice(1); if (h) show(h, false); }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body>
+</html>

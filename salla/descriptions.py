@@ -40,7 +40,7 @@ RULES = (f'<h3 style="{H}">قبل ما تطلب</h3><ul style="margin:0 0 14px;p
 
 
 def pack_desc(p):
-    tiles = "".join(f'<div style="{TILE}"><div style="display:flex;align-items:center;gap:8px;color:{MUT};font-size:13px">{icon(i)}{u}</div>'
+    tiles = "".join(f'<div style="{TILE}"><div style="color:{MUT};font-size:13px">{u}</div>'
                     f'<b style="display:block;font-size:26px;font-weight:900;margin-top:8px;direction:ltr;text-align:right;color:{FG}">{n}</b></div>'
                     for i, n, u in p["items"])
     return (f'<div dir="rtl" style="font-size:15px">{facts(p["sold"])}<h3 style="{H}">محتويات الباقة</h3>'

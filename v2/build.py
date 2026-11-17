@@ -124,7 +124,7 @@ home = HEAD.format(
   <div class="trust">
     <div class="tr"><svg style="color:var(--saves)"><use href="#i-bolt"/></svg><h3>تنفيذ آلي</h3><p>حتى في الليل.</p></div>
     <div class="tr"><svg style="color:var(--views)"><use href="#i-lock"/></svg><h3>بدون كلمة مرور</h3><p>حسابك يبقى بيدك.</p></div>
-    <div class="tr"><svg style="color:var(--shares)"><use href="#i-tag"/></svg><h3>السعر واضح</h3><p>المبلغ النهائي قبل الدفع.</p></div>
+    <div class="tr"><svg style="color:var(--shares)"><use href="#i-check"/></svg><h3>ضمان ضد النقص</h3><p>تعويض لمرة واحدة.</p></div>
     <div class="tr"><svg style="color:var(--likes)"><use href="#i-chat"/></svg><h3>دعم واتساب</h3><p>أرسل رقم طلبك ونرد.</p></div>
   </div>
 </section>
@@ -135,7 +135,7 @@ home = HEAD.format(
     <details><summary>متى يبدأ تنفيذ طلبي؟</summary><p>آلياً بعد إتمام الدفع مباشرة. أغلب الطلبات تبدأ خلال دقائق.</p></details>
     <details><summary>هل تحتاجون كلمة مرور حسابي؟</summary><p>لا، أبداً. نحتاج رابط المقطع أو الحساب فقط.</p></details>
     <details><summary>وش لازم أسوي قبل الطلب؟</summary><p>تأكد إن حسابك عام، ولا تغيّر اسم المستخدم أثناء التنفيذ لأن الطلب يُلغى.</p></details>
-    <details><summary>هل يوجد ضمان على النقص؟</summary><p>ضمان التعويض عن النقص غير متاح للخدمات الحالية، وهذا مكتوب في صفحة كل خدمة.</p></details>
+    <details><summary>هل يوجد ضمان على النقص؟</summary><p>نعم، يوجد ضمان ضد النقص حسب سياسة فلاش ستور. التعويض يكون لمرة واحدة فقط، بسبب كثرة التحديثات الأمنية في منصة تيك توك.</p></details>
     <details><summary>أقدر ألغي الطلب؟</summary><p>لا يمكن إلغاء الطلب بعد بدء التنفيذ أو بعد انتهائه.</p></details>
     <details><summary>وش وسائل الدفع؟</summary><p>مدى، Apple Pay، والبطاقات الائتمانية.</p></details>
   </div>
@@ -145,7 +145,7 @@ home = HEAD.format(
 (R / "index.html").write_text(home, encoding="utf-8")
 print("index.html", len(home.encode()))
 
-RULES = """<h2>قبل ما تطلب</h2><ul><li>تأكد إن الحساب <b>عام</b> وليس خاصاً.</li><li>لا تغيّر اسم المستخدم أثناء التنفيذ، وإلا يُلغى الطلب بدون تعويض.</li><li>لا يمكن إلغاء الطلب بعد بدء التنفيذ.</li><li>ضمان التعويض عن النقص غير متاح لهذه الخدمة.</li></ul>"""
+RULES = """<h2>قبل ما تطلب</h2><ul><li>تأكد إن الحساب <b>عام</b> وليس خاصاً.</li><li>لا تغيّر اسم المستخدم أثناء التنفيذ، وإلا يُلغى الطلب بدون تعويض.</li><li>لا يمكن إلغاء الطلب بعد بدء التنفيذ.</li><li>ضمان ضد النقص: التعويض لمرة واحدة فقط حسب سياسة فلاش ستور.</li></ul>"""
 
 
 def product(slug, name, price, unitline, unit, tiers_html, color, sold, extra, desc, rating="", acct=False):

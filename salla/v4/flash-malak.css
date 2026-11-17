@@ -41,22 +41,13 @@ html body#app .s-button-primary-outline{border-color:var(--fl-p)!important;color
 html body#app .s-button-element{border-radius:var(--fl-r-sm)!important;min-height:44px;font-weight:800;transition:background-color .15s ease,transform .1s ease}
 html body#app .s-button-element:active{transform:scale(.98)}
 
-/* 4. بطاقة المنتج -------------------------------------------------------- */
-.s-product-card-entry{background:var(--fl-s1)!important;border:1px solid var(--fl-line)!important;border-radius:18px!important;overflow:hidden}
-.s-product-card-entry:hover{border-color:var(--fl-pd)!important}
-.s-product-card-image{aspect-ratio:1/1;height:auto!important;background:var(--fl-bg)}
+/* 4. بطاقة المنتج: شكل ملاك الأصلي كما هو. هنا تصحيحات وظيفية فقط ------------- */
+/* مقاس الصورة ثابت (يمنع تحرّك الصفحة) */
+.s-product-card-image{aspect-ratio:1/1;height:auto!important}
 .s-product-card-image img{width:100%;height:100%;object-fit:cover}
-.s-product-card-category{display:none!important}
-.s-product-card-content-title,.s-product-card-content-title a{color:var(--fl-fg)!important;font-weight:800!important;font-size:15px!important}
-.s-product-card-price{color:var(--fl-fg)!important;font-weight:900!important;font-size:17px!important}
-.s-product-card-price-before{color:var(--fl-mut)!important;font-size:13px!important}
-.s-product-card-discount{background:var(--fl-p)!important;color:#111111!important;font-weight:900;border-radius:8px!important}
-.s-product-card-rating{background:rgba(17,17,17,.85)!important;color:var(--fl-fg)!important;border-radius:8px!important}
 /* الشارات في الزاويتين العلويتين (الصور الجديدة تاركة لها مكان) بدل ما تغطي أرقام الباقة تحت */
 .s-product-card-image .s-product-card-rating{top:8px!important;bottom:auto!important;left:8px!important;right:auto!important}
 .s-product-card-image .s-product-card-discount{top:8px!important;bottom:auto!important;right:8px!important;left:auto!important}
-.s-product-card-rating i{color:var(--fl-p)!important}
-.s-product-card-content-footer .s-button-element{min-height:44px}
 /* الخدمات المفردة: سعرها داخل الخيارات، فبدل «-» نعرض «من …» */
 .s-product-card-entry:is(:has(a[href*="p1591098480"]),:has(a[href*="p767542597"]),:has(a[href*="p904807258"]),:has(a[href*="p2046465224"])) .s-product-card-price{font-size:0!important}
 .s-product-card-entry:is(:has(a[href*="p1591098480"]),:has(a[href*="p767542597"]),:has(a[href*="p904807258"]),:has(a[href*="p2046465224"])) .s-product-card-price::before{font-size:17px;font-weight:900;color:var(--fl-fg)}
@@ -85,6 +76,8 @@ section[component-id="687110472"]{min-height:620px}
   section[component-id="687110472"]{min-height:380px}
 }
 .s-block--testimonials{min-height:260px}
+/* السلة: محتواها يتبدّل بعد التحميل فيقفز الفوتر؛ نخلي مساحة كافية */
+body#app.cart .container.mt-5{min-height:70vh}
 /* خيارات المنتج تتحمّل بعد الصفحة: نحجز مكانها (مقاسة على المنتجات الحالية) */
 salla-product-options{display:block}
 salla-product-options:not(.hydrated){min-height:115px}
@@ -271,7 +264,6 @@ body#app .breadcrumbs,body#app nav[aria-label*="breadcrumb"],body#app .s-breadcr
 html body#app [class*="s-button-primary"]:not([class*="outline"]) *,
 html body#app .s-button-solid.s-button-primary *,
 html body#app .s-infinite-scroll-btn,html body#app .s-infinite-scroll-btn *{color:#111111!important}
-body#app .s-product-card-discount *,body#app .off-ratio{color:#111111!important}
 /* زر «اشتر الآن»: إطار كامل */
 .product-single .sticky-product-bar button[class*="outline"]{border:1.5px solid var(--fl-p)!important;min-height:54px;border-radius:14px!important}
 .product-single .s-add-product-button-mini-checkout{border:0!important;background:transparent!important}

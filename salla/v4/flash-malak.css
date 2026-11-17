@@ -88,8 +88,9 @@ section[component-id="687110472"]{min-height:620px}
 /* خيارات المنتج تتحمّل بعد الصفحة: نحجز مكانها (مقاسة على المنتجات الحالية) */
 salla-product-options{display:block}
 salla-product-options:not(.hydrated){min-height:115px}
-/* الكميات صارت صفوف (9–12 صف)، فالارتفاع ~800px في الجوال والكمبيوتر */
-salla-product-options[options*="single-option"]:not(.hydrated){min-height:790px}
+/* الكميات عمودين (5–6 صفوف): ~555px جوال، ~460px كمبيوتر (مقاسة على اللايكات والشير) */
+salla-product-options[options*="single-option"]:not(.hydrated){min-height:555px}
+@media (min-width:768px){salla-product-options[options*="single-option"]:not(.hydrated){min-height:460px}}
 
 
 /* 6. عناوين الأقسام ------------------------------------------------------ */
@@ -127,16 +128,16 @@ salla-product-options[options*="single-option"]:not(.hydrated){min-height:790px}
 
 /* الكميات */
 .product-single #product-tabs-options{background:transparent!important;padding:0!important;margin-top:14px}
-/* كل سؤال (الرابط، الكمية) في كرت مستقل، والكميات صفوف كاملة العرض واحد تحت الثاني */
+/* كل سؤال (الرابط، الكمية) في كرت مستقل، والكميات عمودين */
 .product-single .s-product-options-option-container{background:var(--fl-s1)!important;border:1px solid var(--fl-line)!important;border-radius:16px!important;padding:16px!important;margin:0 0 12px!important}
 .s-product-options-option-label{display:block!important;margin:0 0 12px!important}
 .s-product-options-option-label b{display:block;font-size:17px;font-weight:900;color:var(--fl-p)!important}
 .s-product-options-option-label b span{color:var(--fl-pl)}
 .s-product-options-option-label small{display:block!important;color:var(--fl-mut)!important;font-size:14px;margin-top:2px}
-.s-product-options-grid-mode{display:grid!important;grid-template-columns:1fr!important;gap:10px!important;justify-items:stretch!important}
+.s-product-options-grid-mode{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;justify-items:stretch!important}
 .s-product-options-grid-mode>label{display:flex!important;margin:0!important;width:100%!important;min-width:0}
 .s-product-options-grid-mode>label>.s-product-options-grid-mode-span{flex:1 1 auto}
-.s-product-options-grid-mode-span{width:100%;min-height:54px!important;display:flex!important;align-items:center;justify-content:center;border-radius:12px!important;border:1px solid rgba(255,255,255,.14)!important;background:var(--fl-bg)!important;color:var(--fl-fg)!important;font-size:16px!important;font-weight:700!important;padding:10px 14px!important;line-height:1.35;text-align:center;transition:border-color .15s ease,background-color .15s ease,color .15s ease}
+.s-product-options-grid-mode-span{width:100%;min-height:54px!important;display:flex!important;align-items:center;justify-content:center;border-radius:12px!important;border:1px solid rgba(255,255,255,.14)!important;background:var(--fl-bg)!important;color:var(--fl-fg)!important;font-size:15px!important;font-weight:700!important;padding:8px 10px!important;line-height:1.35;text-align:center;transition:border-color .15s ease,background-color .15s ease,color .15s ease}
 .s-product-options-grid-mode>label:hover .s-product-options-grid-mode-span{border-color:var(--fl-pd)!important}
 .s-product-options-grid-mode input:checked+div{background:rgba(252,158,1,.12)!important;border-color:var(--fl-p)!important;color:var(--fl-pl)!important;font-weight:900!important}
 .s-product-options-grid-mode input:focus-visible+div{outline:2px solid var(--fl-pl);outline-offset:2px}

@@ -71,17 +71,18 @@ salla-products-list{display:block}
 salla-products-list:not(:has(.s-product-card-entry)){min-height:110vh}
 .s-block--faqs .faqs-list:empty{min-height:420px}
 /* أقسام HTML تتحمّل بعد الصفحة، فنحجز مكانها بالمقاس النهائي تقريباً (أرقام المكوّنات من المسودة) */
-section[component-id="1707757341"]{min-height:700px}
-section[component-id="1525887081"]{min-height:500px}
-section[component-id="687110472"]{min-height:680px}
+/* 1707757341 = العدّاد، 1525887081 = خدمة مفردة، 687110472 = كيف تطلب + ليش فلاش */
+section[component-id="1707757341"]{min-height:420px}
+section[component-id="1525887081"]{min-height:420px}
+section[component-id="687110472"]{min-height:620px}
 @media (min-width:768px){
-  section[component-id="1707757341"]{min-height:600px}
-  section[component-id="1525887081"]{min-height:290px}
-  section[component-id="687110472"]{min-height:400px}
+  section[component-id="1707757341"]{min-height:340px}
+  section[component-id="1525887081"]{min-height:410px}
+  section[component-id="687110472"]{min-height:420px}
 }
 @media (min-width:1024px){
-  section[component-id="1707757341"]{min-height:380px}
-  section[component-id="687110472"]{min-height:360px}
+  section[component-id="1707757341"]{min-height:320px}
+  section[component-id="687110472"]{min-height:380px}
 }
 .s-block--testimonials{min-height:260px}
 /* خيارات المنتج تتحمّل بعد الصفحة: نحجز مكانها (مقاسة على المنتجات الحالية) */
@@ -177,6 +178,80 @@ html body#app.product-single .sticky-product-bar .s-button-primary,.product-sing
 
 /* 10. السلة -------------------------------------------------------------- */
 .cart-item,.cart-items .s-cart-item,#cart-submit-wrap,.cart-summary{background:var(--fx-s1)!important;border-color:var(--fx-line)!important;border-radius:var(--fx-r)!important}
+
+/* 12. الرئيسية ----------------------------------------------------------- */
+/* أول شاشة: عنوان قسم الباقات هو عنوان الصفحة (يطلع من السيرفر فوراً = LCP سريع) */
+section[component-id="721318189"] .angel-products-title{padding:28px 0 10px!important;margin:0!important}
+section[component-id="721318189"] .angel-products-title .title-wrapper,
+section[component-id="721318189"] .angel-products-title .title-wrapper>div{align-items:flex-start!important;text-align:right!important;width:100%}
+section[component-id="721318189"] .angel-products-title h2{font-size:clamp(34px,9.6vw,58px)!important;line-height:1.12!important;font-weight:900!important;color:var(--fx-fg)!important;max-width:13em;text-align:right!important;margin:0 0 12px!important}
+section[component-id="721318189"] .angel-products-title p{font-size:17px!important;line-height:1.7!important;color:var(--fx-mut)!important;max-width:32em;text-align:right!important}
+section[component-id="721318189"] .angel-products-title a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1.5px solid var(--fx-line);border-radius:12px;color:var(--fx-fg)!important;font-weight:800;margin-top:14px}
+
+.fx-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.fx-kicker{color:var(--fx-p);font-weight:800;font-size:14px;margin:0 0 8px}
+.fx-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:14px;background:var(--fx-p);color:var(--fx-ink)!important;font-weight:900;font-size:16px;text-decoration:none;transition:background-color .15s ease}
+.fx-btn:hover{background:var(--fx-pl)}
+section[class*="bundle-html-content"] h2{font-size:clamp(24px,6vw,32px);font-weight:900;color:var(--fx-fg);margin:0 0 6px}
+
+/* العدّاد: العنصر المميز الوحيد في الصفحة */
+.fx-counter{margin:24px 16px;padding:28px 22px;border-radius:24px;background:var(--fx-s1);border:1px solid var(--fx-line);display:grid;gap:26px;align-items:center;color:var(--fx-fg)}
+@media (min-width:768px){.fx-counter{grid-template-columns:1fr auto;padding:40px 44px;max-width:1100px;margin:32px auto}}
+.fx-counter h2{font-size:clamp(30px,8vw,44px)!important;margin-bottom:10px!important}
+.fx-counter__lead{color:var(--fx-mut);font-size:16px;line-height:1.7;margin:0 0 16px;max-width:30em}
+.fx-counter__price{margin:0 0 18px;color:var(--fx-mut);font-size:16px}
+.fx-counter__price b{font-size:34px;font-weight:900;color:var(--fx-fg);font-variant-numeric:tabular-nums}
+.fx-rail{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media (min-width:768px){.fx-rail{grid-template-columns:1fr;gap:12px;min-width:220px}}
+.fx-rail li{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+@media (min-width:768px){.fx-rail li{flex-direction:row;gap:14px;text-align:right}}
+.fx-rail__ic{width:52px;height:52px;border-radius:50%;background:var(--fx-bg);border:1px solid var(--fx-line);color:var(--fx-p);display:grid;place-items:center;flex:none}
+.fx-rail small{color:var(--fx-mut);font-size:13px}
+.fx-od{font-size:22px;font-weight:900;line-height:1;color:var(--fx-fg);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (min-width:768px){.fx-od{font-size:30px}}
+.fx-od__d{display:inline-block;height:1em;overflow:hidden;overflow:clip;vertical-align:top}
+.fx-od__d i{display:block;height:1em;font-style:normal;transform:translateY(calc(var(--d) * -100%))}
+.fx-od__s{display:inline-block}
+@supports (animation-timeline:view()){
+  /* التايملاين على القائمة نفسها (مو على الخانة) عشان كل الخانات تتحرك مع بعض */
+  .fx-rail{view-timeline:--fx-rail block}
+  .fx-od__d i{animation:fx-roll linear both;animation-timeline:--fx-rail;animation-range:entry 0% cover 30%}
+  @keyframes fx-roll{from{transform:translateY(0)}}
+}
+@media (prefers-reduced-motion:reduce){.fx-od__d i{animation:none!important}}
+
+/* قائمة الأسعار (بدل كروت) */
+.fx-board{padding:28px 16px 8px;max-width:1100px;margin:0 auto;color:var(--fx-fg)}
+.fx-board header p{color:var(--fx-mut);margin:0 0 14px}
+.fx-board ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--fx-line)}
+.fx-board li{border-bottom:1px solid var(--fx-line)}
+.fx-board a{display:flex;align-items:center;gap:14px;min-height:76px;padding:12px 6px;color:var(--fx-fg)!important;text-decoration:none;border-radius:12px;transition:background-color .15s ease}
+.fx-board a:hover{background:var(--fx-s1)}
+.fx-board__ic{width:44px;height:44px;border-radius:12px;background:rgba(252,158,1,.12);color:var(--fx-p);display:grid;place-items:center;flex:none}
+.fx-board__name{flex:1 1 auto;min-width:0}
+.fx-board__name b{display:block;font-size:18px;font-weight:900}
+.fx-board__name small{display:block;color:var(--fx-mut);font-size:13px}
+.fx-board__price{display:flex;align-items:baseline;gap:4px;white-space:nowrap}
+.fx-board__price b{font-size:20px;font-weight:900;font-variant-numeric:tabular-nums}
+.fx-board__price small{color:var(--fx-mut);font-size:13px}
+.fx-board__go{color:var(--fx-mut);flex:none;display:grid}
+
+/* كيف تطلب + ليش فلاش */
+.fx-how,.fx-why{padding:28px 16px 4px;max-width:1100px;margin:0 auto;color:var(--fx-fg)}
+.fx-steps{list-style:none;margin:0;padding:0;display:grid;gap:0;border-inline-start:2px solid var(--fx-line);margin-inline-start:18px}
+.fx-steps li{display:flex;gap:14px;align-items:flex-start;padding:0 0 18px;margin-inline-start:-19px}
+.fx-steps li b{flex:none;width:36px;height:36px;border-radius:50%;background:var(--fx-p);color:var(--fx-ink);display:grid;place-items:center;font-weight:900}
+.fx-steps strong,.fx-why strong{display:block;font-size:16px}
+.fx-steps small,.fx-why small{display:block;color:var(--fx-mut);font-size:14px;line-height:1.6}
+@media (min-width:768px){
+  .fx-steps{grid-template-columns:repeat(3,1fr);border-inline-start:0;border-top:2px solid var(--fx-line);margin:18px 0 0;padding-top:0}
+  .fx-steps li{flex-direction:column;margin:-19px 0 0;padding:0 0 0 24px}
+}
+.fx-why ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;border-top:1px solid var(--fx-line)}
+@media (min-width:768px){.fx-why ul{grid-template-columns:1fr 1fr;column-gap:32px}}
+.fx-why li{display:flex;gap:12px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--fx-line)}
+.fx-why__ic{color:var(--fx-p);flex:none;margin-top:2px}
+.fx-why a{color:var(--fx-p)!important;font-weight:800}
 
 /* 11. الفوتر ------------------------------------------------------------- */
 .store-footer{background:#0B0B0B!important;border-top:1px solid var(--fx-line)}

@@ -52,20 +52,24 @@ html body#app.product-single .sticky-product-bar .s-button-primary,.product-sing
 /* ===== الوصف ===== */
 .product-single article.full-description{background:transparent!important;padding:0!important;margin-top:20px!important;border-top:1px solid var(--fx-line);padding-top:18px!important;max-height:none!important}
 .product-single .is-sold{margin-top:14px}
-/* الثيم يجبر لون نص الوصف، فنرجّع ألوان مربعات الوصف الجاهزة */
-.product-single article.full-description [style*="background:#FDD407"]{background:#FDD407!important;color:#0D0D10!important}
-.product-single article.full-description [style*="background:#222228"]{background:#222228!important}
-.product-single article.full-description [style*="border:1.5px solid #FDD407"]{border:1.5px solid #FDD407!important}
-
-/* ===== زر الكمية: الرقم كبير فوق، والسعر تحته (مثل التصميم) =====
-   يعتمد على اسم الكمية في سلة بصيغة «10,000⏎مشاهدة» (سطر جديد بين الرقم والوحدة) */
-.s-product-options-grid-mode-span{display:block!important;white-space:pre-line!important;text-align:center!important;font-size:12.5px!important;font-weight:600!important;line-height:1.5!important;padding:10px 6px!important;position:relative}
-.s-product-options-grid-mode-span::first-line{font-size:19px;font-weight:900;line-height:1.6}
-/* شارة «الأكثر طلباً» على الكمية الأكثر طلباً في كل خدمة */
-#checkbox-2123353343-1070541132+div::before,#checkbox-2147113998-733530299+div::before,
-#checkbox-1703693885-1793306523+div::before,#checkbox-166133325-1108179376+div::before,
-#radio-2123353343-1070541132+div::before,#radio-2147113998-733530299+div::before,
-#radio-1703693885-1793306523+div::before,#radio-166133325-1108179376+div::before{
-  content:"الأكثر طلباً";position:absolute;top:-9px;inset-inline:0;margin:auto;width:max-content;font-size:10px;font-weight:800;line-height:1.6;background:#0D0D10;color:#FDD407;padding:0 8px;border-radius:6px;border:1px solid #FDD407}
-.s-product-options-grid-mode{padding-top:6px}
-.s-product-options-grid-mode input:checked+div::first-line{color:#0D0D10}
+/* ===== الوصف (HTML بسيط من محرر سلة، والشكل هنا) ===== */
+.product-single article.full-description h3{font-size:17px!important;font-weight:800!important;margin:18px 0 10px!important;color:#F4F4F2!important}
+.product-single article.full-description h3:first-child{margin-top:0!important}
+.product-single article.full-description ul{list-style:none!important;padding:0!important;margin:0 0 14px!important;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.product-single article.full-description li{background:#1E1E23;border:1px solid #2F2F36;border-radius:14px;padding:12px 14px!important;margin:0!important;line-height:1.6}
+.product-single article.full-description li strong{color:#FDD407;font-weight:900}
+/* أول قائمة (محتويات الباقة): الرقم كبير */
+.product-single article.full-description h3:first-child+ul li strong{display:block;font-size:24px;color:#F4F4F2;direction:ltr;text-align:right}
+/* قائمة «قبل ما تطلب»: عمود واحد بنقاط */
+.product-single article.full-description ul:last-of-type{grid-template-columns:1fr;gap:4px}
+.product-single article.full-description ul:last-of-type li{background:none;border:0;padding:2px 0!important;position:relative;padding-inline-start:16px!important}
+.product-single article.full-description ul:last-of-type li::before{content:"";position:absolute;inset-inline-start:0;top:12px;width:6px;height:6px;border-radius:50%;background:#FDD407}
+.product-single article.full-description ul:last-of-type li strong{color:inherit}
+/* سطر الضمان */
+.product-single article.full-description p:last-child{border:1.5px solid #FDD407;border-radius:14px;padding:12px 14px;margin-top:6px}
+.product-single article.full-description a{color:#FDD407!important;font-weight:800;text-decoration:underline}
+.product-single article.full-description li{list-style:none!important}
+.product-single article.full-description li::marker{content:none}
+.product-single article.full-description li strong{color:#FDD407!important}
+.product-single article.full-description h3:first-child+ul li strong{color:#F4F4F2!important}
+.product-single article.full-description ul:last-of-type li strong{color:inherit!important}

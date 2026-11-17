@@ -1,0 +1,185 @@
+/* ==========================================================================
+   فلاش ستور v4 — CSS مخصص لثيم ملاك (Angel by AfterAds)
+   هوية Dark Luxury Tech. مكتوب ومجرَّب على صفحات flashstore-ksa.com الحقيقية.
+   المكان: تصميم المتجر ← ملاك («ترتيب ذكاء») ← CSS مخصص. الصق الملف كامل.
+   بدون خطوط خارجية، بدون صور، بدون JavaScript.
+   ========================================================================== */
+
+/* 0. الألوان ------------------------------------------------------------- */
+:root{
+  --fx-p:#FC9E01;--fx-pl:#FFC04D;--fx-pd:#C77A00;
+  --fx-bg:#111111;--fx-s1:#1E1E1E;--fx-line:#343434;
+  --fx-fg:#FFFFFF;--fx-mut:#B8B8B8;--fx-ink:#111111;
+  --fx-r:16px;--fx-r-sm:12px;
+  --color-primary:#FC9E01;--color-primary-dark:#C77A00;--color-primary-light:#FFC04D;--color-primary-reverse:#111111;
+}
+
+/* 1. الأساس -------------------------------------------------------------- */
+html{color-scheme:dark}
+html body#app{background:var(--fx-bg)}
+body#app a,body#app button,body#app label{touch-action:manipulation;-webkit-tap-highlight-color:rgba(252,158,1,.18)}
+body#app h1,body#app h2,body#app h3{text-wrap:balance}
+body#app .s-product-card-price,body#app .total-price,body#app .s-product-options-grid-mode-span{font-variant-numeric:tabular-nums}
+body#app select{background-color:var(--fx-s1);color:var(--fx-fg)}
+body#app{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body#app :focus-visible{outline:2px solid var(--fx-p);outline-offset:2px;border-radius:6px}
+body#app ::selection{background:var(--fx-p);color:var(--fx-ink)}
+@media (prefers-reduced-motion:reduce){
+  body#app *,body#app *::before,body#app *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+/* 2. الشريط الإعلاني والهيدر -------------------------------------------- */
+.angel-ad{height:32px;background-color:var(--fx-p)!important}
+.angel-ad__item,.angel-ad__item a{color:var(--fx-ink)!important;font-weight:800}
+.store-header .header-inner{background:var(--fx-bg)!important;border-bottom:1px solid var(--fx-line)}
+.store-header .header-inner a,.store-header .header-inner button{min-height:40px;min-width:40px}
+
+/* 3. الأزرار ------------------------------------------------------------- */
+html body#app [class*="s-button-primary"]:not([class*="outline"]){background:var(--fx-p)!important;background-image:none!important;border-color:var(--fx-p)!important;color:var(--fx-ink)!important;box-shadow:none!important}
+html body#app [class*="s-button-primary"]:not([class*="outline"]):hover{background:var(--fx-pl)!important;border-color:var(--fx-pl)!important}
+html body#app .s-button-primary-outline{border-color:var(--fx-p)!important;color:var(--fx-p)!important;background:transparent!important}
+html body#app .s-button-element{border-radius:var(--fx-r-sm)!important;min-height:44px;font-weight:800;transition:background-color .15s ease,transform .1s ease}
+html body#app .s-button-element:active{transform:scale(.98)}
+
+/* 4. بطاقة المنتج -------------------------------------------------------- */
+.s-product-card-entry{background:var(--fx-s1)!important;border:1px solid var(--fx-line)!important;border-radius:18px!important;overflow:hidden}
+.s-product-card-entry:hover{border-color:var(--fx-pd)!important}
+.s-product-card-image{aspect-ratio:1/1;height:auto!important;background:var(--fx-bg)}
+.s-product-card-image img{width:100%;height:100%;object-fit:cover}
+.s-product-card-category{display:none!important}
+.s-product-card-content-title,.s-product-card-content-title a{color:var(--fx-fg)!important;font-weight:800!important;font-size:15px!important}
+.s-product-card-price{color:var(--fx-fg)!important;font-weight:900!important;font-size:17px!important}
+.s-product-card-price-before{color:var(--fx-mut)!important;font-size:13px!important}
+.s-product-card-discount{background:var(--fx-p)!important;color:var(--fx-ink)!important;font-weight:900;border-radius:8px!important}
+.s-product-card-rating{background:rgba(17,17,17,.85)!important;color:var(--fx-fg)!important;border-radius:8px!important}
+/* الشارات في الزاويتين العلويتين (الصور الجديدة تاركة لها مكان) بدل ما تغطي أرقام الباقة تحت */
+.s-product-card-image .s-product-card-rating{top:8px!important;bottom:auto!important;left:8px!important;right:auto!important}
+.s-product-card-image .s-product-card-discount{top:8px!important;bottom:auto!important;right:8px!important;left:auto!important}
+.s-product-card-rating i{color:var(--fx-p)!important}
+.s-product-card-content-footer .s-button-element{min-height:44px}
+/* الخدمات المفردة: سعرها داخل الخيارات، فبدل «-» نعرض «من …» */
+.s-product-card-entry:is(:has(a[href*="p1591098480"]),:has(a[href*="p767542597"]),:has(a[href*="p904807258"]),:has(a[href*="p2046465224"])) .s-product-card-price{font-size:0!important}
+.s-product-card-entry:is(:has(a[href*="p1591098480"]),:has(a[href*="p767542597"]),:has(a[href*="p904807258"]),:has(a[href*="p2046465224"])) .s-product-card-price::before{font-size:17px;font-weight:900;color:var(--fx-fg)}
+.s-product-card-entry:has(a[href*="p1591098480"]) .s-product-card-price::before{content:"من 4.99 ر.س"}
+.s-product-card-entry:has(a[href*="p767542597"]) .s-product-card-price::before{content:"من 5.99 ر.س"}
+.s-product-card-entry:has(a[href*="p904807258"]) .s-product-card-price::before{content:"من 1.99 ر.س"}
+.s-product-card-entry:has(a[href*="p2046465224"]) .s-product-card-price::before{content:"من 1.99 ر.س"}
+
+/* 5. ثبات الصفحة (CLS): نحجز مكان قوائم المنتجات قبل ما تتحمّل -------------- */
+salla-products-list{display:block}
+/* القائمة قبل وصول المنتجات تكون فاضية، فنحجز لها شاشة كاملة عشان اللي تحتها ما يطلع ثم ينزل */
+salla-products-list:not(:has(.s-product-card-entry)){min-height:110vh}
+.s-block--faqs .faqs-list:empty{min-height:420px}
+/* أقسام HTML تتحمّل بعد الصفحة، فنحجز مكانها بالمقاس النهائي تقريباً (أرقام المكوّنات من المسودة) */
+section[component-id="1707757341"]{min-height:700px}
+section[component-id="1525887081"]{min-height:500px}
+section[component-id="687110472"]{min-height:680px}
+@media (min-width:768px){
+  section[component-id="1707757341"]{min-height:600px}
+  section[component-id="1525887081"]{min-height:290px}
+  section[component-id="687110472"]{min-height:400px}
+}
+@media (min-width:1024px){
+  section[component-id="1707757341"]{min-height:380px}
+  section[component-id="687110472"]{min-height:360px}
+}
+.s-block--testimonials{min-height:260px}
+/* خيارات المنتج تتحمّل بعد الصفحة: نحجز مكانها (مقاسة على المنتجات الحالية) */
+salla-product-options{display:block}
+salla-product-options:not(.hydrated){min-height:80px}
+salla-product-options[options*="single-option"]:not(.hydrated){min-height:440px}
+@media (min-width:768px){
+  salla-product-options:not(.hydrated){min-height:50px}
+  salla-product-options[options*="single-option"]:not(.hydrated){min-height:275px}
+}
+
+/* 6. عناوين الأقسام ------------------------------------------------------ */
+.s-block__title h2,.angel-products-title h2{color:var(--fx-fg)!important;font-weight:900!important;font-size:clamp(24px,6vw,32px)!important}
+.s-block__title p{color:var(--fx-mut)!important}
+
+/* 7. صفحة المنتج: الاسم ← السعر ← الكميات ← الرابط ← الإضافة ← الوصف ---- */
+.product-single .main-content{display:flex;flex-direction:column}
+.product-single .main-content>form.product-form{display:contents}
+.product-single .main-content>.flex.flex-col:first-of-type{order:1}
+.product-single .main-content>salla-rating-stars{order:2}
+.product-single .main-content>.price{order:3}
+.product-single .main-content form>#product-tabs-options{order:4}
+.product-single .main-content form>.sticky-product-bar{order:5}
+.product-single .main-content>article.full-description{order:6}
+.product-single .main-content form>.is-sold{order:7}
+.product-single .main-content form>#product-tabs-faqs{order:8}
+.product-single .main-content>*{order:9}
+/* ما يشتت: الوسوم، رقم الموديل، «متوفر»، السعر المكرر، عداد الكمية */
+.product-single .main-content>.mb-3,
+.product-single .product-sku-wrapper,
+.product-single .product-availablity,
+.product-single #product-tabs-options>section.total,
+.product-single .sticky-product-bar__quantity{display:none!important}
+/* منتجات السعر داخل الخيارات: السعر العلوي يطلع «0» فنخفيه، والسعر يبان على كل زر */
+.product-single .main-content:has(.s-product-options-grid-mode)>.price{display:none!important}
+
+/* أزرار المشاركة والمفضلة تحت الصورة بدل ما تغطي جزء منها */
+.product-single .wish-share{position:static!important;justify-content:flex-start!important;margin-top:10px;opacity:1!important}
+.product-single .wish-share>*{min-width:44px;min-height:44px}
+.product-single .main-content h1{font-size:26px!important;font-weight:900;line-height:1.3;margin-top:6px;color:var(--fx-fg)}
+.product-single .main-content>.price{margin:10px 0 2px!important}
+.product-single .main-content>.price .total-price{font-size:34px!important;font-weight:900!important;line-height:1.1;color:var(--fx-fg)!important}
+.product-single .main-content>.price .before-price{font-size:15px;color:var(--fx-mut)!important}
+
+/* الكميات: شبكة عمودين (3 في الكمبيوتر)، والمختار برتقالي */
+.product-single #product-tabs-options{background:transparent!important;padding:0!important;margin-top:14px}
+.s-product-options-option-label b{font-size:16px;font-weight:800;color:var(--fx-fg)}
+.s-product-options-option-label small{display:none}
+.s-product-options-grid-mode{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important;justify-items:stretch!important}
+@media (min-width:900px){.s-product-options-grid-mode{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.s-product-options-grid-mode>label{display:flex!important;margin:0!important;width:100%!important;min-width:0}
+.s-product-options-grid-mode>label>.s-product-options-grid-mode-span{flex:1 1 auto}
+.s-product-options-grid-mode-span{width:100%;min-height:56px!important;border-radius:14px!important;border:1.5px solid var(--fx-line)!important;background:var(--fx-s1)!important;color:var(--fx-fg)!important;font-size:14.5px!important;font-weight:800!important;padding:8px!important;line-height:1.35;transition:border-color .15s ease,background-color .15s ease}
+.s-product-options-grid-mode>label:hover .s-product-options-grid-mode-span{border-color:var(--fx-pd)!important}
+.s-product-options-grid-mode input:checked+div{background:var(--fx-p)!important;border-color:var(--fx-p)!important;color:var(--fx-ink)!important}
+.s-product-options-grid-mode input:focus-visible+div{outline:2px solid var(--fx-pl);outline-offset:2px}
+
+/* حقل رابط المقطع */
+.s-product-options-text .s-form-control{height:52px!important;border-radius:14px!important;background:var(--fx-s1)!important;border:1.5px solid var(--fx-line)!important;color:var(--fx-fg)!important;direction:ltr;text-align:left;font-size:16px!important}
+.s-product-options-text .s-form-control:focus{border-color:var(--fx-p)!important;box-shadow:none!important}
+
+/* زر الإضافة */
+.product-single .sticky-product-bar{background:transparent!important;padding:0!important;margin-top:14px!important}
+html body#app.product-single .sticky-product-bar .s-button-primary,.product-single .sticky-product-bar .s-button-primary{background:var(--fx-p)!important;background-image:none!important;box-shadow:none!important;border-color:var(--fx-p)!important;color:var(--fx-ink)!important;min-height:54px;border-radius:14px!important;font-size:17px!important;font-weight:900!important}
+.product-single .s-add-product-button-mini-checkout{border-radius:14px!important}
+@media (max-width:767px){
+  .product-single .sticky-product-bar.is-sticky,.product-single .sticky-product-bar[class*="fixed"]{background:var(--fx-bg)!important;border-top:1px solid var(--fx-line);padding:10px 16px!important}
+}
+
+/* 8. وصف المنتج (HTML بسيط من محرر سلة، والشكل هنا) ------------------------- */
+.product-single article.full-description{background:transparent!important;padding:18px 0 0!important;margin-top:20px!important;border-top:1px solid var(--fx-line);max-height:none!important;color:var(--fx-fg)}
+.product-single .is-sold{margin-top:14px}
+.product-single article.full-description h3{font-size:17px!important;font-weight:800!important;margin:18px 0 10px!important;color:var(--fx-fg)!important}
+.product-single article.full-description h3:first-child{margin-top:0!important}
+.product-single article.full-description p{color:var(--fx-mut);line-height:1.8}
+.product-single article.full-description ul{list-style:none!important;padding:0!important;margin:0 0 14px!important;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.product-single article.full-description li{list-style:none!important;background:var(--fx-s1);border:1px solid var(--fx-line);border-radius:14px;padding:12px 14px!important;margin:0!important;line-height:1.6;color:var(--fx-mut)}
+.product-single article.full-description li::marker{content:none}
+.product-single article.full-description li strong{color:var(--fx-p)!important;font-weight:900}
+/* أول قائمة (محتويات الباقة): الرقم كبير */
+.product-single article.full-description h3:first-child+ul li strong{display:block;font-size:24px;color:var(--fx-fg)!important;direction:ltr;text-align:right}
+/* «قبل ما تطلب»: عمود واحد بنقاط */
+.product-single article.full-description ul:last-of-type{grid-template-columns:1fr;gap:4px}
+.product-single article.full-description ul:last-of-type li{background:none;border:0;padding:2px 0!important;position:relative;padding-inline-start:16px!important}
+.product-single article.full-description ul:last-of-type li::before{content:"";position:absolute;inset-inline-start:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--fx-p)}
+.product-single article.full-description ul:last-of-type li strong{color:var(--fx-fg)!important}
+/* سطر الضمان */
+.product-single article.full-description p:last-child{border:1.5px solid var(--fx-p);border-radius:14px;padding:12px 14px;margin-top:6px;color:var(--fx-fg)}
+.product-single article.full-description a{color:var(--fx-p)!important;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+
+/* 9. صفحة القسم ---------------------------------------------------------- */
+.product-index h1,.s-block--categories h1,.cat-title h1{color:var(--fx-fg)!important;font-weight:900!important}
+
+/* 10. السلة -------------------------------------------------------------- */
+.cart-item,.cart-items .s-cart-item,#cart-submit-wrap,.cart-summary{background:var(--fx-s1)!important;border-color:var(--fx-line)!important;border-radius:var(--fx-r)!important}
+
+/* 11. الفوتر ------------------------------------------------------------- */
+.store-footer{background:#0B0B0B!important;border-top:1px solid var(--fx-line)}
+.store-footer a{color:var(--fx-mut)!important}
+.store-footer a:hover{color:var(--fx-p)!important}
+.store-footer h3{color:var(--fx-fg)!important}

@@ -49,7 +49,7 @@ FOOT = """<footer><div class="w">
 <div><h4>المتجر</h4><ul><li><a href="#">سياسة الاستبدال والاسترجاع</a></li><li><a href="#">الشروط والأحكام</a></li><li><a href="#">سياسة الخصوصية</a></li></ul></div>
 <div><h4>تواصل معنا</h4><ul><li><a href="#">واتساب — 24 ساعة</a></li><li><a href="#">تيك توك</a></li><li><a href="#">إنستقرام</a></li></ul></div>
 </div></footer>
-<script src="../app.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>
 """

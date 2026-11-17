@@ -25,7 +25,7 @@ button{cursor:pointer;border:0;background:none}
 .bar{background:var(--ink);color:#fff;text-align:center;font-size:14px;padding:8px 12px}
 .bar b{background:var(--acc);color:var(--ink);padding:1px 9px;border-radius:6px;margin-inline:4px}
 
-.hd{position:sticky;top:0;z-index:20;background:rgba(245,244,240,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(245,244,240,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .hd .w{display:flex;align-items:center;gap:14px;height:64px}
 .logo{display:flex;align-items:center;gap:9px;font-size:20px}
 .logo i{width:32px;height:32px;border-radius:10px;background:var(--acc);display:grid;place-items:center}

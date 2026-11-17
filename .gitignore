@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+salla/preview/site/*.html
+!salla/preview/site/index.html
+salla/preview/*.png

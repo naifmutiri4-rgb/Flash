@@ -86,14 +86,10 @@ function pack(p, level, total) {
   <div class="row">${stats}</div>`;
 }
 
-// نقش خلفية خاص بكل خدمة (خفيف، عشان ما يزحم)
+// نقش خلفية: أيقونة الخدمة نفسها صغيرة ومتفرقة (عيون للمشاهدات، قلوب للايكات...)، خفيف عشان ما يزحم
 function motif(icon) {
   const cells = [];
   const pos = [[110, 760, 70, -12], [260, 880, 46, 10], [880, 820, 64, 14], [960, 640, 40, -8], [140, 560, 38, 6], [930, 420, 52, -16], [80, 330, 44, 12]];
-  if (icon === 'i-eye') {
-    for (let k = 1; k <= 5; k++) cells.push(`<circle cx="540" cy="470" r="${150 + k * 70}" fill="none" stroke="${C.p}" stroke-opacity="${(0.22 - k * 0.035).toFixed(3)}" stroke-width="3"/>`);
-    return `<svg width="1080" height="1080" style="position:absolute;inset:0">${cells.join('')}</svg>`;
-  }
   return pos.map(([x, y, s, r]) => ic(icon, s, C.p, `position:absolute;left:${x}px;top:${y}px;opacity:.16;transform:rotate(${r}deg)`)).join('');
 }
 

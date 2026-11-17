@@ -16,7 +16,9 @@
 
 /* 1. الأساس -------------------------------------------------------------- */
 html{color-scheme:dark}
-html body#app{background:var(--fl-bg)}
+/* الخلفية #111111 في كل الصفحات (حتى لو إعدادات الثيم فيها لون ثاني) */
+html,html body#app{background:#111111!important;--bg-color:#111111;--dark-bg-main:#111111}
+html body#app main,html body#app .app-inner,html body#app #main-content,html body#app .main-nav-container{background-color:#111111!important}
 body#app a,body#app button,body#app label{touch-action:manipulation;-webkit-tap-highlight-color:rgba(252,158,1,.18)}
 body#app h1,body#app h2,body#app h3{text-wrap:balance}
 body#app .s-product-card-price,body#app .total-price,body#app .s-product-options-grid-mode-span{font-variant-numeric:tabular-nums}

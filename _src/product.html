@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{{name}} — فلاش ستور</title>
+<meta name="description" content="{{metadesc}}">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="product">
+{{sprite}}
+{{header}}
+<main id="main" class="w">
+  <div class="pp">
+    <div class="vis" aria-hidden="true"><svg><use href="#{{icon}}"/></svg><div class="chipx"><span>تنفيذ آلي</span><span>بدون كلمة مرور</span></div></div>
+    <form id="buy" novalidate data-unit="{{unit}}">
+      <div class="bc"><a href="index.html">الرئيسية</a> / <a href="category.html">كل الخدمات</a></div>
+      <h1>{{name}}</h1>
+      {{rating}}
+      <div class="bigp"><span id="price">{{price}}</span> <small>ر.س</small></div>
+      <p class="unit" id="unitline">{{unitline}}</p>
+      {{tiers}}
+      <label class="lbl" for="link">{{linklabel}} <small>(مطلوب)</small></label>
+      <input class="inp" id="link" name="link" type="url" inputmode="url" autocomplete="off" placeholder="https://www.tiktok.com/@user/video/…" aria-describedby="lh" required>
+      <p class="hint" id="lh">{{linkhint}}</p>
+      <div class="buy"><button class="btn btn-p" type="submit" {{disabled}}>{{cta}}</button></div>
+      <div class="facts"><div><b>فوري</b>مدة التنفيذ</div><div><b>أجانب</b>نوع الحسابات</div><div><b>{{sold}}</b>مرة طُلبت</div></div>
+      <div class="desc">
+        {{contents}}
+        <h2>قبل ما تطلب</h2>
+        <ul>
+          <li>تأكد إن الحساب <b>عام</b> وليس خاصاً.</li>
+          <li>لا تغيّر اسم المستخدم أثناء التنفيذ، وإلا يُلغى الطلب بدون تعويض.</li>
+          <li>لا يمكن إلغاء الطلب بعد بدء التنفيذ.</li>
+          <li>ضمان التعويض عن النقص غير متاح لهذه الخدمة.</li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</main>
+<div class="sticky" id="sticky"><div><b><span id="sprice">{{price}}</span> ر.س</b><small id="sunit">{{unitline}}</small></div><button class="btn btn-p" form="buy" type="submit" {{disabled}}>{{cta}}</button></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+{{footer}}
+<script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* فلاش ستور — CSS مخصص لثيم ملاك (Angel by AfterAds)
+   مكتوب على صفحة المنتج الحقيقية في flashstore-ksa.com ومجرَّب عليها.
+   المكان: تصميم المتجر ← ملاك ← CSS مخصص. حجم صغير، بدون خطوط أو سكربتات. */
+:root{--fx-acc:#FDD407;--fx-ink:#0D0D10;--fx-card:#1E1E23;--fx-line:#2F2F36;--fx-fg:#F4F4F2;--fx-mut:#A3A3AC}
+
+/* ===== ترتيب صفحة المنتج: الاسم ← السعر ← الكميات ← الرابط ← الإضافة ← الوصف ===== */
+.product-single .main-content{display:flex;flex-direction:column}
+.product-single .main-content>form.product-form{display:contents}
+.product-single .main-content>.flex.flex-col:first-of-type{order:1}
+.product-single .main-content>salla-rating-stars{order:2}
+.product-single .main-content>.price{order:3}
+.product-single .main-content form>#product-tabs-options{order:4}
+.product-single .main-content form>.sticky-product-bar{order:5}
+.product-single .main-content>article.full-description{order:6}
+.product-single .main-content form>.is-sold{order:7}
+.product-single .main-content form>#product-tabs-faqs{order:8}
+.product-single .main-content>*{order:9}
+
+/* إخفاء ما يشتت: الوسوم، رقم الموديل، «متوفر»، والسعر المكرر داخل الخيارات، وعداد الكمية */
+.product-single .main-content>.mb-3,
+.product-single .product-sku-wrapper,
+.product-single .product-availablity,
+.product-single #product-tabs-options>section.total,
+.product-single .sticky-product-bar__quantity{display:none!important}
+
+/* ===== الاسم والسعر ===== */
+.product-single .main-content h1{font-size:26px!important;font-weight:900;line-height:1.3;margin-top:6px}
+.product-single .main-content>.price{margin:10px 0 2px!important}
+.product-single .main-content>.price .total-price{font-size:36px!important;font-weight:900!important;line-height:1.1}
+.product-single .main-content>.price .before-price{font-size:15px}
+
+/* ===== الكميات: شبكة عمودين، والمختار أصفر ===== */
+.product-single #product-tabs-options{background:transparent!important;padding:0!important;margin-top:14px}
+.s-product-options-option-label b{font-size:16px;font-weight:800}
+.s-product-options-option-label small{display:none}
+.s-product-options-grid-mode{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important;justify-items:stretch!important}
+@media(min-width:900px){.s-product-options-grid-mode{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.s-product-options-grid-mode>label{display:flex!important;margin:0!important;width:100%!important;min-width:0}
+.s-product-options-grid-mode>label>.s-product-options-grid-mode-span{flex:1 1 auto}
+.s-product-options-grid-mode-span{width:100%;min-height:56px!important;border-radius:14px!important;border:1.5px solid var(--fx-line)!important;background:var(--fx-card)!important;color:var(--fx-fg)!important;font-size:15px!important;font-weight:800!important;padding:8px!important}
+.s-product-options-grid-mode input:checked+div{background:var(--fx-acc)!important;border-color:var(--fx-acc)!important;color:var(--fx-ink)!important}
+
+/* حقل رابط المقطع */
+.s-product-options-text .s-form-control{height:52px!important;border-radius:14px!important;background:var(--fx-card)!important;border:1.5px solid var(--fx-line)!important;color:var(--fx-fg)!important;direction:ltr;text-align:left}
+.s-product-options-text .s-form-control:focus{border-color:var(--fx-acc)!important;box-shadow:none!important}
+
+/* ===== زر الإضافة ===== */
+.product-single .sticky-product-bar{background:transparent!important;padding:0!important;margin-top:14px!important}
+html body#app.product-single .sticky-product-bar .s-button-primary,.product-single .sticky-product-bar .s-button-primary{background:var(--fx-acc)!important;background-image:none!important;box-shadow:none!important;border-color:var(--fx-acc)!important;color:var(--fx-ink)!important;min-height:54px;border-radius:14px!important;font-size:17px!important;font-weight:900!important}
+.product-single .s-add-product-button-mini-checkout{border-radius:14px!important}
+
+/* ===== الوصف ===== */
+.product-single article.full-description{background:transparent!important;padding:0!important;margin-top:20px!important;border-top:1px solid var(--fx-line);padding-top:18px!important;max-height:none!important}
+.product-single .is-sold{margin-top:14px}
+/* الثيم يجبر لون نص الوصف، فنرجّع ألوان مربعات الوصف الجاهزة */
+.product-single article.full-description [style*="background:#FDD407"]{background:#FDD407!important;color:#0D0D10!important}
+.product-single article.full-description [style*="background:#222228"]{background:#222228!important}
+.product-single article.full-description [style*="border:1.5px solid #FDD407"]{border:1.5px solid #FDD407!important}

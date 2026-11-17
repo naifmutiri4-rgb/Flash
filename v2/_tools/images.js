@@ -52,20 +52,19 @@ function pick6(tiers, hot) {
 }
 
 function single(s) {
-  const all = s.tiers.map(t => t[0]).sort((a, b) => a - b);
-  const qs = pick6(all, s.hot);
-  const chips = qs.map(q => `<div class="q${q === s.hot ? ' h' : ''}">${n(q)}</div>`).join('');
+  // تصميم الخدمة: أيقونة كبيرة في المنتصف + اسم الخدمة بهايلايت أصفر، بدون كميات
+  const name = s.name.replace(' تيك توك', '');
   return `<style>${BASE}
-  .q{height:150px;border-radius:30px;background:${C.card};border:3px solid ${C.line};display:grid;place-items:center;font-size:76px;font-weight:700;direction:ltr}
-  .q.h{background:${C.acc};border-color:${C.acc};color:${C.ink}}
-  .q:last-child:nth-child(odd){grid-column:span 2}
-  .gl{width:84px;height:84px;border-radius:24px;background:${C.acc};display:grid;place-items:center;flex:none}
+  .hero{position:absolute;inset:170px 60px 70px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:54px;text-align:center}
+  .big{width:380px;height:380px;border-radius:100px;background:${C.card};border:4px solid ${C.line};display:grid;place-items:center;box-shadow:0 40px 90px -40px ${C.acc}66}
+  .nm{font-size:150px;line-height:1.25;font-weight:700;color:${C.ink};background:${C.acc};padding:4px 54px 22px;border-radius:34px;transform:rotate(-2deg)}
+  .nm-wrap{display:flex;flex-direction:column;align-items:center;gap:26px}
+  .tt{font-size:46px;color:${C.mut}}
   </style>
   <div class="glow"></div>
   <div class="top"><div class="brand"><i>${ic('bolt', 44, C.ink)}</i>فلاش ستور</div><div class="tag">تنفيذ آلي</div></div>
-  <h1>${s.name.replace(' تيك توك', '')}</h1>
-  <div class="sub"><span class="gl">${ic(s.icon, 50, C.ink)}</span>تيك توك · ${n(all[0])} – ${n(all[all.length - 1])} ${UNIT[s.icon]}</div>
-  <div class="g">${chips}</div>`;
+  <div class="hero"><div class="big">${ic(s.icon, 220, C.acc)}</div>
+  <div class="nm-wrap"><div class="nm">${name}</div><div class="tt">تيك توك</div></div></div>`;
 }
 
 function pack(p, level, total) {

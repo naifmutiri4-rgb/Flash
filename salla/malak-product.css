@@ -63,7 +63,9 @@ html body#app.product-single .sticky-product-bar .s-button-primary,.product-sing
 .s-product-options-grid-mode-span::first-line{font-size:19px;font-weight:900;line-height:1.6}
 /* شارة «الأكثر طلباً» على الكمية الأكثر طلباً في كل خدمة */
 #checkbox-2123353343-1070541132+div::before,#checkbox-2147113998-733530299+div::before,
-#checkbox-1703693885-1793306523+div::before,#checkbox-166133325-1108179376+div::before{
+#checkbox-1703693885-1793306523+div::before,#checkbox-166133325-1108179376+div::before,
+#radio-2123353343-1070541132+div::before,#radio-2147113998-733530299+div::before,
+#radio-1703693885-1793306523+div::before,#radio-166133325-1108179376+div::before{
   content:"الأكثر طلباً";position:absolute;top:-9px;inset-inline:0;margin:auto;width:max-content;font-size:10px;font-weight:800;line-height:1.6;background:#0D0D10;color:#FDD407;padding:0 8px;border-radius:6px;border:1px solid #FDD407}
 .s-product-options-grid-mode{padding-top:6px}
 .s-product-options-grid-mode input:checked+div::first-line{color:#0D0D10}

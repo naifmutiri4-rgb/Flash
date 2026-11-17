@@ -45,7 +45,7 @@ FOOT = """<footer><div class="w">
 <div><a class="logo" href="index.html"><i style="color:#111114">""" + ico("i-bolt") + """</i>فلاش ستور</a>
 <p>خدمات تفاعل تيك توك بتنفيذ آلي فوري. ما نطلب كلمة مرورك أبداً.</p>
 <div class="pay"><span>مدى</span><span>Apple Pay</span><span>Visa</span><span>Mastercard</span></div></div>
-<div><h4>الخدمات</h4><ul><li><a href="index.html#packs">الباقات</a></li><li><a href="p-views.html">المشاهدات</a></li><li><a href="p-likes.html">اللايكات</a></li><li><a href="p-followers.html">المتابعين</a></li></ul></div>
+<div><h4>الخدمات</h4><ul><li><a href="index.html#packs">الباقات</a></li><li><a href="p-views.html">المشاهدات</a></li><li><a href="p-likes.html">اللايكات</a></li><li><a href="p-shares.html">الشير والحفظ</a></li></ul></div>
 <div><h4>المتجر</h4><ul><li><a href="#">سياسة الاستبدال والاسترجاع</a></li><li><a href="#">الشروط والأحكام</a></li><li><a href="#">سياسة الخصوصية</a></li></ul></div>
 <div><h4>تواصل معنا</h4><ul><li><a href="#">واتساب — 24 ساعة</a></li><li><a href="#">تيك توك</a></li><li><a href="#">إنستقرام</a></li></ul></div>
 </div></footer>
@@ -53,6 +53,10 @@ FOOT = """<footer><div class="w">
 </body>
 </html>
 """
+
+
+def strike(p):
+    return f'<s>{money(p["regular"])}</s>' if p.get("regular") else ""
 
 
 def bars(level):
@@ -65,8 +69,8 @@ def pack_card(p, lvl, lazy=True):
             f'<img src="img/{p["slug"]}.webp" width="600" height="600" alt="{p["name"]}: '
             + "، ".join(f"{n} {u}" for _, n, u in p["items"]) + f'"{" loading=lazy" if lazy else ""}>'
             f'<div class="bd">{"<span class=badge>الأكثر طلباً</span>" if hot else ""}<h3>{p["name"]}</h3>'
-            f'<div class="lvl">مستوى التفاعل <span>{bars(lvl)}</span></div>'
-            f'<div class="row"><div class="num">{money(p["price"])} <small>ر.س</small></div>'
+            f'<div class="lvl">المستوى <span>{bars(lvl)}</span></div>'
+            f'<div class="row"><div class="num">{strike(p)}{money(p["price"])} <small>ر.س</small></div>'
             f'<span class="go" aria-hidden="true"><svg class="ic"><use href="#i-arrow"/></svg></span></div></div></a>')
 
 
@@ -79,13 +83,13 @@ def metric_tile(s):
 total_sold = sum(p["sold"] for p in D["packs"]) + sum(s["sold"] for s in D["singles"])
 home = HEAD.format(
     title="فلاش ستور — مشاهدات ولايكات تيك توك بتنفيذ آلي فوري",
-    desc="باقات تفاعل تيك توك تبدأ من 9.99 ر.س: مشاهدات، لايكات، شير، حفظ ومتابعين. تنفيذ آلي فوري بدون كلمة مرور.",
+    desc="باقات تفاعل تيك توك تبدأ من 9.99 ر.س: مشاهدات، لايكات، شير وحفظ. تنفيذ آلي فوري بدون كلمة مرور.",
     preload=f'<link rel="preload" href="img/{best["slug"]}.webp" as="image">\n') + f"""<main id="main" class="w">
 <div class="bento">
   <div class="tile t-hero">
     <div><span class="kick"><i></i>التنفيذ شغّال الآن، آلياً</span>
     <h1>خلّ مقطعك<br>يوصل <span>للإكسبلور</span></h1>
-    <p>مشاهدات ولايكات وشير وحفظ ومتابعين لتيك توك. تدفع، ويبدأ التنفيذ خلال دقائق.</p></div>
+    <p>مشاهدات ولايكات وشير وحفظ لتيك توك. تدفع، ويبدأ التنفيذ خلال دقائق.</p></div>
     <div class="acts"><a class="btn btn-y" href="#packs">اختر باقتك</a><a class="btn btn-o" href="#services">خدمة وحدة</a></div>
   </div>
   <a class="tile t-best" href="p-{best["slug"]}.html">

@@ -74,7 +74,7 @@ button{cursor:pointer;border:0;background:none}
 
 /* المقاييس الملونة */
 .metrics{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);padding:4px 0}
-@media(min-width:760px){.metrics{grid-template-columns:repeat(5,1fr)}}
+@media(min-width:760px){.metrics{grid-template-columns:repeat(4,1fr)}}
 .mt{--c:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px;transition:transform .2s,border-color .2s}
 .mt:hover{transform:translateY(-3px);border-color:var(--ink)}
 .mt .gl{width:50px;height:50px;border-radius:15px;background:var(--acc);color:var(--ink);display:grid;place-items:center}
@@ -93,7 +93,7 @@ section.blk{padding:52px 0 8px}
 /* الباقات */
 .packs{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
 @media(min-width:640px){.packs{gap:14px}}
-@media(min-width:1000px){.packs{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1000px){.packs{grid-template-columns:repeat(5,1fr)}}
 .pk{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
 .pk:hover{transform:translateY(-3px);box-shadow:0 22px 40px -24px #0004}
 .pk img{border-radius:14px;aspect-ratio:1;width:100%;background:#111114}
@@ -193,4 +193,12 @@ footer .logo{color:#fff}
   .pk .go{width:38px;height:38px;border-radius:11px}
   .pk .badge{font-size:10px;padding:2px 7px;margin-bottom:6px}
   .t-best{grid-template-columns:42% 1fr}
+}
+
+.pk .num s{display:block;font-size:13px;line-height:1.2;color:var(--ink2);font-weight:400}
+.lvl{white-space:nowrap}
+/* الباقة الخامسة في الجوال: بعرض العمودين، الصورة بجنب النص */
+@media(max-width:999px){
+  .packs>.pk:last-child:nth-child(odd){grid-column:span 2;flex-direction:row;gap:12px;align-items:center}
+  .packs>.pk:last-child:nth-child(odd) img{width:46%;flex:none}
 }

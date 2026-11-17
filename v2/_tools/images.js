@@ -72,7 +72,7 @@ function pack(p, level, total) {
   const tiles = p.items.map(([i, num, u]) => `<div class="t"><div class="th"><span class="ti">${ic(i, 50, C.ink)}</span><small>${u}</small></div><b>${num}</b></div>`).join('');
   const bars = Array.from({ length: total }, (_, k) => `<i class="${k < level ? 'on' : ''}"></i>`).join('');
   return `<style>${BASE}
-  .lv{display:flex;gap:10px}.lv i{width:64px;height:16px;border-radius:9px;background:${C.line}}.lv i.on{background:${C.acc}}
+  .lv{display:flex;gap:10px}.lv i{width:56px;height:16px;border-radius:9px;background:${C.line}}.lv i.on{background:${C.acc}}
   .t{height:236px;border-radius:36px;background:${C.card};border:3px solid ${C.line};padding:26px 32px;display:flex;flex-direction:column;justify-content:space-between}
   .th{display:flex;align-items:center;gap:16px}
   .ti{width:84px;height:84px;border-radius:24px;background:${C.acc};display:grid;place-items:center}
@@ -80,7 +80,7 @@ function pack(p, level, total) {
   .t b{font-size:96px;line-height:1;direction:ltr;text-align:right}
   </style>
   <div class="glow"></div>
-  <div class="top"><div class="brand"><i>${ic('bolt', 44, C.ink)}</i>فلاش ستور</div><div class="tag">${p.hot ? 'الأكثر طلباً' : 'باقة'}</div></div>
+  <div class="top"><div class="brand"><i>${ic('bolt', 44, C.ink)}</i>فلاش ستور</div><div class="tag">${p.hot ? 'الأكثر طلباً' : p.regular ? 'عرض خاص' : 'باقة'}</div></div>
   <h1>${p.name}</h1>
   <div class="sub">المستوى <span class="lv">${bars}</span></div>
   <div class="g">${tiles}</div>`;

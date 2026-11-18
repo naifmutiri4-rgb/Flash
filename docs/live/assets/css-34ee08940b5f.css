@@ -204,7 +204,7 @@ body#app.index .s-block--testimonials::before { content: ""; position: absolute;
 body#app.index .s-block--testimonials::after { content: ""; position: absolute; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 229, 212, 0.25), transparent 70%); bottom: -100px; right: -70px; pointer-events: none; }
 body#app.index .s-block--testimonials .container { position: relative; z-index: 1; }
 body#app.index .s-block--testimonials .s-slider-block__title h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: rgb(11, 10, 18) !important; }
-body#app.index .s-block--testimonials .s-slider-block__title h2::before { content: "● اكسبلور"; font-size: 12px; font-weight: 800; color: rgb(255, 255, 255); background: rgb(255, 61, 127); border-radius: 999px; padding: 4px 10px; line-height: 1.4; box-shadow: rgb(255, 61, 127) 0px 6px 16px -6px; }
+body#app.index .s-block--testimonials .s-slider-block__title h2::before { content: "● LIVE"; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; color: rgb(255, 255, 255); background: rgb(255, 61, 127); border-radius: 999px; padding: 4px 10px; line-height: 1.4; box-shadow: rgb(255, 61, 127) 0px 6px 16px -6px; }
 @keyframes lv-pulse { 
   50% { box-shadow: rgba(255, 61, 127, 0.15) 0px 0px 0px 6px, rgb(255, 61, 127) 0px 6px 16px -6px; }
 }
@@ -341,7 +341,7 @@ body#app.index .s-block--testimonials .s-slider-block__title-left { flex: 1 1 10
 }
 body#app.index section[component-id="1938081345"] img { width: 100%; height: auto; }
 @media (max-width: 767px) {
-  body#app.index section[component-id="1938081345"] img { aspect-ratio: 800 / 1067; }
+  body#app.index section[component-id="1938081345"] img { aspect-ratio: 8 / 5; }
 }
 @media (min-width: 768px) {
   body#app.index section[component-id="1938081345"] img { aspect-ratio: 1456 / 520; }

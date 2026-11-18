@@ -75,7 +75,7 @@ async function snap(browser, url, outName, isHome, state) {
   await p.waitForTimeout(1000);
   // صور المنتجات الجديدة (الكروت + صورة صفحة المنتج + صورة شريط الشراء)
   // البانر: نسخة المعاينة الجديدة (اكسبلور) بدل اللي في المتجر
-  await p.evaluate(() => { document.querySelectorAll('section.s-block--fixed-banner img').forEach(i => { i.src = 'https://naifmutiri4-rgb.github.io/Flash/live/banner-d-v3.webp'; }); document.querySelectorAll('section.s-block--fixed-banner source').forEach(x => { x.srcset = 'https://naifmutiri4-rgb.github.io/Flash/live/banner-m-v3.webp'; }); });
+  await p.evaluate(() => { document.querySelectorAll('section.s-block--fixed-banner img').forEach(i => { i.src = 'https://naifmutiri4-rgb.github.io/Flash/live/banner-d.webp'; }); document.querySelectorAll('section.s-block--fixed-banner source').forEach(x => { x.srcset = 'https://naifmutiri4-rgb.github.io/Flash/live/banner-mw-v1.webp'; }); });
   await p.evaluate(L => { document.querySelectorAll('.navbar-brand img, .store-footer img[alt*="فلاش"], .store-footer .logo img').forEach(i => { i.src = L; i.removeAttribute('srcset'); i.removeAttribute('data-src'); }); }, LOGO);
   await p.evaluate(([IMG, HOME_TOP, HOME_HOW, isHome, pid]) => {
     const idOf = h => (decodeURIComponent(h || '').match(/\/p(\d+)/) || [])[1];

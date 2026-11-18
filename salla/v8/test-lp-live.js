@@ -4,7 +4,7 @@ const S = '/tmp/claude-0/-home-user/3415ab36-c530-53dc-99ff-5fe0e5e0e39f/scratch
   const b = await chromium.launch();
   for (const [w, h, n] of [[390, 844, 'm'], [1366, 900, 'd']]) {
     const p = await b.newPage({ viewport: { width: w, height: h } });
-    const r = await p.goto('https://flashstore-ksa.com/pages/lp1304367330/1542606730', { waitUntil: 'networkidle', timeout: 90000 });
+    const r = await p.goto('https://flashstore-ksa.com/pages/lp1304367330/1377310171', { waitUntil: 'networkidle', timeout: 90000 });
     await p.waitForTimeout(2500);
     const info = await p.evaluate(() => {
       const lp = document.querySelector('.fx-lp');

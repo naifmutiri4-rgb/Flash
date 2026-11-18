@@ -80,6 +80,21 @@
     }
   }
 
+  // آراء العملاء في الرئيسية: كل تقييم 5 ثواني بدل 2.5، وانتقال أنعم (0.8 ث). يوقف عند لمس/تمرير الماوس مثل ملاك
+  function slowReviews() {
+    var sw = document.querySelector('.s-block--testimonials .swiper');
+    var s = sw && sw.swiper;
+    if (!s || s.__lvSlow || !s.params) return false;
+    s.__lvSlow = true;
+    s.params.speed = 800;
+    if (s.params.autoplay && typeof s.params.autoplay === 'object') s.params.autoplay.delay = 5000;
+    if (s.autoplay && s.autoplay.running) { s.autoplay.stop(); s.autoplay.start(); }
+    return true;
+  }
+  if (document.body && document.body.classList.contains('index') || /^\/?$/.test(location.pathname)) {
+    var tries = 0, iv = setInterval(function () { try { if (slowReviews() || ++tries > 40) clearInterval(iv); } catch (e) { clearInterval(iv); } }, 250);
+  }
+
   var queued = false;
   function schedule() { if (queued) return; queued = true; requestAnimationFrame(function () { queued = false; try { update(); } catch (e) { } try { styleBuyNow(); } catch (e) { } }); }
   document.addEventListener('change', schedule, true);

@@ -287,3 +287,4 @@ html body#app.product-single .sticky-product-bar salla-add-product-button button
 html body#app.product-single .sticky-product-bar salla-add-product-button button.s-button-primary[data-lv-total]{flex-wrap:wrap!important;align-content:center;row-gap:1px;line-height:1.25}
 body#app .s-add-product-button-mini-checkout-content{color:#fff!important;font-weight:800}
 body#app .s-add-product-button-mini-checkout-content svg{fill:#FF3D7F!important;width:18px;height:18px}
+body#app.product-single:has(.s-product-options-grid-mode) .sticky-product-bar .starting-or-normal-price,body#app.product-single:has(.s-product-options-grid-mode) .sticky-product-bar .price_is_on_sale{display:none!important}

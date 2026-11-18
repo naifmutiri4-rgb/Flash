@@ -362,3 +362,5 @@ html body#app.product-single .sticky-product-bar salla-add-product-button button
 /* محتوى زر «اشتر الآن» (خارج الـ Shadow DOM): الأيقونة والنص */
 body#app .s-add-product-button-mini-checkout-content{color:#fff!important;font-weight:800}
 body#app .s-add-product-button-mini-checkout-content svg{fill:#FF3D7F!important;width:18px;height:18px}
+/* شريط الشراء في الكمبيوتر: سعر الخدمات المفردة الأساسي يطلع «-»، فنخفيه (السعر الصحيح على زر السلة) */
+body#app.product-single:has(.s-product-options-grid-mode) .sticky-product-bar .starting-or-normal-price,body#app.product-single:has(.s-product-options-grid-mode) .sticky-product-bar .price_is_on_sale{display:none!important}

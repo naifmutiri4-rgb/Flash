@@ -11,6 +11,7 @@ TAG={'unl':["إنترنت بلا سقف… ولا عدّاد.","انسَ جمل�
 'intl':["أهلك بعيدين؟ صوتك يوصلهم.","العالم كله على بعد مكالمة."]}
 import re
 for p in P:
+    if p['op']=='sawa': p['op_ar']='stc سوا'
     n=p['name'].replace('PRIPAID','PREPAID')
     if re.search(r'days',n,re.I) and p['op']=='mobily': n=('DATA UNLIMITED' if p['data']=='UNL' else f"DATA {p['data']}GB")
     n=n.replace('PREPAID 360 BUNDLE FOR 12 WEEK','PREPAID 360 · 12 WEEKS').replace('QUICKNET UNLIMITED','QUICKNET UNL')
@@ -39,9 +40,10 @@ for p in P:
     p['tagline']=pick(TAG[kind],p['id'])
     parts=[head]+extra
     body=f"{'، '.join(parts[:-1])+' و' + parts[-1] if len(parts)>1 else parts[0]}، تشتغل معك {d(p['days'])} كاملة على شبكة {p['op_ar']}."
-    p['desc']=(f"{p['tagline']}\n{body}\n"
-      f"التفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع {p['op_ar']}، أو توصيل من فرع {p['op_ar']}، أو استبدالها بشريحة إلكترونية eSIM.\n"
-      f"🔐 تفعيل بنفاذ  •  🏬 استلام من فرع {p['op_ar']}  •  🚚 توصيل من فرع {p['op_ar']}  •  📲 eSIM")
+    br='stc' if p['op']=='sawa' else p['op_ar']
+    p['desc']=(f"{p['tagline']}\n{body}\n\n"
+      f"طرق الاستلام:\n• استلام من فرع {br}\n• توصيل من فرع {br}\n• استبدال بشريحة إلكترونية eSIM — نرسل لك رمز QR وتفعّلها بجوالك\n\n"
+      "التفعيل: عبر نفاذ خلال دقائق.")
 json.dump(P,open('products_full.json','w'),ensure_ascii=False,indent=1)
 open('data.js','w').write('window.P='+json.dumps(P,ensure_ascii=False)+';')
 for p in P[:3]+P[29:30]+P[91:92]: print(p['title']);print(p['desc']);print()

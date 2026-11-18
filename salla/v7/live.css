@@ -175,11 +175,11 @@ body#app .angel-products-title p{color:#9A96B5!important;font-size:15px!importan
 body#app .angel-products-title a{color:#00E5D4!important;font-weight:700}
 
 /* قسم الباقات على الخلفية الثانية (لافندر) */
-body#app section[component-id="721318189"]{background:#EEEBFF!important;border-radius:28px 28px 0 0;padding-bottom:22px}
-body#app section[component-id="721318189"] .angel-products-title h2{color:#0B0A12!important}
-body#app section[component-id="721318189"] .angel-products-title p{color:#4F4A70!important}
-body#app section[component-id="721318189"] .angel-products-title a{color:#D92A66!important}
-body#app section[component-id="721318189"] .s-product-card-entry{background:#0B0A12!important;border-color:#0B0A12!important;box-shadow:0 14px 30px -18px #0B0A12}
+body#app :is(section[component-id="721318189"],section.lv-packs){background:#EEEBFF!important;border-radius:28px 28px 0 0;padding-bottom:22px}
+body#app :is(section[component-id="721318189"],section.lv-packs) .angel-products-title h2{color:#0B0A12!important}
+body#app :is(section[component-id="721318189"],section.lv-packs) .angel-products-title p{color:#4F4A70!important}
+body#app :is(section[component-id="721318189"],section.lv-packs) .angel-products-title a{color:#D92A66!important}
+body#app :is(section[component-id="721318189"],section.lv-packs) .s-product-card-entry{background:#0B0A12!important;border-color:#0B0A12!important;box-shadow:0 14px 30px -18px #0B0A12}
 
 /* شارات الكرت (تقييم / خصم) */
 body#app .s-product-card-rating{background:#0B0A12cc!important;color:#fff!important;border-radius:999px!important}

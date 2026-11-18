@@ -55,8 +55,21 @@
     if (label2) btn.setAttribute('data-lv-total', label2); else btn.removeAttribute('data-lv-total');
   }
 
+  // «اشتر الآن» (salla-mini-checkout-widget): الزر داخل Shadow DOM مفتوح، فنضيف له ستايل التصميم من داخله
+  var BUY_CSS = '.s-fast-checkout-button{height:52px!important;min-height:52px;width:100%;border-radius:14px!important;border:1.5px solid #FF3D7F!important;background:#16142A!important;color:#fff!important;font-weight:800!important;font-size:15px!important;box-shadow:none!important;transition:background-color .15s ease,transform .1s ease}' +
+    '.s-fast-checkout-button:hover{background:#1F1A3D!important}.s-fast-checkout-button:active{transform:scale(.98)}' +
+    '.s-fast-checkout-button svg,.s-fast-checkout-button path{fill:#FF3D7F!important}';
+  function styleBuyNow() {
+    var ws = document.querySelectorAll('salla-mini-checkout-widget');
+    for (var i = 0; i < ws.length; i++) {
+      var r = ws[i].shadowRoot;
+      if (!r || r.querySelector('style[data-lv]')) continue;
+      var st = document.createElement('style'); st.setAttribute('data-lv', ''); st.textContent = BUY_CSS; r.appendChild(st);
+    }
+  }
+
   var queued = false;
-  function schedule() { if (queued) return; queued = true; requestAnimationFrame(function () { queued = false; try { update(); } catch (e) { } }); }
+  function schedule() { if (queued) return; queued = true; requestAnimationFrame(function () { queued = false; try { update(); } catch (e) { } try { styleBuyNow(); } catch (e) { } }); }
   document.addEventListener('change', schedule, true);
   document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.s-quantity-input-button, .s-product-options-grid-mode')) setTimeout(schedule, 30); }, true);
   document.addEventListener('input', schedule, true);
@@ -67,4 +80,5 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
   window.addEventListener('load', schedule);
+  setTimeout(schedule, 1500); setTimeout(schedule, 4000);
 })();

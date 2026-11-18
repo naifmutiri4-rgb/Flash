@@ -20,6 +20,7 @@ const IMG = {};
 for (const [id, [slug]] of Object.entries(PRODUCTS)) IMG[id] = 'data:image/png;base64,' + fs.readFileSync(path.join(__dirname, 'img', slug + '.png')).toString('base64');
 const HERO = 'data:image/png;base64,' + fs.readFileSync(path.join(__dirname, '..', 'v6', 'previews', 'd1-live-hero.png')).toString('base64');
 const liveCss = fs.readFileSync(path.join(__dirname, 'live.css'), 'utf8');
+const LOGO = 'data:image/png;base64,' + fs.readFileSync(path.join(__dirname, '..', '..', 'docs', 'live', 'logo.png')).toString('base64');
 
 const D = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', '_src', 'data.json'), 'utf8'));
 const PRICES = {};
@@ -72,6 +73,7 @@ async function snap(browser, url, outName, isHome) {
   await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 400) { scrollTo(0, y); await new Promise(r => setTimeout(r, 100)); } scrollTo(0, 0); });
   await p.waitForTimeout(1000);
   // صور المنتجات الجديدة (الكروت + صورة صفحة المنتج + صورة شريط الشراء)
+  await p.evaluate(L => { document.querySelectorAll('.navbar-brand img, .store-footer img[alt*="فلاش"], .store-footer .logo img').forEach(i => { i.src = L; i.removeAttribute('srcset'); i.removeAttribute('data-src'); }); }, LOGO);
   await p.evaluate(([IMG, HOME_TOP, HOME_HOW, isHome, pid]) => {
     const idOf = h => (decodeURIComponent(h || '').match(/\/p(\d+)/) || [])[1];
     document.querySelectorAll('.s-product-card-entry').forEach(card => {

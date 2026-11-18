@@ -91,9 +91,9 @@ html body#app.product-single article.full-description, html body#app.product-sin
 .product-single article.full-description ul { display: grid; grid-template-columns: repeat(2, minmax(0px, 1fr)); gap: 8px; list-style: none !important; padding: 0px !important; margin: 0px 0px 12px !important; }
 html body#app.product-single article.full-description li { border-radius: 12px; line-height: 1.6; font-size: 14px; list-style: none !important; background: rgb(255, 255, 255) !important; padding: 10px 12px !important; margin: 0px !important; }
 .product-single article.full-description li::marker { content: none; }
-html body#app.product-single article.full-description li strong, html body#app.product-single article.full-description p strong { -webkit-text-fill-color: rgb(217, 42, 102); font-weight: 800; color: rgb(217, 42, 102) !important; }
+html body#app.product-single article.full-description li strong, html body#app.product-single article.full-description p strong { -webkit-text-fill-color: rgb(179, 18, 74); font-weight: 800; color: rgb(179, 18, 74) !important; }
 .product-single article.full-description p { line-height: 1.8; }
-html body#app.product-single article.full-description a { -webkit-text-fill-color: rgb(217, 42, 102); font-weight: 800; color: rgb(217, 42, 102) !important; }
+html body#app.product-single article.full-description a { -webkit-text-fill-color: rgb(168, 15, 69); font-weight: 800; color: rgb(168, 15, 69) !important; }
 .product-single article.full-description::after, .product-single article.full-description .read-more { display: none !important; }
 .product-single .is-sold, .product-single .is-sold * { color: rgb(194, 190, 221) !important; }
 .product-single .product-reviews.details, .product-single .s-block--payment { border: 1px solid rgb(36, 31, 69); background: rgb(22, 20, 42) !important; border-radius: 20px !important; }
@@ -132,7 +132,7 @@ body#app :is(section[component-id="721318189"], section.lv-packs) .angel-product
 body#app :is(section[component-id="721318189"], section.lv-packs) .angel-products-title a { color: rgb(217, 42, 102) !important; }
 body#app :is(section[component-id="721318189"], section.lv-packs) .s-product-card-entry { box-shadow: rgb(11, 10, 18) 0px 14px 30px -18px; background: rgb(11, 10, 18) !important; border-color: rgb(11, 10, 18) !important; }
 body#app .s-product-card-rating { background: rgba(11, 10, 18, 0.8) !important; color: rgb(255, 255, 255) !important; border-radius: 999px !important; }
-body#app .s-product-card-discount { background: rgb(255, 61, 127) !important; color: rgb(255, 255, 255) !important; border-radius: 999px !important; }
+body#app .s-product-card-discount { background: rgb(212, 30, 90) !important; color: rgb(255, 255, 255) !important; border-radius: 999px !important; }
 body#app .s-product-card-price-before { color: rgb(194, 190, 221) !important; }
 body#app .s-product-card-content-footer .s-button-element { min-height: 44px; }
 .lv-hero { display: block; margin: 0px auto; max-width: 520px; }
@@ -151,28 +151,28 @@ body#app .s-product-card-content-footer .s-button-element { min-height: 44px; }
 }
 .lv-how li { display: flex; gap: 12px; align-items: center; background: rgb(238, 235, 255); color: rgb(11, 10, 18); border-radius: 14px; padding: 12px; font-weight: 700; }
 .lv-how li b { width: 32px; height: 32px; border-radius: 50%; background: rgb(11, 10, 18); color: rgb(0, 229, 212); display: grid; place-items: center; flex: 0 0 auto; }
-body#app .s-block--testimonials .s-block__title h2, body#app .s-block--faqs h2 { color: rgb(255, 255, 255) !important; font-weight: 800 !important; }
-body#app .s-block--testimonials .swiper-slide > div, body#app .s-block--testimonials .s-reviews-testimonial, body#app .s-block--testimonials [class*="testimonial"] { background: rgb(22, 20, 42) !important; border-color: rgb(36, 31, 69) !important; border-radius: 18px !important; }
+body#app.index .s-block--testimonials .s-block__title h2, body#app .s-block--faqs h2 { color: rgb(255, 255, 255) !important; font-weight: 800 !important; }
+body#app.index .s-block--testimonials .swiper-slide > div, body#app.index .s-block--testimonials .s-reviews-testimonial, body#app.index .s-block--testimonials [class*="testimonial"] { background: rgb(22, 20, 42) !important; border-color: rgb(36, 31, 69) !important; border-radius: 18px !important; }
 body#app .s-block--faqs details, body#app .s-block--faqs .faq-item, body#app .s-block--faqs [class*="faq"] > div { background: rgb(22, 20, 42) !important; border: 1px solid rgb(36, 31, 69) !important; border-radius: 14px !important; }
 body#app .s-block--faqs summary, body#app .s-block--faqs h3 { color: rgb(255, 255, 255) !important; }
 body#app .s-block--faqs p { color: rgb(185, 181, 211) !important; }
 body#app .s-product-card-image .s-product-card-rating { inset: 8px auto auto 8px !important; }
 body#app .s-product-card-image .s-product-card-discount { inset: 8px 8px auto auto !important; }
-body#app .s-block--testimonials { padding-block: 28px; }
-body#app .s-block--testimonials .s-slider-block__title h2 { color: rgb(255, 255, 255) !important; font-weight: 800 !important; font-size: clamp(22px, 5.6vw, 28px) !important; }
-body#app .s-block--testimonials .s-slider-block__display-all { background: rgb(0, 229, 212); border-radius: 999px; padding: 6px 14px; font-weight: 700; font-size: 13px; color: rgb(11, 10, 18) !important; }
-body#app .s-block--testimonials .s-slider-nav-arrow { width: 38px; height: 38px; border-radius: 12px !important; background: rgb(22, 20, 42) !important; border: 1px solid rgb(42, 37, 80) !important; color: rgb(255, 255, 255) !important; }
-body#app .s-block--testimonials .swiper-slide { margin-top: 12px !important; }
-body#app .s-block--testimonials .swiper-slide > div { border: 1px solid rgb(42, 37, 80); overflow: hidden; background: linear-gradient(rgb(27, 24, 53), rgb(20, 18, 42)) !important; border-radius: 20px !important; box-shadow: none !important; }
-body#app .s-block--testimonials .swiper-slide > div::before { content: ""; position: absolute; inset: 0px 0px auto; height: 3px; background: linear-gradient(90deg, rgb(0, 229, 212), rgb(255, 61, 127)); }
-body#app .s-block--testimonials .swiper-slide > div > div { justify-content: flex-end; gap: 14px; margin-top: 0px !important; padding: 20px 18px 18px !important; flex-direction: column-reverse !important; }
-body#app .s-block--testimonials .s-testimonials--slider--img { flex-direction: row !important; justify-content: flex-start !important; gap: 10px !important; }
-body#app .s-block--testimonials .testimonial__avatar { padding: 2px; background: linear-gradient(135deg, rgb(0, 229, 212), rgb(255, 61, 127)); width: 44px !important; height: 44px !important; box-shadow: none !important; }
-body#app .s-block--testimonials .testimonial__avatar img { border-radius: 50%; background: rgb(11, 10, 18); }
-body#app .s-block--testimonials .swiper-slide p { font-weight: 500; min-height: 3.5em; color: rgb(255, 255, 255) !important; font-size: 16px !important; line-height: 1.75 !important; text-align: right !important; margin: 0px !important; }
-body#app .s-block--testimonials .testimonial__icon { opacity: 1 !important; color: rgb(255, 61, 127) !important; font-size: 30px !important; top: 18px !important; }
-body#app .s-block--testimonials .swiper-scrollbar { background: rgb(22, 20, 42) !important; }
-body#app .s-block--testimonials .swiper-scrollbar-drag { background: linear-gradient(90deg, rgb(0, 229, 212), rgb(255, 61, 127)) !important; }
+body#app.index .s-block--testimonials { padding-block: 28px; }
+body#app.index .s-block--testimonials .s-slider-block__title h2 { color: rgb(255, 255, 255) !important; font-weight: 800 !important; font-size: clamp(22px, 5.6vw, 28px) !important; }
+body#app.index .s-block--testimonials .s-slider-block__display-all { background: rgb(0, 229, 212); border-radius: 999px; padding: 6px 14px; font-weight: 700; font-size: 13px; color: rgb(11, 10, 18) !important; }
+body#app.index .s-block--testimonials .s-slider-nav-arrow { width: 38px; height: 38px; border-radius: 12px !important; background: rgb(22, 20, 42) !important; border: 1px solid rgb(42, 37, 80) !important; color: rgb(255, 255, 255) !important; }
+body#app.index .s-block--testimonials .swiper-slide { margin-top: 12px !important; }
+body#app.index .s-block--testimonials .swiper-slide > div { border: 1px solid rgb(42, 37, 80); overflow: hidden; background: linear-gradient(rgb(27, 24, 53), rgb(20, 18, 42)) !important; border-radius: 20px !important; box-shadow: none !important; }
+body#app.index .s-block--testimonials .swiper-slide > div::before { content: ""; position: absolute; inset: 0px 0px auto; height: 3px; background: linear-gradient(90deg, rgb(0, 229, 212), rgb(255, 61, 127)); }
+body#app.index .s-block--testimonials .swiper-slide > div > div { justify-content: flex-end; gap: 14px; margin-top: 0px !important; padding: 20px 18px 18px !important; flex-direction: column-reverse !important; }
+body#app.index .s-block--testimonials .s-testimonials--slider--img { flex-direction: row !important; justify-content: flex-start !important; gap: 10px !important; }
+body#app.index .s-block--testimonials .testimonial__avatar { padding: 2px; background: linear-gradient(135deg, rgb(0, 229, 212), rgb(255, 61, 127)); width: 44px !important; height: 44px !important; box-shadow: none !important; }
+body#app.index .s-block--testimonials .testimonial__avatar img { border-radius: 50%; background: rgb(11, 10, 18); }
+body#app.index .s-block--testimonials .swiper-slide p { font-weight: 500; min-height: 3.5em; color: rgb(255, 255, 255) !important; font-size: 16px !important; line-height: 1.75 !important; text-align: right !important; margin: 0px !important; }
+body#app.index .s-block--testimonials .testimonial__icon { opacity: 1 !important; color: rgb(255, 61, 127) !important; font-size: 30px !important; top: 18px !important; }
+body#app.index .s-block--testimonials .swiper-scrollbar { background: rgb(22, 20, 42) !important; }
+body#app.index .s-block--testimonials .swiper-scrollbar-drag { background: linear-gradient(90deg, rgb(0, 229, 212), rgb(255, 61, 127)) !important; }
 body#app .s-rating-stars-selected, body#app .s-rating-stars-selected svg { color: rgb(255, 201, 77) !important; fill: rgb(255, 201, 77) !important; }
 body#app .s-rating-stars-btn-star:not(.s-rating-stars-selected) svg { fill: rgb(42, 37, 80) !important; color: rgb(42, 37, 80) !important; }
 body#app .product-reviews.details { margin-top: 18px; background: transparent !important; border: 0px !important; padding: 0px !important; }
@@ -199,40 +199,40 @@ body#app .s-comments-load-more, body#app .s-comments-container .s-button-outline
 body#app .s-translate-btn { color: rgb(0, 229, 212) !important; }
 body#app .s-comments-item-wrapper .s-comments-item-inner, body#app .s-comments-item-wrapper .s-comments-flex-1, body#app .s-comments-item-wrapper .s-comments-item-user-wrapper { background: transparent !important; border: 0px !important; padding: 0px !important; box-shadow: none !important; }
 body#app .s-comments-item-inner { display: flex; gap: 12px; align-items: flex-start; }
-body#app .s-block--testimonials { border-radius: 28px; position: relative; overflow: hidden; background: rgb(238, 235, 255) !important; margin: 18px 0px !important; padding-block: 26px 30px !important; }
-body#app .s-block--testimonials::before { content: ""; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 61, 127, 0.22), transparent 70%); top: -90px; left: -80px; pointer-events: none; }
-body#app .s-block--testimonials::after { content: ""; position: absolute; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 229, 212, 0.25), transparent 70%); bottom: -100px; right: -70px; pointer-events: none; }
-body#app .s-block--testimonials .container { position: relative; z-index: 1; }
-body#app .s-block--testimonials .s-slider-block__title h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: rgb(11, 10, 18) !important; }
-body#app .s-block--testimonials .s-slider-block__title h2::before { content: "● LIVE"; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; color: rgb(255, 255, 255); background: rgb(255, 61, 127); border-radius: 999px; padding: 4px 10px; line-height: 1.4; box-shadow: rgb(255, 61, 127) 0px 6px 16px -6px; animation: 1.6s ease-in-out 0s infinite normal none running lv-pulse; }
+body#app.index .s-block--testimonials { border-radius: 28px; position: relative; overflow: hidden; background: rgb(238, 235, 255) !important; margin: 18px 0px !important; padding-block: 26px 30px !important; }
+body#app.index .s-block--testimonials::before { content: ""; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 61, 127, 0.22), transparent 70%); top: -90px; left: -80px; pointer-events: none; }
+body#app.index .s-block--testimonials::after { content: ""; position: absolute; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 229, 212, 0.25), transparent 70%); bottom: -100px; right: -70px; pointer-events: none; }
+body#app.index .s-block--testimonials .container { position: relative; z-index: 1; }
+body#app.index .s-block--testimonials .s-slider-block__title h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: rgb(11, 10, 18) !important; }
+body#app.index .s-block--testimonials .s-slider-block__title h2::before { content: "● LIVE"; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; color: rgb(255, 255, 255); background: rgb(255, 61, 127); border-radius: 999px; padding: 4px 10px; line-height: 1.4; box-shadow: rgb(255, 61, 127) 0px 6px 16px -6px; animation: 1.6s ease-in-out 0s infinite normal none running lv-pulse; }
 @keyframes lv-pulse { 
   50% { box-shadow: rgba(255, 61, 127, 0.15) 0px 0px 0px 6px, rgb(255, 61, 127) 0px 6px 16px -6px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  body#app .s-block--testimonials .s-slider-block__title h2::before { animation: auto ease 0s 1 normal none running none; }
+  body#app.index .s-block--testimonials .s-slider-block__title h2::before { animation: auto ease 0s 1 normal none running none; }
 }
-body#app .s-block--testimonials .s-slider-block__display-all { background: rgb(11, 10, 18) !important; color: rgb(255, 255, 255) !important; }
-body#app .s-block--testimonials .s-slider-nav-arrow { background: rgb(255, 255, 255) !important; border-color: rgb(217, 212, 245) !important; color: rgb(11, 10, 18) !important; }
-body#app .s-block--testimonials .s-slider-nav-arrow svg { fill: rgb(11, 10, 18) !important; }
-body#app .s-block--testimonials .swiper-slide > div { background: transparent !important; border: 0px !important; border-radius: 0px !important; overflow: visible !important; }
-body#app .s-block--testimonials .swiper-slide > div::before { display: none !important; }
-body#app .s-block--testimonials .swiper-slide > div > div { padding: 6px 2px 4px !important; gap: 12px !important; }
-body#app .s-block--testimonials .swiper-slide p { position: relative; border-radius: 22px 22px 6px; box-shadow: rgba(11, 10, 18, 0.45) 0px 18px 40px -22px; background: rgb(255, 255, 255) !important; color: rgb(11, 10, 18) !important; padding: 20px 20px 20px 54px !important; font-size: 16.5px !important; font-weight: 600 !important; line-height: 1.8 !important; min-height: 0px !important; }
-body#app .s-block--testimonials .swiper-slide p::after { content: ""; position: absolute; bottom: -10px; right: 22px; width: 22px; height: 14px; background: rgb(255, 255, 255); clip-path: polygon(0px 0px, 100% 0px, 85% 100%); }
-body#app .s-block--testimonials .testimonial__icon { z-index: 2; top: 14px !important; left: 16px !important; right: auto !important; color: rgb(255, 61, 127) !important; font-size: 26px !important; }
-body#app .s-block--testimonials .s-testimonials--slider--img { padding-inline-start: 12px; align-items: center !important; }
-body#app .s-block--testimonials .testimonial__avatar { width: 40px !important; height: 40px !important; }
-body#app .s-block--testimonials .testimonial__rating { background: rgb(11, 10, 18); border-radius: 999px; padding: 5px 10px; display: flex; align-items: center; }
-body#app .s-block--testimonials .testimonial__rating .s-rating-stars-btn-star { margin: 0px 1px !important; }
-body#app .s-block--testimonials .swiper-scrollbar { border-radius: 2px; background: rgb(217, 212, 245) !important; height: 4px !important; }
-body#app .s-block--testimonials .container, body#app .s-block--testimonials salla-slider, body#app .s-block--testimonials .s-slider-wrapper, body#app .s-block--testimonials .swiper, body#app .s-block--testimonials .swiper-wrapper, body#app .s-block--testimonials .s-slider-block__title { background: transparent !important; box-shadow: none !important; border: 0px !important; }
-body#app .s-block--testimonials .s-slider-block__display-all::after { display: none !important; }
-body#app .s-block--testimonials .s-slider-block__title { margin-bottom: 6px; }
-body#app .s-block--testimonials .s-testimonials--slider--img { width: max-content !important; max-width: 100%; }
-body#app .s-block--testimonials .testimonial__rating { width: max-content; }
-body#app .s-block--testimonials .swiper-slide > div > div { padding-bottom: 18px !important; }
+body#app.index .s-block--testimonials .s-slider-block__display-all { background: rgb(11, 10, 18) !important; color: rgb(255, 255, 255) !important; }
+body#app.index .s-block--testimonials .s-slider-nav-arrow { background: rgb(255, 255, 255) !important; border-color: rgb(217, 212, 245) !important; color: rgb(11, 10, 18) !important; }
+body#app.index .s-block--testimonials .s-slider-nav-arrow svg { fill: rgb(11, 10, 18) !important; }
+body#app.index .s-block--testimonials .swiper-slide > div { background: transparent !important; border: 0px !important; border-radius: 0px !important; overflow: visible !important; }
+body#app.index .s-block--testimonials .swiper-slide > div::before { display: none !important; }
+body#app.index .s-block--testimonials .swiper-slide > div > div { padding: 6px 2px 4px !important; gap: 12px !important; }
+body#app.index .s-block--testimonials .swiper-slide p { position: relative; border-radius: 22px 22px 6px; box-shadow: rgba(11, 10, 18, 0.45) 0px 18px 40px -22px; background: rgb(255, 255, 255) !important; color: rgb(11, 10, 18) !important; padding: 20px 20px 20px 54px !important; font-size: 16.5px !important; font-weight: 600 !important; line-height: 1.8 !important; min-height: 0px !important; }
+body#app.index .s-block--testimonials .swiper-slide p::after { content: ""; position: absolute; bottom: -10px; right: 22px; width: 22px; height: 14px; background: rgb(255, 255, 255); clip-path: polygon(0px 0px, 100% 0px, 85% 100%); }
+body#app.index .s-block--testimonials .testimonial__icon { z-index: 2; top: 14px !important; left: 16px !important; right: auto !important; color: rgb(255, 61, 127) !important; font-size: 26px !important; }
+body#app.index .s-block--testimonials .s-testimonials--slider--img { padding-inline-start: 12px; align-items: center !important; }
+body#app.index .s-block--testimonials .testimonial__avatar { width: 40px !important; height: 40px !important; }
+body#app.index .s-block--testimonials .testimonial__rating { background: rgb(11, 10, 18); border-radius: 999px; padding: 5px 10px; display: flex; align-items: center; }
+body#app.index .s-block--testimonials .testimonial__rating .s-rating-stars-btn-star { margin: 0px 1px !important; }
+body#app.index .s-block--testimonials .swiper-scrollbar { border-radius: 2px; background: rgb(217, 212, 245) !important; height: 4px !important; }
+body#app.index .s-block--testimonials .container, body#app.index .s-block--testimonials salla-slider, body#app.index .s-block--testimonials .s-slider-wrapper, body#app.index .s-block--testimonials .swiper, body#app.index .s-block--testimonials .swiper-wrapper, body#app.index .s-block--testimonials .s-slider-block__title { background: transparent !important; box-shadow: none !important; border: 0px !important; }
+body#app.index .s-block--testimonials .s-slider-block__display-all::after { display: none !important; }
+body#app.index .s-block--testimonials .s-slider-block__title { margin-bottom: 6px; }
+body#app.index .s-block--testimonials .s-testimonials--slider--img { width: max-content !important; max-width: 100%; }
+body#app.index .s-block--testimonials .testimonial__rating { width: max-content; }
+body#app.index .s-block--testimonials .swiper-slide > div > div { padding-bottom: 18px !important; }
 @media (max-width: 767px) {
-  body#app .s-block--testimonials .s-slider-block__title h2 { font-size: 19px !important; line-height: 1.35 !important; }
+  body#app.index .s-block--testimonials .s-slider-block__title h2 { font-size: 19px !important; line-height: 1.35 !important; }
 }
 body#app { color: rgb(244, 242, 255); }
 body#app .da-ts, body#app .text-gray-400, body#app .text-gray-500, body#app .text-gray-600, body#app .opacity-75 { color: rgb(194, 190, 221) !important; opacity: 1 !important; }
@@ -273,3 +273,11 @@ body#app .s-add-product-toast__card :not(button):not(button *) { border-color: r
 body#app .s-add-product-toast__card img { border-radius: 12px !important; }
 body#app .s-add-product-toast__card [class*="price"] { color: rgb(0, 229, 212) !important; font-weight: 800; }
 html body#app .s-button-outline:not(.sticky-product-bar *), html body#app .s-button-primary-outline:not(.sticky-product-bar *) { border-color: rgb(42, 37, 80) !important; color: rgb(255, 255, 255) !important; background: transparent !important; border-radius: 14px !important; }
+body#app .product-tags, body#app [class*="product-tags"], body#app .s-product-tags { display: none !important; }
+body#app .s-product-card-entry:is(:has(a[href*="p1591098480"]), :has(a[href*="p767542597"]), :has(a[href*="p904807258"]), :has(a[href*="p2046465224"])) .s-product-card-price { font-size: 0px !important; }
+body#app .s-product-card-entry:is(:has(a[href*="p1591098480"]), :has(a[href*="p767542597"]), :has(a[href*="p904807258"]), :has(a[href*="p2046465224"])) .s-product-card-price::before { font-size: 17px; font-weight: 800; color: rgb(0, 229, 212); }
+body#app .s-product-card-entry:is(:has(a[href*="p1591098480"]), :has(a[href*="p767542597"]), :has(a[href*="p904807258"]), :has(a[href*="p2046465224"])) .s-product-card-price-before { display: none !important; }
+body#app .s-product-card-entry:has(a[href*="p1591098480"]) .s-product-card-price::before { content: "من 4.99 ر.س"; }
+body#app .s-product-card-entry:has(a[href*="p767542597"]) .s-product-card-price::before { content: "من 5.99 ر.س"; }
+body#app .s-product-card-entry:has(a[href*="p904807258"]) .s-product-card-price::before { content: "من 1.99 ر.س"; }
+body#app .s-product-card-entry:has(a[href*="p2046465224"]) .s-product-card-price::before { content: "من 1.99 ر.س"; }

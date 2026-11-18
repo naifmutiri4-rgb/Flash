@@ -217,12 +217,12 @@ body#app.index .s-block--testimonials .s-slider-nav-arrow svg { fill: rgb(11, 10
 body#app.index .s-block--testimonials .swiper-slide > div { background: transparent !important; border: 0px !important; border-radius: 0px !important; overflow: visible !important; }
 body#app.index .s-block--testimonials .swiper-slide > div::before { display: none !important; }
 body#app.index .s-block--testimonials .swiper-slide > div > div { padding: 6px 2px 4px !important; gap: 12px !important; }
-body#app.index .s-block--testimonials .swiper-slide p { position: relative; border-radius: 22px 22px 6px; box-shadow: rgba(11, 10, 18, 0.45) 0px 18px 40px -22px; background: rgb(255, 255, 255) !important; color: rgb(11, 10, 18) !important; padding: 20px 20px 20px 54px !important; font-size: 16.5px !important; font-weight: 600 !important; line-height: 1.8 !important; min-height: 0px !important; }
-body#app.index .s-block--testimonials .swiper-slide p::after { content: ""; position: absolute; bottom: -10px; right: 22px; width: 22px; height: 14px; background: rgb(255, 255, 255); clip-path: polygon(0px 0px, 100% 0px, 85% 100%); }
-body#app.index .s-block--testimonials .testimonial__icon { z-index: 2; top: 14px !important; left: 16px !important; right: auto !important; color: rgb(255, 61, 127) !important; font-size: 26px !important; }
+body#app.index .s-block--testimonials .swiper-slide p { position: relative; border: 1px solid rgb(42, 37, 80); border-radius: 22px 22px 6px; box-shadow: rgba(11, 10, 18, 0.45) 0px 18px 40px -22px; background: linear-gradient(135deg, rgb(27, 24, 53), rgb(11, 10, 18)) !important; color: rgb(255, 255, 255) !important; padding: 20px 20px 20px 54px !important; font-size: 16.5px !important; font-weight: 600 !important; line-height: 1.8 !important; min-height: 0px !important; }
+body#app.index .s-block--testimonials .swiper-slide p::after { content: ""; position: absolute; bottom: -10px; right: 22px; width: 22px; height: 14px; background: rgb(11, 10, 18); clip-path: polygon(0px 0px, 100% 0px, 85% 100%); }
+body#app.index .s-block--testimonials .testimonial__icon { z-index: 2; top: 14px !important; left: 16px !important; right: auto !important; color: rgb(0, 229, 212) !important; font-size: 26px !important; }
 body#app.index .s-block--testimonials .s-testimonials--slider--img { padding-inline-start: 12px; align-items: center !important; }
 body#app.index .s-block--testimonials .testimonial__avatar { width: 40px !important; height: 40px !important; }
-body#app.index .s-block--testimonials .testimonial__rating { background: rgb(11, 10, 18); border-radius: 999px; padding: 5px 10px; display: flex; align-items: center; }
+body#app.index .s-block--testimonials .testimonial__rating { box-shadow: rgba(11, 10, 18, 0.35) 0px 6px 16px -8px; border-radius: 999px; padding: 5px 10px; display: flex; align-items: center; background: rgb(255, 255, 255) !important; }
 body#app.index .s-block--testimonials .testimonial__rating .s-rating-stars-btn-star { margin: 0px 1px !important; }
 body#app.index .s-block--testimonials .swiper-scrollbar { border-radius: 2px; background: rgb(217, 212, 245) !important; height: 4px !important; }
 body#app.index .s-block--testimonials .container, body#app.index .s-block--testimonials salla-slider, body#app.index .s-block--testimonials .s-slider-wrapper, body#app.index .s-block--testimonials .swiper, body#app.index .s-block--testimonials .swiper-wrapper, body#app.index .s-block--testimonials .s-slider-block__title { background: transparent !important; box-shadow: none !important; border: 0px !important; }
@@ -281,3 +281,15 @@ body#app .s-product-card-entry:has(a[href*="p1591098480"]) .s-product-card-price
 body#app .s-product-card-entry:has(a[href*="p767542597"]) .s-product-card-price::before { content: "من 5.99 ر.س"; }
 body#app .s-product-card-entry:has(a[href*="p904807258"]) .s-product-card-price::before { content: "من 1.99 ر.س"; }
 body#app .s-product-card-entry:has(a[href*="p2046465224"]) .s-product-card-price::before { content: "من 1.99 ر.س"; }
+body#app .s-product-options-grid-mode-span[data-lv-q] { flex-direction: column; gap: 2px; line-height: 1.2; font-size: 0px !important; }
+body#app .s-product-options-grid-mode-span[data-lv-q]::before { content: attr(data-lv-q); font-size: 15.5px; font-weight: 800; color: rgb(255, 255, 255); }
+body#app .s-product-options-grid-mode-span[data-lv-q]::after { content: attr(data-lv-p); font-size: 13px; font-weight: 700; color: rgb(194, 190, 221); }
+body#app .s-product-options-grid-mode input:checked + .s-product-options-grid-mode-span[data-lv-q]::after { color: rgb(0, 229, 212); }
+body#app .s-product-options-option-label[data-lv-sel] { flex-wrap: wrap; gap: 8px; }
+body#app .s-product-options-option-label[data-lv-sel]::after { content: attr(data-lv-sel); font-size: 12.5px; font-weight: 800; color: rgb(11, 10, 18); background: rgb(0, 229, 212); border-radius: 999px; padding: 4px 10px; line-height: 1.4; }
+html body#app.product-single .sticky-product-bar salla-add-product-button button.s-button-primary[data-lv-total]::after { content: attr(data-lv-total); display: block; flex-basis: 100%; width: 100%; text-align: center; font-size: 12.5px; font-weight: 800; line-height: 1.2; color: rgb(11, 10, 18); opacity: 0.85; unicode-bidi: plaintext; }
+html body#app.product-single .sticky-product-bar salla-add-product-button button.s-button-primary[data-lv-total] { align-content: center; row-gap: 1px; line-height: 1.25; flex-wrap: wrap !important; }
+body#app .s-add-product-button-mini-checkout-content { color: rgb(255, 255, 255) !important; font-weight: 800; }
+body#app .s-add-product-button-mini-checkout-content svg { width: 18px; height: 18px; fill: rgb(255, 61, 127) !important; }
+body#app.product-single:has(.s-product-options-grid-mode) .sticky-product-bar .starting-or-normal-price, body#app.product-single:has(.s-product-options-grid-mode) .sticky-product-bar .price_is_on_sale { display: none !important; }
+body#app.index .s-block--testimonials .s-testimonials--slider--img { background: transparent !important; box-shadow: none !important; border: 0px !important; }

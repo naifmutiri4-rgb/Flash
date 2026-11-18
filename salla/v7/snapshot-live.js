@@ -57,11 +57,12 @@ const HOME_HOW = `<section class="s-block s-block--bundle-html-content"><salla-c
 <div class="lv-how"><h2>3 خطوات</h2><ol><li><b>1</b>اختر الخدمة والكمية</li><li><b>2</b>الصق رابط المقطع</li><li><b>3</b>ادفع، والتنفيذ يبدأ فوراً</li></ol></div>
 </salla-custom-component></section>`;
 
-async function snap(browser, url, outName, isHome) {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, locale: 'ar-SA', userAgent: UA });
+async function snap(browser, url, outName, isHome, state) {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, locale: 'ar-SA', userAgent: UA, ...(state ? { storageState: state } : {}) });
   const p = await ctx.newPage();
   await p.route(r => /themes\/customization\/.*\.(css|js)/.test(r.href), r => r.fulfill({ status: 200, contentType: r.request().url().endsWith('.js') ? 'text/javascript' : 'text/css', body: '' }));
-  await p.route(r => decodeURI(r.href) === decodeURI(url), async route => {
+  if (state) await p.addInitScript(t => { const put = () => { if (document.head && !document.getElementById('lv-live')) { const s = document.createElement('style'); s.id = 'lv-live'; s.textContent = t; document.head.appendChild(s); return true; } }; if (!put()) new MutationObserver((m, o) => { if (put()) o.disconnect(); }).observe(document, { childList: true, subtree: true }); }, liveCss);
+  if (!state) await p.route(r => decodeURI(r.href) === decodeURI(url), async route => {
     let html = curl(url).toString('utf8');
     if (!html.includes('</head>')) throw new Error('page fetch blocked: ' + url);
     html = html.replace('"currency_code":"USD","country_code":"US"', '"currency_code":"SAR","country_code":"SA"')
@@ -81,6 +82,7 @@ async function snap(browser, url, outName, isHome) {
       const im = card.querySelector('.s-product-card-image img');
       if (id && IMG[id] && im) { im.src = IMG[id]; im.removeAttribute('data-src'); im.style.aspectRatio = '1/1'; }
     });
+    document.querySelectorAll('.cart-item').forEach(ci => { const a = ci.querySelector('a[href]'); const id = a && idOf(a.href); const im = ci.querySelector('img'); if (id && IMG[id] && im) { im.src = IMG[id]; im.removeAttribute('data-src'); } });
     if (pid && IMG[pid]) {
       document.querySelectorAll('.product-single .sidebar img').forEach(im => { im.src = IMG[pid]; im.removeAttribute('srcset'); im.removeAttribute('data-src'); });
       document.querySelectorAll('.sticky-product-bar [data-bg]').forEach(e => { e.style.backgroundImage = `url(${IMG[pid]})`; });
@@ -111,7 +113,13 @@ async function snap(browser, url, outName, isHome) {
       document.querySelectorAll('.main-content > .price .before-price').forEach(e => { e.innerHTML = sar(packs[pid][1]); });
       const sv = document.querySelector('#save-money'); if (sv) sv.innerHTML = sar(packs[pid][1] - packs[pid][0]);
     }
-    document.querySelectorAll('.s-cart-summary-total').forEach(e => { e.innerHTML = '0 ' + '<i class="sicon-sar"></i>'; });
+    if (document.body.classList.contains('cart')) {
+      document.querySelectorAll('.cart-item .item-total').forEach(e => { e.textContent = '12.99'; });
+      document.querySelectorAll('.cart-item .s-quantity-input-input').forEach(e => e.setAttribute('value', '1'));
+      document.querySelectorAll('.cart-item .item-price, .cart-item .item-total, .s-cart-summary-total, .s-cart-summary-card [class*="amount"], .s-cart-summary-card-bar > *:last-child, .s-cart-summary-card [class*="total"] span:last-child').forEach(e => { if (/\$/.test(e.textContent)) e.innerHTML = sar(12.99); });
+      document.querySelectorAll('.cart-item .s-product-options-grid-mode-span, .cart-item .s-product-options-grid-mode-span').forEach(() => {});
+      document.querySelectorAll('*').forEach(e => { if (e.children.length === 0 && /\$/.test(e.textContent) && /^[\s\d.,]+\$\s*$/.test(e.textContent)) e.innerHTML = sar(12.99); });
+    } else document.querySelectorAll('.s-cart-summary-total').forEach(e => { e.innerHTML = '0 ' + '<i class="sicon-sar"></i>'; });
   }, [PRICES, PACK_PRICES, FROM]);
   await p.waitForTimeout(500);
 
@@ -149,6 +157,7 @@ async function snap(browser, url, outName, isHome) {
     const id = (decodeURIComponent(u.pathname).match(/\/p(\d+)$/) || [])[1];
     if (id && PRODUCTS[id]) return `href="${PRODUCTS[id][0]}.html"`;
     if (u.host === 'flashstore-ksa.com' && (u.pathname === '/' || u.pathname === '')) return 'href="index.html"';
+    if (u.host === 'flashstore-ksa.com' && u.pathname === '/cart') return 'href="cart.html"';
     return 'href="#"';
   });
   html = html.replace('</head>', `<style>${css}</style></head>`).replace(/<title>[^<]*<\/title>/, '<title>فلاش ستور · بث مباشر</title>');
@@ -159,6 +168,7 @@ async function snap(browser, url, outName, isHome) {
 
 (async () => {
   const b = await chromium.launch();
+  if (process.argv[2] === 'cart') { await snap(b, BASE + '/cart', 'cart', false, process.argv[3]); await b.close(); return; }
   await snap(b, BASE + '/', 'index', true);
   for (const [id, [slug, ar]] of Object.entries(PRODUCTS)) await snap(b, `${BASE}/${ar}/p${id}`, slug, false);
   await b.close();

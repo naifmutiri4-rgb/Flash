@@ -206,7 +206,7 @@ body#app.index .s-block--testimonials::before{content:"";position:absolute;width
 body#app.index .s-block--testimonials::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,212,.25),transparent 70%);bottom:-100px;right:-70px;pointer-events:none}
 body#app.index .s-block--testimonials .container{position:relative;z-index:1}
 body#app.index .s-block--testimonials .s-slider-block__title h2{color:#0B0A12!important;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-body#app.index .s-block--testimonials .s-slider-block__title h2::before{content:"● LIVE";font-size:11px;font-weight:800;letter-spacing:.5px;color:#fff;background:#FF3D7F;border-radius:999px;padding:4px 10px;line-height:1.4;box-shadow:0 6px 16px -6px #FF3D7F;animation:lv-pulse 1.6s ease-in-out infinite}
+body#app.index .s-block--testimonials .s-slider-block__title h2::before{content:"● LIVE";font-size:11px;font-weight:800;letter-spacing:.5px;color:#fff;background:#FF3D7F;border-radius:999px;padding:4px 10px;line-height:1.4;box-shadow:0 6px 16px -6px #FF3D7F}
 @keyframes lv-pulse{50%{box-shadow:0 0 0 6px rgba(255,61,127,.15),0 6px 16px -6px #FF3D7F}}
 @media (prefers-reduced-motion:reduce){body#app.index .s-block--testimonials .s-slider-block__title h2::before{animation:none}}
 body#app.index .s-block--testimonials .s-slider-block__display-all{background:#0B0A12!important;color:#fff!important}
@@ -321,3 +321,24 @@ body#app.index .s-block--testimonials .s-slider-block__title-left{flex:1 1 100%!
 @keyframes lv-pl-fill{from{transform:scaleX(var(--lv-from,.6))}to{transform:scaleX(1)}}
 @keyframes lv-pl-out{to{opacity:0;visibility:hidden;pointer-events:none}}
 @media (prefers-reduced-motion:reduce){#preloader,#preloader img.preloader,#preloader::after{animation-duration:.01s}#preloader{animation-delay:.8s}#preloader::after{transform:none}}
+body#app.index section[component-id="1938081345"] img{width:100%;height:auto}
+@media (max-width:767px){body#app.index section[component-id="1938081345"] img{aspect-ratio:800/1067}}
+@media (min-width:768px){body#app.index section[component-id="1938081345"] img{aspect-ratio:1456/520}}
+body#app.index section[component-id="822903265"]{min-height:198px}
+body#app.index section[component-id="997991654"]{min-height:1200px}
+body#app.index section[component-id="358171623"]{min-height:880px}
+body#app.index section[component-id="1555484643"]{min-height:330px}
+body#app.index section[component-id="1771505125"]{min-height:446px}
+@media (min-width:768px){
+  body#app.index section[component-id="822903265"]{min-height:186px}
+  body#app.index section[component-id="997991654"]{min-height:620px}
+  body#app.index section[component-id="358171623"]{min-height:700px}
+  body#app.index section[component-id="1555484643"]{min-height:246px}
+  body#app.index section[component-id="1771505125"]{min-height:422px}
+}
+body#app .store-header{min-height:62px}
+body#app .store-header:has(.angel-ad){min-height:94px}
+@media (min-width:768px){body#app .store-header{min-height:74px}body#app .store-header:has(.angel-ad){min-height:106px}}
+body#app.product-index salla-products-list{display:block}
+body#app.product-index salla-products-list:not(:has(.s-product-card-entry)){min-height:1080px}
+@media (min-width:768px){body#app.product-index salla-products-list:not(:has(.s-product-card-entry)){min-height:380px}}

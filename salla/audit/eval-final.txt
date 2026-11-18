@@ -1,0 +1,8 @@
+cat {"mode":"before","ttfb":866,"fcp":1560,"lcp":5376,"lcpEl":"img a3d90181-6c5b-4f5d-9e46-8","cls":0.907,"tbt":639,"requests":104,"totalKB":1238,"jsKB":546,"imgKB":125,"injected":false}
+cat {"mode":"after","ttfb":533,"fcp":1064,"lcp":4964,"lcpEl":"img 43b08d9b-131b-436d-aab8-4","cls":0.028,"tbt":855,"requests":105,"totalKB":1287,"jsKB":546,"imgKB":125,"injected":true}
+views {"mode":"before","ttfb":1150,"fcp":1888,"lcp":1888,"lcpEl":"img f72d3e3d-a885-4e33-9ef4-7","cls":0.099,"tbt":514,"requests":148,"totalKB":1313,"jsKB":655,"imgKB":83,"injected":false}
+views {"mode":"after","ttfb":1276,"fcp":2012,"lcp":2024,"lcpEl":"img f72d3e3d-a885-4e33-9ef4-7","cls":0.057,"tbt":698,"requests":149,"totalKB":1362,"jsKB":655,"imgKB":83,"injected":true}
+pack {"mode":"before","ttfb":648,"fcp":1300,"lcp":1300,"lcpEl":"img 1861a2b2-55d4-4d05-a01b-e","cls":0.101,"tbt":579,"requests":146,"totalKB":1290,"jsKB":654,"imgKB":61,"injected":false}
+pack {"mode":"after","ttfb":774,"fcp":1416,"lcp":1416,"lcpEl":"img 1861a2b2-55d4-4d05-a01b-e","cls":0.044,"tbt":565,"requests":147,"totalKB":1338,"jsKB":654,"imgKB":61,"injected":true}
+cart {"mode":"before","ttfb":613,"fcp":1216,"lcp":1216,"lcpEl":"p اول متجر آلي متكامل في ال","cls":0.286,"tbt":359,"requests":85,"totalKB":1076,"jsKB":502,"imgKB":20,"injected":false}
+cart {"mode":"after","ttfb":827,"fcp":1516,"lcp":1516,"lcpEl":"h1 سلة المشتريات\n\t\t\t\t\t\t(لا ي","cls":0.026,"tbt":432,"requests":85,"totalKB":1076,"jsKB":502,"imgKB":20,"injected":true}

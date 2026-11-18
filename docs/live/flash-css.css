@@ -343,3 +343,23 @@ body#app.product-index salla-products-list{display:block}
 body#app.product-index salla-products-list:not(:has(.s-product-card-entry)){min-height:1080px}
 @media (min-width:768px){body#app.product-index salla-products-list:not(:has(.s-product-card-entry)){min-height:380px}}
 @media (max-width:767px){body#app.index section[component-id="1938081345"]{padding:0!important;margin-top:0!important}body#app.index section[component-id="1938081345"] .container{padding:0!important;max-width:none!important;width:100%!important}body#app.index section[component-id="1938081345"] .banner--fixed,body#app.index section[component-id="1938081345"] img{border-radius:0!important}}
+body#app :is(section[component-id="721318189"],section.lv-packs){background:transparent!important;border-radius:0}
+body#app :is(section[component-id="721318189"],section.lv-packs) .angel-products-title h2{color:#FFFFFF!important}
+body#app :is(section[component-id="721318189"],section.lv-packs) .angel-products-title p{color:#C2BEDD!important}
+body#app :is(section[component-id="721318189"],section.lv-packs) .angel-products-title a{color:#00E5D4!important}
+body#app :is(section[component-id="721318189"],section.lv-packs) .s-product-card-entry{background:#16142A!important;border-color:#241F45!important;box-shadow:none}
+body#app.index .s-block--testimonials{background:transparent!important;border-radius:0}
+body#app.index .s-block--testimonials::before,body#app.index .s-block--testimonials::after{display:none!important}
+body#app.index .s-block--testimonials .s-slider-block__title h2{color:#FFFFFF!important}
+body#app.index .s-block--testimonials .s-slider-block__display-all{background:#00E5D4!important;color:#0B0A12!important}
+body#app.index .s-block--testimonials .s-slider-prev{background:#16142A!important;box-shadow:none;border:1px solid #2A2550!important}
+body#app.index .s-block--testimonials .s-slider-prev svg{fill:#FFFFFF!important}
+body#app.index .s-block--testimonials .swiper-scrollbar{background:#16142A!important}
+html body#app.product-single article.full-description{background:#16142A!important;border:1px solid #241F45}
+html body#app.product-single article.full-description,html body#app.product-single article.full-description *{color:#E6E3F7!important;-webkit-text-fill-color:#E6E3F7}
+html body#app.product-single article.full-description h3{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF}
+html body#app.product-single article.full-description li{background:#0B0A12!important;border:1px solid #241F45}
+html body#app.product-single article.full-description li strong,html body#app.product-single article.full-description p strong{color:#FF3D7F!important;-webkit-text-fill-color:#FF3D7F}
+html body#app.product-single article.full-description a{color:#00E5D4!important;-webkit-text-fill-color:#00E5D4}
+.lv-how li{background:#16142A;color:#FFFFFF;border:1px solid #241F45}
+.product-single .main-content>.mb-3{display:none!important}

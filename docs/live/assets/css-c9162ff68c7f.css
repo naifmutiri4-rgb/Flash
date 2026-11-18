@@ -374,3 +374,23 @@ body#app.product-index salla-products-list:not(:has(.s-product-card-entry)) { mi
   body#app.index section[component-id="1938081345"] .container { padding: 0px !important; max-width: none !important; width: 100% !important; }
   body#app.index section[component-id="1938081345"] .banner--fixed, body#app.index section[component-id="1938081345"] img { border-radius: 0px !important; }
 }
+body#app :is(section[component-id="721318189"], section.lv-packs) { border-radius: 0px; background: transparent !important; }
+body#app :is(section[component-id="721318189"], section.lv-packs) .angel-products-title h2 { color: rgb(255, 255, 255) !important; }
+body#app :is(section[component-id="721318189"], section.lv-packs) .angel-products-title p { color: rgb(194, 190, 221) !important; }
+body#app :is(section[component-id="721318189"], section.lv-packs) .angel-products-title a { color: rgb(0, 229, 212) !important; }
+body#app :is(section[component-id="721318189"], section.lv-packs) .s-product-card-entry { box-shadow: none; background: rgb(22, 20, 42) !important; border-color: rgb(36, 31, 69) !important; }
+body#app.index .s-block--testimonials { border-radius: 0px; background: transparent !important; }
+body#app.index .s-block--testimonials::before, body#app.index .s-block--testimonials::after { display: none !important; }
+body#app.index .s-block--testimonials .s-slider-block__title h2 { color: rgb(255, 255, 255) !important; }
+body#app.index .s-block--testimonials .s-slider-block__display-all { background: rgb(0, 229, 212) !important; color: rgb(11, 10, 18) !important; }
+body#app.index .s-block--testimonials .s-slider-prev { box-shadow: none; background: rgb(22, 20, 42) !important; border: 1px solid rgb(42, 37, 80) !important; }
+body#app.index .s-block--testimonials .s-slider-prev svg { fill: rgb(255, 255, 255) !important; }
+body#app.index .s-block--testimonials .swiper-scrollbar { background: rgb(22, 20, 42) !important; }
+html body#app.product-single article.full-description { border: 1px solid rgb(36, 31, 69); background: rgb(22, 20, 42) !important; }
+html body#app.product-single article.full-description, html body#app.product-single article.full-description * { color: rgb(230, 227, 247) !important; -webkit-text-fill-color: rgb(230, 227, 247); }
+html body#app.product-single article.full-description h3 { color: rgb(255, 255, 255) !important; -webkit-text-fill-color: rgb(255, 255, 255); }
+html body#app.product-single article.full-description li { border: 1px solid rgb(36, 31, 69); background: rgb(11, 10, 18) !important; }
+html body#app.product-single article.full-description li strong, html body#app.product-single article.full-description p strong { color: rgb(255, 61, 127) !important; -webkit-text-fill-color: rgb(255, 61, 127); }
+html body#app.product-single article.full-description a { color: rgb(0, 229, 212) !important; -webkit-text-fill-color: rgb(0, 229, 212); }
+.lv-how li { background: rgb(22, 20, 42); color: rgb(255, 255, 255); border: 1px solid rgb(36, 31, 69); }
+.product-single .main-content > .mb-3 { display: none !important; }

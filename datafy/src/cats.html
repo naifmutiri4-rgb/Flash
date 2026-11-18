@@ -1,0 +1,41 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<script src="logo.js"></script><script src="icons.js"></script><script src="data.js"></script>
+<style>
+body{background:#222;display:flex;flex-wrap:wrap;gap:20px;padding:20px}
+.t{--ac:#7B5CFF;width:1080px;height:1080px;position:relative;overflow:hidden;padding:76px 80px;display:flex;flex-direction:column;
+ background:radial-gradient(900px 800px at 0% 100%,color-mix(in oklab,var(--ac) 70%,transparent),transparent 60%),
+ radial-gradient(700px 600px at 100% 0%,color-mix(in oklab,var(--ac) 30%,transparent),transparent 65%),#070A18}
+.t::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1.5px,transparent 1.6px);background-size:36px 36px;mask:linear-gradient(200deg,#000,transparent 60%)}
+.wm{position:absolute;left:-20px;bottom:180px;font-family:'Readex Pro';font-weight:700;font-size:250px;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2.5px color-mix(in oklab,var(--ac) 60%,transparent);direction:ltr;opacity:.55;white-space:nowrap}
+.simx{position:absolute;left:90px;top:430px;width:300px;height:380px;transform:rotate(-14deg) scale(.86);transform-origin:0 0;filter:drop-shadow(0 40px 70px color-mix(in oklab,var(--ac) 60%,transparent))}
+.simx .ct{position:absolute;left:66px;top:110px;width:170px;height:140px;border-radius:22px;background:linear-gradient(135deg,#FFE7A3,#E7B54A 60%,#C68F25)}
+.simx .ct::before{content:"";position:absolute;inset:0;background:linear-gradient(#9A6A14,#9A6A14) 50% 0/3px 100% no-repeat,linear-gradient(#9A6A14,#9A6A14) 0 33%/42% 3px no-repeat,linear-gradient(#9A6A14,#9A6A14) 0 66%/42% 3px no-repeat,linear-gradient(#9A6A14,#9A6A14) 100% 33%/42% 3px no-repeat,linear-gradient(#9A6A14,#9A6A14) 100% 66%/42% 3px no-repeat;opacity:.7}
+.simx .nm{position:absolute;bottom:34px;left:0;right:0;text-align:center;font-family:'Readex Pro';font-weight:700;font-size:30px;letter-spacing:.2em;color:rgba(255,255,255,.92);direction:ltr}
+.top{display:flex;justify-content:flex-start;position:relative}
+.mk{position:absolute;left:0;top:0}
+.lbl{display:inline-flex;align-items:center;gap:12px;font-size:28px;font-weight:600;padding:12px 24px;border-radius:99px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.16)}
+.lbl i{width:16px;height:16px;border-radius:50%;background:var(--ac);box-shadow:0 0 18px var(--ac)}
+h1{position:relative;font-family:Alexandria;font-weight:900;font-size:170px;line-height:1.1;margin-top:50px;color:#fff;text-shadow:0 10px 50px rgba(0,0,0,.35)}
+.sub{position:relative;font-size:40px;color:#DDE2FF;margin-top:6px}
+.stats{position:relative;display:flex;gap:16px;margin-top:auto}
+.st{background:rgba(7,10,24,.55);backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,.14);border-radius:26px;padding:20px 26px;min-width:220px}
+.st small{display:block;font-size:24px;color:#B9C0E6}.st b{font-family:'Readex Pro';font-size:52px;font-weight:700;line-height:1.2}
+.bt{position:relative;display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding:22px 26px 22px 22px;border-radius:28px;background:var(--ac);color:#fff}
+.bt span{font-size:30px;font-weight:700}
+.bt i{width:70px;height:70px;border-radius:50%;background:#fff;color:var(--ac);display:grid;place-items:center}.bt i svg{width:34px;height:34px}
+</style></head><body>
+<script>
+const OPS=[['sawa','stc سوا','STC'],['mobily','موبايلي','MOBILY'],['zain','زين','ZAIN'],['redbull','ريد بُل','REDBULL'],['salam','سلام','SALAM'],['lebara','ليبارا','LEBARA']];
+const SIM=c=>`<svg viewBox="0 0 300 380" width="300" height="380" style="position:absolute;inset:0"><defs><linearGradient id="g${c}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="#ffffff" stop-opacity=".85"/></linearGradient></defs><path d="M90 0H262A38 38 0 0 1 300 38V342A38 38 0 0 1 262 380H38A38 38 0 0 1 0 342V90Z" fill="url(#g${c})"/></svg>`;
+const ARR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>';
+for(const [k,ar,lat] of OPS){const ps=P.filter(p=>p.op===k);const unl=ps.some(p=>p.data==='UNL');
+ const mx=Math.max(...ps.filter(p=>p.data&&p.data!=='UNL').map(p=>+p.data));const ac=OPC[k];
+ const el=document.createElement('div');el.className='t';el.dataset.shot='cat-'+k;el.style.setProperty('--ac',ac);
+ const branch=k==='sawa'?'stc':ar;
+ el.innerHTML=`<div class="wm">${lat}</div><div class="simx">${SIM(ac)}<div class="ct"></div><div class="nm">${lat}</div></div>
+ <div class="top"><span class="lbl"><i></i>شرائح إنترنت</span><div class="mk">${dfMark(78)}</div></div>
+ <h1>${ar}</h1><div class="sub">استلام وتوصيل من فرع ${branch}</div>
+ <div class="stats"><div class="st"><small>عدد الباقات</small><b>${ps.length}</b></div><div class="st"><small>أعلى باقة</small><b>${unl?'لا محدود':'<span dir=ltr>'+mx+' GB</span>'}</b></div></div>
+ <div class="bt"><span>تصفّح باقات ${ar}</span><i>${ARR}</i></div>`;
+ document.body.appendChild(el)}
+</script></body></html>

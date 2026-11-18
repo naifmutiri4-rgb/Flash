@@ -1,0 +1,10 @@
+const { chromium } = require('playwright'); const fs=require('fs');
+(async () => { const b = await chromium.launch(); const p = await b.newPage({ viewport:{width:390,height:844}});
+ await p.route(u => /themes\/customization\/.*\.css/.test(u.href), r => r.fulfill({ status: 200, contentType: 'text/css', body: '' }));
+ await p.goto(process.argv[2],{waitUntil:'networkidle',timeout:90000}); await p.addStyleTag({content:fs.readFileSync('live.css','utf8')}); await p.waitForTimeout(500);
+ console.log(await p.evaluate(()=>{const a=document.querySelector('article.full-description'); const t=a.querySelector('p,li,h3'); const c=getComputedStyle(t); const ca=getComputedStyle(a,'::before'); const cb=getComputedStyle(a,'::after');
+ const out=['p color '+c.color+' fill '+c.webkitTextFillColor+' op '+c.opacity, 'article op '+getComputedStyle(a).opacity+' mask '+getComputedStyle(a).maskImage, 'before '+ca.content+' '+ca.background.slice(0,120), 'after '+cb.content+' '+cb.background.slice(0,80), 'inner: '+a.innerHTML.slice(0,300)];
+ const bar=document.querySelector('.sticky-product-bar'); out.push([...bar.querySelectorAll('button,salla-mini-checkout-widget,salla-add-product-button')].map(e=>e.tagName+'.'+[...e.classList].join('.')+' parent:'+e.parentElement.tagName+'.'+e.parentElement.className.slice(0,60)).join('\n'));
+ const tot=document.querySelector('#product-tabs-options section.total'); out.push('total: '+(tot&&tot.outerHTML.replace(/\s+/g,' ').slice(0,300)));
+ return out.join('\n');}));
+ await b.close(); })();

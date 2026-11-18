@@ -1,0 +1,1119 @@
+# ثيم ملاك (Malak) لمنصة سلة: مرجع الكلاسات والهيكل
+
+المصدر: ثيم ملاك إصدار 1.175.0، مأخوذ من متجر حي على سلة.
+ملف CSS الكامل للثيم: https://cdn.assets.salla.network/themes/1034648396/1.175.0/app.css
+CSS الكلاسات المستخدمة فعلياً: https://naifmutiri4-rgb.github.io/Flash/live/malak-used.css
+
+طريقة القراءة:
+- كل سطر في الهيكل = عنصر: tag#id.class1.class2 "نص مختصر"
+- المسافة في بداية السطر = مستوى العنصر داخل اللي فوقه
+- "… (+N مثله)" = فيه N عناصر مكررة بنفس الشكل
+- العناصر اللي تبدأ بـ salla- هي مكونات جاهزة من سلة (Web Components)
+- كلاسات s- تخص مكونات سلة، وباقي الكلاسات (store-header, angel-, product-…) من الثيم نفسه
+- الثيم يستخدم Tailwind (flex, gap-4, md:..., إلخ) مع كلاساته الخاصة
+
+## متغيرات الثيم (:root)
+:root{--infinte-color:#c9c9c9;--main-text-color:#231f1e;--main-text-color-dark:#2b2d34;--color-primary:#5cd5c4;--color-primary:#414042;--color-primary-d:#272628;--color-primary-l:#676668;--color-primary-reverse:#ff6767;--color-text:#7c8082;--bg-gray:hsla(233,8%,79%,.102);--color-grey:#f5f7f9;--color-light-grey:#eee;--font-sm:0.8685714286rem}
+:root{--swiper-theme-color:#007aff}
+:root{--swiper-navigation-size:44px}
+:root{--mm-ocd-width:80%;--mm-ocd-min-width:200px;--mm-ocd-max-width:440px}
+:root{--mm-spn-item-height:50px;--mm-spn-item-indent:20px;--mm-spn-line-height:24px;--mm-spn-panel-offset:30%}
+
+## كلاس body
+body#app.<نوع الصفحة>.salla-<store_id>.color-mode-light.rtl.font-pingarlt
+نوع الصفحة: index (الرئيسية) · product-single (المنتج) · product-index (التصنيف) · cart (السلة)
+
+## الهيدر
+header.store-header.dark.fixed-sticky
+  div#mainnav.main-nav-container.shadow-default
+    div.header-inner.inner.bg-white.da-bgm.has-custom-bg
+      div.angel-ad.overflow-hidden
+        div.mask-block
+          div.angel-ad__slider
+            div.angel-ad__item
+              i.sicon-alert-engine.angel-ad__icon
+              a.angel-ad__content.pointer-events-none "خصم 10% على كل الخدمات ب…"
+            … (+10 مثله)
+        div.flex-center.absolute.h-6.w-6.top-2.ltr:right-2.rtl:left-2.rounded-full
+          a.w-full.h-full.flex-center.ad-close.sicon-cancel.text-lg.text-red-400
+      div.header-container.container
+        div.flex.items-stretch.justify-between.relative
+          div.flex.items-center.justify-start.w-1/3
+            button#back-Btn.back-btn.header-btn.ltr:mr-2.rtl:ml-2.md:hidden.flex-center
+              i.sicon-arrow-right.text-lg.da-tm
+            a.mburger.mburger--collapse.flex.items-start.ltr:mr-1.rtl:ml-1
+              i.sicon-menu.text-primary.text-2xl
+              p.da-tm.hidden.text-xl.md:block.ltr:ml-1.rtl:mr-1 "القائمة"
+            button.!hidden.currency.text-lg.btn.basis-0.!px-0.da-tm
+              span.currency-btn.ltr:ml-2.rtl:mr-2
+                span "العملة:"
+                span.symbol-name.ltr:mr-1.rtl:ml-1.hidden "دولار أمريكي"
+                span.symbol-code.ltr:mr-1.rtl:ml-1 "$"
+          div.flex.items-center.flex-col.justify-center
+            a.navbar-brand.p-1
+              img.logo-dark
+              h1.sr-only "اسم المتجر"
+          div.flex.items-center.justify-end.w-1/3
+            div.header-buttons.hidden.lg:block
+              button.currency.text-lg.btn.basis-0.!px-0.da-tm
+                span.currency-btn.ltr:ml-2.rtl:mr-2
+              salla-localization-modal
+            button.search-btn.header-btn.flex.da-fm.cursor-pointer
+              i.sicon-search.text-base.text-black.da-tm
+            button.header-btn.!flex
+              i.sicon-user.text-base.text-black.da-tm
+            salla-cart-summary.header-cart.no-summary
+              a.s-cart-summary-wrapper
+                div#s-cart-icon
+                span.s-cart-summary-count "0"
+                p.s-cart-summary-content
+  div.inner.nav-header.hidden
+    div.container.!hidden.lg:!flex.justify-between
+      div.flex.items-center.justify-start.relative.w-max
+
+## الصفحة الرئيسية (أقسام s-block)
+header.store-header.dark.fixed-sticky
+  div#mainnav.main-nav-container.shadow-default
+    div.header-inner.inner.bg-white.da-bgm.has-custom-bg
+      div.angel-ad.overflow-hidden
+        div.mask-block
+          div.angel-ad__slider
+            div.angel-ad__item
+              i.sicon-alert-engine.angel-ad__icon
+              a.angel-ad__content.pointer-events-none "خصم 10% على كل الخدمات ب…"
+            … (+10 مثله)
+        div.flex-center.absolute.h-6.w-6.top-2.ltr:right-2.rtl:left-2.rounded-full
+          a.w-full.h-full.flex-center.ad-close.sicon-cancel.text-lg.text-red-400
+      div.header-container.container
+        div.flex.items-stretch.justify-between.relative
+          div.flex.items-center.justify-start.w-1/3
+            button#back-Btn.back-btn.header-btn.ltr:mr-2.rtl:ml-2.md:hidden.flex-center
+              i.sicon-arrow-right.text-lg.da-tm
+            a.mburger.mburger--collapse.flex.items-start.ltr:mr-1.rtl:ml-1
+              i.sicon-menu.text-primary.text-2xl
+              p.da-tm.hidden.text-xl.md:block.ltr:ml-1.rtl:mr-1 "القائمة"
+            button.!hidden.currency.text-lg.btn.basis-0.!px-0.da-tm
+              span.currency-btn.ltr:ml-2.rtl:mr-2
+          div.flex.items-center.flex-col.justify-center
+            a.navbar-brand.p-1
+              img.logo-dark
+              h1.sr-only "اسم المتجر"
+          div.flex.items-center.justify-end.w-1/3
+            div.header-buttons.hidden.lg:block
+              button.currency.text-lg.btn.basis-0.!px-0.da-tm
+              salla-localization-modal
+            button.search-btn.header-btn.flex.da-fm.cursor-pointer
+              i.sicon-search.text-base.text-black.da-tm
+            button.header-btn.!flex
+              i.sicon-user.text-base.text-black.da-tm
+            salla-cart-summary.header-cart.no-summary
+              a.s-cart-summary-wrapper
+  div.inner.nav-header.hidden
+    div.container.!hidden.lg:!flex.justify-between
+      div.flex.items-center.justify-start.relative.w-max
+salla-hook
+section.s-block.s-block--fixed-banner.wide-placeholder
+  div.container
+    a.banner.banner--fixed.overflow-hidden
+      picture.block
+        source
+        img.w-full.h-auto
+section.s-block.s-block--bundle-html-content
+  salla-html-content-4yqh01.s-block.s-block-html-content
+    div
+      div
+        i
+      … (+3 مثله)
+section.s-block.s-block--angel-products.angel-products-2.angel-products
+  div.mob:container.md:px-4.angel-products-container
+    div.s-block__title.angel-products-title
+      div.title-wrapper.flex.gap-2
+        div.flex.flex-col.w-full
+          h2.w-full.da-cp "تفاعل أكثر لمقطعك على تي…"
+          p.w-full.!p-0.text-gray-400.da-ts "باقات جاهزة فيها مشاهدات…"
+    salla-products-list.s-products-list
+      div.s-products-list-wrapper.s-products-list-vertical-cards
+        custom-salla-product-card.s-product-card-entry.angel-shine-hover.dark.rounded-2xl.s-product-card-vertical.s-product-card-fit-height
+          div.s-product-card-image.grow-0
+            a.flex-center.h-full.w-full.angel-shine-obj
+              img.s-product-card-image-cover.lazy__bg.lazy_img.lazy.loaded
+              div.s-product-card-rating
+              div.s-product-card-discount.card-discount.font-primary
+          div.s-product-card-content
+            div.s-product-card-content-main
+              div.s-product-card-props
+              h3.s-product-card-content-title.line-clamp-1.font-primary
+            div.s-product-card-content-sub.justify-between
+              div.s-product-card-sale-price.justify-start
+            div.s-product-card-content-footer.rounded-2xl
+              salla-add-product-button
+        … (+4 مثله)
+      div.s-infinite-scroll-status
+        p.s-infinite-scroll-last.infinite-scroll-last.s-hidden "لا يوجد المزيد لعرضه"
+        p.s-infinite-scroll-error.infinite-scroll-error.s-hidden "تعذَّر عرض المزيد"
+section.s-block.s-block--angel-products.angel-products-3.centered-title.angel-products
+  div.container.angel-products-container
+    div.s-block__title.angel-products-title
+      div.title-wrapper.flex.flex-col.gap-4.items-center.justify-center
+        div.flex.flex-col.w-auto
+          h2.w-full.da-cp "خدمة مفردة"
+          p.w-full.!p-0.text-gray-400.da-ts "تبي نوع واحد بس؟ اختر ال…"
+    salla-products-list.s-products-list
+      div.s-products-list-wrapper.s-products-list-vertical-cards
+        custom-salla-product-card.s-product-card-entry.angel-shine-hover.dark.rounded-2xl.s-product-card-vertical.s-product-card-fit-height
+          div.s-product-card-image.grow-0
+            a.flex-center.h-full.w-full.angel-shine-obj
+              img.s-product-card-image-cover.lazy__bg.lazy_img.lazy
+              div.s-product-card-rating
+          div.s-product-card-content
+            div.s-product-card-content-main
+              div.s-product-card-props
+              h3.s-product-card-content-title.line-clamp-1.font-primary
+            div.s-product-card-content-sub.justify-between
+              h4.s-product-card-price "-"
+            div.s-product-card-content-footer.rounded-2xl
+              salla-add-product-button
+        … (+3 مثله)
+      div.s-infinite-scroll-status
+        p.s-infinite-scroll-last.infinite-scroll-last.s-hidden "لا يوجد المزيد لعرضه"
+        p.s-infinite-scroll-error.infinite-scroll-error.s-hidden "تعذَّر عرض المزيد"
+section.s-block.s-block--bundle-html-content
+  salla-html-content-4yqh01.s-block.s-block-html-content
+    div
+      h2 "3 خطوات"
+      ol
+        li
+          b "1"
+        … (+2 مثله)
+section.s-block.s-block--testimonials
+  div.container
+    salla-slider#testimonials-5-slider.testimonials-slider.s-slider-wrapper.s-slider-horizontal
+      div.s-slider-block__title
+        div.s-slider-block__title-right
+          h2 "قالوا عن اسم المتجر…"
+        div.s-slider-block__title-left
+          a.s-slider-block__display-all "عرض الكل"
+          div.s-slider-block__title-nav
+            button.s-slider-prev.s-slider-nav-arrow.swiper-button-disabled
+              span.s-slider-button-icon
+            button.s-slider-next.s-slider-nav-arrow
+              span.s-slider-button-icon
+      div.swiper.s-slider-container.swiper-initialized.swiper-horizontal.swiper-rtl
+        div.swiper-scrollbar.swiper-scrollbar-horizontal
+          div.swiper-scrollbar-drag
+        div.swiper-wrapper.s-slider-swiper-wrapper
+          div.swiper-slide.mt-8.px-2.swiper-width-control
+            div.flex.h-full.transition-shadow.duration-500.hover:shadow-default.bg-white.da-bgg.rounded-lg.relative
+              div.flex.flex-col.w-full.px-4.pb-8.-mt-8
+          div.swiper-slide.mt-8.px-2.swiper-width-control
+            div.flex.h-full.transition-shadow.duration-500.hover:shadow-default.bg-white.da-bgg.rounded-lg.relative
+              div.flex.flex-col.w-full.px-4.pb-8.-mt-8
+          div.swiper-slide.mt-8.px-2.swiper-width-control
+            div.flex.h-full.transition-shadow.duration-500.hover:shadow-default.bg-white.da-bgg.rounded-lg.relative
+              div.flex.flex-col.w-full.px-4.pb-8.-mt-8
+          … (+27 مثله)
+        span.swiper-notification
+section.s-block.s-block--faqs
+  div.container
+    div.s-block__title
+      div.flex.flex-col.w-full
+        h2.w-full.da-cp.text-center "الأسئلة الشائعة"
+        p.w-full.text-center.!p-0.text-gray-400.da-ts "إجابات على أهم الأسئلة"
+    div.faqs-list.grid.items-start.grid-cols-1.md:grid-cols-2.gap-4
+      div.faq-container
+        input#faq-16.hidden
+        div.faqs-list__item.bg-gray-100.da-bgg.relative.overflow-hidden.rounded-md.border-2.border-transparent
+          label.block.cursor-pointer.p-6.ltr:mr-16.rtl:ml-16.text-sm.font-primary.leading-6.transition
+            i.faq-item.open-badge.sicon-add.absolute.top-5.ltr:right-4.rtl:left-4.h-8.w-8.flex-center.rounded-full.bg-white.da-bgm.transition-colors.duration-300
+          div.answer-container
+            div.faq-answer.max-h-0.-translate-y-2.overflow-y-auto.px-6.leading-6.text-sm.opacity-0.transition-all.duration-300
+              p.da-tm.mb-6 "آلياً بعد إتمام الدفع مب…"
+      … (+7 مثله)
+section.s-block.s-block--bundle-personalized-shoppers-who-bought
+  salla-personalized-shoppers-who-bought-o2ehi4
+salla-hook
+
+## صفحة المنتج (المحتوى بين الهيدر والفوتر)
+  div#mainnav.main-nav-container
+    div.header-inner.inner.bg-white.da-bgm.has-custom-bg
+      div.angel-ad.overflow-hidden
+        div.mask-block
+          div.angel-ad__slider
+            div.angel-ad__item
+              i.sicon-alert-engine.angel-ad__icon
+              a.angel-ad__content.pointer-events-none "خصم 10% على كل الخدمات ب…"
+            … (+10 مثله)
+        div.flex-center.absolute.h-6.w-6.top-2.ltr:right-2.rtl:left-2.rounded-full
+          a.w-full.h-full.flex-center.ad-close.sicon-cancel.text-lg.text-red-400
+      div.header-container.container
+        div.flex.items-stretch.justify-between.relative
+          div.flex.items-center.justify-start.w-1/3
+            button#back-Btn.back-btn.header-btn.ltr:mr-2.rtl:ml-2.md:hidden.flex-center
+              i.sicon-arrow-right.text-lg.da-tm
+            a.mburger.mburger--collapse.flex.items-start.ltr:mr-1.rtl:ml-1
+              i.sicon-menu.text-primary.text-2xl
+              p.da-tm.hidden.text-xl.md:block.ltr:ml-1.rtl:mr-1 "القائمة"
+            button.!hidden.currency.text-lg.btn.basis-0.!px-0.da-tm
+              span.currency-btn.ltr:ml-2.rtl:mr-2
+                span "العملة:"
+                span.symbol-name.ltr:mr-1.rtl:ml-1.hidden "دولار أمريكي"
+                span.symbol-code.ltr:mr-1.rtl:ml-1 "$"
+          div.flex.items-center.flex-col.justify-center
+            a.navbar-brand.p-1
+              img.logo-dark
+              p.sr-only "اسم المتجر"
+          div.flex.items-center.justify-end.w-1/3
+            div.header-buttons.hidden.lg:block
+              button.currency.text-lg.btn.basis-0.!px-0.da-tm
+                span.currency-btn.ltr:ml-2.rtl:mr-2
+                  span "العملة:"
+                  span.symbol-name.ltr:mr-1.rtl:ml-1 "دولار أمريكي"
+                  span.symbol-code.ltr:mr-1.rtl:ml-1.hidden "$"
+              salla-localization-modal
+            button.search-btn.header-btn.flex.da-fm.cursor-pointer
+              i.sicon-search.text-base.text-black.da-tm
+            button.header-btn.!flex
+              i.sicon-user.text-base.text-black.da-tm
+            salla-cart-summary.header-cart.no-summary
+              a.s-cart-summary-wrapper
+                div#s-cart-icon
+                  slot-fb
+                  div.header-btn.btn
+                span.s-cart-summary-count "0"
+                p.s-cart-summary-content
+                  b.s-cart-summary-total "0 $"
+  div.inner.nav-header.hidden
+    div.container.!hidden.lg:!flex.justify-between
+      div.flex.items-center.justify-start.relative.w-max
+salla-hook
+div.flex.flex-col.bg-gray-100.da-bgg.relative.md:mb-6
+  div.container
+    nav.breadcrumbs.w-full.py-3
+      salla-breadcrumb
+        ol.s-breadcrumb-wrapper
+          li.s-breadcrumb-item
+            a "الرئيسية"
+          li.s-breadcrumb-arrow
+          li.s-breadcrumb-item
+            a "التخفيضات"
+          li.s-breadcrumb-arrow
+          li.s-breadcrumb-item "بكج التوفير"
+div.s-blocks-wrapper.s-before-product-info
+div.md:container
+  div.flex.flex-col.items-start.md:flex-row
+    div.sidebar.md:sticky.top-16.w-full.md:!w-2/5.md:ltr:mr-8.md:rtl:ml-8.pb-4.md:pb-16.overflow-hidden.shrink-0
+      div.relative
+        div.wish-share.absolute.md:top-4.md:ltr:right-4.md:rtl:left-4.mob:bottom-4.mob:ltr:left-4.mob:rtl:right-4.z-[2].text-lg.flex-center.gap-2.opacity-80
+          salla-button.btn--wishlist.animated.sws.s-button-wrap
+            button.btn--wishlist.animated.sws.s-button-element.s-button-icon.s-button-outline.s-button-light-outline.s-button-loader-center
+              span.s-button-text
+                i.sicon-heart
+          salla-social-share.btn--share.animated.sws
+            div.s-social-share-wrapper
+              slot-fb
+                salla-button.s-social-share-btn.s-button-wrap
+                  button.s-social-share-btn.s-button-element.s-button-icon.s-button-outline.s-button-light-outline.s-button-loader-center
+              ul.s-social-share-list.a2a_kit.share
+                li
+                  a.a2a_button_facebook
+                … (+4 مثله)
+        salla-slider.details-slider.md:rounded-md.image-slider.s-slider-wrapper.fullwidth-slider.s-slider-has-notitle.s-slider-v-centered.s-slider-horizontal
+          div.s-slider-block__title
+            div.s-slider-block__title-left
+              div.s-slider-block__title-nav
+                button.s-slider-prev.s-slider-nav-arrow.swiper-button-disabled.swiper-button-lock
+                  span.s-slider-button-icon
+                button.s-slider-next.s-slider-nav-arrow.swiper-button-disabled.swiper-button-lock
+                  span.s-slider-button-icon
+          div.swiper.s-slider-container.swiper-initialized.swiper-horizontal.swiper-rtl.swiper-watch-progress.swiper-backface-hidden
+            div.swiper-wrapper.s-slider-swiper-wrapper
+              a.swiper-slide.magnify-wrapper.homeslider__slide
+                img.h-full.w-full
+            div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-lock
+              span.swiper-pagination-bullet.swiper-pagination-bullet-active
+            span.swiper-notification
+    div.main-content.mob:container.w-full.md:w-1/2.md:pb-16
+      salla-hook
+      div.flex.flex-col
+        h1.da-tm.leading-normal.text-lg.md:text-xl.ltr:mr-2.rtl:ml-2 "بكج التوفير"
+      salla-rating-stars.block.w-max.mt-1
+        div.s-rating-stars-wrapper
+          span.s-rating-stars-btn-star.s-rating-stars-medium.s-rating-stars-selected
+          … (+4 مثله)
+          span.s-rating-stars-reviews "(تقييمان)"
+      div.price.my-1
+        div.flex.whitespace-nowrap.price-wrapper.gap-4.items-center
+          div.price_is_on_sale.space-x-2.rtl:space-x-reverse.whitespace-nowrap
+            span.total-price.text-red-400.font-bold.text-xl.inline-block.font-primary "2.66 $"
+            span.before-price.text-gray-400.line-through "4.79 $"
+          div.flex-center.h-6.product-save
+            span.bg-red-500.ltr:border-r-2.rtl:border-l-2.border-white.da-brdr.border-dotted.h-full.shrink-0
+              i.sicon-fire.text-white.px-1
+            span.money-save.px-1.text-sm.border.border-transparent.bg-red-500.font-primary.text-white.h-full.shrink-0
+              strong#save-money "2 $"
+          div.starting-or-normal-price.gap-4.hidden
+            span.total-price.font-bold.da-tm.text-xl.inline-block.font-primary "2.66 $"
+        div.out-of-stock.min-h-7.leading-7.hidden.text-base.text-red-600.!opacity-50.font-bold "نفدت الكمية"
+      article.full-description.details.opt-text.text-light.relative.overflow-hidden.transition-all.duration-300
+        h3 "محتويات الباقة"
+        ul
+          li
+            strong "2,000"
+          … (+3 مثله)
+        p "بكج التوفير يجمع لك 2,00…"
+        h3 "معلومات الخدمة"
+        ul
+          li
+            strong "فوري وآلي بعد الدفع"
+          … (+3 مثله)
+        h3 "قبل ما تطلب"
+        ul
+          li
+            strong "عام"
+          … (+3 مثله)
+        p
+          strong "ضمان ضد النقص:"
+          a "اقرأ سياسة التعويض"
+      div.mb-3
+        a.ltr:mr-2.rtl:ml-2.inline-flex.da-tm.opacity-60.hover:opacity-100.underline.text-sm.transition-opacity "#زيادة متابعين تيك توك"
+        … (+17 مثله)
+      form#[object HTMLInputElement].form.product-form
+        input
+        salla-installment
+        section.sku.details.product-sku-wrapper
+          div.details__wrapper
+            div.details__container
+              div.details__title
+                i.sicon-barcode.text-xs
+                span "رقم الموديل"
+              div.details__action
+                span.product-sku.break-all.text-sm "6"
+        section.is-sold.details
+          div.details__wrapper
+            div.details__container
+              div.details__title.!text-red-400
+                i.sicon-fire
+                span "عدد مرات الشراء"
+              div.details__action
+                span.sold-count "69"
+        div#product-tabs-options.product-options.details
+          salla-hook
+          salla-product-options.s-product-options-wrapper
+            salla-conditional-fields
+              div.s-product-options-option-container
+                div.s-product-options-option
+                  label.s-product-options-option-label
+                  div.s-product-options-option-content
+          section.total.details.mb-5
+            div.details__wrapper
+              div.details__container
+                div.details__title
+                  i.sicon-dollar-cash.text-xs
+                  span.text-sm.font-primary "السعر"
+                div.ltr:space-x-1.rtl:space-x-1.rtl:space-x-reverse
+                  div.flex.whitespace-nowrap.price-wrapper.gap-4.items-center
+                  div.out-of-stock.min-h-7.leading-7.hidden.text-base.text-red-600.!opacity-50.font-bold "نفدت الكمية"
+          salla-hook
+        section.sticky-product-bar.bg-white.da-bgg.p-5.mt-4.rounded-md.dark.bg-[var(--dark-bg-main)]
+          div.container.flex.flex-col.md:flex-row.justify-between.items-center.gap-2.md:gap-4
+            div.mob:!hidden.flex.gap-4.w-2/3
+              div.w-16.min-h-[2rem].bg-cover.bg-center.bg-no-repeat.lazy.rounded-sm.entered.loaded
+              div.flex.flex-col.w-full
+                span.max-w-3/4.da-tm.leading-normal.text-lg.md:text-xl.line-clamp-1.font-primary "بكج التوفير"
+                div.flex.items-center.ltr:space-x-1.rtl:space-x-1.rtl:space-x-reverse
+                  div.price_is_on_sale.space-x-2.rtl:space-x-reverse.whitespace-nowrap
+                  div.starting-or-normal-price.gap-4.hidden
+            div.sticky-product-bar__quantity.center-between
+              salla-quantity-input.border-gray-200.flex.justify-end.s-quantity-input
+                div.s-quantity-input-container
+                  button.s-quantity-input-increase-button.s-quantity-input-button
+                  input.s-quantity-input-input
+                  button.s-quantity-input-decrease-button.s-quantity-input-button
+            salla-add-product-button.flex.gap-2.min-w-3/4.md:min-w-1/2.h-max.w-full.sticky-product-bar__btn.s-add-product-button-with-quick-buy.s-add-product-button-with-sticky-bar
+              div.s-add-product-button-main
+                salla-button.s-button-wrap
+                  button.s-button-element.s-button-btn.s-button-solid.s-button-wide.s-button-primary.s-button-loader-center
+                salla-mini-checkout-widget.s-add-product-button-mini-checkout.s-mini-checkout.hide-scroll
+                  div.s-add-product-button-mini-checkout-content
+        div#product-tabs-faqs.product-reviews.details
+          salla-comments
+            div.s-comments.s-comments-product
+              div.s-comments-container
+                h2.s-comments-title "التقييم العام"
+                salla-comment-form
+                salla-reviews-summary
+                  div.s-reviews-summary-header-section.s-reviews-summary-recommendation-only
+                div.s-comments-header.has-total
+                  span.s-comments-count-label "تعليقان"
+                  div.s-comments-filter-wrapper
+                div.s-translate-all-wrap
+                  button.s-translate-btn
+                  … (+1 مثله)
+                div
+                  salla-comment-item.s-animate-fade-in-up.s-comments-item.animated
+                  … (+1 مثله)
+        salla-cashback-banner
+        salla-hook
+      salla-offer
+      section.s-block.s-block--bundle-out-of-stock-alternative
+        salla-out-of-stock-alternative-rsdae6
+      salla-bought-together
+      salla-verified-review
+      salla-hook
+      section.s-block.s-block--payment.container.details.!py-4
+        salla-payments.s-payments-list-wrap
+          ul.s-payments-list
+            li.s-payments-list-item
+              img
+            … (+4 مثله)
+div.s-blocks-wrapper.s-before-reviews
+div.s-blocks-wrapper.s-before-related
+  section.s-block.s-block--bundle-similar-products
+    salla-similar-products-tg8pqt
+  section.s-block.s-block--bundle-customers-also-bought
+    salla-customers-also-bought-z6xqka
+  section.s-block.s-block--bundle-customers-also-viewed
+    salla-customers-also-viewed-j23r8i
+div.container.mt-4
+  salla-products-slider
+div.s-blocks-wrapper.s-after-related
+salla-hook
+
+## صفحة التصنيف
+  div#mainnav.main-nav-container
+    div.header-inner.inner.bg-white.da-bgm.has-custom-bg
+      div.angel-ad.overflow-hidden
+        div.mask-block
+          div.angel-ad__slider
+            div.angel-ad__item
+              i.sicon-alert-engine.angel-ad__icon
+              a.angel-ad__content.pointer-events-none "خصم 10% على كل الخدمات ب…"
+            … (+10 مثله)
+        div.flex-center.absolute.h-6.w-6.top-2.ltr:right-2.rtl:left-2.rounded-full
+          a.w-full.h-full.flex-center.ad-close.sicon-cancel.text-lg.text-red-400
+      div.header-container.container
+        div.flex.items-stretch.justify-between.relative
+          div.flex.items-center.justify-start.w-1/3
+            button#back-Btn.back-btn.header-btn.ltr:mr-2.rtl:ml-2.md:hidden.flex-center
+              i.sicon-arrow-right.text-lg.da-tm
+            a.mburger.mburger--collapse.flex.items-start.ltr:mr-1.rtl:ml-1
+              i.sicon-menu.text-primary.text-2xl
+              p.da-tm.hidden.text-xl.md:block.ltr:ml-1.rtl:mr-1 "القائمة"
+            button.!hidden.currency.text-lg.btn.basis-0.!px-0.da-tm
+              span.currency-btn.ltr:ml-2.rtl:mr-2
+                span "العملة:"
+                span.symbol-name.ltr:mr-1.rtl:ml-1.hidden "دولار أمريكي"
+                span.symbol-code.ltr:mr-1.rtl:ml-1 "$"
+          div.flex.items-center.flex-col.justify-center
+            a.navbar-brand.p-1
+              img.logo-dark
+              p.sr-only "اسم المتجر"
+          div.flex.items-center.justify-end.w-1/3
+            div.header-buttons.hidden.lg:block
+              button.currency.text-lg.btn.basis-0.!px-0.da-tm
+                span.currency-btn.ltr:ml-2.rtl:mr-2
+                  span "العملة:"
+                  span.symbol-name.ltr:mr-1.rtl:ml-1 "دولار أمريكي"
+                  span.symbol-code.ltr:mr-1.rtl:ml-1.hidden "$"
+              salla-localization-modal
+            button.search-btn.header-btn.flex.da-fm.cursor-pointer
+              i.sicon-search.text-base.text-black.da-tm
+            button.header-btn.!flex
+              i.sicon-user.text-base.text-black.da-tm
+            salla-cart-summary.header-cart.no-summary
+              a.s-cart-summary-wrapper
+                div#s-cart-icon
+                  slot-fb
+                  div.header-btn.btn
+                span.s-cart-summary-count "0"
+                p.s-cart-summary-content
+                  b.s-cart-summary-total "0 $"
+  div.inner.nav-header.hidden
+    div.container.!hidden.lg:!flex.justify-between
+      div.flex.items-center.justify-start.relative.w-max
+salla-hook
+div.nav-header.py-6.px-4.flex.flex-col.bg-gray-100.da-bgg.relative
+  div.nav-title.container.flex.items-center.gap-2.md:gap-4
+    div.category_title_wrapper
+      h1#page-main-title.category_title.text-xl.flex.gap-2.ltr:mr-3.rtl:ml-3.mb-1.da-tm "الرئيسية"
+      nav.breadcrumbs.w-full
+        salla-breadcrumb
+          ol.s-breadcrumb-wrapper
+            li.s-breadcrumb-item
+              a "الرئيسية"
+            li.s-breadcrumb-arrow
+            li.s-breadcrumb-item "الرئيسية"
+  div.sub-nav-header.md:container
+salla-slider#cat-slider-banner.cat-slider-banner.s-slider-wrapper.fullwidth-slider.s-slider-has-notitle.s-slider-v-centered.s-slider-horizontal
+  div.swiper.s-slider-container.swiper-initialized.swiper-horizontal.swiper-rtl.swiper-watch-progress.swiper-backface-hidden
+    div.swiper-wrapper.s-slider-swiper-wrapper
+      div.swiper-slide.swiper-slide-fully-visible
+    span.swiper-notification
+section.cat-square-banner.mt-4
+  div.container.grid.gap-4.grid-cols-2.md:grid-cols-4
+div.s-blocks-wrapper.s-before-products-list
+div.container.px-2.5.ms:px-5.has-filters
+  div.flex.items-start.flex-col.md:flex-row
+    button.btn--close-sm.close-filters.sicon-cancel.hidden
+    salla-filters#filters-menu.filters-menu.md:w-72.lg:sticky.lg:top-20.flex-none
+      salla-filters-widget.s-filters-widget-container
+        h3.s-filters-widget-title
+          span "فئات المنتجات"
+          span.s-filters-widget-plusminus.s-filters-widget-plusminus-active
+        div.s-filters-widget-content
+          div.s-filters-widget-values
+            label.s-filters-label
+              input.s-filters-checkbox
+              span.s-filters-option-name "الرئيسية (9)"
+            … (+1 مثله)
+      … (+2 مثله)
+    div.main-content.flex-1.w-full.ltr:lg:ml-4.rtl:lg:mr-4
+      div.prdoucts-list-filters.flex.justify-between.items-center.my-4.gap-2
+        a.filters-trigger.s-button-btn.s-button-primary.s-button-loader-center.lg:hidden.!px-0
+          span "التصفية والفلترة"
+          i.sicon-filter.text-gray-text.text-sm.ltr:mr-1.rtl:ml-1
+        div.prod-filter.flex-1
+          div.flex.flex-col.md:flex-row.gap-1.md:gap-3
+            div.flex.items-center
+              label.block.mob:hidden.ltr:mr-3.rtl:ml-3.whitespace-nowrap "ترتيب حسب:"
+              select#product-filter.form-input.pt-0.pb-1
+                option "مقترحاتنا"
+                … (+5 مثله)
+      salla-applied-filters
+      salla-hook
+      salla-products-list.flex-1.min-w-0.s-products-list
+        div.s-products-list-wrapper.s-products-list-filters-results
+          custom-salla-product-card.s-product-card-entry.angel-shine-hover.dark.rounded-2xl.s-product-card-vertical.s-product-card-fit-height
+            div.s-product-card-image.grow-0
+              a.flex-center.h-full.w-full.angel-shine-obj
+                img.s-product-card-image-cover.lazy__bg.lazy_img.lazy.loaded
+                div.s-product-card-discount.card-discount.font-primary
+                  span.off-ratio "20%"
+            div.s-product-card-content
+              div.s-product-card-content-main
+                div.s-product-card-props
+                h3.s-product-card-content-title.line-clamp-1.font-primary
+                  a "بكج الذهبي"
+              div.s-product-card-content-sub.justify-between
+                div.s-product-card-sale-price.justify-start
+                  h4.s-product-card-price "10.65 $"
+                  span.s-product-card-price-before "13.31 $"
+              div.s-product-card-content-footer.rounded-2xl
+                salla-add-product-button
+                  div.w-full
+          … (+8 مثله)
+        div.s-infinite-scroll-status
+          p.s-infinite-scroll-last.infinite-scroll-last "لا يوجد المزيد لعرضه"
+          p.s-infinite-scroll-error.infinite-scroll-error.s-hidden "تعذَّر عرض المزيد"
+        div.s-products-list-loading-wrapper
+          span.s-button-loader.s-button-loader-center.s-infinite-scroll-btn-loader
+      salla-hook
+div.s-blocks-wrapper.s-after-products-list
+section.s-block.s-block--testimonials
+  div.container
+    salla-slider#testimonials--slider.testimonials-slider.s-slider-wrapper.s-slider-horizontal
+      div.s-slider-block__title
+        div.s-slider-block__title-right
+          h2
+        div.s-slider-block__title-left
+          div.s-slider-block__title-nav
+            button.s-slider-prev.s-slider-nav-arrow
+              span.s-slider-button-icon
+            button.s-slider-next.s-slider-nav-arrow
+              span.s-slider-button-icon
+      div.swiper.s-slider-container.swiper-initialized.swiper-horizontal.swiper-rtl.swiper-backface-hidden
+        div.swiper-scrollbar.swiper-scrollbar-horizontal
+          div.swiper-scrollbar-drag
+        div.swiper-wrapper.s-slider-swiper-wrapper
+          div.swiper-slide.mt-8.px-2.swiper-width-control
+            div.flex.h-full.transition-shadow.duration-500.hover:shadow-default.bg-white.da-bgg.rounded-lg.relative
+              div.flex.flex-col.w-full.px-4.pb-8.-mt-8
+                div.s-testimonials--slider--img.flex-center.flex-col.gap-2
+                  div.testimonial__avatar.overflow-hidden.h-24.w-24.flex.z-1.rounded-full.transition-shadow.duration-500.hover:shadow-default
+                  p.text-lg.leading-6.da-tm.font-primary "Star S"
+                  div.testimonial__rating.text-sm
+                p.text-base.da-tm.leading-6.w-full.da-tm.text-center.my-2 "شكرا براين ستور"
+                i.testimonial__icon.sicon-quote.-scale-y-100.-scale-x-100.absolute.top-4.ltr:right-4.rtl:left-4.text-3xl.da-tm.opacity-10
+          div.swiper-slide.mt-8.px-2.swiper-width-control
+            div.flex.h-full.transition-shadow.duration-500.hover:shadow-default.bg-white.da-bgg.rounded-lg.relative
+              div.flex.flex-col.w-full.px-4.pb-8.-mt-8
+                div.s-testimonials--slider--img.flex-center.flex-col.gap-2
+                  div.testimonial__avatar.overflow-hidden.h-24.w-24.flex.z-1.rounded-full.transition-shadow.duration-500.hover:shadow-default
+                  p.text-lg.leading-6.da-tm.font-primary "Manal"
+                  div.testimonial__rating.text-sm
+                p.text-base.da-tm.leading-6.w-full.da-tm.text-center.my-2
+                i.testimonial__icon.sicon-quote.-scale-y-100.-scale-x-100.absolute.top-4.ltr:right-4.rtl:left-4.text-3xl.da-tm.opacity-10
+          div.swiper-slide.mt-8.px-2.swiper-width-control
+            div.flex.h-full.transition-shadow.duration-500.hover:shadow-default.bg-white.da-bgg.rounded-lg.relative
+              div.flex.flex-col.w-full.px-4.pb-8.-mt-8
+                div.s-testimonials--slider--img.flex-center.flex-col.gap-2
+                  div.testimonial__avatar.overflow-hidden.h-24.w-24.flex.z-1.rounded-full.transition-shadow.duration-500.hover:shadow-default
+                  p.text-lg.leading-6.da-tm.font-primary "عبد اللطيف الشهراني"
+                  div.testimonial__rating.text-sm
+                p.text-base.da-tm.leading-6.w-full.da-tm.text-center.my-2 "ياخي شكرا تعاملكم ممتاز"
+                i.testimonial__icon.sicon-quote.-scale-y-100.-scale-x-100.absolute.top-4.ltr:right-4.rtl:left-4.text-3xl.da-tm.opacity-10
+          div.swiper-slide.mt-8.px-2.swiper-width-control
+            div.flex.h-full.transition-shadow.duration-500.hover:shadow-default.bg-white.da-bgg.rounded-lg.relative
+              div.flex.flex-col.w-full.px-4.pb-8.-mt-8
+                div.s-testimonials--slider--img.flex-center.flex-col.gap-2
+                  div.testimonial__avatar.overflow-hidden.h-24.w-24.flex.z-1.rounded-full.transition-shadow.duration-500.hover:shadow-default
+                  p.text-lg.leading-6.da-tm.font-primary "سعود الشراري"
+                  div.testimonial__rating.text-sm
+                p.text-base.da-tm.leading-6.w-full.da-tm.text-center.my-2 "ماشاءالله سرعة الرد ، ود…"
+                i.testimonial__icon.sicon-quote.-scale-y-100.-scale-x-100.absolute.top-4.ltr:right-4.rtl:left-4.text-3xl.da-tm.opacity-10
+          … (+4 مثله)
+        span.swiper-notification
+div.s-blocks-wrapper.s-after-testimonials
+salla-hook
+
+## السلة
+  div#mainnav.main-nav-container
+    div.header-inner.inner.bg-white.da-bgm.has-custom-bg
+      div.angel-ad.overflow-hidden
+        div.mask-block
+          div.angel-ad__slider
+            div.angel-ad__item
+              i.sicon-alert-engine.angel-ad__icon
+              a.angel-ad__content.pointer-events-none "خصم 10% على كل الخدمات ب…"
+            … (+10 مثله)
+        div.flex-center.absolute.h-6.w-6.top-2.ltr:right-2.rtl:left-2.rounded-full
+          a.w-full.h-full.flex-center.ad-close.sicon-cancel.text-lg.text-red-400
+      div.header-container.container
+        div.flex.items-stretch.justify-between.relative
+          div.flex.items-center.justify-start.w-1/3
+            button#back-Btn.back-btn.header-btn.ltr:mr-2.rtl:ml-2.md:hidden.flex-center
+              i.sicon-arrow-right.text-lg.da-tm
+            a.mburger.mburger--collapse.flex.items-start.ltr:mr-1.rtl:ml-1
+              i.sicon-menu.text-primary.text-2xl
+              p.da-tm.hidden.text-xl.md:block.ltr:ml-1.rtl:mr-1 "القائمة"
+            button.!hidden.currency.text-lg.btn.basis-0.!px-0.da-tm
+              span.currency-btn.ltr:ml-2.rtl:mr-2
+                span "العملة:"
+                span.symbol-name.ltr:mr-1.rtl:ml-1.hidden "دولار أمريكي"
+                span.symbol-code.ltr:mr-1.rtl:ml-1 "$"
+          div.flex.items-center.flex-col.justify-center
+            a.navbar-brand.p-1
+              img.logo-dark
+              p.sr-only "اسم المتجر"
+          div.flex.items-center.justify-end.w-1/3
+            div.header-buttons.hidden.lg:block
+              button.currency.text-lg.btn.basis-0.!px-0.da-tm
+                span.currency-btn.ltr:ml-2.rtl:mr-2
+                  span "العملة:"
+                  span.symbol-name.ltr:mr-1.rtl:ml-1 "دولار أمريكي"
+                  span.symbol-code.ltr:mr-1.rtl:ml-1.hidden "$"
+              salla-localization-modal
+            button.search-btn.header-btn.flex.da-fm.cursor-pointer
+              i.sicon-search.text-base.text-black.da-tm
+            button.header-btn.!flex
+              i.sicon-user.text-base.text-black.da-tm
+            salla-cart-summary.header-cart.no-summary
+              a.s-cart-summary-wrapper
+                div#s-cart-icon
+                  slot-fb
+                  div.header-btn.btn
+                span.s-cart-summary-count "0"
+                p.s-cart-summary-content
+                  b.s-cart-summary-total "0 $"
+  div.inner.nav-header.hidden
+    div.container.!hidden.lg:!flex.justify-between
+      div.flex.items-center.justify-start.relative.w-max
+salla-hook
+div.nav-header.py-6.px-4.flex.flex-col.bg-gray-100.da-bgg.relative
+  div.relative.overflow-hidden.nav-title.container
+    div.flex.gap-2.items-center
+      div.flex.flex-col
+        h1.text-xl.ltr:mr-3.rtl:ml-3.mb-1.da-tm
+          span#items-count.items-count.text-sm.opacity-75
+            span "لا يوجد منتجات"
+        nav.breadcrumbs.w-full
+          salla-breadcrumb
+            ol.s-breadcrumb-wrapper
+              li.s-breadcrumb-item
+                a "الرئيسية"
+              li.s-breadcrumb-arrow
+              li.s-breadcrumb-item "سلة المشتريات"
+div.container.mt-5
+  p.sr-only "السلة"
+  salla-conditional-offer
+  div.pt-5.flex.flex-col.items-start.lg:flex-row.pb-32.lg:pb-0
+    div.main-content.flex-1.w-full
+      salla-hook
+      div.no-content-placeholder
+        i.sicon-shopping-bag.icon
+        div.flex.flex-col.gap-2
+          p "السلة فارغة"
+          div.flex.gap-2
+            a.btn.btn--outline-primary.btn--rounded-full "عودة للرئيسية"
+      salla-offer
+      salla-basket-gap
+      salla-hook
+    salla-hook
+salla-hook
+
+## الفوتر
+footer.store-footer.dark
+  div.store-footer__inner.da-bgm.has-custom-bg
+    div.container.flex.flex-col
+      div.to-top.flex.justify-center.da-tm.overflow-hidden
+        a.flex-center.pb-2.pt-4.gap-2.w-max.h-full
+          p "العودة إلى أعلى"
+          i.sicon-arrow-up.icon
+      div.footer-top.footer-container.flex.align-center.flex-col.md:flex-row.da-brdr.!justify-center
+        div.footer-social.flex.flex-col
+          div.flex.social-links.flex-col.md:flex-row.md:items-center.md:gap-4
+            salla-social
+              ul.s-social-list
+      div.footer-middle.footer-container.flex.align-center.flex-col.md:flex-row.da-brdr.md:gap-4
+        div.flex.flex-col.md:max-w-xs.footer-profile
+          a.flex.items-center.m-0.logo-footer
+            img.logo-dark.foo
+          p.footer-description
+          p
+            span "اول متجر آلي متكامل في ا…"
+          … (+1 مثله)
+        div.flex.flex-col.shrink-0
+          div.menu-list
+            p.footer-title.font-primary "روابط تهمك"
+            div.footer-list
+              a.block.mb-5.last:mb-0.text-sm.leading-none.da-tm.hover:text-primary "سياسة الخصوصية"
+              … (+2 مثله)
+        … (+1 مثله)
+        div.flex.flex-col.gap-4.shrink-0
+          salla-apps-icons
+          div.footer-vat.flex.justify-center.gap-6.px-8.md:px-4
+            salla-trust-badges.da-tm.s-trust-badges-wrapper
+              img.s-trust-badges-image
+              div.s-trust-badges-content
+                p.s-trust-badges-label "وثيقة العمل الحر"
+                b.s-trust-badges-number "FL-845936349"
+          div.footer-images
+      div.footer-bottom.flex.flex-col.lg:flex-row.items-center.justify-between.py-4.gap-4
+        salla-payments.s-payments-list-wrap
+          ul.s-payments-list
+            li.s-payments-list-item
+              img
+            … (+4 مثله)
+        span.copyrights.text-sm.opacity-75
+          p.text-gray-400.mb-2.5.md:mb-0
+            a.hover:text-primary "اسم المتجر"
+
+## مكونات عامة خارج المحتوى (نوافذ وتنبيهات)
+salla-loading · salla-quick-buy · salla-toast · salla-add-product-toast · salla-offer-modal · salla-search · salla-login-modal · div.mm-ocd (قائمة الجوال الجانبية) · salla-modal#angel-quick-view (العرض السريع)
+
+## فهرس كلاسات الثيم الخاصة (بدون Tailwind)
+- السلايدر: .swiper .swiper-3d .swiper-android .swiper-autoheight .swiper-backface-hidden .swiper-button .swiper-button-disabled .swiper-button-hidden .swiper-button-lock .swiper-button-next .swiper-button-prev .swiper-cards .swiper-centered .swiper-creative .swiper-css-mode .swiper-cube .swiper-cube-shadow .swiper-fade .swiper-flip .swiper-free-mode .swiper-grid .swiper-grid-column .swiper-horizontal .swiper-initialized .swiper-lazy .swiper-lazy-loaded .swiper-lazy-preloader .swiper-lazy-preloader-black .swiper-lazy-preloader-white .swiper-lazy-wrap .swiper-navigation-disabled .swiper-notification .swiper-pagination .swiper-pagination-bullet .swiper-pagination-bullet-active .swiper-pagination-bullet-active-main .swiper-pagination-bullet-active-next .swiper-pagination-bullet-active-next-next .swiper-pagination-bullet-active-prev .swiper-pagination-bullet-active-prev-prev .swiper-pagination-bullets .swiper-pagination-bullets-dynamic .swiper-pagination-clickable .swiper-pagination-custom .swiper-pagination-disabled .swiper-pagination-fraction .swiper-pagination-hidden .swiper-pagination-horizontal .swiper-pagination-lock .swiper-pagination-progressbar .swiper-pagination-progressbar-fill .swiper-pagination-progressbar-opposite .swiper-pagination-vertical .swiper-pointer-events .swiper-rtl .swiper-scrollbar .swiper-scrollbar-cursor-drag .swiper-scrollbar-disabled .swiper-scrollbar-drag .swiper-scrollbar-horizontal .swiper-scrollbar-lock .swiper-scrollbar-vertical .swiper-slide .swiper-slide-active .swiper-slide-fully-visible .swiper-slide-invisible-blank .swiper-slide-next .swiper-slide-prev .swiper-slide-shadow .swiper-slide-shadow-bottom .swiper-slide-shadow-left .swiper-slide-shadow-right .swiper-slide-shadow-top .swiper-slide-visible .swiper-slide-zoomed .swiper-vertical .swiper-virtual .swiper-watch-progress .swiper-width-control .swiper-wrapper .swiper-zoom-container
+- ملاك (عام): .angel-ad .angel-ad__container .angel-ad__content .angel-ad__icon .angel-ad__img .angel-ad__item .angel-ad__slider .angel-discountcoupon .angel-feature .angel-products .angel-products-2 .angel-products-3 .angel-products-container .angel-products-title .angel-quick-view-modal .angel-quick-view__body .angel-quick-view__content .angel-quick-view__images .angel-quick-view__images_slider .angel-quick-view__wrapper .angel-shine-hover .angel-shine-obj .angel-stories-actions .angel-stories-bar .angel-stories-btn .angel-stories-chip .angel-stories-chip-avatar .angel-stories-chip-name .angel-stories-chip-time .angel-stories-chrome .angel-stories-frame .angel-stories-media .angel-stories-progress .angel-stories-spinner .angel-stories-stage .angel-stories-tap .angel-stories-tap--left .angel-stories-tap--right .angel-stories-taps .angel-stories-tiktok .angel-stories-tile .angel-stories-tile__avatar .angel-stories-tile__name .angel-stories-viewed .angel-stories-viewer .angel-stories-youtube .angel-theme
+- الأزرار: .btn .btn--add-to-cart .btn--circle-gray .btn--close .btn--close-sm .btn--collapse .btn--coupon .btn--danger .btn--delete .btn--icon .btn--is-loading .btn--outline .btn--outline-primary .btn--primary .btn--quantity .btn--rounded-full .btn--rounded-gray .btn--share .btn--wishlist .btn-light .btn-outline-primary .btn-primary .btn-tab .btn-text .btn__text
+- قائمة الجوال: .mm-ocd .mm-ocd--left .mm-ocd--open .mm-ocd--right .mm-ocd-opened .mm-ocd__backdrop .mm-ocd__content .mm-spn .mm-spn--dark .mm-spn--light .mm-spn--main .mm-spn--navbar .mm-spn--open .mm-spn--parent .mm-spn--vertical
+- الفوتر: .footer-bottom .footer-container .footer-description .footer-images .footer-list .footer-middle .footer-newsletter .footer-profile .footer-social .footer-title .footer-top .footer-vat
+- المنتج: .product .product-available-dot .product-entry__image .product-form .product-index .product-options .product-reviews .product-save .product-single .product-sku .product-sku-wrapper .product__description
+- الهيدر: .header-btn .header-buttons .header-cart .header-container .header-content .header-content-inner .header-content-logo .header-content-offer .header-inner
+- النماذج: .form .form--user-profile .form-input .form-label .form-multiselect .form-select .form-textarea
+- القائمة: .menu-img .menu-item .menu-list .menu-silde .menu-silde_link .menu-slider .menu-user-login
+- التبويبات: .tabs .tabs-wrapper .tabs-wrapper__products .tabs__flex .tabs__item .tabs__outline .tabs__product
+- البنرات: .banner .banner--fixed .banner-entry .banner-square .banner__description .banner__title
+- التفاصيل: .details .details-slider .details__action .details__container .details__title .details__wrapper
+- التصنيفات: .cat-filter .cat-slider-banner .cat-slider-container .cat-square-banner
+- القوائم المنسدلة: .dropdown--is-opened .dropdown-toggler .dropdown__menu .dropdown__trigger
+- الأسئلة: .faq-answer .faq-container .faq-item .faq-link
+- has: .has-bg .has-children .has-coupon .has-custom-bg .has-error .has-filters .has-label .has-max .has-not-coupon .has-order .has-overlay .has-overlay-sm .has-success .has-text-color .has-total
+- is: .is-active .is-added .is-animated .is-bottom-header .is-expanded .is-inverted .is-last-added .is-opened .is-selected .is-sold .is-sticky .is-sticky-product-bar
+- no: .no-bg .no-content-placeholder .no-content-placeholder--comments .no-margin-bottom .no-margin-top .no-mob-img .no-order .no-scrollbar .no-space .no-summary
+- angelmodal: .angelmodal .angelmodal-is-open .angelmodal__close .angelmodal__container .angelmodal__content .angelmodal__overlay
+- hide: .hide .hide-out-of-stock .hide-questions .hide-required .hide-reviews .hide-scroll
+- full: .full-banner-entry .full-description .full-nav .full-width
+- main: .main-content .main-menu .main-nav-container .main-slider
+- mobile: .mobile .mobile-menu .mobile-menu-slider .mobile-title
+- model: .model-entry .model-viewer .model-viewer-wrapper .model-viewer__poster
+- multihome: .multihome-loading .multihome-tabs-button .multihome-tabs-image .multihome-tabs-wrapper
+- os: .os-android .os-ios .os-mac .os-windows
+- slide: .slide--cat-entry .slide--offer-entry .slide--one-fourth .slide--one-sixth
+- social: .social .social-icon .social-links .social-menu
+- store: .store-footer .store-footer__inner .store-header .store-links-items
+- blog: .blog-article .blog-articles .blog-cat
+- brands: .brands-link .brands-nav .brands-nav__item
+- cart: .cart .cart-item .cart-thumb
+- center: .center .center-between .center-products
+- close: .close-filters .close-mobile-menu .close-tooltip
+- coupon: .coupon-copied .coupon-text .coupon-value
+- currency: .currency .currency-btn .currency-menu
+- custom: .custom-radios .custom-radios--icons .custom-radios--rounded
+- divider: .divider-countdown .divider-title .divider-url
+- logo: .logo-dark .logo-footer .logo-light
+- sub: .sub-categories .sub-menu .sub-nav-header
+- testimonial: .testimonial__avatar .testimonial__icon .testimonial__rating
+- title: .title .title-mail .title-wrapper
+- with: .with-arrow .with-hover .with-transparent-header
+- ad: .ad-close .ad-slider
+- badge: .badge .badge--red
+- bubble: .bubble .bubble-show
+- centered: .centered-products .centered-title
+- faqs: .faqs-list .faqs-list__item
+- filepond: .filepond--drop-label .filepond--panel-root
+- filters: .filters-menu .filters-trigger
+- flatpickr: .flatpickr-calendar .flatpickr-months
+- fslightbox: .fslightbox-open .fslightbox-styles
+- infinite: .infinite-scroll-error .infinite-scroll-last
+- landing: .landing-page .landing-page--quick-buy
+- lazy: .lazy .lazy__bg
+- light: .light .light-mode
+- links: .links .links-menu
+- loader: .loader .loader--small
+- loading: .loading-logo-dark .loading-logo-light
+- lyt: .lyt-activated .lyt-visually-hidden
+- mburger: .mburger .mburger--collapse
+- merge: .merge-bottom .merge-with-top-component
+- modal: .modal-is-open .modal-open
+- nav: .nav-header .nav-title
+- price: .price .price-wrapper
+- salla: .salla-1130931637 .salla-modal
+- selected: .selected-cat-img .selected-cat-item
+- share: .share .share-btns-list
+- special: .special-product .special-product-countdown
+- symbol: .symbol-code .symbol-name
+- tag: .tag .tag--primary
+- theme: .theme-dark .theme-light
+- total: .total .total-price
+- vertical: .vertical-line .vertical-products
+- video: .video-entry .video-swiper
+- !btn: .!btn
+- !da: .!da-bgm
+- a2a_button_copy_link: .a2a_button_copy_link
+- a2a_button_email: .a2a_button_email
+- a2a_button_facebook: .a2a_button_facebook
+- a2a_button_twitter: .a2a_button_twitter
+- a2a_button_whatsapp: .a2a_button_whatsapp
+- a2a_kit: .a2a_kit
+- active: .active
+- animated: .animated
+- animatedfadeInDown: .animatedfadeInDown
+- answer: .answer-container
+- app: .app-inner
+- ar: .ar-only
+- arrow: .arrow
+- article: .article--main
+- back: .back-btn
+- before: .before-price
+- breadcrumbs: .breadcrumbs
+- buy: .buy-with
+- card: .card-discount
+- carousel: .carousel-slider
+- cat_profile: .cat_profile
+- category_title: .category_title
+- category_title_wrapper: .category_title_wrapper
+- collapse: .collapse
+- color: .color-mode-light
+- contact: .contact-social
+- copied: .copied
+- copy: .copy-icon
+- copycodebtn: .copycodebtn
+- copyrights: .copyrights
+- count: .count-number
+- cur: .cur-year
+- customer: .customer-wishlist
+- digital: .digital-content-btn
+- discount: .discount
+- display: .display-all-category
+- en: .en-only
+- entered: .entered
+- expired: .expired
+- f: .f-color
+- fadeInDown: .fadeInDown
+- faded: .faded-sq
+- fancybox: .fancybox-open
+- fb_dialog: .fb_dialog
+- fb_reset: .fb_reset
+- fix: .fix-align
+- flip: .flip-x
+- flying: .flying-obj
+- follow: .follow
+- foo: .foo
+- fullwidth: .fullwidth-slider
+- grayscaled: .grayscaled-img
+- h1: .h1
+- h2: .h2
+- h3: .h3
+- h4: .h4
+- h5: .h5
+- h6: .h6
+- home: .home-slider__slide
+- homeslider: .homeslider__slide
+- hydrated: .hydrated
+- icon: .icon
+- image: .image-slider
+- img: .img-magnifier-glass
+- in: .in-view
+- index: .index
+- info: .info
+- inner: .inner
+- invert: .invert
+- is_flying: .is_flying
+- is_grayscaled: .is_grayscaled
+- is_large: .is_large
+- is_spinning: .is_spinning
+- is_zoomed: .is_zoomed
+- lang: .lang
+- language: .language
+- large: .large-cards
+- lazy_avatar: .lazy_avatar
+- lazy_bg: .lazy_bg
+- lazy_icon: .lazy_icon
+- lazy_img: .lazy_img
+- lazy_menu: .lazy_menu
+- link: .link--primary
+- loaded: .loaded
+- logout: .logout
+- lty: .lty-playbtn
+- magnify: .magnify-wrapper
+- me: .me
+- menu_promo: .menu_promo
+- menu_title: .menu_title
+- mini: .mini-qty-delete
+- mode: .mode-toggler
+- money: .money-save
+- move: .move-up
+- name: .name
+- navbar: .navbar-brand
+- notfound: .notfound
+- numInputWrapper: .numInputWrapper
+- off: .off-ratio
+- offer: .offer-slider
+- offers: .offers-link
+- on: .on-text
+- open: .open-badge
+- opened: .opened
+- opt: .opt-text
+- out: .out-of-stock
+- overlay: .overlay
+- padded: .padded-squares
+- photos: .photos-slider
+- points: .points-ways__list
+- prdoucts: .prdoucts-list-filters
+- preloader: .preloader-skip
+- price_is_on_sale: .price_is_on_sale
+- prod: .prod-filter
+- promotion: .promotion-title
+- pulse: .pulse-anime
+- qty: .qty
+- quickview: .quickview
+- search: .search-btn
+- sent: .sent
+- sf: .sf-dump
+- sidebar: .sidebar
+- sidemenu: .sidemenu-link
+- similar: .similar-products__header
+- size: .size-guide
+- sku: .sku
+- slider: .slider-bg
+- sold: .sold-count
+- spin: .spin-loader
+- spinner: .spinner-loader
+- spinning: .spinning-obj
+- spotii: .spotii-wrapper
+- square: .square-grid
+- starting: .starting-or-normal-price
+- styles: .styles__containerPortal--c9f84
+- subcat: .subcat-sliders
+- subtitle: .subtitle
+- switcher: .switcher-3d-view
+- sws: .sws
+- tab: .tab-trigger
+- tamara: .tamara-product-widget
+- tawk: .tawk-widget
+- tel: .tel-input
+- testimonials: .testimonials-slider
+- thankyou: .thankyou-block
+- timer: .timer
+- tooltip: .tooltip-content
+- two: .two-row
+- ui_click_btn: .ui_click_btn
+- underlined: .underlined
+- unicode: .unicode
+- vat: .vat-num
+- videoWrapper: .videoWrapper
+- wide: .wide-placeholder
+- wish: .wish-share
+- x: .x-icon
+- zoomed: .zoomed-img
+
+## كلاسات مكونات سلة (s-*)
+- s-product: .s-product-availability-input .s-product-availability-subscribed .s-product-availability-wrap .s-product-card-actions .s-product-card-actions-bottom .s-product-card-brand .s-product-card-category .s-product-card-content .s-product-card-content-extra-padding .s-product-card-content-footer .s-product-card-content-main .s-product-card-content-pie .s-product-card-content-sub .s-product-card-content-subtitle .s-product-card-content-title .s-product-card-countdown .s-product-card-discount .s-product-card-donation-input .s-product-card-entry .s-product-card-fit-height .s-product-card-fixed-btn .s-product-card-full-image .s-product-card-horizontal .s-product-card-image .s-product-card-image-contain .s-product-card-image-cover .s-product-card-image-full .s-product-card-minimal .s-product-card-options .s-product-card-out-badge .s-product-card-out-of-stock .s-product-card-overlay .s-product-card-price .s-product-card-price-before .s-product-card-promotion-title .s-product-card-props .s-product-card-quantity .s-product-card-rating .s-product-card-sale-price .s-product-card-shadow .s-product-card-special .s-product-card-starting-price .s-product-card-vertical .s-product-card-wishlist .s-product-card-wishlist-added .s-product-card-wishlist-btn .s-product-options-colors-item .s-product-options-colors-wrapper .s-product-options-grid-mode .s-product-options-grid-mode-span .s-product-options-multiple-options-wrapper .s-product-options-option .s-product-options-option-container .s-product-options-option-content .s-product-options-option-label .s-product-options-splitter .s-product-options-text .s-product-options-thumbnails-icon .s-product-options-thumbnails-wrapper .s-product-options-wrapper
+- s-add: .s-add-product-button-main .s-add-product-button-mini-checkout .s-add-product-button-mini-checkout-content .s-add-product-button-with-quick-buy .s-add-product-button-with-sticky-bar .s-add-product-toast .s-add-product-toast--visible .s-add-product-toast__actions .s-add-product-toast__body .s-add-product-toast__btns .s-add-product-toast__card .s-add-product-toast__cart-footer .s-add-product-toast__cart-form .s-add-product-toast__cart-info .s-add-product-toast__cart-item .s-add-product-toast__cart-options .s-add-product-toast__cart-options-badge .s-add-product-toast__cart-preview .s-add-product-toast__close .s-add-product-toast__details .s-add-product-toast__divider .s-add-product-toast__header .s-add-product-toast__header-content .s-add-product-toast__header-text .s-add-product-toast__icon .s-add-product-toast__image .s-add-product-toast__name .s-add-product-toast__option-badge .s-add-product-toast__options .s-add-product-toast__price .s-add-product-toast__price-original .s-add-product-toast__price-regular .s-add-product-toast__price-sale .s-add-product-toast__progress .s-add-product-toast__progress-bar .s-add-product-toast__qty-badge .s-add-product-toast__show-more .s-add-product-toast__status .s-add-product-toast__summary-card .s-add-product-toast__title .s-add-product-toast__toggle .s-add-product-toast__toggle-btn
+- s-cart: .s-cart-coupons-action .s-cart-coupons-bottom-section .s-cart-coupons-card .s-cart-coupons-code .s-cart-coupons-coupon-error .s-cart-coupons-coupon-label .s-cart-coupons-disabled .s-cart-coupons-discount-values .s-cart-coupons-divider .s-cart-coupons-expiry .s-cart-coupons-expiry-warning .s-cart-coupons-main-amount .s-cart-coupons-minimum .s-cart-coupons-secondary-info .s-cart-coupons-terms .s-cart-coupons-top-section .s-cart-summary-card .s-cart-summary-card-bar .s-cart-summary-card-bar-count .s-cart-summary-card-bar-label .s-cart-summary-card-bar-label-main .s-cart-summary-card-bar-label-sub .s-cart-summary-card-bar-label-text .s-cart-summary-card-bar-savings-badge .s-cart-summary-card-bar-total .s-cart-summary-card-chevron .s-cart-summary-card-line .s-cart-summary-card-line--discount .s-cart-summary-card-sheet-title .s-cart-summary-card-sheet-wrap .s-cart-summary-content .s-cart-summary-count .s-cart-summary-icon .s-cart-summary-total .s-cart-summary-wrapper
+- s-search: .s-search-back-btn .s-search-grid-item .s-search-history-chip .s-search-history-chip-remove .s-search-history-chip-term .s-search-icon .s-search-icon-wrap .s-search-idle-category-chip .s-search-idle-category-count .s-search-idle-panel .s-search-idle-panel-empty .s-search-idle-section-title .s-search-input .s-search-input-row .s-search-input-wrapper .s-search-modal .s-search-modal-new .s-search-most-searched-icon .s-search-most-searched-item .s-search-no-results-placeholder .s-search-panel .s-search-product-card-compact .s-search-product-card-content-sub .s-search-product-card-content-title .s-search-product-card-image .s-search-product-card-out-of-stock-label .s-search-product-card-price-value .s-search-product-card-quantity .s-search-product-card-rating .s-search-product-card-sale-price .s-search-product-card-starting-price .s-search-spinner-loader .s-search-view-all .s-search-view-all-icon
+- s-comments: .s-comments .s-comments-container .s-comments-count-label .s-comments-filter-label .s-comments-filter-wrapper .s-comments-flex .s-comments-flex-1 .s-comments-header .s-comments-item .s-comments-item-admin .s-comments-item-admin-wrapper .s-comments-item-avatar .s-comments-item-avatar-img .s-comments-item-content .s-comments-item-content-container .s-comments-item-has-order-check-icon .s-comments-item-has-order-check-text .s-comments-item-inner .s-comments-item-rated-widget .s-comments-item-reply-icon .s-comments-item-stars .s-comments-item-time .s-comments-item-timestamp .s-comments-item-user-info .s-comments-item-user-info-name-with-margin .s-comments-item-user-wrapper .s-comments-item-wrapper .s-comments-page .s-comments-product .s-comments-sort-input .s-comments-title
+- s-conditional: .s-conditional-offer-badge-link-unmet .s-conditional-offer-gift .s-conditional-offer-gift-name .s-conditional-offer-gift-price .s-conditional-offer-gift-thumb .s-conditional-offer-gifts-title .s-conditional-offer-info-trigger .s-conditional-offer-message .s-conditional-offer-name .s-conditional-offer-panel .s-conditional-offer-tier .s-conditional-offer-tier-icon-unmet .s-conditional-offer-tier-status .s-conditional-offer-tier-status-met .s-conditional-offer-tier-status-unmet .s-conditional-offer-tier-text .s-conditional-offer-tier-title .s-conditional-offer-toggle .s-conditional-offer-toggle-bar .s-conditional-offer-tooltip .s-conditional-offer-tooltip-description .s-conditional-offer-tooltip-title
+- s-block: .s-block .s-block--angel-products .s-block--banners .s-block--bundle-customers-also-bought .s-block--bundle-customers-also-viewed .s-block--bundle-html-content .s-block--bundle-out-of-stock-alternative .s-block--bundle-personalized-shoppers-who-bought .s-block--bundle-similar-products .s-block--categories .s-block--categories__title .s-block--faqs .s-block--fixed-banner .s-block--full-bg .s-block--hero-slider .s-block--payment .s-block--slider-with-bg .s-block--special-product .s-block--testimonials .s-block-html-content
+- s-offer: .s-offer-card .s-offer-card-description .s-offer-card-icon .s-offer-card-title .s-offer-modal-badge .s-offer-modal-header-icon .s-offer-modal-product .s-offer-modal-product-name .s-offer-modal-product-price .s-offer-modal-remember-input .s-offer-modal-skeleton .s-offer-modal-skeleton-footer .s-offer-modal-skeleton-header .s-offer-modal-skeleton-item .s-offer-modal-skeleton-item-subtitle .s-offer-modal-skeleton-item-title .s-offer-modal-skeleton-items .s-offer-modal-type- .s-offer-slide-cat-entry .s-offer-wrapper
+- s-rating: .s-rating-modal-bg-gray .s-rating-modal-comment .s-rating-modal-contact .s-rating-modal-icon .s-rating-modal-product-img-wrap .s-rating-modal-product-title .s-rating-modal-rounded-icon .s-rating-modal-store-logo .s-rating-modal-thanks-title .s-rating-modal-title .s-rating-modal-wrapper .s-rating-stars-btn-star .s-rating-stars-label .s-rating-stars-medium .s-rating-stars-reviews .s-rating-stars-selected .s-rating-stars-small .s-rating-stars-wrapper
+- s-user: .s-user-menu-avatar-wrap .s-user-menu-dropdown .s-user-menu-dropdown-header .s-user-menu-dropdown-header-content .s-user-menu-dropdown-item .s-user-menu-dropdown-item-badge .s-user-menu-dropdown-item-title .s-user-menu-dropdown-list .s-user-menu-toggler .s-user-menu-trigger .s-user-menu-trigger-avatar .s-user-menu-trigger-hello .s-user-menu-trigger-icon .s-user-menu-trigger-name .s-user-menu-wrapper .s-user-settings-section-subtitle .s-user-settings-section-title .s-user-settings-wrapper
+- s-button: .s-button-btn .s-button-disabled .s-button-element .s-button-gray-outline .s-button-icon .s-button-light .s-button-light-outline .s-button-loader .s-button-loader-after .s-button-loader-center .s-button-outline .s-button-primary .s-button-small .s-button-solid .s-button-text .s-button-wide .s-button-wrap
+- s-modal: .s-modal .s-modal-align-middle .s-modal-align-top .s-modal-body .s-modal-close .s-modal-container .s-modal-header .s-modal-header-content .s-modal-lg .s-modal-md .s-modal-overlay .s-modal-padding .s-modal-spacer .s-modal-sub-title .s-modal-title .s-modal-wrapper .s-modal-xs
+- s-slider: .s-slider-block__display-all .s-slider-block__title .s-slider-block__title-left .s-slider-block__title-nav .s-slider-block__title-right .s-slider-button-icon .s-slider-container .s-slider-has-notitle .s-slider-horizontal .s-slider-nav-arrow .s-slider-next .s-slider-prev .s-slider-swiper-wrapper .s-slider-v-centered .s-slider-wrapper
+- s-filters: .s-filters-checkbox .s-filters-label .s-filters-option-name .s-filters-radio .s-filters-widget-active-arrow .s-filters-widget-arrow .s-filters-widget-container .s-filters-widget-content .s-filters-widget-more .s-filters-widget-plusminus .s-filters-widget-plusminus-active .s-filters-widget-search-input .s-filters-widget-title .s-filters-widget-values
+- s-mini: .s-mini-checkout .s-mini-checkout-modal .s-mini-checkout-modal-align-middle .s-mini-checkout-modal-body .s-mini-checkout-modal-close .s-mini-checkout-modal-container .s-mini-checkout-modal-header .s-mini-checkout-modal-overlay .s-mini-checkout-modal-padding .s-mini-checkout-modal-spacer .s-mini-checkout-modal-wrapper .s-mini-checkout-modal-xs
+- s-orders: .s-orders-copy-to-clipboard-button .s-orders-copy-to-clipboard-button-icon .s-orders-mobile-title .s-orders-reference-id .s-orders-status-container .s-orders-table .s-orders-table-head .s-orders-table-head-tr-th .s-orders-table-tbody-tr .s-orders-table-tbody-tr-shadow .s-orders-table-tbody-tr-td .s-orders-table-tbody-tr-td-content
+- s-quick: .s-quick-buy-apple-pay .s-quick-buy-button .s-quick-order .s-quick-order-btn-close .s-quick-order-button-cont .s-quick-order-confirm .s-quick-order-container .s-quick-order-email-field .s-quick-order-expandable .s-quick-order-flex-input .s-quick-order-phone-field .s-quick-order-shown
+- s-localization: .s-localization-modal-inner .s-localization-modal-input .s-localization-modal-label .s-localization-modal-section .s-localization-modal-section-inner .s-localization-modal-select .s-localization-modal-skeleton .s-localization-modal-skeleton-content .s-localization-modal-skeleton-item .s-localization-modal-skeleton-item-flex .s-localization-modal-title
+- s-gifting: .s-gifting-filepond-placeholder-icon .s-gifting-modal .s-gifting-modal-badge-wrapper .s-gifting-modal-icon .s-gifting-modal-uploader .s-gifting-modal-uploader-title .s-gifting-schedule .s-gifting-widget .s-gifting-widget-action .s-gifting-widget-action-content
+- s-order: .s-order-cancel-radio .s-order-edit-products-search-input .s-order-totals-card-heading .s-order-totals-card-label .s-order-totals-card-panel .s-order-totals-card-row .s-order-totals-card-total .s-order-totals-card-total-label .s-order-totals-card-total-value .s-order-totals-card-value
+- s-reviews: .s-reviews-summary-average .s-reviews-summary-count .s-reviews-summary-header-section .s-reviews-summary-percentage .s-reviews-summary-progress .s-reviews-summary-recommendation-only .s-reviews-summary-recommendation-percentage .s-reviews-summary-row-rate .s-reviews-summary-rows .s-reviews-summary-wrapper
+- s-products: .s-products-list .s-products-list-filters-results .s-products-list-loading-wrapper .s-products-list-placeholder .s-products-list-vertical-cards .s-products-list-wishlist .s-products-list-wrapper .s-products-slider-card .s-products-slider-wrapper
+- s-basket: .s-basket-gap-card-image .s-basket-gap-card-name .s-basket-gap-card-offer .s-basket-gap-card-price .s-basket-gap-card-sale-price .s-basket-gap-card-weight .s-basket-gap-entry .s-basket-gap-list
+- s-contacts: .s-contacts .s-contacts-icon .s-contacts-item .s-contacts-list .s-contacts-list-horizontal .s-contacts-list-vertical .s-contacts-title
+- s-login: .s-login-modal .s-login-modal-currentEmail .s-login-modal-currentPhone .s-login-modal-input .s-login-modal-label .s-login-modal-main-btn .s-login-modal-main-btn-text
+- s-count: .s-count-down-end-text .s-count-down-ended .s-count-down-item .s-count-down-item-label .s-count-down-list .s-count-down-md
+- s-placeholder: .s-placeholder-align-center .s-placeholder-description .s-placeholder-icon .s-placeholder-icon-md .s-placeholder-title .s-placeholder-wrapper
+- s-quantity: .s-quantity-input .s-quantity-input-button .s-quantity-input-container .s-quantity-input-decrease-button .s-quantity-input-increase-button .s-quantity-input-input
+- s-social: .s-social-link .s-social-list .s-social-share-btn .s-social-share-icon .s-social-share-list .s-social-share-wrapper
+- s-price: .s-price-range-currency .s-price-range-gray-text .s-price-range-inputs .s-price-range-number-input .s-price-range-relative
+- s-trust: .s-trust-badges-content .s-trust-badges-image .s-trust-badges-label .s-trust-badges-number .s-trust-badges-wrapper
+- s-before: .s-before-product-info .s-before-products-list .s-before-related .s-before-reviews
+- s-bought: .s-bought-together-checkbox .s-bought-together-entry .s-bought-together-subtitle .s-bought-together-title
+- s-infinite: .s-infinite-scroll-btn-loader .s-infinite-scroll-error .s-infinite-scroll-last .s-infinite-scroll-status
+- s-notifications: .s-notifications .s-notifications-item .s-notifications-item-icon .s-notifications-item-read
+- s-toggle: .s-toggle .s-toggle-input .s-toggle-switcher-bg-white .s-toggle-switcher-has-text
+- s-verify: .s-verify-back .s-verify-input .s-verify-message .s-verify-timer
+- s-after: .s-after-products-list .s-after-related .s-after-testimonials
+- s-block__shape: .s-block__shape .s-block__shape--bottom .s-block__shape--top
+- s-breadcrumb: .s-breadcrumb-arrow .s-breadcrumb-item .s-breadcrumb-wrapper
+- s-comment: .s-comment-form-action .s-comment-form-content .s-comment-form-input
+- s-installment: .s-installment-emkan-content-text .s-installment-emkan-wrapper .s-installment-madfu-wrapper
+- s-loyalty: .s-loyalty-header-subtitle .s-loyalty-placeholder .s-loyalty-points-banner-container
+- s-metadata: .s-metadata-box .s-metadata-row-name .s-metadata-row-value
+- s-payments: .s-payments-list .s-payments-list-item .s-payments-list-wrap
+- s-skeleton: .s-skeleton-item .s-skeleton-item-circular .s-skeleton-wrapper
+- s-angel: .s-angel--divider .s-angel-maps
+- s-block__container: .s-block__container .s-block__container-overlay
+- s-bullet: .s-bullet-delivery-branch-search-input .s-bullet-delivery-radio
+- s-cashback: .s-cashback-banner-container .s-cashback-banner-value
+- s-file: .s-file-upload-hidden-input .s-file-upload-wrapper
+- s-form: .s-form-control .s-form-group
+- s-list: .s-list-tile-item .s-list-tile-item-title
+- s-loading: .s-loading .s-loading-container
+- s-scopes: .s-scopes-input .s-scopes-search-input
+- s-tabs: .s-tabs-content .s-tabs-header
+- s-translate: .s-translate-all-wrap .s-translate-btn
+- s-animate: .s-animate-fade-in-up
+- s-apps: .s-apps-icons-list
+- s-block__display: .s-block__display-all
+- s-block__overlay: .s-block__overlay
+- s-block__title: .s-block__title
+- s-block__title_icon: .s-block__title_icon
+- s-block__title_separator: .s-block__title_separator
+- s-block__title_wrapper: .s-block__title_wrapper
+- s-blocks: .s-blocks-wrapper
+- s-checkbox: .s-checkbox
+- s-design: .s-design-invisible-dom
+- s-fast: .s-fast-checkout-button
+- s-hidden: .s-hidden
+- s-input: .s-input
+- s-ltr: .s-ltr
+- s-multiple: .s-multiple-bundle-product-checkbox
+- s-progress: .s-progress-bar-wrapper
+- s-searchable: .s-searchable-dropdown-search-input
+- s-table: .s-table
+- s-tel: .s-tel-input
+- s-testimonials: .s-testimonials--slider--img
+- s-toast: .s-toast-summary-avatars

@@ -1,0 +1,13 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>نسخ كلاسات ملاك</title>
+<style>:root{color-scheme:dark}body{margin:0;background:#0B0A12;color:#fff;font-family:Tahoma,sans-serif;line-height:1.7}.w{max-width:720px;margin:0 auto;padding:20px 16px}h1{font-size:22px;margin:0 0 6px}p{color:#C2BEDD;font-size:14.5px;margin:0 0 14px}button{display:block;width:100%;min-height:56px;border:0;border-radius:14px;font:700 17px Tahoma,sans-serif;margin:10px 0;cursor:pointer;background:linear-gradient(90deg,#00E5D4,#FF3D7F);color:#0B0A12}button.b2{background:#16142A;color:#fff;border:1px solid #2A2550}#s{text-align:center;color:#00E5D4;min-height:24px;font-weight:700}a{color:#00E5D4}</style></head><body><div class="w">
+<h1>كلاسات ثيم ملاك: جاهزة للنسخ</h1>
+<p>اضغط الزر، وبعدها الصق في محادثة Claude الثانية.</p>
+<button id="c1">نسخ مرجع الثيم (الهيكل والكلاسات)</button>
+<button id="c2" class="b2">نسخ CSS الكلاسات المستخدمة</button>
+<div id="s"></div>
+<p>أو افتح الملفات: <a href="malak-kit.txt">malak-kit.txt</a> · <a href="malak-used.css">malak-used.css</a></p>
+</div><script>
+const s=document.getElementById('s');
+async function cp(u){s.textContent='جاري النسخ…';try{const t=await (await fetch(u,{cache:'no-store'})).text();await navigator.clipboard.writeText(t);s.textContent='تم النسخ ✓ ('+t.length.toLocaleString('en')+' حرف)'}catch(e){s.textContent='ما قدر ينسخ، افتح الملف وانسخه يدوي'}}
+c1.onclick=()=>cp('malak-kit.txt');c2.onclick=()=>cp('malak-used.css');
+</script></body></html>

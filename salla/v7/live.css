@@ -408,7 +408,7 @@ body#app.index .s-block--testimonials .s-slider-block__title-left{flex:1 1 100%!
 /* ===== السرعة (PageSpeed): حجز أماكن الأقسام قبل ما تنرسم، عشان ما تقفز الصفحة (CLS) =====
    الأرقام مقاسة من الصفحة الفعلية على 390 و 412 و 1280 */
 body#app.index section[component-id="1938081345"] img{width:100%;height:auto}
-@media (max-width:767px){body#app.index section[component-id="1938081345"] img{aspect-ratio:800/1067}}
+@media (max-width:767px){body#app.index section[component-id="1938081345"] img{aspect-ratio:8/5}}
 @media (min-width:768px){body#app.index section[component-id="1938081345"] img{aspect-ratio:1456/520}}
 body#app.index section[component-id="822903265"]{min-height:198px}
 body#app.index section[component-id="997991654"]{min-height:1200px}

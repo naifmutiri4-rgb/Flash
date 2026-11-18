@@ -1,0 +1,355 @@
+<title>متجر داتفاي على ملاك</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&family=Alexandria:wght@800;900&display=swap">
+<style>
+/* ---------- (1) هيكل ثيم ملاك المبسّط: يمثل app.css حق الثيم، عشان المعاينة فقط ---------- */
+:root{color-scheme:dark}
+html,body{background:#070A18}
+body#app{margin:0;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1240px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.store-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30}
+.angel-ad{height:38px;display:flex;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden}
+.angel-ad__icon{display:inline-grid;width:18px;height:18px}.angel-ad__icon svg{width:18px;height:18px}
+.header-container>div{display:flex;align-items:center;justify-content:space-between;height:76px;gap:12px}
+.hdr-side{display:flex;align-items:center;gap:8px;flex:1}.hdr-side.end{justify-content:flex-end}
+.header-btn{display:grid;place-items:center;cursor:pointer;position:relative}.header-btn svg{width:20px;height:20px}
+.mburger p{margin:0;font-weight:600;font-size:15px}.mburger{display:flex;align-items:center;gap:8px;cursor:pointer}
+.s-cart-summary-count{position:absolute;top:-6px;inset-inline-start:-6px;min-width:20px;height:20px;border-radius:10px;font-size:11px;display:grid;place-items:center}
+.nav-header .container{display:flex;gap:26px;height:48px;align-items:center;overflow-x:auto;font-size:14px;font-weight:500;white-space:nowrap}
+.s-block{padding-block:28px}
+.s-block__title{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:20px}
+.s-block__title h2{margin:0;line-height:1.3}.s-block__title p{margin:4px 0 0;font-size:14px}
+.centered-title .s-block__title{justify-content:center;text-align:center}
+.more{font-size:14px;font-weight:600;color:#22F2C4;white-space:nowrap}
+.banner img{display:block;width:100%;height:auto}
+.banner-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}.banner-dots button{width:8px;height:8px;border-radius:4px;border:0;background:rgba(255,255,255,.25);cursor:pointer;padding:0}
+.banner-dots button[aria-current="true"]{width:26px;background:#22F2C4}
+.s-products-list-wrapper{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media(max-width:900px){.s-products-list-wrapper{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+.s-product-card-entry{display:flex;flex-direction:column;cursor:pointer}
+.s-product-card-image a{display:block;height:100%}
+.s-product-card-content{display:flex;flex-direction:column;gap:6px;flex:1}
+.s-product-card-content-title{margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;text-align:right}
+.s-product-card-props{display:flex;align-items:center;gap:6px}.s-product-card-props i{width:8px;height:8px;border-radius:50%}
+.s-product-card-content-sub{display:flex;flex-wrap:wrap;gap:6px}
+.tagx{font-size:11px;padding:3px 8px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#C9CFEE;white-space:nowrap}
+.s-button-element{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;font:inherit;font-size:14px;cursor:pointer}
+.s-button-element svg{width:18px;height:18px}
+.ops-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+@media(max-width:900px){.ops-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.op-link{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 10px;border-radius:20px;background:#0E1330;border:1px solid rgba(255,255,255,.1);cursor:pointer;font-weight:700;transition:border-color .15s,transform .15s}
+.op-link:hover{transform:translateY(-3px)}.op-link b{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:22px;color:#fff}
+.op-link small{font-weight:400;color:#9AA3C7;font-size:12px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s}
+@media(max-width:800px){.steps{grid-template-columns:1fr}}
+.step{background:#0E1330;border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:24px;position:relative}
+.step i{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:rgba(34,242,196,.12);color:#22F2C4}.step i svg{width:28px;height:28px}
+.step h3{margin:16px 0 6px;font-size:18px}.step p{margin:0;color:#9AA3C7;font-size:14px}
+.step::after{counter-increment:s;content:counter(s);position:absolute;top:18px;inset-inline-end:22px;font-family:Alexandria;font-weight:900;font-size:44px;color:rgba(255,255,255,.06)}
+.dlv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}@media(max-width:800px){.dlv{grid-template-columns:1fr}}
+.dlv>div{border-radius:22px;padding:24px;background:linear-gradient(160deg,rgba(123,92,255,.18),rgba(14,19,48,1) 60%);border:1px solid rgba(255,255,255,.1)}
+.dlv i{display:grid;place-items:center;width:50px;height:50px;border-radius:14px;background:rgba(255,216,77,.14);color:#FFD84D}.dlv i svg{width:26px;height:26px}
+.dlv h3{margin:14px 0 4px;font-size:18px}.dlv p{margin:0;color:#9AA3C7;font-size:14px}
+.faqs-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}@media(max-width:800px){.faqs-list{grid-template-columns:1fr}}
+.faqs-list__item summary{padding:18px 20px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faqs-list__item summary::after{content:"+";color:#22F2C4;font-size:22px;line-height:1}.faqs-list__item[open] summary::after{content:"–"}
+.faqs-list__item p{margin:0;padding:0 20px 18px;color:#9AA3C7;font-size:14px}
+.store-footer__inner{margin-top:40px}
+.footer-middle{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:30px;padding-block:40px}
+@media(max-width:800px){.footer-middle{grid-template-columns:1fr 1fr}.footer-profile{grid-column:1/-1}}
+.footer-description{color:#9AA3C7;font-size:14px;max-width:340px}
+.footer-list{display:flex;flex-direction:column;gap:12px;font-size:14px}.footer-title{margin:0 0 14px}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding-block:18px;border-top:1px solid rgba(255,255,255,.1)}
+.s-payments-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.s-payments-list-item{color:#0B0F2A;font-size:12px;font-weight:700;direction:ltr}
+.copyrights{font-size:13px}
+.s-breadcrumb-wrapper{display:flex;gap:8px;list-style:none;margin:0;padding:14px 0;flex-wrap:wrap}
+.s-breadcrumb-arrow::before{content:"‹";color:#9AA3C7}
+.cat-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-block:22px 6px}
+.cat-head h1{margin:0;font-size:clamp(22px,3vw,32px)}
+.s-filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 22px}
+.s-filters button{font:inherit;font-size:14px;font-weight:600;padding:8px 16px;border-radius:999px;background:#0E1330;color:#F4F6FF;border:1px solid rgba(255,255,255,.12);cursor:pointer}
+.s-filters button[aria-pressed="true"]{background:#22F2C4;color:#04131a;border-color:#22F2C4}
+.prod-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:36px;padding-block:20px 40px;align-items:start}
+@media(max-width:900px){.prod-wrap{grid-template-columns:1fr;gap:20px}}
+.sidebar{position:sticky;top:140px}@media(max-width:900px){.sidebar{position:static}}
+.sidebar img{display:block;width:100%;height:auto}
+.main-content h1{margin:6px 0 4px}
+.op-badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.op-badge i{width:9px;height:9px;border-radius:50%}
+.price{display:flex;align-items:center;gap:10px;margin:14px 0}
+.price .ph{font-size:13px;color:#9AA3C7;border:1px dashed rgba(255,255,255,.25);padding:6px 12px;border-radius:10px}
+.feat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:16px 0}
+.feat-row div{background:#0E1330;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px}
+.feat-row small{display:block;color:#9AA3C7;font-size:12px}.feat-row b{font-size:16px}
+.full-description p{white-space:pre-line;margin:0;font-size:14px;line-height:1.9}
+.details__wrapper{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.details__title svg{width:16px;height:16px}
+.s-product-options-option-content input{position:absolute;opacity:0;pointer-events:none}
+.s-product-options-option-content label .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(123,92,255,.18);color:#C9BEFF;flex:none}
+.s-product-options-option-content label .ic svg{width:22px;height:22px}
+.s-product-options-option-content label b{display:block;font-size:15px}.s-product-options-option-content label small{color:#9AA3C7;font-size:12.5px}
+.s-product-options-option-content label .rd{margin-inline-start:auto;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.3);flex:none}
+.s-product-options-option-content input:checked+label .rd{border:6px solid #22F2C4}
+.s-product-options-option-content input:focus-visible+label{outline:2px solid #22F2C4;outline-offset:2px}
+.nafath{display:flex;gap:12px;align-items:center;background:rgba(34,242,196,.08)!important;border-color:rgba(34,242,196,.35)!important}
+.nafath i{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:#22F2C4;color:#04131a;flex:none}.nafath i svg{width:24px;height:24px}
+.nafath b{display:block}.nafath small{color:#9AA3C7;font-size:13px}
+.pay-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.sticky-product-bar{margin-top:16px;padding:14px;display:flex;gap:10px;align-items:center}
+.s-quantity-input-container{display:flex;align-items:center;height:44px}
+.s-quantity-input-container button{width:40px;height:44px;background:none;border:0;color:#F4F6FF;font-size:20px;cursor:pointer}
+.s-quantity-input-container span{min-width:26px;text-align:center;font-weight:700}
+.sticky-product-bar .s-button-element{flex:1}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:#22F2C4;color:#04131a;font-weight:700;padding:12px 22px;border-radius:14px;z-index:50}
+.mock-note{font-size:12px;color:#9AA3C7;text-align:center;padding:10px;border-bottom:1px solid rgba(255,255,255,.08);background:#05071a}
+.mock-note button{font:inherit;font-weight:700;background:none;border:0;color:#22F2C4;cursor:pointer;padding:0 6px}
+:focus-visible{outline:2px solid #22F2C4;outline-offset:2px}
+@media(max-width:600px){.mburger p{display:none}#icUser{display:none}.navbar-brand>div{zoom:.72}.header-container>div{gap:6px}.store-header .header-btn{width:38px;height:38px}.angel-ad__content{font-size:11px!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ---------- (2) CSS داتفاي المخصص — هذا اللي ينحط في سلة ---------- */
+/* ==========================================================
+   داتفاي × ثيم ملاك — CSS مخصص
+   الصقه في: لوحة سلة ← المتجر ← تخصيص الثيم ← CSS مخصص
+   ========================================================== */
+
+:root{
+ --df-ink:#070A18;--df-ink2:#0E1330;--df-ink3:#151B42;--df-line:rgba(255,255,255,.10);
+ --df-violet:#7B5CFF;--df-blue:#4E8BFF;--df-mint:#22F2C4;--df-txt:#F4F6FF;--df-mute:#9AA3C7;
+ --df-grad:linear-gradient(135deg,#7B5CFF 0%,#4E8BFF 50%,#22F2C4 100%);
+ --color-primary:#7B5CFF;--color-primary-d:#5B3FFF;--color-primary-l:#9C85FF;--color-primary-reverse:#22F2C4;
+ --main-text-color:#F4F6FF;--main-text-color-dark:#F4F6FF;--color-text:#9AA3C7;--color-grey:#0E1330;--color-light-grey:#151B42;
+}
+body#app,body#app *{font-family:'Readex Pro',system-ui,sans-serif}
+body#app{background:var(--df-ink);color:var(--df-txt)}
+body#app h1,body#app h2,.s-block__title h2,.angel-products-title h2{font-family:'Alexandria','Readex Pro',sans-serif!important;font-weight:800}
+.da-tm,.da-cp{color:var(--df-txt)!important}.da-ts,.text-gray-400{color:var(--df-mute)!important}
+.bg-white.da-bgm,.da-bgm{background:var(--df-ink)!important}.bg-gray-100.da-bgg,.da-bgg{background:var(--df-ink2)!important}
+
+/* شريط الإعلان */
+.angel-ad{background:var(--df-grad)!important;color:#fff}
+.angel-ad__content{color:#fff!important;font-weight:600;font-size:13px}
+.angel-ad__icon{color:#fff!important}
+
+/* الهيدر */
+.store-header .header-inner{background:rgba(7,10,24,.85)!important;backdrop-filter:blur(14px);border-bottom:1px solid var(--df-line)}
+.store-header .header-btn{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid var(--df-line);color:var(--df-txt)}
+.store-header .header-btn:hover{border-color:var(--df-mint);color:var(--df-mint)}
+.s-cart-summary-count{background:var(--df-mint)!important;color:#04131a!important;font-weight:700}
+.nav-header{background:var(--df-ink2);border-bottom:1px solid var(--df-line)}
+.nav-header a{color:var(--df-mute)}.nav-header a:hover,.nav-header a.active{color:var(--df-mint)}
+
+/* البنر */
+.s-block--fixed-banner .banner{border-radius:24px;overflow:hidden;border:1px solid var(--df-line);box-shadow:0 30px 80px rgba(123,92,255,.25)}
+
+/* عناوين البلوكات */
+.s-block__title h2{font-size:clamp(22px,2.6vw,30px)}
+.s-block__title .title-wrapper::after{content:"";display:block;width:56px;height:4px;border-radius:4px;background:var(--df-grad);margin-top:10px}
+.centered-title .s-block__title .title-wrapper::after{margin-inline:auto}
+
+/* بطاقة المنتج */
+.s-product-card-entry{background:var(--df-ink2)!important;border:1px solid var(--df-line);border-radius:20px!important;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
+.s-product-card-entry:hover{transform:translateY(-4px);border-color:rgba(34,242,196,.45);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.s-product-card-image{background:var(--df-ink);aspect-ratio:1}
+.s-product-card-image-cover{object-fit:cover;width:100%;height:100%}
+.s-product-card-content{padding:14px 14px 16px}
+.s-product-card-content-title{color:var(--df-txt)!important;font-weight:600;font-size:15px}
+.s-product-card-props{color:var(--df-mute);font-size:12px}
+.s-product-card-price{color:var(--df-mint)!important;font-weight:700}
+.s-product-card-content-footer{margin-top:12px}
+.s-product-card-content-footer .s-button-element{width:100%}
+
+/* الأزرار */
+.s-button-primary.s-button-solid,.btn--primary,.s-button-btn.s-button-primary{background:var(--df-grad)!important;border:0!important;color:#fff!important;border-radius:14px!important;font-weight:700;box-shadow:0 10px 30px rgba(78,139,255,.35)}
+.s-button-primary.s-button-solid:hover{filter:brightness(1.08)}
+.s-button-outline{border-color:var(--df-line)!important;color:var(--df-txt)!important;border-radius:14px!important}
+
+/* المسار */
+.s-breadcrumb-item,.s-breadcrumb-item a{color:var(--df-mute)!important;font-size:13px}
+.s-breadcrumb-item:last-child{color:var(--df-txt)!important}
+
+/* صفحة المنتج */
+.product-single .sidebar .swiper,.product-single .homeslider__slide img{border-radius:24px;border:1px solid var(--df-line)}
+.product-single .main-content h1{font-size:clamp(20px,2.4vw,28px)!important;line-height:1.5}
+.full-description{color:var(--df-mute)}
+.full-description h3{color:var(--df-txt);font-weight:700;margin-top:18px}
+.details{background:var(--df-ink2);border:1px solid var(--df-line);border-radius:18px;padding:16px 18px;margin-top:12px}
+.details__title{color:var(--df-mute);display:flex;align-items:center;gap:8px;font-size:13px}
+.details__action{color:var(--df-txt);font-weight:600}
+
+/* خيارات المنتج = طرق الاستلام */
+.s-product-options-option-label{color:var(--df-txt);font-weight:700;margin-bottom:12px;display:block}
+.s-product-options-option-content{display:grid;gap:10px}
+.s-product-options-option-content label{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;background:var(--df-ink);border:1.5px solid var(--df-line);cursor:pointer;transition:border-color .15s,background .15s}
+.s-product-options-option-content input:checked+label,.s-product-options-option-content label.is-selected{border-color:var(--df-mint);background:rgba(34,242,196,.07)}
+.sticky-product-bar{background:rgba(14,19,48,.92)!important;backdrop-filter:blur(12px);border:1px solid var(--df-line);border-radius:20px!important}
+.s-quantity-input-container{border-radius:14px;border:1px solid var(--df-line);background:var(--df-ink)}
+
+/* الأسئلة الشائعة */
+.faqs-list__item{background:var(--df-ink2)!important;border:1px solid var(--df-line)!important;border-radius:16px!important}
+.faqs-list__item label{color:var(--df-txt)}
+
+/* الفوتر */
+.store-footer__inner{background:var(--df-ink2)!important;border-top:1px solid var(--df-line)}
+.footer-title{color:var(--df-txt);font-weight:700}
+.footer-list a{color:var(--df-mute)!important}.footer-list a:hover{color:var(--df-mint)!important}
+.s-payments-list-item{background:#fff;border-radius:8px;padding:4px 8px}
+.copyrights{color:var(--df-mute)}
+
+</style>
+<div id="root" dir="rtl" lang="ar">
+<div class="mock-note">معاينة تصميم متجر داتفاي على ثيم ملاك ·
+ <button data-go="home">الرئيسية</button>·<button data-go="category">التصنيف</button>·<button data-go="product">صفحة المنتج</button>· <a href="datafy-malak.css" target="_blank" rel="noopener" style="color:#22F2C4;font-weight:700">ملف CSS للثيم</a></div>
+<header class="store-header dark fixed-sticky">
+ <div id="mainnav" class="main-nav-container shadow-default">
+  <div class="header-inner inner bg-white da-bgm has-custom-bg">
+   <div class="angel-ad overflow-hidden"><i class="angel-ad__icon" id="adic"></i><a class="angel-ad__content">التفعيل عبر نفاذ · استلام أو توصيل من فرع شبكتك · أو eSIM</a></div>
+   <div class="header-container container"><div>
+    <div class="hdr-side"><a class="mburger mburger--collapse" id="menuBtn"><i class="header-btn" id="icMenu"></i><p class="da-tm">القائمة</p></a></div>
+    <a class="navbar-brand" data-go="home" id="brand" style="cursor:pointer"></a>
+    <div class="hdr-side end"><button class="search-btn header-btn" aria-label="بحث" id="icSearch"></button><button class="header-btn" aria-label="حسابي" id="icUser"></button>
+     <a class="s-cart-summary-wrapper header-btn" aria-label="السلة" id="icCart"><span class="s-cart-summary-count" id="cartCount">0</span></a></div>
+   </div></div>
+  </div>
+  <div class="inner nav-header"><div class="container" id="navLinks"></div></div>
+ </div>
+</header>
+<main id="view"></main>
+<footer class="store-footer dark"><div class="store-footer__inner da-bgm has-custom-bg"><div class="container">
+ <div class="footer-middle footer-container">
+  <div class="footer-profile"><a class="logo-footer" id="flogo"></a><p class="footer-description">داتفاي متجر شرائح إنترنت لكل الشبكات السعودية. تفعيل عبر نفاذ، واستلام أو توصيل من فرع شبكتك، أو استبدال بشريحة eSIM.</p></div>
+  <div class="menu-list"><p class="footer-title font-primary">الشبكات</p><div class="footer-list" id="fops"></div></div>
+  <div class="menu-list"><p class="footer-title font-primary">روابط تهمك</p><div class="footer-list"><a>طرق الاستلام والتوصيل</a><a>التفعيل عبر نفاذ</a><a>سياسة الاستبدال</a><a>سياسة الخصوصية</a></div></div>
+  <div class="menu-list"><p class="footer-title font-primary">تواصل معنا</p><div class="footer-list"><a>واتساب</a><a>البريد الإلكتروني</a><a>ساعات العمل: 9ص – 11م</a></div></div>
+ </div>
+ <div class="footer-bottom"><salla-payments class="s-payments-list-wrap"><ul class="s-payments-list" id="pays"></ul></salla-payments>
+  <span class="copyrights"><p class="text-gray-400">جميع الحقوق محفوظة · داتفاي 2026</p></span></div>
+</div></div></footer>
+</div>
+<script>// Datafy mark: SIM silhouette with a "D" built from a bar + two signal arcs
+function dfMark(size, opts={}){
+  const id='g'+Math.random().toString(36).slice(2,7);
+  const ink=opts.ink||'#fff';
+  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#7B5CFF"/><stop offset=".55" stop-color="#4E8BFF"/><stop offset="1" stop-color="#22F2C4"/></linearGradient></defs>
+  <path d="M34 8H78A12 12 0 0 1 90 20V80A12 12 0 0 1 78 92H22A12 12 0 0 1 10 80V32Z" fill="${opts.flat||'url(#'+id+')'}"/>
+  <g fill="${ink}" fill-opacity=".22"><rect x="70" y="20" width="10" height="5" rx="2.5"/><rect x="70" y="30" width="10" height="5" rx="2.5"/><rect x="70" y="75" width="10" height="5" rx="2.5"/></g>
+  <g fill="none" stroke="${ink}" stroke-linecap="round" stroke-width="7.5">
+    <path d="M30 31V77"/>
+    <path d="M30 43A11 11 0 0 1 30 65"/>
+    <path d="M30 31A23 23 0 0 1 30 77"/>
+  </g>
+  <circle cx="35" cy="54" r="3.6" fill="${ink}"/>
+</svg>`;
+}
+function dfLogo(h, opts={}){
+  const c=opts.text||'#fff', sub=opts.sub||'#22F2C4';
+  return `<div style="display:inline-flex;align-items:center;gap:${h*.22}px;direction:rtl">
+   ${dfMark(h,opts)}
+   <div style="display:flex;flex-direction:column;line-height:1">
+     <span style="font-family:Alexandria;font-weight:900;font-size:${h*.62}px;color:${c};letter-spacing:-.01em">داتفاي</span>
+     <span style="font-family:'Readex Pro';font-weight:600;font-size:${h*.19}px;color:${sub};letter-spacing:.3em;margin-top:${h*.3}px;direction:ltr;text-align:right">DATAFY SIM</span>
+   </div></div>`;
+}
+</script>
+<script>const IC={
+data:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 8.5a15 15 0 0 1 20 0"/><path d="M5.5 12a10 10 0 0 1 13 0"/><path d="M9 15.5a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1.3" fill="currentColor"/></svg>',
+social:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12Z"/><path d="M9 11h.01M12.5 11h.01M16 11h.01" stroke-linecap="round" stroke-width="2.6"/></svg>',
+call:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 3h3.5l2 5-2.5 1.5a11 11 0 0 0 6.5 6.5L16 13.5l5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>',
+time:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+bolt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>',
+qr:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM20 14v.01M20 20h-3M14 20v.01" stroke-linecap="round"/></svg>',
+shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke-linecap="round"/></svg>',
+check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>'};
+IC.store='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 9 4.5 4h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 11v9h14v-9M10 20v-5h4v5"/></svg>';
+IC.truck='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8z"/><circle cx="6" cy="18" r="2" fill="currentColor"/><circle cx="18" cy="18" r="2" fill="currentColor"/></svg>';
+IC.esim='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M9 2h8a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7Z"/><path d="M9 11h6M9 15h6M12 11v8" stroke-linecap="round"/></svg>';
+IC.sim=IC.esim;
+IC.nafath='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a7 7 0 0 0-7 7v2M19 12v-2a7 7 0 0 0-11-5.7"/><path d="M9 21c.5-2 1-4.5 1-7a2 2 0 1 1 4 0c0 1.5-.2 3-.5 4.5M5 16c.6-1.2 1-2.6 1-4M17.5 19c.3-1.5.5-3.2.5-5"/></svg>';
+const OPC={mobily:'#2F7BFF',sawa:'#9B4DFF',salam:'#1ED69A',redbull:'#FF3B5C',zain:'#FF5FB0',lebara:'#22C3F0'};
+
+IC.menu='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>';
+IC.search='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
+IC.user='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>';
+IC.cart='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 4h2l2.4 11h11L21 7H6.2"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="18" cy="20" r="1.4" fill="currentColor"/></svg>';
+const P=[{"id": "DF-003", "op": "mobily", "op_ar": "موبايلي", "group": "باقات البيانات", "name": "DATA 600GB", "title": "شريحة إنترنت موبايلي | DATA 600GB – 600 جيجا إنترنت | 180 يوم", "tagline": "جيجات تكفيك وتفيض عنك.", "desc": "جيجات تكفيك وتفيض عنك.\n600 جيجا إنترنت، تشتغل معك 180 يوم كاملة على شبكة موبايلي.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع موبايلي، أو توصيل من فرع موبايلي، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع موبايلي  •  🚚 توصيل من فرع موبايلي  •  📲 eSIM", "days": 180, "feats": [["data", "إنترنت", "600 جيجا"], ["time", "الصلاحية", "180 يوم"]]}, {"id": "DF-006", "op": "mobily", "op_ar": "موبايلي", "group": "باقات فليكس بلس", "name": "FLEX PLUS-320", "title": "شريحة إنترنت موبايلي | FLEX PLUS-320 – 100 جيجا إنترنت + سوشال لا محدود + 1,200 دقيقة | 90 يوم", "tagline": "خزّان إنترنت كامل في جيبك.", "desc": "خزّان إنترنت كامل في جيبك.\n100 جيجا إنترنت، سوشال لا محدود و1,200 دقيقة، تشتغل معك 90 يوم كاملة على شبكة موبايلي.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع موبايلي، أو توصيل من فرع موبايلي، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع موبايلي  •  🚚 توصيل من فرع موبايلي  •  📲 eSIM", "days": 90, "feats": [["data", "إنترنت", "100 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية ودولية", "1,200 دقيقة"], ["time", "الصلاحية", "90 يوم"]]}, {"id": "DF-013", "op": "mobily", "op_ar": "موبايلي", "group": "باقات مسبقة الدفع", "name": "MOBILY PREPAID 360", "title": "شريحة إنترنت موبايلي | MOBILY PREPAID 360 – إنترنت لا محدود + مكالمات لا محدودة | 28 يوم", "tagline": "سرعة مفتوحة، وراحة بال كاملة.", "desc": "سرعة مفتوحة، وراحة بال كاملة.\nإنترنت لا محدود ومكالمات لا محدودة، تشتغل معك 28 يوم كاملة على شبكة موبايلي.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع موبايلي، أو توصيل من فرع موبايلي، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع موبايلي  •  🚚 توصيل من فرع موبايلي  •  📲 eSIM", "days": 28, "feats": [["data", "إنترنت", "لا محدود"], ["call", "دقائق محلية", "لا محدودة"], ["time", "الصلاحية", "28 يوم"]]}, {"id": "DF-016", "op": "mobily", "op_ar": "موبايلي", "group": "باقات مسبقة الدفع", "name": "MOBILY PREPAID 150", "title": "شريحة إنترنت موبايلي | MOBILY PREPAID 150 – 55 جيجا إنترنت + سوشال لا محدود + 3,000 دقيقة | 28 يوم", "tagline": "كل اللي تحتاجه، بسعر يرضيك.", "desc": "كل اللي تحتاجه، بسعر يرضيك.\n55 جيجا إنترنت، سوشال لا محدود و3,000 دقيقة، تشتغل معك 28 يوم كاملة على شبكة موبايلي.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع موبايلي، أو توصيل من فرع موبايلي، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع موبايلي  •  🚚 توصيل من فرع موبايلي  •  📲 eSIM", "days": 28, "feats": [["data", "إنترنت", "55 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "3,000 دقيقة"], ["time", "الصلاحية", "28 يوم"]]}, {"id": "DF-021", "op": "sawa", "op_ar": "سوا", "group": "باقات محلية", "name": "SAWA POST", "title": "شريحة إنترنت سوا | SAWA POST – 66 جيجا إنترنت + سوشال لا محدود + مكالمات لا محدودة | 30 يوم", "tagline": "التوازن المثالي بين القوة والسعر.", "desc": "التوازن المثالي بين القوة والسعر.\n66 جيجا إنترنت، سوشال لا محدود ومكالمات لا محدودة، تشتغل معك 30 يوم كاملة على شبكة سوا.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع سوا، أو توصيل من فرع سوا، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع سوا  •  🚚 توصيل من فرع سوا  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "66 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق داخل شبكة stc", "لا محدودة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-024", "op": "sawa", "op_ar": "سوا", "group": "باقات محلية", "name": "SAWA STAR", "title": "شريحة إنترنت سوا | SAWA STAR – 100 جيجا إنترنت + سوشال لا محدود + مكالمات لا محدودة | 30 يوم", "tagline": "للي ما يرضى بنص الحلول.", "desc": "للي ما يرضى بنص الحلول.\n100 جيجا إنترنت، سوشال لا محدود ومكالمات لا محدودة، تشتغل معك 30 يوم كاملة على شبكة سوا.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع سوا، أو توصيل من فرع سوا، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع سوا  •  🚚 توصيل من فرع سوا  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "100 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق داخل شبكة stc", "لا محدودة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-027", "op": "sawa", "op_ar": "سوا", "group": "باقات محلية", "name": "SAWA HERO", "title": "شريحة إنترنت سوا | SAWA HERO – إنترنت لا محدود + مكالمات لا محدودة | 30 يوم", "tagline": "سرعة مفتوحة، وراحة بال كاملة.", "desc": "سرعة مفتوحة، وراحة بال كاملة.\nإنترنت لا محدود ومكالمات لا محدودة، تشتغل معك 30 يوم كاملة على شبكة سوا.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع سوا، أو توصيل من فرع سوا، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع سوا  •  🚚 توصيل من فرع سوا  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "لا محدود"], ["call", "دقائق محلية", "لا محدودة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-033", "op": "sawa", "op_ar": "سوا", "group": "باقات دولية", "name": "SAWA FLEX-150", "title": "شريحة إنترنت سوا | SAWA FLEX-150 – 60 جيجا إنترنت + سوشال 50 جيجا + 1,500 دقيقة | 30 يوم", "tagline": "أهلك بعيدين؟ صوتك يوصلهم.", "desc": "أهلك بعيدين؟ صوتك يوصلهم.\n60 جيجا إنترنت، سوشال 50 جيجا و1,500 دقيقة، تشتغل معك 30 يوم كاملة على شبكة سوا.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع سوا، أو توصيل من فرع سوا، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع سوا  •  🚚 توصيل من فرع سوا  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "60 جيجا"], ["social", "سوشال ميديا", "50 جيجا"], ["call", "دقائق دولية", "1,500 دقيقة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-047", "op": "salam", "op_ar": "سلام", "group": "باقات سولو", "name": "SOLO 99", "title": "شريحة إنترنت سلام | SOLO 99 – 35 جيجا إنترنت + سوشال لا محدود + 1,000 دقيقة | 28 يوم", "tagline": "باقة شهرك… مضبوطة على مقاسك.", "desc": "باقة شهرك… مضبوطة على مقاسك.\n35 جيجا إنترنت، سوشال لا محدود و1,000 دقيقة، تشتغل معك 28 يوم كاملة على شبكة سلام.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع سلام، أو توصيل من فرع سلام، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع سلام  •  🚚 توصيل من فرع سلام  •  📲 eSIM", "days": 28, "feats": [["data", "إنترنت", "35 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "1,000 دقيقة"], ["time", "الصلاحية", "28 يوم"]]}, {"id": "DF-050", "op": "salam", "op_ar": "سلام", "group": "باقات سولو", "name": "SOLO 199", "title": "شريحة إنترنت سلام | SOLO 199 – 80 جيجا إنترنت + سوشال لا محدود + مكالمات لا محدودة | 28 يوم", "tagline": "التوازن المثالي بين القوة والسعر.", "desc": "التوازن المثالي بين القوة والسعر.\n80 جيجا إنترنت، سوشال لا محدود ومكالمات لا محدودة، تشتغل معك 28 يوم كاملة على شبكة سلام.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع سلام، أو توصيل من فرع سلام، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع سلام  •  🚚 توصيل من فرع سلام  •  📲 eSIM", "days": 28, "feats": [["data", "إنترنت", "80 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "لا محدودة"], ["time", "الصلاحية", "28 يوم"]]}, {"id": "DF-051", "op": "salam", "op_ar": "سلام", "group": "باقات سولو", "name": "SOLO 359", "title": "شريحة إنترنت سلام | SOLO 359 – إنترنت لا محدود + سوشال لا محدود + مكالمات لا محدودة | 28 يوم", "tagline": "سرعة مفتوحة، وراحة بال كاملة.", "desc": "سرعة مفتوحة، وراحة بال كاملة.\nإنترنت لا محدود، سوشال لا محدود ومكالمات لا محدودة، تشتغل معك 28 يوم كاملة على شبكة سلام.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع سلام، أو توصيل من فرع سلام، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع سلام  •  🚚 توصيل من فرع سلام  •  📲 eSIM", "days": 28, "feats": [["data", "إنترنت", "لا محدود"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "لا محدودة"], ["time", "الصلاحية", "28 يوم"]]}, {"id": "DF-055", "op": "salam", "op_ar": "سلام", "group": "باقات فليكس", "name": "FLEX 85", "title": "شريحة إنترنت سلام | FLEX 85 – 15 جيجا إنترنت + سوشال 15 جيجا + 750 دقيقة | 28 يوم", "tagline": "الأساسيات كلها… بأذكى سعر.", "desc": "الأساسيات كلها… بأذكى سعر.\n15 جيجا إنترنت، سوشال 15 جيجا و750 دقيقة، تشتغل معك 28 يوم كاملة على شبكة سلام.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع سلام، أو توصيل من فرع سلام، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع سلام  •  🚚 توصيل من فرع سلام  •  📲 eSIM", "days": 28, "feats": [["data", "إنترنت", "15 جيجا"], ["social", "سوشال ميديا", "15 جيجا"], ["call", "دقائق محلية", "750 دقيقة"], ["time", "الصلاحية", "28 يوم"]]}, {"id": "DF-063", "op": "redbull", "op_ar": "ريد بُل موبايل", "group": "باقات مزاجي", "name": "MAX-104", "title": "شريحة إنترنت ريد بُل موبايل | MAX-104 – 40 جيجا إنترنت + سوشال لا محدود + 950 دقيقة | 28 يوم", "tagline": "باقة شهرك… مضبوطة على مقاسك.", "desc": "باقة شهرك… مضبوطة على مقاسك.\n40 جيجا إنترنت، سوشال لا محدود و950 دقيقة، تشتغل معك 28 يوم كاملة على شبكة ريد بُل موبايل.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع ريد بُل موبايل، أو توصيل من فرع ريد بُل موبايل، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع ريد بُل موبايل  •  🚚 توصيل من فرع ريد بُل موبايل  •  📲 eSIM", "days": 28, "feats": [["data", "إنترنت", "40 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "950 دقيقة"], ["time", "الصلاحية", "28 يوم"]]}, {"id": "DF-066", "op": "redbull", "op_ar": "ريد بُل موبايل", "group": "باقات مزاجي", "name": "MAZAJI-160+", "title": "شريحة إنترنت ريد بُل موبايل | MAZAJI-160+ – 69 جيجا إنترنت + سوشال لا محدود + مكالمات لا محدودة | 28 يوم", "tagline": "كل اللي تحتاجه، بسعر يرضيك.", "desc": "كل اللي تحتاجه، بسعر يرضيك.\n69 جيجا إنترنت، سوشال لا محدود ومكالمات لا محدودة، تشتغل معك 28 يوم كاملة على شبكة ريد بُل موبايل.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع ريد بُل موبايل، أو توصيل من فرع ريد بُل موبايل، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع ريد بُل موبايل  •  🚚 توصيل من فرع ريد بُل موبايل  •  📲 eSIM", "days": 28, "feats": [["data", "إنترنت", "69 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "لا محدودة"], ["time", "الصلاحية", "28 يوم"]]}, {"id": "DF-068", "op": "redbull", "op_ar": "ريد بُل موبايل", "group": "باقات فليكس", "name": "FLEX-300", "title": "شريحة إنترنت ريد بُل موبايل | FLEX-300 – 100 جيجا إنترنت + سوشال لا محدود + 1,300 دقيقة | 30 يوم", "tagline": "جيجات تكفيك وتفيض عنك.", "desc": "جيجات تكفيك وتفيض عنك.\n100 جيجا إنترنت، سوشال لا محدود و1,300 دقيقة، تشتغل معك 30 يوم كاملة على شبكة ريد بُل موبايل.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع ريد بُل موبايل، أو توصيل من فرع ريد بُل موبايل، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع ريد بُل موبايل  •  🚚 توصيل من فرع ريد بُل موبايل  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "100 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق دولية", "1,300 دقيقة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-077", "op": "redbull", "op_ar": "ريد بُل موبايل", "group": "باقات البيانات", "name": "UNLIMITED", "title": "شريحة إنترنت ريد بُل موبايل | UNLIMITED – إنترنت لا محدود + سوشال لا محدود | 30 يوم", "tagline": "إنترنت بلا سقف… ولا عدّاد.", "desc": "إنترنت بلا سقف… ولا عدّاد.\nإنترنت لا محدود وسوشال لا محدود، تشتغل معك 30 يوم كاملة على شبكة ريد بُل موبايل.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع ريد بُل موبايل، أو توصيل من فرع ريد بُل موبايل، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع ريد بُل موبايل  •  🚚 توصيل من فرع ريد بُل موبايل  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "لا محدود"], ["social", "سوشال ميديا", "لا محدود"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-080", "op": "zain", "op_ar": "زين", "group": "باقات فليكس", "name": "FLEX-109", "title": "شريحة إنترنت زين | FLEX-109 – 40 جيجا إنترنت + سوشال لا محدود + 1,200 دقيقة | 30 يوم", "tagline": "التوازن المثالي بين القوة والسعر.", "desc": "التوازن المثالي بين القوة والسعر.\n40 جيجا إنترنت، سوشال لا محدود و1,200 دقيقة، تشتغل معك 30 يوم كاملة على شبكة زين.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع زين، أو توصيل من فرع زين، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع زين  •  🚚 توصيل من فرع زين  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "40 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "1,200 دقيقة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-083", "op": "zain", "op_ar": "زين", "group": "باقات فليكس", "name": "FLEX-329", "title": "شريحة إنترنت زين | FLEX-329 – 145 جيجا إنترنت + سوشال لا محدود + 1,500 دقيقة | 90 يوم", "tagline": "خزّان إنترنت كامل في جيبك.", "desc": "خزّان إنترنت كامل في جيبك.\n145 جيجا إنترنت، سوشال لا محدود و1,500 دقيقة، تشتغل معك 90 يوم كاملة على شبكة زين.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع زين، أو توصيل من فرع زين، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع زين  •  🚚 توصيل من فرع زين  •  📲 eSIM", "days": 90, "feats": [["data", "إنترنت", "145 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "1,500 دقيقة"], ["time", "الصلاحية", "90 يوم"]]}, {"id": "DF-088", "op": "zain", "op_ar": "زين", "group": "باقات شباب", "name": "SHABAB-149", "title": "شريحة إنترنت زين | SHABAB-149 – 45 جيجا إنترنت + سوشال لا محدود + 1,150 دقيقة | 30 يوم", "tagline": "كل اللي تحتاجه، بسعر يرضيك.", "desc": "كل اللي تحتاجه، بسعر يرضيك.\n45 جيجا إنترنت، سوشال لا محدود و1,150 دقيقة، تشتغل معك 30 يوم كاملة على شبكة زين.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع زين، أو توصيل من فرع زين، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع زين  •  🚚 توصيل من فرع زين  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "45 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "1,150 دقيقة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-091", "op": "zain", "op_ar": "زين", "group": "باقات شباب", "name": "SHABAB-409", "title": "شريحة إنترنت زين | SHABAB-409 – إنترنت لا محدود + سوشال لا محدود + مكالمات لا محدودة | 30 يوم", "tagline": "انسَ جملة «خلصت الباقة» للأبد.", "desc": "انسَ جملة «خلصت الباقة» للأبد.\nإنترنت لا محدود، سوشال لا محدود ومكالمات لا محدودة، تشتغل معك 30 يوم كاملة على شبكة زين.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع زين، أو توصيل من فرع زين، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع زين  •  🚚 توصيل من فرع زين  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "لا محدود"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "لا محدودة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-110", "op": "lebara", "op_ar": "ليبارا", "group": "باقات يلّا", "name": "YELLAH-70", "title": "شريحة إنترنت ليبارا | YELLAH-70 – 15 جيجا إنترنت + سوشال 20 جيجا + 350 دقيقة | 30 يوم", "tagline": "خفيفة على جيبك، ثقيلة في أدائها.", "desc": "خفيفة على جيبك، ثقيلة في أدائها.\n15 جيجا إنترنت، سوشال 20 جيجا و350 دقيقة، تشتغل معك 30 يوم كاملة على شبكة ليبارا.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع ليبارا، أو توصيل من فرع ليبارا، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع ليبارا  •  🚚 توصيل من فرع ليبارا  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "15 جيجا"], ["social", "سوشال ميديا", "20 جيجا"], ["call", "دقائق محلية", "350 دقيقة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-112", "op": "lebara", "op_ar": "ليبارا", "group": "باقات يلّا", "name": "YELLAH-110", "title": "شريحة إنترنت ليبارا | YELLAH-110 – 40 جيجا إنترنت + سوشال لا محدود + 1,100 دقيقة | 30 يوم", "tagline": "باقة شهرك… مضبوطة على مقاسك.", "desc": "باقة شهرك… مضبوطة على مقاسك.\n40 جيجا إنترنت، سوشال لا محدود و1,100 دقيقة، تشتغل معك 30 يوم كاملة على شبكة ليبارا.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع ليبارا، أو توصيل من فرع ليبارا، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع ليبارا  •  🚚 توصيل من فرع ليبارا  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "40 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["call", "دقائق محلية", "1,100 دقيقة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-114", "op": "lebara", "op_ar": "ليبارا", "group": "باقات فليكس", "name": "FLEX-100", "title": "شريحة إنترنت ليبارا | FLEX-100 – 35 جيجا إنترنت + سوشال 35 جيجا + 900 دقيقة | 30 يوم", "tagline": "أهلك بعيدين؟ صوتك يوصلهم.", "desc": "أهلك بعيدين؟ صوتك يوصلهم.\n35 جيجا إنترنت، سوشال 35 جيجا و900 دقيقة، تشتغل معك 30 يوم كاملة على شبكة ليبارا.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع ليبارا، أو توصيل من فرع ليبارا، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع ليبارا  •  🚚 توصيل من فرع ليبارا  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "35 جيجا"], ["social", "سوشال ميديا", "35 جيجا"], ["call", "دقائق دولية", "900 دقيقة"], ["time", "الصلاحية", "30 يوم"]]}, {"id": "DF-118", "op": "lebara", "op_ar": "ليبارا", "group": "باقات بيانات فقط", "name": "DATA-50", "title": "شريحة إنترنت ليبارا | DATA-50 – 50 جيجا إنترنت + سوشال لا محدود | 30 يوم", "tagline": "كل اللي تحتاجه، بسعر يرضيك.", "desc": "كل اللي تحتاجه، بسعر يرضيك.\n50 جيجا إنترنت وسوشال لا محدود، تشتغل معك 30 يوم كاملة على شبكة ليبارا.\nالتفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: استلام من فرع ليبارا، أو توصيل من فرع ليبارا، أو استبدالها بشريحة إلكترونية eSIM.\n🔐 تفعيل بنفاذ  •  🏬 استلام من فرع ليبارا  •  🚚 توصيل من فرع ليبارا  •  📲 eSIM", "days": 30, "feats": [["data", "إنترنت", "50 جيجا"], ["social", "سوشال ميديا", "لا محدود"], ["time", "الصلاحية", "30 يوم"]]}];
+const OPS=[['mobily','موبايلي','M'],['sawa','سوا','S'],['zain','زين','Z'],['salam','سلام','S'],['redbull','ريد بُل موبايل','R'],['lebara','ليبارا','L']];
+const opName=k=>OPS.find(o=>o[0]===k)[1];
+document.body.id='app';document.documentElement.dir='rtl';adic.innerHTML=IC.nafath;icMenu.innerHTML=IC.menu;icSearch.innerHTML=IC.search;icUser.innerHTML=IC.user;icCart.insertAdjacentHTML('afterbegin',IC.cart);
+brand.innerHTML=dfLogo(46);flogo.innerHTML=dfLogo(52);
+navLinks.innerHTML='<a data-go="home" class="active">الرئيسية</a>'+OPS.map(o=>`<a data-op="${o[0]}">${o[1]}</a>`).join('')+'<a>طرق الاستلام</a><a>الأسئلة الشائعة</a>';
+fops.innerHTML=OPS.map(o=>`<a data-op="${o[0]}" style="cursor:pointer">${o[1]}</a>`).join('');
+pays.innerHTML=['mada','Apple Pay','VISA','Mastercard','STC Pay','Tamara','Tabby'].map(x=>`<li class="s-payments-list-item">${x}</li>`).join('');
+const feat=(p)=>p.feats.filter(f=>f[0]!=='time').map(f=>`<span class="tagx">${f[0]==='data'?'إنترنت ':f[0]==='social'?'سوشال ':''}${f[2]}</span>`).join('')+`<span class="tagx">${p.days} يوم</span>`;
+const card=p=>`<custom-salla-product-card class="s-product-card-entry angel-shine-hover dark rounded-2xl s-product-card-vertical" data-id="${p.id}" tabindex="0">
+ <div class="s-product-card-image"><a><img class="s-product-card-image-cover" src="products/${p.id}.png" alt="${p.title}" width="1080" height="1080" loading="lazy"></a></div>
+ <div class="s-product-card-content"><div class="s-product-card-content-main"><div class="s-product-card-props"><i style="background:${OPC[p.op]}"></i>${p.op_ar} · ${p.group}</div>
+ <h3 class="s-product-card-content-title font-primary">${p.name}</h3></div>
+ <div class="s-product-card-content-sub">${feat(p)}</div>
+ <div class="s-product-card-content-footer"><button class="s-button-element s-button-btn s-button-solid s-button-wide s-button-primary">${IC.cart}أضف للسلة</button></div></div></custom-salla-product-card>`;
+let bi=0;const BN=['header-1-neon-chip','header-2-nafath','header-3-pickup-options','header-4-delivery','header-5-all-networks'];
+function home(){return `
+<section class="s-block s-block--fixed-banner"><div class="container"><a class="banner banner--fixed"><img id="bimg" src="headers/${BN[bi]}.png" alt="بنر داتفاي" width="1920" height="640"></a>
+ <div class="banner-dots" id="bdots">${BN.map((b,i)=>`<button aria-label="بنر ${i+1}" aria-current="${i===bi}" data-b="${i}"></button>`).join('')}</div></div></section>
+<section class="s-block"><div class="container"><div class="s-block__title"><div class="title-wrapper"><h2 class="da-cp">اختر شبكتك</h2><p class="da-ts">باقات كل المشغلين السعوديين في مكان واحد</p></div></div>
+ <div class="ops-grid">${OPS.map(o=>`<a class="op-link" data-op="${o[0]}" style="border-color:${OPC[o[0]]}55"><b style="background:${OPC[o[0]]}">${o[2]}</b>${o[1]}<small>شرائح إنترنت</small></a>`).join('')}</div></div></section>
+${OPS.slice(0,3).map(o=>prodBlock(o)).join('')}
+<section class="s-block s-block--bundle-html-content"><div class="container"><div class="s-block__title centered-title" style="justify-content:center;text-align:center"><div class="title-wrapper"><h2 class="da-cp">طرق الاستلام</h2><p class="da-ts">كل شريحة تنستلم أو تتوصّل من فرع شبكتها نفسها</p></div></div>
+ <div class="dlv"><div><i>${IC.store}</i><h3>استلام من الفرع</h3><p>استلم شريحتك بنفسك من فرع الشبكة اللي اخترتها: زين من فرع زين، سلام من فرع سلام، وهكذا.</p></div>
+ <div><i>${IC.truck}</i><h3>توصيل من الفرع</h3><p>فرع شبكتك نفسها يوصّل الشريحة لين باب بيتك.</p></div>
+ <div><i>${IC.esim}</i><h3>استبدال بشريحة eSIM</h3><p>تبي شريحة إلكترونية؟ نستبدلها لك بشريحة eSIM على نفس الباقة.</p></div></div></div></section>
+${OPS.slice(3).map(o=>prodBlock(o)).join('')}
+<section class="s-block s-block--bundle-html-content"><div class="container"><div class="s-block__title" style="justify-content:center;text-align:center"><div class="title-wrapper"><h2 class="da-cp">3 خطوات وتشتغل شريحتك</h2></div></div>
+ <div class="steps"><div class="step"><i>${IC.sim}</i><h3>اختر الباقة</h3><p>حدد الشبكة والباقة اللي تناسبك.</p></div><div class="step"><i>${IC.nafath}</i><h3>وثّق عبر نفاذ</h3><p>تحقق من هويتك عبر تطبيق نفاذ خلال دقائق.</p></div><div class="step"><i>${IC.truck}</i><h3>استلم شريحتك</h3><p>من فرع شبكتك، أو توصيل للبيت، أو eSIM.</p></div></div></div></section>
+<section class="s-block s-block--faqs"><div class="container"><div class="s-block__title" style="justify-content:center;text-align:center"><div class="title-wrapper"><h2 class="da-cp">الأسئلة الشائعة</h2><p class="da-ts">إجابات أهم الأسئلة</p></div></div>
+ <div class="faqs-list">${[['كيف أفعّل الشريحة؟','التفعيل يتم عبر نفاذ: توثّق هويتك من التطبيق، وتشتغل الشريحة خلال دقائق.'],['من وين أستلم الشريحة؟','من فرع الشبكة نفسها: شريحة زين من فرع زين، وسلام من فرع سلام، وريد بُل من فرع ريد بُل.'],['هل فيه توصيل للبيت؟','إيه، فرع شبكتك نفسها يوصّل الشريحة لين البيت.'],['أقدر آخذها eSIM؟','إيه، تقدر تختار استبدالها بشريحة إلكترونية eSIM من خيارات المنتج.'],['وش طرق الدفع المتاحة؟','مدى، Apple Pay، فيزا، ماستركارد، STC Pay، تمارا وتابي.'],['كم مدة الباقة؟','مكتوبة في كل منتج، وتبدأ من تاريخ التفعيل.']].map(q=>`<details class="faqs-list__item"><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join('')}</div></div></section>`}
+function prodBlock(o){const ps=P.filter(p=>p.op===o[0]).slice(0,4);return `<section class="s-block s-block--angel-products angel-products"><div class="container angel-products-container"><div class="s-block__title angel-products-title"><div class="title-wrapper"><h2 class="da-cp">باقات ${o[1]}</h2><p class="da-ts">استلام وتوصيل من فرع ${o[1]} · أو eSIM</p></div><a class="more" data-op="${o[0]}">عرض الكل ‹</a></div>
+<salla-products-list class="s-products-list"><div class="s-products-list-wrapper s-products-list-vertical-cards">${ps.map(card).join('')}</div></salla-products-list></div></section>`}
+let curOp='all';
+function category(){const ps=P.filter(p=>curOp==='all'||p.op===curOp);return `
+<div class="bg-gray-100 da-bgg"><div class="container"><nav class="breadcrumbs"><ol class="s-breadcrumb-wrapper"><li class="s-breadcrumb-item"><a data-go="home" style="cursor:pointer">الرئيسية</a></li><li class="s-breadcrumb-arrow"></li><li class="s-breadcrumb-item">${curOp==='all'?'كل الشرائح':'شرائح '+opName(curOp)}</li></ol></nav></div></div>
+<div class="container"><div class="cat-head"><h1 class="da-tm">${curOp==='all'?'كل شرائح الإنترنت':'شرائح '+opName(curOp)}</h1><span class="da-ts" style="font-size:14px">${ps.length} منتج</span></div>
+<div class="s-filters" role="group" aria-label="تصفية حسب الشبكة"><button aria-pressed="${curOp==='all'}" data-f="all">الكل</button>${OPS.map(o=>`<button aria-pressed="${curOp===o[0]}" data-f="${o[0]}">${o[1]}</button>`).join('')}</div>
+<salla-products-list class="s-products-list"><div class="s-products-list-wrapper s-products-list-vertical-cards">${ps.map(card).join('')}</div></salla-products-list></div>`}
+let curP=P[0],opt=0,qty=1;
+function product(){const p=curP,o=p.op_ar;const opts=[['store','استلام من فرع '+o,'استلمها بنفسك من أقرب فرع '+o],['truck','توصيل من فرع '+o,'فرع '+o+' يوصلها لين بيتك'],['esim','استبدال بشريحة eSIM','شريحة إلكترونية على نفس الباقة']];
+return `<div class="bg-gray-100 da-bgg"><div class="container"><nav class="breadcrumbs"><ol class="s-breadcrumb-wrapper"><li class="s-breadcrumb-item"><a data-go="home" style="cursor:pointer">الرئيسية</a></li><li class="s-breadcrumb-arrow"></li><li class="s-breadcrumb-item"><a data-op="${p.op}" style="cursor:pointer">شرائح ${o}</a></li><li class="s-breadcrumb-arrow"></li><li class="s-breadcrumb-item">${p.name}</li></ol></nav></div></div>
+<div class="container product-single"><div class="prod-wrap">
+<div class="sidebar"><div class="swiper"><a class="homeslider__slide"><img src="products/${p.id}.png" alt="${p.title}" width="1080" height="1080"></a></div></div>
+<div class="main-content">
+ <span class="op-badge"><i style="background:${OPC[p.op]}"></i>${o} · ${p.group}</span>
+ <h1 class="da-tm">${p.title}</h1>
+ <div class="price"><span class="ph">السعر يظهر هنا من لوحة سلة</span></div>
+ <div class="feat-row">${p.feats.map(f=>`<div><small>${f[1]}</small><b>${f[2]}</b></div>`).join('')}</div>
+ <article class="full-description details"><h3 style="margin-top:0">${p.tagline}</h3><p>${p.desc.split('\n').slice(1).join('\n')}</p></article>
+ <form class="form product-form" onsubmit="return false">
+ <div id="product-tabs-options" class="product-options details"><salla-product-options class="s-product-options-wrapper"><div class="s-product-options-option-container"><div class="s-product-options-option">
+  <span class="s-product-options-option-label">طريقة الاستلام</span>
+  <div class="s-product-options-option-content" role="radiogroup">${opts.map((x,i)=>`<input type="radio" name="dlv" id="dlv-${i}" ${i===opt?'checked':''} data-o="${i}"><label for="dlv-${i}"><span class="ic">${IC[x[0]]}</span><span><b>${x[1]}</b><small>${x[2]}</small></span><span class="rd"></span></label>`).join('')}</div>
+ </div></div></salla-product-options></div>
+ <section class="details nafath"><i>${IC.nafath}</i><div><b>التفعيل عبر نفاذ</b><small>بعد الطلب يوصلك طلب توثيق في تطبيق نفاذ، وافق عليه وتشتغل شريحتك.</small></div></section>
+ <section class="details"><div class="details__wrapper"><div class="details__title">${IC.shield}<span>طرق الدفع</span></div></div><div class="pay-row">${['mada','Apple Pay','VISA','Mastercard','STC Pay','Tamara','Tabby'].map(x=>`<span class="tagx" style="direction:ltr">${x}</span>`).join('')}</div></section>
+ <section class="sticky-product-bar bg-white da-bgg"><salla-quantity-input class="s-quantity-input"><div class="s-quantity-input-container"><button type="button" class="s-quantity-input-increase-button" data-q="1" aria-label="زيادة">+</button><span id="qv">${qty}</span><button type="button" class="s-quantity-input-decrease-button" data-q="-1" aria-label="نقص">−</button></div></salla-quantity-input>
+ <button type="button" class="s-button-element s-button-btn s-button-solid s-button-wide s-button-primary" id="addBtn">${IC.cart}أضف للسلة</button></section>
+ </form>
+</div></div>
+<section class="s-block"><div class="s-block__title"><div class="title-wrapper"><h2 class="da-cp">باقات ${o} ثانية</h2></div></div><div class="s-products-list-wrapper">${P.filter(x=>x.op===p.op&&x.id!==p.id).slice(0,4).map(card).join('')}</div></section></div>`}
+let cart=0;
+function show(v){const views={home,category,product};if(!views[v])v='home';document.body.className=(v==='home'?'index':v==='category'?'product-index':'product-single')+' rtl';view.innerHTML=views[v]();if(location.hash.slice(1)!==v)history.replaceState(null,'','#'+v);window.scrollTo(0,0)}
+function go(v){location.hash=v}
+addEventListener('hashchange',()=>show(location.hash.slice(1)));
+document.addEventListener('click',e=>{const t=e.target.closest('[data-go],[data-op],[data-f],[data-id],[data-b],[data-q],#addBtn');if(!t)return;
+ if(t.dataset.go){go(t.dataset.go);if(location.hash.slice(1)===t.dataset.go)show(t.dataset.go)}
+ else if(t.dataset.op){curOp=t.dataset.op;location.hash==='#category'?show('category'):go('category')}
+ else if(t.dataset.f){curOp=t.dataset.f;show('category')}
+ else if(t.dataset.b){bi=+t.dataset.b;bimg.src='headers/'+BN[bi]+'.png';bdots.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-current',i===bi))}
+ else if(t.dataset.q){qty=Math.max(1,qty+ +t.dataset.q);qv.textContent=qty}
+ else if(t.id==='addBtn'||e.target.closest('.s-button-primary')){cart+=t.id==='addBtn'?qty:1;cartCount.textContent=cart;const m=document.createElement('div');m.className='toast';m.textContent='تمت الإضافة للسلة';document.body.appendChild(m);setTimeout(()=>m.remove(),1600);e.stopPropagation()}
+ else if(t.dataset.id){curP=P.find(p=>p.id===t.dataset.id);opt=0;qty=1;location.hash==='#product'?show('product'):go('product')}});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.s-product-card-entry')){e.target.click()}});
+document.addEventListener('change',e=>{if(e.target.name==='dlv')opt=+e.target.dataset.o});
+setInterval(()=>{if(document.hidden||!window.bimg)return;bi=(bi+1)%BN.length;bimg.src='headers/'+BN[bi]+'.png';bdots.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-current',i===bi))},6000);
+show(location.hash.slice(1)||'home');
+</script>

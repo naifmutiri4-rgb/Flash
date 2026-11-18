@@ -62,6 +62,6 @@ for(const p of P){ if(ONLY&&!ONLY.split(',').includes(p.id))continue;
  <div class="mid"><div class="grp">${p.group}</div><div class="name">${p.name}</div><div class="hero">${hero}</div></div>
  <div class="feats">${tiles.map(f=>`<div class="f"><i>${IC[f[0]]}</i><small>${f[1]}</small><b>${f[2]}</b></div>`).join('')}</div>
  <div class="bot"><div class="naf"><i>${IC.nafath}</i><div><small>التفعيل</small><b>عبر نفاذ</b></div></div>
- <div class="dl"><small>طرق الاستلام</small><div class="dls"><span>${IC.store}من الفرع</span><span>${IC.truck}توصيل stc</span><span>${IC.esim}eSIM</span></div></div></div>`;
+ <div class="dl"><small>الاستلام عن طريق فرع ${p.op_ar}</small><div class="dls"><span>${IC.store}استلام</span><span>${IC.truck}توصيل</span><span>${IC.esim}eSIM</span></div></div></div>`;
  document.body.appendChild(el);}
 </script></body></html>

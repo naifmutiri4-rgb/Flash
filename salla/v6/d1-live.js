@@ -14,8 +14,8 @@ const pimg = (s, sz = 500) => `
     <g transform="translate(250 230) rotate(-8)">
       <rect x="-92" y="-160" width="184" height="320" rx="30" fill="#14112A" stroke="url(#g1${s.key}${sz})" stroke-width="6"/>
       <rect x="-76" y="-140" width="152" height="280" rx="18" fill="#1F1A3D"/>
-      <rect x="-60" y="-128" width="56" height="22" rx="11" fill="${C.pk}"/><circle cx="-48" cy="-117" r="4" fill="#fff"/>
-      <text x="-22" y="-112" fill="#fff" font-size="13" font-weight="800" text-anchor="middle" font-family="IBM Plex Sans Arabic">LIVE</text>
+      <rect x="-62" y="-128" width="82" height="22" rx="11" fill="${C.pk}"/><circle cx="10" cy="-117" r="4" fill="#fff"/>
+      <text x="-24" y="-112" fill="#fff" font-size="13" font-weight="700" text-anchor="middle" direction="rtl" font-family="IBM Plex Sans Arabic">اكسبلور</text>
       <g transform="translate(0 -10)" color="#fff">${iconFill(s.ic, 84, 'x="-42" y="-42" style="color:#fff"')}</g>
       <rect x="-60" y="60" width="120" height="8" rx="4" fill="#ffffff22"/><rect x="-60" y="60" width="84" height="8" rx="4" fill="url(#g1${s.key}${sz})"/>
     </g>
@@ -32,7 +32,7 @@ const hero = `
 <div id="hero" class="hero">
   <div class="hero-glow a"></div><div class="hero-glow b"></div>
   <div class="phone3d"><div class="ph"><div class="ph-scr">
-    <span class="live">● LIVE</span>
+    <span class="live">● اكسبلور</span>
     <div class="ph-feed"><i></i><i></i><i></i></div>
     <div class="ph-side">${iconFill('heart', 26)}<b>12.4K</b>${iconFill('save', 24)}<b>890</b>${iconFill('share', 24)}<b>1.1K</b></div>
   </div></div></div>
@@ -40,7 +40,7 @@ const hero = `
   <div class="float f2">${iconFill('heart', 16)} +1K لايك</div>
   <div class="float f3">⚡ تنفيذ فوري</div>
   <div class="hero-copy">
-    <h1>خلّ مقطعك<br><span>يشتغل لايف</span></h1>
+    <h1>خلّ مقطعك<br><span>يطلع اكسبلور</span></h1>
     <p>مشاهدات ولايكات وشير وحفظ لتيك توك.<br>أسعار واضحة تبدأ من <b style="color:#fff;white-space:nowrap">1.99 ر.س</b></p>
   </div>
 </div>`;
@@ -158,8 +158,8 @@ const pimgPack = (p, sz = 500) => `
     <g transform="translate(250 230) rotate(-8)">
       <rect x="-92" y="-160" width="184" height="320" rx="30" fill="#14112A" stroke="url(#g1${p.key}${sz})" stroke-width="6"/>
       <rect x="-76" y="-140" width="152" height="280" rx="18" fill="#1F1A3D"/>
-      <rect x="-60" y="-128" width="56" height="22" rx="11" fill="${C.pk}"/><circle cx="-48" cy="-117" r="4" fill="#fff"/>
-      <text x="-22" y="-112" fill="#fff" font-size="13" font-weight="800" text-anchor="middle" font-family="IBM Plex Sans Arabic">LIVE</text>
+      <rect x="-62" y="-128" width="82" height="22" rx="11" fill="${C.pk}"/><circle cx="10" cy="-117" r="4" fill="#fff"/>
+      <text x="-24" y="-112" fill="#fff" font-size="13" font-weight="700" text-anchor="middle" direction="rtl" font-family="IBM Plex Sans Arabic">اكسبلور</text>
       ${[['eye', p.v], ['heart', p.l], ['share', p.s], ['save', p.f]].map(([ic, val], i) => `
       <g transform="translate(0 ${-78 + i * 52})">
         <rect x="-62" y="-20" width="124" height="40" rx="12" fill="#ffffff10"/>

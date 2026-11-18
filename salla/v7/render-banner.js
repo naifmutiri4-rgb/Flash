@@ -11,7 +11,7 @@ const webp = (src, dst, w) => execFileSync('python3', ['-c', `from PIL import Im
   webp(path.join(OUT, 'hero.png'), path.join(OUT, 'banner-m.webp'), 800);
   // الكمبيوتر: تكوين عريض
   const p = await b.newPage({ viewport: { width: 1456, height: 520 }, deviceScaleFactor: 1 });
-  const phone = `<div class="ph"><div class="scr"><span class="live">● LIVE</span><div class="side">♥<b>12.4K</b>▮<b>890</b>➦<b>1.1K</b></div><i></i><i></i><i></i></div></div>`;
+  const phone = `<div class="ph"><div class="scr"><span class="live">● اكسبلور</span><div class="side">♥<b>12.4K</b>▮<b>890</b>➦<b>1.1K</b></div><i></i><i></i><i></i></div></div>`;
   await p.setContent(`<!doctype html><html dir="rtl"><head><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;700&display=block" rel="stylesheet"><style>
   body{margin:0;width:1456px;height:520px;overflow:hidden;background:#0B0A12;font-family:'IBM Plex Sans Arabic';color:#fff;position:relative}
   .g1,.g2{position:absolute;border-radius:50%;filter:blur(80px)}.g1{width:520px;height:420px;background:#FF3D7F;opacity:.45;left:120px;top:-80px}.g2{width:520px;height:420px;background:#00E5D4;opacity:.3;left:420px;top:200px}
@@ -28,7 +28,7 @@ const webp = (src, dst, w) => execFileSync('python3', ['-c', `from PIL import Im
   p{font-size:24px;line-height:1.7;color:#C2BEDD;margin:0}p b{color:#fff}
   </style></head><body><div class="grid"></div><div class="g1"></div><div class="g2"></div>${phone}
   <div class="chip c1">+10K مشاهدة 👁</div><div class="chip c2">+1K لايك ♥</div><div class="chip c3">⚡ تنفيذ فوري</div>
-  <div class="copy"><h1>خلّ مقطعك<br><span>يشتغل لايف</span></h1><p>مشاهدات ولايكات وشير وحفظ لتيك توك.<br>أسعار واضحة تبدأ من <b>1.99 ر.س</b></p></div></body></html>`, { waitUntil: 'networkidle' });
+  <div class="copy"><h1>خلّ مقطعك<br><span>يطلع اكسبلور</span></h1><p>مشاهدات ولايكات وشير وحفظ لتيك توك.<br>أسعار واضحة تبدأ من <b>1.99 ر.س</b></p></div></body></html>`, { waitUntil: 'networkidle' });
   await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(300);
   const png = path.join(OUT, 'banner-d.png'); await p.screenshot({ path: png });
   webp(png, path.join(OUT, 'banner-d.webp'), 1456);

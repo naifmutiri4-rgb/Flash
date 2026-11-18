@@ -263,7 +263,7 @@ body#app.index .s-block--testimonials::before{content:"";position:absolute;width
 body#app.index .s-block--testimonials::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,212,.25),transparent 70%);bottom:-100px;right:-70px;pointer-events:none}
 body#app.index .s-block--testimonials .container{position:relative;z-index:1}
 body#app.index .s-block--testimonials .s-slider-block__title h2{color:#0B0A12!important;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-body#app.index .s-block--testimonials .s-slider-block__title h2::before{content:"● LIVE";font-size:11px;font-weight:800;letter-spacing:.5px;color:#fff;background:#FF3D7F;border-radius:999px;padding:4px 10px;line-height:1.4;box-shadow:0 6px 16px -6px #FF3D7F}
+body#app.index .s-block--testimonials .s-slider-block__title h2::before{content:"● اكسبلور";font-size:12px;font-weight:800;color:#fff;background:#FF3D7F;border-radius:999px;padding:4px 10px;line-height:1.4;box-shadow:0 6px 16px -6px #FF3D7F}
 @keyframes lv-pulse{50%{box-shadow:0 0 0 6px rgba(255,61,127,.15),0 6px 16px -6px #FF3D7F}}
 @media (prefers-reduced-motion:reduce){body#app.index .s-block--testimonials .s-slider-block__title h2::before{animation:none}}
 body#app.index .s-block--testimonials .s-slider-block__display-all{background:#0B0A12!important;color:#fff!important}
@@ -430,3 +430,5 @@ body#app .store-header:has(.angel-ad){min-height:94px}
 body#app.product-index salla-products-list{display:block}
 body#app.product-index salla-products-list:not(:has(.s-product-card-entry)){min-height:1080px}
 @media (min-width:768px){body#app.product-index salla-products-list:not(:has(.s-product-card-entry)){min-height:380px}}
+/* الجوال: البانر بعرض الشاشة كامل (بدون هوامش) */
+@media (max-width:767px){body#app.index section[component-id="1938081345"]{padding:0!important;margin-top:0!important}body#app.index section[component-id="1938081345"] .container{padding:0!important;max-width:none!important;width:100%!important}body#app.index section[component-id="1938081345"] .banner--fixed,body#app.index section[component-id="1938081345"] img{border-radius:0!important}}

@@ -148,7 +148,7 @@ async function snap(browser, url, outName, isHome, state) {
 
   let html = await p.evaluate(() => {
     document.querySelectorAll('script,noscript,iframe,link[rel="stylesheet"],link[rel="preload"],link[rel="prefetch"],link[rel="modulepreload"],style').forEach(e => e.remove());
-    document.querySelectorAll('img').forEach(im => { if (im.currentSrc && !im.src.startsWith('data:')) im.setAttribute('src', im.currentSrc); im.removeAttribute('srcset'); im.removeAttribute('data-src'); im.removeAttribute('loading'); });
+    document.querySelectorAll('img').forEach(im => { if (im.currentSrc && !im.src.startsWith('data:') && !im.closest('picture')) im.setAttribute('src', im.currentSrc); im.removeAttribute('srcset'); im.removeAttribute('data-src'); im.removeAttribute('loading'); });
     return '<!doctype html>\n' + document.documentElement.outerHTML;
   });
   html = html.replace(/(src|href)="(https:\/\/cdn[^"]+\.(?:png|jpe?g|webp|svg|gif)[^"]*)"/g, (m, a, u) => { const d = dataUri(u.replace(/&amp;/g, '&')); return d ? `${a}="${d}"` : m; });

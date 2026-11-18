@@ -1,0 +1,2750 @@
+## السلايدر (swiper)
+.swiper   [سلة, تصنيف, رئيسية, منتج]
+.swiper-3d
+.swiper-android
+.swiper-autoheight
+.swiper-backface-hidden   [سلة, تصنيف, رئيسية, منتج]
+.swiper-button
+.swiper-button-disabled   [رئيسية, منتج]
+.swiper-button-hidden
+.swiper-button-lock   [منتج]
+.swiper-button-next
+.swiper-button-prev
+.swiper-cards
+.swiper-centered
+.swiper-creative
+.swiper-css-mode
+.swiper-cube
+.swiper-cube-shadow
+.swiper-fade
+.swiper-flip
+.swiper-free-mode
+.swiper-grid
+.swiper-grid-column
+.swiper-horizontal   [سلة, تصنيف, رئيسية, منتج]
+.swiper-initialized   [سلة, تصنيف, رئيسية, منتج]
+.swiper-lazy
+.swiper-lazy-loaded
+.swiper-lazy-preloader
+.swiper-lazy-preloader-black
+.swiper-lazy-preloader-white
+.swiper-lazy-wrap
+.swiper-navigation-disabled
+.swiper-notification   [سلة, تصنيف, رئيسية, منتج]
+.swiper-pagination   [منتج]
+.swiper-pagination-bullet   [منتج]
+.swiper-pagination-bullet-active   [منتج]
+.swiper-pagination-bullet-active-main
+.swiper-pagination-bullet-active-next
+.swiper-pagination-bullet-active-next-next
+.swiper-pagination-bullet-active-prev
+.swiper-pagination-bullet-active-prev-prev
+.swiper-pagination-bullets   [منتج]
+.swiper-pagination-bullets-dynamic
+.swiper-pagination-clickable   [منتج]
+.swiper-pagination-custom
+.swiper-pagination-disabled
+.swiper-pagination-fraction
+.swiper-pagination-hidden
+.swiper-pagination-horizontal   [منتج]
+.swiper-pagination-lock   [منتج]
+.swiper-pagination-progressbar
+.swiper-pagination-progressbar-fill
+.swiper-pagination-progressbar-opposite
+.swiper-pagination-vertical
+.swiper-pointer-events
+.swiper-rtl   [سلة, تصنيف, رئيسية, منتج]
+.swiper-scrollbar   [تصنيف, رئيسية]
+.swiper-scrollbar-cursor-drag
+.swiper-scrollbar-disabled
+.swiper-scrollbar-drag   [تصنيف, رئيسية]
+.swiper-scrollbar-horizontal   [تصنيف, رئيسية]
+.swiper-scrollbar-lock
+.swiper-scrollbar-vertical
+.swiper-slide   [سلة, تصنيف, رئيسية, منتج]
+.swiper-slide-active   [سلة, تصنيف, رئيسية, منتج]
+.swiper-slide-fully-visible   [تصنيف, منتج]
+.swiper-slide-invisible-blank
+.swiper-slide-next   [تصنيف, رئيسية]
+.swiper-slide-prev   [تصنيف]
+.swiper-slide-shadow
+.swiper-slide-shadow-bottom
+.swiper-slide-shadow-left
+.swiper-slide-shadow-right
+.swiper-slide-shadow-top
+.swiper-slide-visible   [تصنيف, منتج]
+.swiper-slide-zoomed
+.swiper-vertical
+.swiper-virtual
+.swiper-watch-progress   [سلة, تصنيف, رئيسية, منتج]
+.swiper-width-control   [تصنيف, رئيسية]
+.swiper-wrapper   [سلة, تصنيف, رئيسية, منتج]
+.swiper-zoom-container
+
+## المنتج (مكونات سلة) (s-product)
+.s-product-availability-input
+.s-product-availability-subscribed
+.s-product-availability-wrap
+.s-product-card-actions
+.s-product-card-actions-bottom
+.s-product-card-brand
+.s-product-card-category
+.s-product-card-content   [تصنيف, رئيسية]
+.s-product-card-content-extra-padding
+.s-product-card-content-footer   [تصنيف, رئيسية]
+.s-product-card-content-main   [تصنيف, رئيسية]
+.s-product-card-content-pie
+.s-product-card-content-sub   [تصنيف, رئيسية]
+.s-product-card-content-subtitle
+.s-product-card-content-title   [تصنيف, رئيسية]
+.s-product-card-countdown
+.s-product-card-discount   [تصنيف, رئيسية]
+.s-product-card-donation-input
+.s-product-card-entry   [تصنيف, رئيسية]
+.s-product-card-fit-height   [تصنيف, رئيسية]
+.s-product-card-fixed-btn
+.s-product-card-full-image
+.s-product-card-horizontal
+.s-product-card-image   [تصنيف, رئيسية]
+.s-product-card-image-contain
+.s-product-card-image-cover   [تصنيف, رئيسية]
+.s-product-card-image-full
+.s-product-card-minimal
+.s-product-card-options
+.s-product-card-out-badge
+.s-product-card-out-of-stock
+.s-product-card-overlay
+.s-product-card-price   [تصنيف, رئيسية]
+.s-product-card-price-before   [تصنيف, رئيسية]
+.s-product-card-promotion-title
+.s-product-card-props   [تصنيف, رئيسية]
+.s-product-card-quantity
+.s-product-card-rating   [تصنيف, رئيسية]
+.s-product-card-sale-price   [تصنيف, رئيسية]
+.s-product-card-shadow
+.s-product-card-special
+.s-product-card-starting-price
+.s-product-card-vertical   [تصنيف, رئيسية]
+.s-product-card-wishlist
+.s-product-card-wishlist-added
+.s-product-card-wishlist-btn
+.s-product-options-colors-item
+.s-product-options-colors-wrapper
+.s-product-options-grid-mode
+.s-product-options-grid-mode-span
+.s-product-options-multiple-options-wrapper
+.s-product-options-option   [منتج]
+.s-product-options-option-container   [منتج]
+.s-product-options-option-content   [منتج]
+.s-product-options-option-label   [منتج]
+.s-product-options-splitter
+.s-product-options-text   [منتج]
+.s-product-options-thumbnails-icon
+.s-product-options-thumbnails-wrapper
+.s-product-options-wrapper   [منتج]
+
+## ملاك (عام) (angel)
+.angel-ad   [سلة, تصنيف, رئيسية, منتج]
+.angel-ad__container
+.angel-ad__content   [سلة, تصنيف, رئيسية, منتج]
+.angel-ad__icon   [سلة, تصنيف, رئيسية, منتج]
+.angel-ad__img
+.angel-ad__item   [سلة, تصنيف, رئيسية, منتج]
+.angel-ad__slider   [سلة, تصنيف, رئيسية, منتج]
+.angel-discountcoupon
+.angel-feature
+.angel-products   [رئيسية]
+.angel-products-2   [رئيسية]
+.angel-products-3   [رئيسية]
+.angel-products-container   [رئيسية]
+.angel-products-title   [رئيسية]
+.angel-quick-view-modal   [سلة, تصنيف, رئيسية, منتج]
+.angel-quick-view__body   [سلة, تصنيف, رئيسية, منتج]
+.angel-quick-view__content
+.angel-quick-view__images
+.angel-quick-view__images_slider
+.angel-quick-view__wrapper
+.angel-shine-hover   [تصنيف, رئيسية]
+.angel-shine-obj   [تصنيف, رئيسية]
+.angel-stories-actions
+.angel-stories-bar
+.angel-stories-btn
+.angel-stories-chip
+.angel-stories-chip-avatar
+.angel-stories-chip-name
+.angel-stories-chip-time
+.angel-stories-chrome
+.angel-stories-frame
+.angel-stories-media
+.angel-stories-progress
+.angel-stories-spinner
+.angel-stories-stage
+.angel-stories-tap
+.angel-stories-tap--left
+.angel-stories-tap--right
+.angel-stories-taps
+.angel-stories-tiktok
+.angel-stories-tile
+.angel-stories-tile__avatar
+.angel-stories-tile__name
+.angel-stories-viewed
+.angel-stories-viewer
+.angel-stories-youtube
+.angel-theme   [سلة, تصنيف, رئيسية, منتج]
+
+## زر الإضافة للسلة (s-add)
+.s-add-product-button-main   [منتج]
+.s-add-product-button-mini-checkout   [منتج]
+.s-add-product-button-mini-checkout-content   [منتج]
+.s-add-product-button-with-quick-buy   [منتج]
+.s-add-product-button-with-sticky-bar   [منتج]
+.s-add-product-toast   [سلة, تصنيف, رئيسية, منتج]
+.s-add-product-toast--visible
+.s-add-product-toast__actions
+.s-add-product-toast__body
+.s-add-product-toast__btns
+.s-add-product-toast__card
+.s-add-product-toast__cart-footer
+.s-add-product-toast__cart-form
+.s-add-product-toast__cart-info
+.s-add-product-toast__cart-item
+.s-add-product-toast__cart-options
+.s-add-product-toast__cart-options-badge
+.s-add-product-toast__cart-preview
+.s-add-product-toast__close
+.s-add-product-toast__details
+.s-add-product-toast__divider
+.s-add-product-toast__header
+.s-add-product-toast__header-content
+.s-add-product-toast__header-text
+.s-add-product-toast__icon
+.s-add-product-toast__image
+.s-add-product-toast__name
+.s-add-product-toast__option-badge
+.s-add-product-toast__options
+.s-add-product-toast__price
+.s-add-product-toast__price-original
+.s-add-product-toast__price-regular
+.s-add-product-toast__price-sale
+.s-add-product-toast__progress
+.s-add-product-toast__progress-bar
+.s-add-product-toast__qty-badge
+.s-add-product-toast__show-more
+.s-add-product-toast__status
+.s-add-product-toast__summary-card
+.s-add-product-toast__title
+.s-add-product-toast__toggle
+.s-add-product-toast__toggle-btn
+
+## السلة (s-cart)
+.s-cart-coupons-action
+.s-cart-coupons-bottom-section
+.s-cart-coupons-card
+.s-cart-coupons-code
+.s-cart-coupons-coupon-error
+.s-cart-coupons-coupon-label
+.s-cart-coupons-disabled
+.s-cart-coupons-discount-values
+.s-cart-coupons-divider
+.s-cart-coupons-expiry
+.s-cart-coupons-expiry-warning
+.s-cart-coupons-main-amount
+.s-cart-coupons-minimum
+.s-cart-coupons-secondary-info
+.s-cart-coupons-terms
+.s-cart-coupons-top-section
+.s-cart-summary-card
+.s-cart-summary-card-bar
+.s-cart-summary-card-bar-count
+.s-cart-summary-card-bar-label
+.s-cart-summary-card-bar-label-main
+.s-cart-summary-card-bar-label-sub
+.s-cart-summary-card-bar-label-text
+.s-cart-summary-card-bar-savings-badge
+.s-cart-summary-card-bar-total
+.s-cart-summary-card-chevron
+.s-cart-summary-card-line
+.s-cart-summary-card-line--discount
+.s-cart-summary-card-sheet-title
+.s-cart-summary-card-sheet-wrap
+.s-cart-summary-content   [سلة, تصنيف, رئيسية, منتج]
+.s-cart-summary-count   [سلة, تصنيف, رئيسية, منتج]
+.s-cart-summary-icon   [سلة, تصنيف, رئيسية, منتج]
+.s-cart-summary-total   [سلة, تصنيف, رئيسية, منتج]
+.s-cart-summary-wrapper   [سلة, تصنيف, رئيسية, منتج]
+
+## البحث (s-search)
+.s-search-back-btn   [سلة, تصنيف, رئيسية, منتج]
+.s-search-grid-item
+.s-search-history-chip
+.s-search-history-chip-remove
+.s-search-history-chip-term
+.s-search-icon   [سلة, تصنيف, رئيسية, منتج]
+.s-search-icon-wrap   [سلة, تصنيف, رئيسية, منتج]
+.s-search-idle-category-chip
+.s-search-idle-category-count
+.s-search-idle-panel   [سلة, تصنيف, رئيسية, منتج]
+.s-search-idle-panel-empty   [سلة, تصنيف, رئيسية, منتج]
+.s-search-idle-section-title
+.s-search-input   [سلة, تصنيف, رئيسية, منتج]
+.s-search-input-row   [سلة, تصنيف, رئيسية, منتج]
+.s-search-input-wrapper   [سلة, تصنيف, رئيسية, منتج]
+.s-search-modal   [سلة, تصنيف, رئيسية, منتج]
+.s-search-modal-new   [سلة, تصنيف, رئيسية, منتج]
+.s-search-most-searched-icon
+.s-search-most-searched-item
+.s-search-no-results-placeholder
+.s-search-panel   [سلة, تصنيف, رئيسية, منتج]
+.s-search-product-card-compact
+.s-search-product-card-content-sub
+.s-search-product-card-content-title
+.s-search-product-card-image
+.s-search-product-card-out-of-stock-label
+.s-search-product-card-price-value
+.s-search-product-card-quantity
+.s-search-product-card-rating
+.s-search-product-card-sale-price
+.s-search-product-card-starting-price
+.s-search-spinner-loader
+.s-search-view-all
+.s-search-view-all-icon
+
+## التعليقات والتقييمات (s-comments)
+.s-comments   [منتج]
+.s-comments-container   [منتج]
+.s-comments-count-label   [منتج]
+.s-comments-filter-label   [منتج]
+.s-comments-filter-wrapper   [منتج]
+.s-comments-flex   [منتج]
+.s-comments-flex-1   [منتج]
+.s-comments-header   [منتج]
+.s-comments-item   [منتج]
+.s-comments-item-admin
+.s-comments-item-admin-wrapper
+.s-comments-item-avatar   [منتج]
+.s-comments-item-avatar-img   [منتج]
+.s-comments-item-content   [منتج]
+.s-comments-item-content-container   [منتج]
+.s-comments-item-has-order-check-icon   [منتج]
+.s-comments-item-has-order-check-text   [منتج]
+.s-comments-item-inner   [منتج]
+.s-comments-item-rated-widget
+.s-comments-item-reply-icon
+.s-comments-item-stars
+.s-comments-item-time   [منتج]
+.s-comments-item-timestamp   [منتج]
+.s-comments-item-user-info   [منتج]
+.s-comments-item-user-info-name-with-margin   [منتج]
+.s-comments-item-user-wrapper   [منتج]
+.s-comments-item-wrapper   [منتج]
+.s-comments-page
+.s-comments-product   [منتج]
+.s-comments-sort-input   [منتج]
+.s-comments-title   [منتج]
+
+## الأزرار (btn)
+.btn   [سلة, تصنيف, رئيسية, منتج]
+.btn--add-to-cart
+.btn--circle-gray
+.btn--close
+.btn--close-sm   [سلة, تصنيف, رئيسية, منتج]
+.btn--collapse
+.btn--coupon
+.btn--danger
+.btn--delete
+.btn--icon
+.btn--is-loading
+.btn--outline
+.btn--outline-primary   [سلة]
+.btn--primary
+.btn--quantity
+.btn--rounded-full   [سلة]
+.btn--rounded-gray
+.btn--share   [منتج]
+.btn--wishlist   [منتج]
+.btn-light
+.btn-outline-primary
+.btn-primary   [رئيسية]
+.btn-tab
+.btn-text
+.btn__text
+
+## الحقول الشرطية (s-conditional)
+.s-conditional-offer-badge-link-unmet
+.s-conditional-offer-gift
+.s-conditional-offer-gift-name
+.s-conditional-offer-gift-price
+.s-conditional-offer-gift-thumb
+.s-conditional-offer-gifts-title
+.s-conditional-offer-info-trigger
+.s-conditional-offer-message
+.s-conditional-offer-name
+.s-conditional-offer-panel
+.s-conditional-offer-tier
+.s-conditional-offer-tier-icon-unmet
+.s-conditional-offer-tier-status
+.s-conditional-offer-tier-status-met
+.s-conditional-offer-tier-status-unmet
+.s-conditional-offer-tier-text
+.s-conditional-offer-tier-title
+.s-conditional-offer-toggle
+.s-conditional-offer-toggle-bar
+.s-conditional-offer-tooltip
+.s-conditional-offer-tooltip-description
+.s-conditional-offer-tooltip-title
+
+## بلوكات الرئيسية (s-block)
+.s-block   [تصنيف, رئيسية, منتج]
+.s-block--angel-products   [رئيسية]
+.s-block--banners
+.s-block--bundle-customers-also-bought   [منتج]
+.s-block--bundle-customers-also-viewed   [منتج]
+.s-block--bundle-html-content   [رئيسية]
+.s-block--bundle-out-of-stock-alternative   [منتج]
+.s-block--bundle-personalized-shoppers-who-bought   [رئيسية]
+.s-block--bundle-similar-products   [منتج]
+.s-block--categories
+.s-block--categories__title
+.s-block--faqs   [رئيسية]
+.s-block--fixed-banner   [رئيسية]
+.s-block--full-bg
+.s-block--hero-slider
+.s-block--payment   [منتج]
+.s-block--slider-with-bg
+.s-block--special-product
+.s-block--testimonials   [تصنيف, رئيسية]
+.s-block-html-content   [رئيسية]
+
+## العروض (s-offer)
+.s-offer-card
+.s-offer-card-description
+.s-offer-card-icon
+.s-offer-card-title
+.s-offer-modal-badge
+.s-offer-modal-header-icon
+.s-offer-modal-product
+.s-offer-modal-product-name
+.s-offer-modal-product-price
+.s-offer-modal-remember-input
+.s-offer-modal-skeleton   [سلة, تصنيف, رئيسية, منتج]
+.s-offer-modal-skeleton-footer   [سلة, تصنيف, رئيسية, منتج]
+.s-offer-modal-skeleton-header   [سلة, تصنيف, رئيسية, منتج]
+.s-offer-modal-skeleton-item   [سلة, تصنيف, رئيسية, منتج]
+.s-offer-modal-skeleton-item-subtitle   [سلة, تصنيف, رئيسية, منتج]
+.s-offer-modal-skeleton-item-title   [سلة, تصنيف, رئيسية, منتج]
+.s-offer-modal-skeleton-items   [سلة, تصنيف, رئيسية, منتج]
+.s-offer-modal-type-   [سلة, تصنيف, رئيسية, منتج]
+.s-offer-slide-cat-entry
+.s-offer-wrapper
+
+## النجوم (s-rating)
+.s-rating-modal-bg-gray
+.s-rating-modal-comment
+.s-rating-modal-contact
+.s-rating-modal-icon
+.s-rating-modal-product-img-wrap
+.s-rating-modal-product-title
+.s-rating-modal-rounded-icon
+.s-rating-modal-store-logo
+.s-rating-modal-thanks-title
+.s-rating-modal-title
+.s-rating-modal-wrapper
+.s-rating-stars-btn-star   [تصنيف, رئيسية, منتج]
+.s-rating-stars-label
+.s-rating-stars-medium   [منتج]
+.s-rating-stars-reviews   [منتج]
+.s-rating-stars-selected   [تصنيف, رئيسية, منتج]
+.s-rating-stars-small   [تصنيف, رئيسية]
+.s-rating-stars-wrapper   [تصنيف, رئيسية, منتج]
+
+## حساب العميل (s-user)
+.s-user-menu-avatar-wrap
+.s-user-menu-dropdown
+.s-user-menu-dropdown-header
+.s-user-menu-dropdown-header-content
+.s-user-menu-dropdown-item
+.s-user-menu-dropdown-item-badge
+.s-user-menu-dropdown-item-title
+.s-user-menu-dropdown-list
+.s-user-menu-toggler
+.s-user-menu-trigger
+.s-user-menu-trigger-avatar
+.s-user-menu-trigger-hello
+.s-user-menu-trigger-icon
+.s-user-menu-trigger-name
+.s-user-menu-wrapper
+.s-user-settings-section-subtitle
+.s-user-settings-section-title
+.s-user-settings-wrapper
+
+## أزرار سلة (s-button)
+.s-button-btn   [سلة, تصنيف, رئيسية, منتج]
+.s-button-disabled
+.s-button-element   [سلة, تصنيف, رئيسية, منتج]
+.s-button-gray-outline   [تصنيف]
+.s-button-icon   [تصنيف, منتج]
+.s-button-light
+.s-button-light-outline   [منتج]
+.s-button-loader   [تصنيف]
+.s-button-loader-after   [سلة, تصنيف, رئيسية, منتج]
+.s-button-loader-center   [تصنيف, رئيسية, منتج]
+.s-button-outline   [تصنيف, منتج]
+.s-button-primary   [سلة, تصنيف, رئيسية, منتج]
+.s-button-small   [تصنيف]
+.s-button-solid   [سلة, تصنيف, رئيسية, منتج]
+.s-button-text   [سلة, تصنيف, رئيسية, منتج]
+.s-button-wide   [سلة, تصنيف, رئيسية, منتج]
+.s-button-wrap   [سلة, تصنيف, رئيسية, منتج]
+
+## النوافذ المنبثقة (s-modal)
+.s-modal   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-align-middle   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-align-top   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-body   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-close   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-container   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-header   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-header-content
+.s-modal-lg   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-md   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-overlay   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-padding   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-spacer   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-sub-title
+.s-modal-title
+.s-modal-wrapper   [سلة, تصنيف, رئيسية, منتج]
+.s-modal-xs   [سلة, تصنيف, رئيسية, منتج]
+
+## التنبيهات (swal2)
+.swal2-close
+.swal2-container
+.swal2-error
+.swal2-icon
+.swal2-icon-error
+.swal2-icon-success
+.swal2-popup
+.swal2-success
+.swal2-success-line-long
+.swal2-success-line-tip
+.swal2-success-ring
+.swal2-timer-progress-bar
+.swal2-timer-progress-bar-container
+.swal2-title
+.swal2-toast
+.swal2-x-mark-line-left
+.swal2-x-mark-line-right
+
+## القائمة الجوال (mm)
+.mm-ocd   [سلة, تصنيف, رئيسية, منتج]
+.mm-ocd--left
+.mm-ocd--open
+.mm-ocd--right   [سلة, تصنيف, رئيسية, منتج]
+.mm-ocd-opened
+.mm-ocd__backdrop   [سلة, تصنيف, رئيسية, منتج]
+.mm-ocd__content   [سلة, تصنيف, رئيسية, منتج]
+.mm-spn   [سلة, تصنيف, رئيسية, منتج]
+.mm-spn--dark
+.mm-spn--light   [سلة, تصنيف, رئيسية, منتج]
+.mm-spn--main   [سلة, تصنيف, رئيسية, منتج]
+.mm-spn--navbar   [سلة, تصنيف, رئيسية, منتج]
+.mm-spn--open   [سلة, تصنيف, رئيسية, منتج]
+.mm-spn--parent
+.mm-spn--vertical
+
+## سلايدر سلة (s-slider)
+.s-slider-block__display-all   [رئيسية]
+.s-slider-block__title   [تصنيف, رئيسية, منتج]
+.s-slider-block__title-left   [تصنيف, رئيسية, منتج]
+.s-slider-block__title-nav   [تصنيف, رئيسية, منتج]
+.s-slider-block__title-right   [تصنيف, رئيسية]
+.s-slider-button-icon   [تصنيف, رئيسية, منتج]
+.s-slider-container   [سلة, تصنيف, رئيسية, منتج]
+.s-slider-has-notitle   [سلة, تصنيف, رئيسية, منتج]
+.s-slider-horizontal   [سلة, تصنيف, رئيسية, منتج]
+.s-slider-nav-arrow   [تصنيف, رئيسية, منتج]
+.s-slider-next   [تصنيف, رئيسية, منتج]
+.s-slider-prev   [تصنيف, رئيسية, منتج]
+.s-slider-swiper-wrapper   [سلة, تصنيف, رئيسية, منتج]
+.s-slider-v-centered   [سلة, تصنيف, رئيسية, منتج]
+.s-slider-wrapper   [سلة, تصنيف, رئيسية, منتج]
+
+## الفلاتر (s-filters)
+.s-filters-checkbox   [تصنيف]
+.s-filters-label   [تصنيف]
+.s-filters-option-name   [تصنيف]
+.s-filters-radio
+.s-filters-widget-active-arrow
+.s-filters-widget-arrow
+.s-filters-widget-container   [تصنيف]
+.s-filters-widget-content   [تصنيف]
+.s-filters-widget-more
+.s-filters-widget-plusminus   [تصنيف]
+.s-filters-widget-plusminus-active   [تصنيف]
+.s-filters-widget-search-input
+.s-filters-widget-title   [تصنيف]
+.s-filters-widget-values   [تصنيف]
+
+## الفوتر (footer)
+.footer-bottom   [سلة, تصنيف, رئيسية, منتج]
+.footer-container   [سلة, تصنيف, رئيسية, منتج]
+.footer-description   [سلة, تصنيف, رئيسية, منتج]
+.footer-images   [سلة, تصنيف, رئيسية, منتج]
+.footer-list   [سلة, تصنيف, رئيسية, منتج]
+.footer-middle   [سلة, تصنيف, رئيسية, منتج]
+.footer-newsletter
+.footer-profile   [سلة, تصنيف, رئيسية, منتج]
+.footer-social   [سلة, تصنيف, رئيسية, منتج]
+.footer-title   [سلة, تصنيف, رئيسية, منتج]
+.footer-top   [سلة, تصنيف, رئيسية, منتج]
+.footer-vat   [سلة, تصنيف, رئيسية, منتج]
+
+## المنتج (product)
+.product
+.product-available-dot
+.product-entry__image
+.product-form   [منتج]
+.product-index   [تصنيف]
+.product-options   [منتج]
+.product-reviews   [منتج]
+.product-save   [منتج]
+.product-single   [منتج]
+.product-sku   [منتج]
+.product-sku-wrapper   [منتج]
+.product__description
+
+## الدفع السريع (s-mini)
+.s-mini-checkout   [منتج]
+.s-mini-checkout-modal   [منتج]
+.s-mini-checkout-modal-align-middle   [منتج]
+.s-mini-checkout-modal-body   [منتج]
+.s-mini-checkout-modal-close   [منتج]
+.s-mini-checkout-modal-container   [منتج]
+.s-mini-checkout-modal-header   [منتج]
+.s-mini-checkout-modal-overlay   [منتج]
+.s-mini-checkout-modal-padding   [منتج]
+.s-mini-checkout-modal-spacer   [منتج]
+.s-mini-checkout-modal-wrapper   [منتج]
+.s-mini-checkout-modal-xs   [منتج]
+
+## الطلبات (s-orders)
+.s-orders-copy-to-clipboard-button
+.s-orders-copy-to-clipboard-button-icon
+.s-orders-mobile-title
+.s-orders-reference-id
+.s-orders-status-container
+.s-orders-table
+.s-orders-table-head
+.s-orders-table-head-tr-th
+.s-orders-table-tbody-tr
+.s-orders-table-tbody-tr-shadow
+.s-orders-table-tbody-tr-td
+.s-orders-table-tbody-tr-td-content
+
+## الشراء السريع (s-quick)
+.s-quick-buy-apple-pay   [سلة, تصنيف, رئيسية, منتج]
+.s-quick-buy-button
+.s-quick-order
+.s-quick-order-btn-close
+.s-quick-order-button-cont
+.s-quick-order-confirm
+.s-quick-order-container
+.s-quick-order-email-field
+.s-quick-order-expandable
+.s-quick-order-flex-input
+.s-quick-order-phone-field
+.s-quick-order-shown
+
+## اللغة والعملة (s-localization)
+.s-localization-modal-inner   [سلة, تصنيف, رئيسية, منتج]
+.s-localization-modal-input
+.s-localization-modal-label
+.s-localization-modal-section   [سلة, تصنيف, رئيسية, منتج]
+.s-localization-modal-section-inner   [سلة, تصنيف, رئيسية, منتج]
+.s-localization-modal-select   [سلة, تصنيف, رئيسية, منتج]
+.s-localization-modal-skeleton   [سلة, تصنيف, رئيسية, منتج]
+.s-localization-modal-skeleton-content   [سلة, تصنيف, رئيسية, منتج]
+.s-localization-modal-skeleton-item   [سلة, تصنيف, رئيسية, منتج]
+.s-localization-modal-skeleton-item-flex   [سلة, تصنيف, رئيسية, منتج]
+.s-localization-modal-title   [سلة, تصنيف, رئيسية, منتج]
+
+## الإهداء (s-gifting)
+.s-gifting-filepond-placeholder-icon
+.s-gifting-modal
+.s-gifting-modal-badge-wrapper
+.s-gifting-modal-icon
+.s-gifting-modal-uploader
+.s-gifting-modal-uploader-title
+.s-gifting-schedule
+.s-gifting-widget
+.s-gifting-widget-action
+.s-gifting-widget-action-content
+
+## الطلب (s-order)
+.s-order-cancel-radio
+.s-order-edit-products-search-input
+.s-order-totals-card-heading
+.s-order-totals-card-label
+.s-order-totals-card-panel
+.s-order-totals-card-row
+.s-order-totals-card-total
+.s-order-totals-card-total-label
+.s-order-totals-card-total-value
+.s-order-totals-card-value
+
+## التقييمات (s-reviews)
+.s-reviews-summary-average
+.s-reviews-summary-count   [منتج]
+.s-reviews-summary-header-section   [منتج]
+.s-reviews-summary-percentage
+.s-reviews-summary-progress
+.s-reviews-summary-recommendation-only   [منتج]
+.s-reviews-summary-recommendation-percentage   [منتج]
+.s-reviews-summary-row-rate
+.s-reviews-summary-rows
+.s-reviews-summary-wrapper
+
+## الهيدر (header)
+.header-btn   [سلة, تصنيف, رئيسية, منتج]
+.header-buttons   [سلة, تصنيف, رئيسية, منتج]
+.header-cart   [سلة, تصنيف, رئيسية, منتج]
+.header-container   [سلة, تصنيف, رئيسية, منتج]
+.header-content
+.header-content-inner
+.header-content-logo
+.header-content-offer
+.header-inner   [سلة, تصنيف, رئيسية, منتج]
+
+## الولاء (loyalty)
+.loyalty
+.loyalty-points
+.loyalty-star
+.loyalty-star--first
+.loyalty-star--second
+.loyalty__banner
+.loyalty__banner-content
+.loyalty__banner-inner
+
+## أيقونة السلة (s-basket)
+.s-basket-gap-card-image
+.s-basket-gap-card-name
+.s-basket-gap-card-offer
+.s-basket-gap-card-price
+.s-basket-gap-card-sale-price
+.s-basket-gap-card-weight
+.s-basket-gap-entry
+.s-basket-gap-list
+
+## الإشعارات (toast)
+.toast-avatar
+.toast-avatar--more
+.toast-avatar__image
+.toast-avatar__qty
+.toast-avatars
+.toast-summary-action
+.toast-summary__info
+.toast-summary__info-discount
+
+## النماذج (form)
+.form   [منتج]
+.form--user-profile
+.form-input   [تصنيف]
+.form-label
+.form-multiselect
+.form-select
+.form-textarea
+
+## القائمة (menu)
+.menu-img   [سلة, تصنيف, رئيسية, منتج]
+.menu-item
+.menu-list   [سلة, تصنيف, رئيسية, منتج]
+.menu-silde   [سلة, تصنيف, رئيسية, منتج]
+.menu-silde_link   [سلة, تصنيف, رئيسية, منتج]
+.menu-slider   [سلة, تصنيف, رئيسية, منتج]
+.menu-user-login
+
+## التواصل (s-contacts)
+.s-contacts   [سلة, تصنيف, رئيسية, منتج]
+.s-contacts-icon   [سلة, تصنيف, رئيسية, منتج]
+.s-contacts-item   [سلة, تصنيف, رئيسية, منتج]
+.s-contacts-list   [سلة, تصنيف, رئيسية, منتج]
+.s-contacts-list-horizontal   [سلة, تصنيف, رئيسية, منتج]
+.s-contacts-list-vertical   [سلة, تصنيف, رئيسية, منتج]
+.s-contacts-title   [سلة, تصنيف, رئيسية, منتج]
+
+## تسجيل الدخول (s-login)
+.s-login-modal   [سلة, تصنيف, رئيسية, منتج]
+.s-login-modal-currentEmail
+.s-login-modal-currentPhone
+.s-login-modal-input
+.s-login-modal-label
+.s-login-modal-main-btn
+.s-login-modal-main-btn-text
+
+## التبويبات (tabs)
+.tabs
+.tabs-wrapper
+.tabs-wrapper__products
+.tabs__flex
+.tabs__item
+.tabs__outline
+.tabs__product
+
+## نوافذ ملاك (angelmodal)
+.angelmodal
+.angelmodal-is-open
+.angelmodal__close
+.angelmodal__container
+.angelmodal__content
+.angelmodal__overlay
+
+## البنرات (banner)
+.banner   [رئيسية]
+.banner--fixed   [رئيسية]
+.banner-entry
+.banner-square
+.banner__description
+.banner__title
+
+## التفاصيل (details)
+.details   [منتج]
+.details-slider   [منتج]
+.details__action   [منتج]
+.details__container   [منتج]
+.details__title   [منتج]
+.details__wrapper   [منتج]
+
+## الكمية (s-quantity)
+.s-quantity-input   [منتج]
+.s-quantity-input-button   [منتج]
+.s-quantity-input-container   [منتج]
+.s-quantity-input-decrease-button   [منتج]
+.s-quantity-input-increase-button   [منتج]
+.s-quantity-input-input   [منتج]
+
+## التواصل (s-social)
+.s-social-link
+.s-social-list   [سلة, تصنيف, رئيسية, منتج]
+.s-social-share-btn   [منتج]
+.s-social-share-icon   [منتج]
+.s-social-share-list   [منتج]
+.s-social-share-wrapper   [منتج]
+
+## السعر (s-price)
+.s-price-range-currency   [تصنيف]
+.s-price-range-gray-text   [تصنيف]
+.s-price-range-inputs   [تصنيف]
+.s-price-range-number-input   [تصنيف]
+.s-price-range-relative   [تصنيف]
+
+## شارات الثقة (s-trust)
+.s-trust-badges-content   [سلة, تصنيف, رئيسية, منتج]
+.s-trust-badges-image   [سلة, تصنيف, رئيسية, منتج]
+.s-trust-badges-label   [سلة, تصنيف, رئيسية, منتج]
+.s-trust-badges-number   [سلة, تصنيف, رئيسية, منتج]
+.s-trust-badges-wrapper   [سلة, تصنيف, رئيسية, منتج]
+
+## التصنيفات (cat)
+.cat-filter
+.cat-slider-banner   [تصنيف]
+.cat-slider-container
+.cat-square-banner   [تصنيف]
+
+## القوائم المنسدلة (dropdown)
+.dropdown--is-opened
+.dropdown-toggler
+.dropdown__menu
+.dropdown__trigger
+
+## الأسئلة (faq)
+.faq-answer   [رئيسية]
+.faq-container   [رئيسية]
+.faq-item   [رئيسية]
+.faq-link   [رئيسية]
+
+## has (has)
+.has-bg
+.has-children
+.has-coupon
+.has-custom-bg   [سلة, تصنيف, رئيسية, منتج]
+.has-error
+.has-filters   [تصنيف]
+.has-label
+.has-max
+.has-not-coupon
+.has-order
+.has-overlay
+.has-overlay-sm
+.has-success
+.has-text-color
+.has-total   [منتج]
+
+## is (is)
+.is-active
+.is-added
+.is-animated
+.is-bottom-header
+.is-expanded
+.is-inverted
+.is-last-added
+.is-opened
+.is-selected
+.is-sold   [منتج]
+.is-sticky
+.is-sticky-product-bar   [سلة, تصنيف, رئيسية, منتج]
+
+## no (no)
+.no-bg
+.no-content-placeholder   [سلة]
+.no-content-placeholder--comments
+.no-margin-bottom
+.no-margin-top
+.no-mob-img
+.no-order
+.no-scrollbar
+.no-space
+.no-summary   [سلة, تصنيف, رئيسية, منتج]
+
+## r (r)
+.r-16y2uox   [منتج]
+.r-1nao33i   [منتج]
+.r-4qtqp9   [منتج]
+.r-8kz0gk   [منتج]
+.r-bnwqim   [منتج]
+.r-dnmrzs   [منتج]
+.r-lrsllp   [منتج]
+.r-lrvibr   [منتج]
+.r-m6rgpd   [منتج]
+.r-yyyyoo   [منتج]
+
+## s-products (s-products)
+.s-products-list   [تصنيف, رئيسية]
+.s-products-list-filters-results   [تصنيف]
+.s-products-list-loading-wrapper   [تصنيف]
+.s-products-list-placeholder
+.s-products-list-vertical-cards   [رئيسية]
+.s-products-list-wishlist
+.s-products-list-wrapper   [تصنيف, رئيسية]
+.s-products-slider-card
+.s-products-slider-wrapper
+
+## da (da)
+.da-bgg   [سلة, تصنيف, رئيسية, منتج]
+.da-bgm   [سلة, تصنيف, رئيسية, منتج]
+.da-brdr   [سلة, تصنيف, رئيسية, منتج]
+.da-cp   [رئيسية]
+.da-fg
+.da-fm   [سلة, تصنيف, رئيسية, منتج]
+.da-tm   [سلة, تصنيف, رئيسية, منتج]
+.da-ts   [رئيسية]
+
+## hide (hide)
+.hide
+.hide-out-of-stock
+.hide-questions
+.hide-required
+.hide-reviews
+.hide-scroll   [منتج]
+
+## iti (iti)
+.iti
+.iti--container
+.iti-mobile
+.iti__arrow
+.iti__country-list
+.iti__selected-flag
+
+## mask (mask)
+.mask-block   [سلة, تصنيف, رئيسية, منتج]
+.mask-block-bottom
+.mask-block-top
+.mask-slider
+.mask-slider-bottom
+.mask-slider-top
+
+## s-count (s-count)
+.s-count-down-end-text
+.s-count-down-ended
+.s-count-down-item
+.s-count-down-item-label
+.s-count-down-list
+.s-count-down-md
+
+## s-placeholder (s-placeholder)
+.s-placeholder-align-center   [سلة, تصنيف, رئيسية, منتج]
+.s-placeholder-description   [سلة, تصنيف, رئيسية, منتج]
+.s-placeholder-icon   [سلة, تصنيف, رئيسية, منتج]
+.s-placeholder-icon-md   [سلة, تصنيف, رئيسية, منتج]
+.s-placeholder-title   [سلة, تصنيف, رئيسية, منتج]
+.s-placeholder-wrapper   [سلة, تصنيف, رئيسية, منتج]
+
+## virtooal (virtooal)
+.virtooal
+.virtooal--action
+.virtooal--content
+.virtooal--details
+.virtooal--details--desc
+.virtooal--details--title
+
+## way (way)
+.way-item
+.way-item__action
+.way-item__content
+.way-item__icon
+.way-item__points
+
+## full (full)
+.full-banner-entry
+.full-description   [منتج]
+.full-nav
+.full-width
+
+## main (main)
+.main-content   [سلة, تصنيف, منتج]
+.main-menu   [سلة, تصنيف, رئيسية, منتج]
+.main-nav-container   [سلة, تصنيف, رئيسية, منتج]
+.main-slider
+
+## mobile (mobile)
+.mobile
+.mobile-menu   [سلة, تصنيف, رئيسية, منتج]
+.mobile-menu-slider   [سلة, تصنيف, رئيسية, منتج]
+.mobile-title
+
+## model (model)
+.model-entry
+.model-viewer
+.model-viewer-wrapper
+.model-viewer__poster
+
+## multihome (multihome)
+.multihome-loading
+.multihome-tabs-button
+.multihome-tabs-image
+.multihome-tabs-wrapper
+
+## os (os)
+.os-android
+.os-ios
+.os-mac
+.os-windows
+
+## s-before (s-before)
+.s-before-product-info   [منتج]
+.s-before-products-list   [تصنيف]
+.s-before-related   [منتج]
+.s-before-reviews   [منتج]
+
+## s-bought (s-bought)
+.s-bought-together-checkbox
+.s-bought-together-entry
+.s-bought-together-subtitle
+.s-bought-together-title
+
+## s-infinite (s-infinite)
+.s-infinite-scroll-btn-loader   [تصنيف]
+.s-infinite-scroll-error   [تصنيف, رئيسية]
+.s-infinite-scroll-last   [تصنيف, رئيسية]
+.s-infinite-scroll-status   [تصنيف, رئيسية]
+
+## s-notifications (s-notifications)
+.s-notifications
+.s-notifications-item
+.s-notifications-item-icon
+.s-notifications-item-read
+
+## s-toggle (s-toggle)
+.s-toggle
+.s-toggle-input
+.s-toggle-switcher-bg-white
+.s-toggle-switcher-has-text
+
+## s-verify (s-verify)
+.s-verify-back
+.s-verify-input
+.s-verify-message
+.s-verify-timer
+
+## slide (slide)
+.slide--cat-entry
+.slide--offer-entry
+.slide--one-fourth
+.slide--one-sixth
+
+## social (social)
+.social   [سلة, تصنيف, رئيسية, منتج]
+.social-icon
+.social-links   [سلة, تصنيف, رئيسية, منتج]
+.social-menu   [سلة, تصنيف, رئيسية, منتج]
+
+## store (store)
+.store-footer   [سلة, تصنيف, رئيسية, منتج]
+.store-footer__inner   [سلة, تصنيف, رئيسية, منتج]
+.store-header   [سلة, تصنيف, رئيسية, منتج]
+.store-links-items
+
+## blog (blog)
+.blog-article
+.blog-articles
+.blog-cat
+
+## brands (brands)
+.brands-link
+.brands-nav
+.brands-nav__item
+
+## cart (cart)
+.cart   [سلة]
+.cart-item
+.cart-thumb
+
+## center (center)
+.center
+.center-between   [منتج]
+.center-products
+
+## close (close)
+.close-filters   [تصنيف]
+.close-mobile-menu   [سلة, تصنيف, رئيسية, منتج]
+.close-tooltip
+
+## coupon (coupon)
+.coupon-copied
+.coupon-text
+.coupon-value
+
+## currency (currency)
+.currency   [سلة, تصنيف, رئيسية, منتج]
+.currency-btn   [سلة, تصنيف, رئيسية, منتج]
+.currency-menu   [سلة, تصنيف, رئيسية, منتج]
+
+## custom (custom)
+.custom-radios
+.custom-radios--icons
+.custom-radios--rounded
+
+## divider (divider)
+.divider-countdown
+.divider-title
+.divider-url
+
+## logo (logo)
+.logo-dark   [سلة, تصنيف, رئيسية, منتج]
+.logo-footer   [سلة, تصنيف, رئيسية, منتج]
+.logo-light
+
+## radio (radio)
+.radio-images
+.radio-images__badge
+.radio-images__label
+
+## s-after (s-after)
+.s-after-products-list   [تصنيف]
+.s-after-related   [منتج]
+.s-after-testimonials   [تصنيف]
+
+## s-block__shape (s-block__shape)
+.s-block__shape
+.s-block__shape--bottom
+.s-block__shape--top
+
+## s-breadcrumb (s-breadcrumb)
+.s-breadcrumb-arrow   [سلة, تصنيف, منتج]
+.s-breadcrumb-item   [سلة, تصنيف, منتج]
+.s-breadcrumb-wrapper   [سلة, تصنيف, منتج]
+
+## s-comment (s-comment)
+.s-comment-form-action
+.s-comment-form-content
+.s-comment-form-input
+
+## s-installment (s-installment)
+.s-installment-emkan-content-text
+.s-installment-emkan-wrapper
+.s-installment-madfu-wrapper
+
+## s-loyalty (s-loyalty)
+.s-loyalty-header-subtitle
+.s-loyalty-placeholder   [سلة, تصنيف, رئيسية, منتج]
+.s-loyalty-points-banner-container
+
+## s-metadata (s-metadata)
+.s-metadata-box
+.s-metadata-row-name
+.s-metadata-row-value
+
+## s-payments (s-payments)
+.s-payments-list   [سلة, تصنيف, رئيسية, منتج]
+.s-payments-list-item   [سلة, تصنيف, رئيسية, منتج]
+.s-payments-list-wrap   [سلة, تصنيف, رئيسية, منتج]
+
+## s-skeleton (s-skeleton)
+.s-skeleton-item   [سلة, تصنيف, رئيسية, منتج]
+.s-skeleton-item-circular   [سلة, تصنيف, رئيسية, منتج]
+.s-skeleton-wrapper   [سلة, تصنيف, رئيسية, منتج]
+
+## sub (sub)
+.sub-categories
+.sub-menu
+.sub-nav-header   [تصنيف]
+
+## testimonial (testimonial)
+.testimonial__avatar   [تصنيف, رئيسية]
+.testimonial__icon   [تصنيف, رئيسية]
+.testimonial__rating   [تصنيف, رئيسية]
+
+## title (title)
+.title
+.title-mail
+.title-wrapper   [رئيسية]
+
+## with (with)
+.with-arrow
+.with-hover
+.with-transparent-header
+
+## ad (ad)
+.ad-close   [سلة, تصنيف, رئيسية, منتج]
+.ad-slider
+
+## badge (badge)
+.badge
+.badge--red
+
+## bubble (bubble)
+.bubble
+.bubble-show
+
+## centered (centered)
+.centered-products
+.centered-title   [رئيسية]
+
+## faqs (faqs)
+.faqs-list   [رئيسية]
+.faqs-list__item   [رئيسية]
+
+## filepond (filepond)
+.filepond--drop-label
+.filepond--panel-root
+
+## filters (filters)
+.filters-menu   [تصنيف]
+.filters-trigger   [تصنيف]
+
+## flatpickr (flatpickr)
+.flatpickr-calendar
+.flatpickr-months
+
+## fslightbox (fslightbox)
+.fslightbox-open
+.fslightbox-styles   [تصنيف, رئيسية, منتج]
+
+## infinite (infinite)
+.infinite-scroll-error   [تصنيف, رئيسية]
+.infinite-scroll-last   [تصنيف, رئيسية]
+
+## landing (landing)
+.landing-page
+.landing-page--quick-buy
+
+## lazy (lazy)
+.lazy   [سلة, تصنيف, رئيسية, منتج]
+.lazy__bg   [سلة, تصنيف, رئيسية, منتج]
+
+## light (light)
+.light
+.light-mode
+
+## links (links)
+.links   [سلة, تصنيف, رئيسية, منتج]
+.links-menu   [سلة, تصنيف, رئيسية, منتج]
+
+## loader (loader)
+.loader
+.loader--small
+
+## loading (loading)
+.loading-logo-dark
+.loading-logo-light
+
+## lyt (lyt)
+.lyt-activated
+.lyt-visually-hidden
+
+## mburger (mburger)
+.mburger   [سلة, تصنيف, رئيسية, منتج]
+.mburger--collapse   [سلة, تصنيف, رئيسية, منتج]
+
+## merge (merge)
+.merge-bottom
+.merge-with-top-component
+
+## modal (modal)
+.modal-is-open
+.modal-open
+
+## nav (nav)
+.nav-header   [سلة, تصنيف, رئيسية, منتج]
+.nav-title   [سلة, تصنيف]
+
+## price (price)
+.price   [منتج]
+.price-wrapper   [منتج]
+
+## s-angel (s-angel)
+.s-angel--divider
+.s-angel-maps
+
+## s-block__container (s-block__container)
+.s-block__container
+.s-block__container-overlay
+
+## s-bullet (s-bullet)
+.s-bullet-delivery-branch-search-input
+.s-bullet-delivery-radio
+
+## s-cashback (s-cashback)
+.s-cashback-banner-container
+.s-cashback-banner-value
+
+## s-file (s-file)
+.s-file-upload-hidden-input
+.s-file-upload-wrapper
+
+## s-form (s-form)
+.s-form-control   [منتج]
+.s-form-group
+
+## s-list (s-list)
+.s-list-tile-item
+.s-list-tile-item-title
+
+## s-loading (s-loading)
+.s-loading   [سلة, تصنيف, رئيسية, منتج]
+.s-loading-container   [سلة, تصنيف, رئيسية, منتج]
+
+## s-scopes (s-scopes)
+.s-scopes-input
+.s-scopes-search-input
+
+## s-tabs (s-tabs)
+.s-tabs-content
+.s-tabs-header
+
+## s-translate (s-translate)
+.s-translate-all-wrap   [منتج]
+.s-translate-btn   [منتج]
+
+## salla (salla)
+.salla-1130931637   [سلة, تصنيف, رئيسية, منتج]
+.salla-modal   [سلة, تصنيف, رئيسية, منتج]
+
+## selected (selected)
+.selected-cat-img
+.selected-cat-item
+
+## share (share)
+.share   [منتج]
+.share-btns-list
+
+## special (special)
+.special-product
+.special-product-countdown
+
+## symbol (symbol)
+.symbol-code   [سلة, تصنيف, رئيسية, منتج]
+.symbol-name   [سلة, تصنيف, رئيسية, منتج]
+
+## tag (tag)
+.tag
+.tag--primary
+
+## theme (theme)
+.theme-dark   [سلة, تصنيف, رئيسية, منتج]
+.theme-light
+
+## total (total)
+.total   [منتج]
+.total-price   [منتج]
+
+## vertical (vertical)
+.vertical-line
+.vertical-products
+
+## video (video)
+.video-entry
+.video-swiper
+
+## !btn (!btn)
+.!btn
+
+## !da (!da)
+.!da-bgm   [سلة, تصنيف, رئيسية, منتج]
+
+## a2a_button_copy_link (a2a_button_copy_link)
+.a2a_button_copy_link   [منتج]
+
+## a2a_button_email (a2a_button_email)
+.a2a_button_email   [منتج]
+
+## a2a_button_facebook (a2a_button_facebook)
+.a2a_button_facebook   [منتج]
+
+## a2a_button_twitter (a2a_button_twitter)
+.a2a_button_twitter   [منتج]
+
+## a2a_button_whatsapp (a2a_button_whatsapp)
+.a2a_button_whatsapp   [منتج]
+
+## a2a_kit (a2a_kit)
+.a2a_kit   [منتج]
+
+## active (active)
+.active   [سلة, تصنيف, رئيسية, منتج]
+
+## animated (animated)
+.animated   [منتج]
+
+## animatedfadeInDown (animatedfadeInDown)
+.animatedfadeInDown
+
+## answer (answer)
+.answer-container   [رئيسية]
+
+## app (app)
+.app-inner   [سلة, تصنيف, رئيسية, منتج]
+
+## ar (ar)
+.ar-only
+
+## arrow (arrow)
+.arrow
+
+## article (article)
+.article--main
+
+## back (back)
+.back-btn   [سلة, تصنيف, رئيسية, منتج]
+
+## before (before)
+.before-price   [منتج]
+
+## breadcrumbs (breadcrumbs)
+.breadcrumbs   [سلة, تصنيف, منتج]
+
+## buy (buy)
+.buy-with
+
+## card (card)
+.card-discount   [تصنيف, رئيسية]
+
+## carousel (carousel)
+.carousel-slider
+
+## cat_profile (cat_profile)
+.cat_profile
+
+## category_title (category_title)
+.category_title   [تصنيف]
+
+## category_title_wrapper (category_title_wrapper)
+.category_title_wrapper   [تصنيف]
+
+## collapse (collapse)
+.collapse
+
+## color (color)
+.color-mode-light   [سلة, تصنيف, رئيسية, منتج]
+
+## contact (contact)
+.contact-social
+
+## copied (copied)
+.copied
+
+## copy (copy)
+.copy-icon
+
+## copycodebtn (copycodebtn)
+.copycodebtn
+
+## copyrights (copyrights)
+.copyrights   [سلة, تصنيف, رئيسية, منتج]
+
+## count (count)
+.count-number
+
+## cur (cur)
+.cur-year
+
+## customer (customer)
+.customer-wishlist
+
+## digital (digital)
+.digital-content-btn
+
+## discount (discount)
+.discount
+
+## display (display)
+.display-all-category
+
+## en (en)
+.en-only
+
+## entered (entered)
+.entered   [منتج]
+
+## expired (expired)
+.expired
+
+## f (f)
+.f-color
+
+## fadeInDown (fadeInDown)
+.fadeInDown
+
+## faded (faded)
+.faded-sq
+
+## fancybox (fancybox)
+.fancybox-open
+
+## fb_dialog (fb_dialog)
+.fb_dialog
+
+## fb_reset (fb_reset)
+.fb_reset
+
+## fix (fix)
+.fix-align
+
+## flip (flip)
+.flip-x
+
+## flying (flying)
+.flying-obj
+
+## follow (follow)
+.follow
+
+## foo (foo)
+.foo   [سلة, تصنيف, رئيسية, منتج]
+
+## fullwidth (fullwidth)
+.fullwidth-slider   [سلة, تصنيف, رئيسية, منتج]
+
+## grayscaled (grayscaled)
+.grayscaled-img
+
+## h1 (h1)
+.h1
+
+## h2 (h2)
+.h2
+
+## h3 (h3)
+.h3
+
+## h4 (h4)
+.h4
+
+## h5 (h5)
+.h5
+
+## h6 (h6)
+.h6
+
+## home (home)
+.home-slider__slide
+
+## homeslider (homeslider)
+.homeslider__slide   [منتج]
+
+## hydrated (hydrated)
+.hydrated   [سلة, تصنيف, رئيسية, منتج]
+
+## icon (icon)
+.icon   [سلة, تصنيف, رئيسية, منتج]
+
+## image (image)
+.image-slider   [منتج]
+
+## img (img)
+.img-magnifier-glass
+
+## in (in)
+.in-view
+
+## index (index)
+.index   [رئيسية]
+
+## info (info)
+.info
+
+## inner (inner)
+.inner   [سلة, تصنيف, رئيسية, منتج]
+
+## invert (invert)
+.invert
+
+## is_flying (is_flying)
+.is_flying
+
+## is_grayscaled (is_grayscaled)
+.is_grayscaled
+
+## is_large (is_large)
+.is_large
+
+## is_spinning (is_spinning)
+.is_spinning
+
+## is_zoomed (is_zoomed)
+.is_zoomed
+
+## lang (lang)
+.lang
+
+## language (language)
+.language
+
+## large (large)
+.large-cards
+
+## lazy_avatar (lazy_avatar)
+.lazy_avatar
+
+## lazy_bg (lazy_bg)
+.lazy_bg   [سلة, تصنيف, رئيسية, منتج]
+
+## lazy_icon (lazy_icon)
+.lazy_icon
+
+## lazy_img (lazy_img)
+.lazy_img   [تصنيف, رئيسية]
+
+## lazy_menu (lazy_menu)
+.lazy_menu   [سلة, تصنيف, رئيسية, منتج]
+
+## link (link)
+.link--primary
+
+## loaded (loaded)
+.loaded   [تصنيف, رئيسية, منتج]
+
+## logout (logout)
+.logout
+
+## lty (lty)
+.lty-playbtn
+
+## magnify (magnify)
+.magnify-wrapper   [منتج]
+
+## me (me)
+.me
+
+## menu_promo (menu_promo)
+.menu_promo
+
+## menu_title (menu_title)
+.menu_title   [سلة, تصنيف, رئيسية, منتج]
+
+## mini (mini)
+.mini-qty-delete
+
+## mode (mode)
+.mode-toggler
+
+## money (money)
+.money-save   [منتج]
+
+## move (move)
+.move-up
+
+## name (name)
+.name
+
+## navbar (navbar)
+.navbar-brand   [سلة, تصنيف, رئيسية, منتج]
+
+## notfound (notfound)
+.notfound
+
+## numInputWrapper (numInputWrapper)
+.numInputWrapper
+
+## off (off)
+.off-ratio   [تصنيف, رئيسية]
+
+## offer (offer)
+.offer-slider
+
+## offers (offers)
+.offers-link   [سلة, تصنيف, رئيسية, منتج]
+
+## on (on)
+.on-text
+
+## open (open)
+.open-badge   [رئيسية]
+
+## opened (opened)
+.opened
+
+## opt (opt)
+.opt-text   [منتج]
+
+## out (out)
+.out-of-stock   [منتج]
+
+## overlay (overlay)
+.overlay
+
+## padded (padded)
+.padded-squares
+
+## photos (photos)
+.photos-slider
+
+## points (points)
+.points-ways__list
+
+## prdoucts (prdoucts)
+.prdoucts-list-filters   [تصنيف]
+
+## preloader (preloader)
+.preloader-skip
+
+## price_is_on_sale (price_is_on_sale)
+.price_is_on_sale   [منتج]
+
+## prod (prod)
+.prod-filter   [تصنيف]
+
+## promotion (promotion)
+.promotion-title
+
+## pulse (pulse)
+.pulse-anime
+
+## qty (qty)
+.qty
+
+## quickview (quickview)
+.quickview   [سلة, تصنيف, رئيسية, منتج]
+
+## rate (rate)
+.rate-title
+
+## rating (rating)
+.rating-header
+
+## ready (ready)
+.ready
+
+## remove (remove)
+.remove-item-btn
+
+## responsive (responsive)
+.responsive-video
+
+## reverse (reverse)
+.reverse
+
+## round (round)
+.round
+
+## s-animate (s-animate)
+.s-animate-fade-in-up   [منتج]
+
+## s-apps (s-apps)
+.s-apps-icons-list
+
+## s-block__display (s-block__display)
+.s-block__display-all
+
+## s-block__overlay (s-block__overlay)
+.s-block__overlay
+
+## s-block__title (s-block__title)
+.s-block__title   [رئيسية]
+
+## s-block__title_icon (s-block__title_icon)
+.s-block__title_icon
+
+## s-block__title_separator (s-block__title_separator)
+.s-block__title_separator
+
+## s-block__title_wrapper (s-block__title_wrapper)
+.s-block__title_wrapper
+
+## s-blocks (s-blocks)
+.s-blocks-wrapper   [تصنيف, منتج]
+
+## s-checkbox (s-checkbox)
+.s-checkbox
+
+## s-design (s-design)
+.s-design-invisible-dom
+
+## s-fast (s-fast)
+.s-fast-checkout-button   [منتج]
+
+## s-hidden (s-hidden)
+.s-hidden   [سلة, تصنيف, رئيسية, منتج]
+
+## s-input (s-input)
+.s-input
+
+## s-ltr (s-ltr)
+.s-ltr   [منتج]
+
+## s-multiple (s-multiple)
+.s-multiple-bundle-product-checkbox
+
+## s-progress (s-progress)
+.s-progress-bar-wrapper
+
+## s-searchable (s-searchable)
+.s-searchable-dropdown-search-input
+
+## s-table (s-table)
+.s-table
+
+## s-tel (s-tel)
+.s-tel-input
+
+## s-testimonials (s-testimonials)
+.s-testimonials--slider--img   [تصنيف, رئيسية]
+
+## s-toast (s-toast)
+.s-toast-summary-avatars
+
+## search (search)
+.search-btn   [سلة, تصنيف, رئيسية, منتج]
+
+## sent (sent)
+.sent
+
+## sf (sf)
+.sf-dump
+
+## sidebar (sidebar)
+.sidebar   [منتج]
+
+## sidemenu (sidemenu)
+.sidemenu-link   [سلة, تصنيف, رئيسية, منتج]
+
+## similar (similar)
+.similar-products__header
+
+## size (size)
+.size-guide
+
+## sku (sku)
+.sku   [منتج]
+
+## slider (slider)
+.slider-bg
+
+## sold (sold)
+.sold-count   [منتج]
+
+## spin (spin)
+.spin-loader
+
+## spinner (spinner)
+.spinner-loader
+
+## spinning (spinning)
+.spinning-obj
+
+## spotii (spotii)
+.spotii-wrapper
+
+## square (square)
+.square-grid
+
+## starting (starting)
+.starting-or-normal-price   [منتج]
+
+## styles (styles)
+.styles__containerPortal--c9f84
+
+## subcat (subcat)
+.subcat-sliders
+
+## subtitle (subtitle)
+.subtitle
+
+## switcher (switcher)
+.switcher-3d-view
+
+## sws (sws)
+.sws   [منتج]
+
+## tab (tab)
+.tab-trigger
+
+## tamara (tamara)
+.tamara-product-widget
+
+## tawk (tawk)
+.tawk-widget
+
+## tel (tel)
+.tel-input
+
+## testimonials (testimonials)
+.testimonials-slider   [تصنيف, رئيسية]
+
+## thankyou (thankyou)
+.thankyou-block
+
+## timer (timer)
+.timer
+
+## tooltip (tooltip)
+.tooltip-content
+
+## two (two)
+.two-row
+
+## ui_click_btn (ui_click_btn)
+.ui_click_btn
+
+## underlined (underlined)
+.underlined
+
+## unicode (unicode)
+.unicode   [سلة, تصنيف, رئيسية, منتج]
+
+## vat (vat)
+.vat-num
+
+## videoWrapper (videoWrapper)
+.videoWrapper
+
+## wide (wide)
+.wide-placeholder   [رئيسية]
+
+## wish (wish)
+.wish-share   [منتج]
+
+## x (x)
+.x-icon
+
+## zoomed (zoomed)
+.zoomed-img
+
+## أيقونات سلة
+.sicon-add
+.sicon-alert-engine
+.sicon-arrow-left
+.sicon-arrow-right
+.sicon-arrow-up
+.sicon-barcode
+.sicon-cancel
+.sicon-dollar-cash
+.sicon-dollar-coin-stack
+.sicon-filter
+.sicon-fire
+.sicon-headphones
+.sicon-heart
+.sicon-keyboard_arrow_left
+.sicon-link
+.sicon-menu
+.sicon-quote
+.sicon-search
+.sicon-shopping
+.sicon-shopping-bag
+.sicon-star2
+.sicon-user
+
+## Tailwind
+.!absolute
+.!bg-transparent
+.!block
+.!border-hidden
+.!flex   [سلة, تصنيف, رئيسية, منتج]
+.!font-primary
+.!h-14
+.!h-5   [سلة, تصنيف, رئيسية, منتج]
+.!hidden   [سلة, تصنيف, رئيسية, منتج]
+.!inline-block
+.!justify-center   [سلة, تصنيف, رئيسية, منتج]
+.!leading-5   [منتج]
+.!m-0
+.!opacity-0
+.!opacity-100
+.!opacity-50   [منتج]
+.!p-0   [رئيسية]
+.!pt-1
+.!px-0   [سلة, تصنيف, رئيسية, منتج]
+.!px-2
+.!py-1
+.!py-1.5
+.!py-4   [منتج]
+.!rounded-3xl
+.!rounded-md
+.!text-primary
+.!text-red-400   [منتج]
+.!text-white
+.!transform-none
+.!w-14
+.!w-5   [سلة, تصنيف, رئيسية, منتج]
+.!w-[160px]
+.-mb-52
+.-mt-32
+.-mt-6
+.-mt-8   [تصنيف, رئيسية]
+.-scale-x-100   [تصنيف, رئيسية]
+.-scale-y-100   [تصنيف, رئيسية]
+.-top-5
+.-translate-x-1/2
+.-translate-y-1/2
+.-translate-y-2   [رئيسية]
+.-translate-y-2/3
+.-translate-y-full
+.-z-1
+.absolute   [سلة, تصنيف, رئيسية, منتج]
+.align-center   [سلة, تصنيف, رئيسية, منتج]
+.align-middle
+.aspect-square
+.basis-0   [سلة, تصنيف, رئيسية, منتج]
+.bg-[var(--dark-bg-main)]   [منتج]
+.bg-black
+.bg-blue-50
+.bg-center   [سلة, تصنيف, رئيسية, منتج]
+.bg-contain
+.bg-cover   [سلة, تصنيف, رئيسية, منتج]
+.bg-fixed
+.bg-gray-100   [سلة, تصنيف, رئيسية, منتج]
+.bg-gray-200
+.bg-gray-300
+.bg-gray-50
+.bg-gray-500
+.bg-green-50
+.bg-green-500
+.bg-no-repeat   [منتج]
+.bg-primary
+.bg-red-500   [منتج]
+.bg-red-600
+.bg-white   [سلة, تصنيف, رئيسية, منتج]
+.block   [سلة, تصنيف, رئيسية, منتج]
+.blur
+.border   [منتج]
+.border-2   [رئيسية]
+.border-b
+.border-blue-200
+.border-dotted   [منتج]
+.border-gray-200   [منتج]
+.border-green-300
+.border-l
+.border-primary
+.border-t
+.border-transparent   [رئيسية, منتج]
+.border-white   [منتج]
+.bottom-0
+.bottom-1
+.bottom-2
+.bottom-20
+.bottom-24
+.bottom-4
+.bottom-40
+.bottom-44
+.bottom-60
+.bottom-8
+.bottom-header
+.bottom-header-button
+.bottom-header-buttons
+.bottom-header-icon
+.bottom-header-user
+.box-img
+.break-all   [منتج]
+.break-words
+.container   [سلة, تصنيف, رئيسية, منتج]
+.content
+.content-entry
+.cursor-pointer   [سلة, تصنيف, رئيسية, منتج]
+.dark   [سلة, تصنيف, رئيسية, منتج]
+.dark-logo
+.dark-mode
+.dark:bg-gray-100
+.dark:border-opacity-20
+.dark:divide-opacity-20
+.dark:text-white
+.divide-y
+.duration-1000
+.duration-200
+.duration-300   [سلة, تصنيف, رئيسية, منتج]
+.duration-500   [تصنيف, رئيسية]
+.ease-elastic
+.ease-in-out   [سلة, تصنيف, رئيسية, منتج]
+.ease-out
+.empty:hidden
+.fill-current
+.filter
+.first:rounded-t-md
+.fixed
+.fixed-header
+.fixed-pinned
+.fixed-sticky   [سلة, تصنيف, رئيسية, منتج]
+.flex   [سلة, تصنيف, رئيسية, منتج]
+.flex-1   [سلة, تصنيف]
+.flex-center   [سلة, تصنيف, رئيسية, منتج]
+.flex-col   [سلة, تصنيف, رئيسية, منتج]
+.flex-col-reverse
+.flex-grow
+.flex-none   [تصنيف]
+.flex-row   [منتج]
+.flex-row-reverse
+.flex-wrap
+.flow-root
+.font-bold   [سلة, تصنيف, رئيسية, منتج]
+.font-dinnextltarabic-regular
+.font-medium
+.font-pingarlt   [سلة, تصنيف, رئيسية, منتج]
+.font-primary   [سلة, تصنيف, رئيسية, منتج]
+.font-regular
+.gap-1   [تصنيف]
+.gap-12
+.gap-2   [سلة, تصنيف, رئيسية, منتج]
+.gap-2.5
+.gap-3
+.gap-4   [سلة, تصنيف, رئيسية, منتج]
+.gap-5
+.gap-6   [سلة, تصنيف, رئيسية, منتج]
+.gap-8
+.grid   [تصنيف, رئيسية]
+.grid-cols-1   [رئيسية]
+.grid-cols-2   [تصنيف]
+.grid-cols-3
+.grid-cols-4
+.grid-cols-5
+.grid-cols-6
+.grid-flow-row
+.grid-trigger
+.group
+.group-hover:!opacity-100
+.group-hover:-translate-x-1
+.grow-0   [تصنيف, رئيسية]
+.h-0
+.h-10
+.h-12
+.h-14
+.h-16   [سلة, تصنيف, رئيسية, منتج]
+.h-2.5
+.h-20
+.h-24   [تصنيف, رئيسية]
+.h-40
+.h-48
+.h-52
+.h-56
+.h-6   [سلة, تصنيف, رئيسية, منتج]
+.h-62
+.h-7
+.h-72
+.h-8   [رئيسية]
+.h-[1px]
+.h-[34px]
+.h-auto   [رئيسية]
+.h-full   [سلة, تصنيف, رئيسية, منتج]
+.h-max   [منتج]
+.h-px
+.hidden   [سلة, تصنيف, رئيسية, منتج]
+.hover:opacity-100   [منتج]
+.hover:opacity-80
+.hover:opacity-90
+.hover:scale-110
+.hover:shadow-default   [تصنيف, رئيسية]
+.hover:text-primary   [سلة, تصنيف, رئيسية, منتج]
+.hover:text-primary-d
+.hover:underline
+.inline
+.inline-block   [منتج]
+.inline-flex   [منتج]
+.inset-0
+.invisible
+.items-baseline
+.items-center   [سلة, تصنيف, رئيسية, منتج]
+.items-count   [سلة]
+.items-end
+.items-start   [سلة, تصنيف, رئيسية, منتج]
+.items-stretch   [سلة, تصنيف, رئيسية, منتج]
+.justify-around
+.justify-between   [سلة, تصنيف, رئيسية, منتج]
+.justify-center   [سلة, تصنيف, رئيسية, منتج]
+.justify-end   [سلة, تصنيف, رئيسية, منتج]
+.justify-options-start
+.justify-start   [سلة, تصنيف, رئيسية, منتج]
+.last:border-b-0
+.last:border-none
+.last:mb-0   [سلة, تصنيف, رئيسية, منتج]
+.last:rounded-b-md
+.leading-10
+.leading-12
+.leading-4
+.leading-5
+.leading-6   [تصنيف, رئيسية]
+.leading-7   [منتج]
+.leading-8
+.leading-none   [سلة, تصنيف, رئيسية, منتج]
+.leading-normal   [منتج]
+.leading-tight
+.left-0
+.left-1/2
+.left-4
+.lg:!block
+.lg:!flex   [سلة, تصنيف, رئيسية, منتج]
+.lg:!inline-block
+.lg:-mt-20
+.lg:block   [سلة, تصنيف, رئيسية, منتج]
+.lg:flex
+.lg:flex-row   [سلة, تصنيف, رئيسية, منتج]
+.lg:gap-4
+.lg:grid-cols-2
+.lg:grid-cols-3
+.lg:grid-cols-4
+.lg:grid-cols-6
+.lg:h-100
+.lg:h-36
+.lg:hidden   [تصنيف]
+.lg:ltr:ml-8
+.lg:ltr:mr-4
+.lg:ltr:pl-20
+.lg:ltr:space-x-8
+.lg:mb-0
+.lg:mb-24
+.lg:mt-12
+.lg:mt-6
+.lg:p-8
+.lg:pb-0   [سلة]
+.lg:pb-2
+.lg:pb-20
+.lg:pb-4
+.lg:pt-4
+.lg:px-0
+.lg:py-8
+.lg:rtl:ml-4
+.lg:rtl:mr-8
+.lg:rtl:pr-20
+.lg:rtl:space-x-8
+.lg:rtl:space-x-reverse
+.lg:shadow-default
+.lg:space-y-16
+.lg:sticky   [تصنيف]
+.lg:text-sm
+.lg:top-20   [تصنيف]
+.lg:w-1/2
+.lg:w-10/12
+.lg:w-24
+.lg:w-72
+.lg:w-96
+.line-clamp-1   [تصنيف, رئيسية, منتج]
+.line-clamp-2
+.line-clamp-3
+.line-through   [منتج]
+.ltr-marquee
+.ltr:-ml-4
+.ltr:border-r-0
+.ltr:border-r-2   [منتج]
+.ltr:left-0
+.ltr:left-2
+.ltr:left-4
+.ltr:lg:ml-4   [تصنيف]
+.ltr:md:pr-8
+.ltr:ml-1   [سلة, تصنيف, رئيسية, منتج]
+.ltr:ml-2   [سلة, تصنيف, رئيسية, منتج]
+.ltr:ml-4
+.ltr:ml-[10px]
+.ltr:ml-auto
+.ltr:mr-0
+.ltr:mr-1   [سلة, تصنيف, رئيسية, منتج]
+.ltr:mr-1.5
+.ltr:mr-16   [رئيسية]
+.ltr:mr-2   [سلة, تصنيف, رئيسية, منتج]
+.ltr:mr-3   [سلة, تصنيف]
+.ltr:mr-4
+.ltr:mr-8
+.ltr:mr-auto
+.ltr:pl-2.5
+.ltr:pl-4
+.ltr:pr-10
+.ltr:pr-5
+.ltr:right-1
+.ltr:right-2   [سلة, تصنيف, رئيسية, منتج]
+.ltr:right-4   [تصنيف, رئيسية]
+.ltr:right-8
+.ltr:rounded-l-none
+.ltr:rounded-r-md
+.ltr:rounded-r-none
+.ltr:rounded-tl-none
+.ltr:space-x-1   [منتج]
+.ltr:space-x-2
+.ltr:space-x-2.5
+.ltr:space-x-3
+.ltr:space-x-5
+.ltr:space-x-6
+.ltr:text-end
+.ltr:text-left
+.ltr:text-right
+.m-0   [سلة, تصنيف, رئيسية, منتج]
+.m-8
+.m-auto
+.max-h-0   [رئيسية]
+.max-h-116
+.max-h-12
+.max-h-40
+.max-h-8
+.max-h-80
+.max-h-full
+.max-w-16
+.max-w-3/4   [منتج]
+.max-w-3xl
+.max-w-[calc(100%-60px)]
+.max-w-full
+.max-w-lg
+.max-w-xl   [تصنيف]
+.max-w-xs
+.mb-1   [سلة, تصنيف]
+.mb-1.5
+.mb-10
+.mb-14
+.mb-2   [رئيسية]
+.mb-2.5   [سلة, تصنيف, رئيسية, منتج]
+.mb-3   [منتج]
+.mb-3.5
+.mb-4   [منتج]
+.mb-5   [سلة, تصنيف, رئيسية, منتج]
+.mb-6   [رئيسية]
+.mb-8
+.md:!block
+.md:!h-20
+.md:!hidden   [سلة, تصنيف, رئيسية, منتج]
+.md:!mb-0
+.md:!w-2/5   [منتج]
+.md:!w-20
+.md:-mt-44
+.md:-translate-y-2/3
+.md:block   [سلة, تصنيف, رئيسية, منتج]
+.md:bottom-24
+.md:bottom-36
+.md:bottom-4
+.md:container   [تصنيف, منتج]
+.md:flex
+.md:flex-col
+.md:flex-row   [سلة, تصنيف, رئيسية, منتج]
+.md:flex-row-reverse
+.md:gap-10
+.md:gap-16
+.md:gap-2
+.md:gap-3   [تصنيف]
+.md:gap-4   [سلة, تصنيف, رئيسية, منتج]
+.md:gap-8
+.md:grid-cols-1
+.md:grid-cols-2   [رئيسية]
+.md:grid-cols-3
+.md:grid-cols-4   [تصنيف]
+.md:grid-cols-5
+.md:grid-cols-6
+.md:grid-cols-7
+.md:grid-cols-8
+.md:h-10
+.md:h-14
+.md:h-20   [سلة, تصنيف, رئيسية, منتج]
+.md:h-24
+.md:h-32
+.md:h-8
+.md:h-80
+.md:h-auto
+.md:hidden   [سلة, تصنيف, رئيسية, منتج]
+.md:items-center   [سلة, تصنيف, رئيسية, منتج]
+.md:items-start
+.md:justify-between
+.md:leading-16
+.md:leading-18
+.md:ltr:ml-2
+.md:ltr:mr-4
+.md:ltr:mr-8   [منتج]
+.md:ltr:right-4   [منتج]
+.md:ltr:text-left
+.md:max-h-60
+.md:max-w-lg
+.md:max-w-md
+.md:max-w-sm
+.md:max-w-xs   [سلة, تصنيف, رئيسية, منتج]
+.md:mb-0   [سلة, تصنيف, رئيسية, منتج]
+.md:mb-10
+.md:mb-2
+.md:mb-5
+.md:mb-6   [منتج]
+.md:mb-8
+.md:min-w-1/2   [منتج]
+.md:mt-0
+.md:mt-4
+.md:mt-5
+.md:p-16
+.md:p-8
+.md:pb-16   [منتج]
+.md:px-10
+.md:px-32
+.md:px-4   [سلة, تصنيف, رئيسية, منتج]
+.md:px-5
+.md:px-6
+.md:px-8
+.md:py-0
+.md:py-2
+.md:py-4
+.md:rounded-md   [منتج]
+.md:rtl:left-4   [منتج]
+.md:rtl:ml-4
+.md:rtl:ml-8   [منتج]
+.md:rtl:mr-2
+.md:rtl:text-right
+.md:space-y-0
+.md:space-y-8
+.md:sticky   [منتج]
+.md:text-2xl
+.md:text-3xl
+.md:text-4xl
+.md:text-5xl
+.md:text-base
+.md:text-lg   [سلة, تصنيف, رئيسية, منتج]
+.md:text-sm
+.md:text-xl   [منتج]
+.md:text-xs
+.md:top-4   [منتج]
+.md:w-1/2   [منتج]
+.md:w-10
+.md:w-14
+.md:w-20
+.md:w-24
+.md:w-32
+.md:w-40
+.md:w-72   [تصنيف]
+.md:w-96
+.md:w-full
+.min-h-7   [منتج]
+.min-h-[120px]
+.min-h-[2rem]   [منتج]
+.min-h-[34px]
+.min-h-full   [سلة, تصنيف, رئيسية, منتج]
+.min-w-0   [تصنيف]
+.min-w-1/2
+.min-w-3/4   [منتج]
+.min-w-[4rem]
+.min-w-full
+.ml-4
+.mob:!hidden   [منتج]
+.mob:bottom-24
+.mob:bottom-4   [منتج]
+.mob:container   [رئيسية, منتج]
+.mob:flex
+.mob:flex-col
+.mob:hidden   [تصنيف]
+.mob:items-center
+.mob:justify-center
+.mob:ltr:left-4   [منتج]
+.mob:mt-4
+.mob:p-3
+.mob:rtl:right-4   [منتج]
+.mr-1
+.mr-2
+.ms:px-5   [تصنيف]
+.mt-0
+.mt-1   [منتج]
+.mt-10
+.mt-14
+.mt-16
+.mt-2   [منتج]
+.mt-2.5
+.mt-3
+.mt-4   [تصنيف, منتج]
+.mt-5   [سلة]
+.mt-6
+.mt-8   [تصنيف, رئيسية]
+.mt-auto
+.mx-1
+.mx-1.5
+.mx-2
+.mx-auto
+.my-1   [منتج]
+.my-2   [تصنيف, رئيسية]
+.my-4   [تصنيف]
+.not-available
+.object-center
+.object-contain
+.object-cover   [تصنيف, رئيسية]
+.opacity-0   [رئيسية]
+.opacity-10   [تصنيف, رئيسية]
+.opacity-100
+.opacity-40
+.opacity-50
+.opacity-60   [منتج]
+.opacity-70
+.opacity-75   [سلة, تصنيف, رئيسية, منتج]
+.opacity-80   [منتج]
+.opacity-90
+.outline   [منتج]
+.overflow-hidden   [سلة, تصنيف, رئيسية, منتج]
+.overflow-y-auto   [رئيسية]
+.p--features__item
+.p-1   [سلة, تصنيف, رئيسية, منتج]
+.p-1.5
+.p-10
+.p-2
+.p-2.5
+.p-3
+.p-4
+.p-5   [منتج]
+.p-6   [رئيسية]
+.p-8
+.p-left
+.p-product
+.pb-1   [تصنيف]
+.pb-10
+.pb-2   [سلة, تصنيف, رئيسية, منتج]
+.pb-3
+.pb-32   [سلة]
+.pb-4   [منتج]
+.pb-8   [تصنيف, رئيسية]
+.pl-5
+.pointer-events-none   [سلة, تصنيف, رئيسية, منتج]
+.pr-14
+.pr-4
+.pt-0   [تصنيف]
+.pt-1
+.pt-16
+.pt-2.5
+.pt-4   [سلة, تصنيف, رئيسية, منتج]
+.pt-5   [سلة]
+.pt-6
+.pt-8
+.px-1   [منتج]
+.px-2   [تصنيف, رئيسية]
+.px-2.5   [تصنيف]
+.px-3
+.px-4   [سلة, تصنيف, رئيسية]
+.px-5
+.px-6   [رئيسية]
+.px-8   [سلة, تصنيف, رئيسية, منتج]
+.py-1
+.py-1.5
+.py-10
+.py-16
+.py-2
+.py-2.5
+.py-3   [منتج]
+.py-3.5
+.py-4   [سلة, تصنيف, رئيسية, منتج]
+.py-5
+.py-6   [سلة, تصنيف]
+.py-8
+.relative   [سلة, تصنيف, رئيسية, منتج]
+.resize
+.right-0
+.right-[-38px]
+.right-side
+.rotate-45
+.rounded
+.rounded-2xl   [تصنيف, رئيسية]
+.rounded-3xl
+.rounded-full   [سلة, تصنيف, رئيسية, منتج]
+.rounded-icon
+.rounded-lg   [تصنيف, رئيسية]
+.rounded-md   [رئيسية, منتج]
+.rounded-none
+.rounded-sm   [منتج]
+.rounded-t-md
+.rounded-tiny
+.rounded-xl
+.row
+.rtl   [سلة, تصنيف, رئيسية, منتج]
+.rtl-range-numbers
+.rtl-range-slider
+.rtl:-mr-4
+.rtl:-scale-x-100
+.rtl:border-l-0
+.rtl:border-l-2   [منتج]
+.rtl:left-0
+.rtl:left-1
+.rtl:left-2   [سلة, تصنيف, رئيسية, منتج]
+.rtl:left-4   [تصنيف, رئيسية]
+.rtl:left-8
+.rtl:lg:mr-4   [تصنيف]
+.rtl:md:pl-8
+.rtl:ml-0
+.rtl:ml-1   [سلة, تصنيف, رئيسية, منتج]
+.rtl:ml-1.5
+.rtl:ml-16   [رئيسية]
+.rtl:ml-2   [سلة, تصنيف, رئيسية, منتج]
+.rtl:ml-3   [سلة, تصنيف]
+.rtl:ml-4
+.rtl:ml-8
+.rtl:ml-auto
+.rtl:mr-1   [سلة, تصنيف, رئيسية, منتج]
+.rtl:mr-2   [سلة, تصنيف, رئيسية, منتج]
+.rtl:mr-4
+.rtl:mr-[10px]
+.rtl:mr-auto
+.rtl:pl-10
+.rtl:pl-5
+.rtl:pr-2.5
+.rtl:pr-4
+.rtl:right-0
+.rtl:right-2
+.rtl:right-4
+.rtl:rounded-l-md
+.rtl:rounded-l-none
+.rtl:rounded-r-none
+.rtl:rounded-tr-none
+.rtl:space-x-1   [منتج]
+.rtl:space-x-2
+.rtl:space-x-2.5
+.rtl:space-x-3
+.rtl:space-x-5
+.rtl:space-x-6
+.rtl:space-x-reverse   [منتج]
+.rtl:text-left
+.rtl:text-right
+.rtl:text-start
+.shadow
+.shadow-default   [رئيسية]
+.shadow-md
+.shadow-none
+.shadow-sm
+.shrink-0   [سلة, تصنيف, رئيسية, منتج]
+.sm:!w-[220px]
+.sm:block
+.sm:gap-4
+.sm:gap-6
+.sm:gap-8
+.sm:grid-cols-2
+.sm:grid-cols-3
+.sm:grow-0
+.sm:h-24
+.sm:h-full
+.sm:ltr:text-left
+.sm:mb-6
+.sm:mt-0
+.sm:mt-8
+.sm:p-1
+.sm:p-4
+.sm:pt-20
+.sm:pt-4
+.sm:pt-5
+.sm:rtl:text-right
+.sm:scale-100
+.sm:scale-95
+.sm:space-y-5
+.sm:translate-y-0
+.sm:w-24
+.space-x-1
+.space-x-2   [منتج]
+.space-x-3
+.space-x-4
+.space-x-5
+.space-y-1
+.space-y-2.5
+.space-y-4
+.space-y-5
+.space-y-8
+.space-y-px
+.sr-only   [سلة, تصنيف, رئيسية, منتج]
+.static
+.sticky
+.sticky-product-bar   [منتج]
+.sticky-product-bar__btn   [منتج]
+.sticky-product-bar__price
+.sticky-product-bar__quantity   [منتج]
+.table
+.table-fixed
+.text-2xl   [سلة, تصنيف, رئيسية, منتج]
+.text-3xl   [تصنيف, رئيسية]
+.text-4xl
+.text-7xl
+.text-[#f11e1e]
+.text-[16px]   [تصنيف, رئيسية]
+.text-amber-400
+.text-base   [سلة, تصنيف, رئيسية, منتج]
+.text-black   [سلة, تصنيف, رئيسية, منتج]
+.text-blue-500
+.text-center   [تصنيف, رئيسية]
+.text-ellipsis
+.text-end
+.text-gray-400   [سلة, تصنيف, رئيسية, منتج]
+.text-gray-500   [سلة, تصنيف, رئيسية, منتج]
+.text-gray-600
+.text-gray-700
+.text-gray-800
+.text-gray-900
+.text-gray-text   [تصنيف]
+.text-green-500
+.text-justify
+.text-lg   [سلة, تصنيف, رئيسية, منتج]
+.text-light   [منتج]
+.text-primary   [سلة, تصنيف, رئيسية, منتج]
+.text-red-400   [سلة, تصنيف, رئيسية, منتج]
+.text-red-500
+.text-red-600   [منتج]
+.text-sm   [سلة, تصنيف, رئيسية, منتج]
+.text-white   [منتج]
+.text-wrapper
+.text-xl   [سلة, تصنيف, رئيسية, منتج]
+.text-xs   [منتج]
+.text-xxs
+.to-top   [سلة, تصنيف, رئيسية, منتج]
+.top-0
+.top-1/2
+.top-16   [منتج]
+.top-2   [سلة, تصنيف, رئيسية, منتج]
+.top-20
+.top-24
+.top-4   [تصنيف, رئيسية]
+.top-5   [رئيسية]
+.top-[11px]
+.top-full
+.transform
+.transition   [رئيسية]
+.transition-all   [رئيسية, منتج]
+.transition-colors   [سلة, تصنيف, رئيسية, منتج]
+.transition-height
+.transition-opacity   [منتج]
+.transition-shadow   [تصنيف, رئيسية]
+.translate-y-0
+.translate-y-3
+.translate-y-4
+.underline   [منتج]
+.visible
+.w-1/3   [سلة, تصنيف, رئيسية, منتج]
+.w-10
+.w-11/12
+.w-12
+.w-14
+.w-16   [منتج]
+.w-2/3   [منتج]
+.w-20
+.w-24   [تصنيف, رئيسية]
+.w-32
+.w-40
+.w-56
+.w-6   [سلة, تصنيف, رئيسية, منتج]
+.w-7
+.w-8   [رئيسية]
+.w-auto   [رئيسية, منتج]
+.w-full   [سلة, تصنيف, رئيسية, منتج]
+.w-max   [سلة, تصنيف, رئيسية, منتج]
+.whitespace-nowrap   [تصنيف, منتج]
+.xl-title
+.xl:px-0
+.xs:p-11
+.xs:p-7
+.z-1   [تصنيف, رئيسية]
+.z-10
+.z-2
+.z-3
+.z-50
+.z-[2]   [منتج]
+.z-[3]

@@ -268,7 +268,9 @@ html body#app .s-button-solid.s-button-primary *,
 html body#app .s-infinite-scroll-btn,html body#app .s-infinite-scroll-btn *{color:#111111!important}
 /* زر «اشتر الآن»: إطار كامل */
 .product-single .sticky-product-bar button[class*="outline"]{border:1.5px solid var(--fl-p)!important;min-height:54px;border-radius:14px!important}
-.product-single .s-add-product-button-mini-checkout{border:0!important;background:transparent!important}
+/* «اشتر الآن» (ودجت سلة للدفع السريع، فيه Apple Pay): زرّه داخل مكوّن محمي (Shadow DOM) يرسم إطاره بنفسه،
+   فما نلمس شكله، بس نخليه يملأ مكانه بجانب «أضف للسلة» */
+.product-single salla-mini-checkout-widget.s-add-product-button-mini-checkout{display:flex!important;align-items:center;justify-content:center;flex:1 1 0}
 /* صناديق صفحة المنتج (عدد مرات الشراء، التقييمات...) بلون الهوية، والشريط حول زر الإضافة شفاف */
 body#app.product-single .details:not(.full-description):not(#product-tabs-options):not(.sticky-product-bar){background-color:var(--fl-s1)!important;border:1px solid var(--fl-line);border-radius:16px!important}
 body#app.product-single .sticky-product-bar{background-color:transparent!important;border:0!important;box-shadow:none!important}

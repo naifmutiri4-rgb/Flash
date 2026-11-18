@@ -21,6 +21,6 @@ function dfLogo(h, opts={}){
    ${dfMark(h,opts)}
    <div style="display:flex;flex-direction:column;line-height:1">
      <span style="font-family:Alexandria;font-weight:900;font-size:${h*.62}px;color:${c};letter-spacing:-.01em">داتفاي</span>
-     <span style="font-family:'Readex Pro';font-weight:600;font-size:${h*.19}px;color:${sub};letter-spacing:.3em;margin-top:${h*.3}px;direction:ltr;text-align:right">DATAFY eSIM</span>
+     <span style="font-family:'Readex Pro';font-weight:600;font-size:${h*.19}px;color:${sub};letter-spacing:.3em;margin-top:${h*.3}px;direction:ltr;text-align:right">DATAFY SIM</span>
    </div></div>`;
 }

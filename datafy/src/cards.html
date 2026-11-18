@@ -14,15 +14,15 @@ body{background:#222;display:flex;flex-wrap:wrap;gap:20px;padding:20px}
  background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);backdrop-filter:blur(6px)}
 .pill .dot{width:16px;height:16px;border-radius:50%;background:var(--ac);box-shadow:0 0 16px var(--ac)}
 .pill.es{background:var(--ac);border-color:transparent;color:#fff;font-family:'Readex Pro';letter-spacing:.04em}
-.pill.es svg{width:28px;height:28px}
+.pill.es svg{width:28px;height:28px}.pill.es{font-family:'Readex Pro';letter-spacing:0}
 .mid{position:relative;margin-top:62px}
 .grp{font-size:30px;font-weight:500;color:var(--ac);filter:brightness(1.35);display:flex;align-items:center;gap:14px}
 .grp::before{content:"";width:46px;height:4px;border-radius:4px;background:currentColor}
 .name{font-family:'Readex Pro';font-weight:700;font-size:44px;margin-top:14px;color:#fff;direction:ltr;text-align:right;letter-spacing:.01em}
 .hero{display:flex;align-items:flex-end;gap:22px;margin-top:22px;line-height:.82}
-.big{font-family:'Readex Pro';font-weight:700;font-size:250px;letter-spacing:-.04em;
+.big{font-size:280px!important;font-family:'Readex Pro';font-weight:700;font-size:250px;letter-spacing:-.04em;
  background:linear-gradient(180deg,#fff 30%,color-mix(in oklab,var(--ac) 55%,#fff));-webkit-background-clip:text;color:transparent}
-.big.unl{font-family:Alexandria;font-weight:900;font-size:170px;letter-spacing:-.01em;line-height:1.05}
+.big.unl{font-family:Alexandria;font-weight:900;font-size:180px!important;letter-spacing:-.01em;line-height:1.05}
 .unit{display:flex;flex-direction:column;gap:12px;padding-bottom:26px}
 .unit b{font-family:'Readex Pro';font-weight:700;font-size:70px;color:var(--ac);filter:brightness(1.4)}
 .unit span{font-size:32px;color:var(--mute)}
@@ -32,11 +32,16 @@ body{background:#222;display:flex;flex-wrap:wrap;gap:20px;padding:20px}
 .f i svg{width:34px;height:34px}
 .f small{display:block;font-size:24px;color:var(--mute);margin-top:18px;white-space:nowrap}
 .f b{display:block;font-size:36px;font-weight:700;margin-top:4px;white-space:nowrap}
-.bot{position:relative;display:flex;align-items:center;justify-content:space-between;margin-top:26px;padding:26px 34px;border-radius:32px;
+.bot{position:relative;display:flex;align-items:center;justify-content:space-between;margin-top:26px;padding:24px 30px;border-radius:32px;
  background:linear-gradient(90deg,color-mix(in oklab,var(--ac) 30%,#0E1330),#0E1330 70%);border:1.5px solid color-mix(in oklab,var(--ac) 50%,transparent)}
 .price{display:flex;align-items:baseline;gap:14px}
 .price b{font-family:'Readex Pro';font-weight:700;font-size:96px;line-height:1}
 .price span{font-size:34px;font-weight:600;color:var(--mint)}
+.naf{display:flex;align-items:center;gap:16px}.naf i{width:76px;height:76px;border-radius:22px;display:grid;place-items:center;background:var(--mint);color:#04131a}.naf i svg{width:42px;height:42px}
+.naf small,.dl small{display:block;font-size:22px;color:var(--mute)}.naf b{font-size:38px;font-weight:700}
+.dl{display:flex;flex-direction:column;align-items:flex-end;gap:10px}.dls{display:flex;gap:10px}
+.dls span{display:flex;align-items:center;gap:8px;height:52px;padding:0 18px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-size:23px;font-weight:600;white-space:nowrap}
+.dls svg{width:24px;height:24px;color:var(--mint)}
 .inst{display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-size:26px;color:#dfe3ff}
 .inst div{display:flex;align-items:center;gap:10px}.inst svg{width:28px;height:28px;color:var(--mint)}
 </style></head><body>
@@ -49,14 +54,14 @@ for(const p of P){ if(ONLY&&!ONLY.split(',').includes(p.id))continue;
  const fs=p.feats.filter(f=>f[0]!=='data'||unl===false?f[0]!=='data':false);
  const tiles=p.feats.filter(f=>f[0]!=='data');
  if(unl) tiles.unshift(['data','إنترنت','بلا حدود']);
- if(tiles.length<2) tiles.push(['bolt','التفعيل','فوري عبر QR']);
+ if(tiles.length<2) tiles.push(['data','نوع الباقة','بيانات فقط']);
  const el=document.createElement('div');el.className='card';el.dataset.shot=p.id;el.style.setProperty('--ac',ac);
  el.style.setProperty('--n',tiles.length);
  el.innerHTML=`<div class="chip">${SIM}</div>
- <div class="top">${dfLogo(92)}<div class="pills"><div class="pill es">${IC.qr}eSIM</div><div class="pill"><span class="dot"></span>${p.op_ar}</div></div></div>
+ <div class="top">${dfLogo(92)}<div class="pills"><div class="pill es">${IC.sim}شريحة إنترنت</div><div class="pill"><span class="dot"></span>${p.op_ar}</div></div></div>
  <div class="mid"><div class="grp">${p.group}</div><div class="name">${p.name}</div><div class="hero">${hero}</div></div>
  <div class="feats">${tiles.map(f=>`<div class="f"><i>${IC[f[0]]}</i><small>${f[1]}</small><b>${f[2]}</b></div>`).join('')}</div>
- <div class="bot"><div class="price"><b>${p.price}</b><span>ر.س</span></div>
- <div class="inst"><div>${IC.bolt}تفعيل فوري بعد الدفع</div><div>${IC.qr}امسح QR وانطلق</div></div></div>`;
+ <div class="bot"><div class="naf"><i>${IC.nafath}</i><div><small>التفعيل</small><b>عبر نفاذ</b></div></div>
+ <div class="dl"><small>طرق الاستلام</small><div class="dls"><span>${IC.store}من الفرع</span><span>${IC.truck}توصيل stc</span><span>${IC.esim}eSIM</span></div></div></div>`;
  document.body.appendChild(el);}
 </script></body></html>

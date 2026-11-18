@@ -35,13 +35,13 @@ for p in P:
     if p['social']: extra.append('سوشال '+gbt(p['social']))
     if 'واتساب' in p['note']: extra.append('واتساب وخرائط لا محدود')
     if p['min']: extra.append('مكالمات لا محدودة' if p['min']=='UNL' else f"{int(p['min']):,} دقيقة")
-    p['title']=f"شريحة {p['op_ar']} eSIM | {p['name']} – {' + '.join([head]+extra)} | {d(p['days'])}"
+    p['title']=f"شريحة إنترنت {p['op_ar']} | {p['name']} – {' + '.join([head]+extra)} | {d(p['days'])}"
     p['tagline']=pick(TAG[kind],p['id'])
     parts=[head]+extra
     body=f"{'، '.join(parts[:-1])+' و' + parts[-1] if len(parts)>1 else parts[0]}، تشتغل معك {d(p['days'])} كاملة على شبكة {p['op_ar']}."
     p['desc']=(f"{p['tagline']}\n{body}\n"
-      "شريحة إلكترونية (eSIM) توصلك فوراً بعد الدفع: امسح رمز QR، وخلال دقائق أنت متصل — بلا فرع، بلا انتظار، بلا شريحة بلاستيك.\n"
-      "⚡ تفعيل فوري  •  🔒 دفع آمن  •  💬 دعم يرد عليك")
+      "التفعيل عبر نفاذ خلال دقائق، واستلامها على كيفك: من الفرع، أو توصيل لين البيت عن طريق stc، أو استبدالها بشريحة إلكترونية eSIM.\n"
+      "🔐 تفعيل بنفاذ  •  🏬 استلام من الفرع  •  🚚 توصيل stc  •  📲 eSIM")
 json.dump(P,open('products_full.json','w'),ensure_ascii=False,indent=1)
 open('data.js','w').write('window.P='+json.dumps(P,ensure_ascii=False)+';')
 for p in P[:3]+P[29:30]+P[91:92]: print(p['title']);print(p['desc']);print()

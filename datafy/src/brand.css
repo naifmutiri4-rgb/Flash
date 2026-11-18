@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&family=Alexandria:wght@600;700;800;900&display=swap');
+:root{--ink:#070A18;--ink2:#0E1330;--violet:#7B5CFF;--mint:#22F2C4;--sun:#FFD84D;--txt:#F4F6FF;--mute:#9AA3C7;
+--grad:linear-gradient(135deg,#7B5CFF 0%,#4E8BFF 50%,#22F2C4 100%)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Readex Pro',sans-serif;background:#000;color:var(--txt)}
+.dsp{font-family:'Alexandria',sans-serif}
+.lat{font-family:'Readex Pro',sans-serif;direction:ltr;unicode-bidi:isolate}

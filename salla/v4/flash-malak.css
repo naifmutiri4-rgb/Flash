@@ -112,9 +112,10 @@ salla-product-options[options*="single-option"]:not(.hydrated){min-height:555px}
 /* منتجات السعر داخل الخيارات: السعر العلوي يطلع «0» فنخفيه، والسعر يبان على كل زر */
 .product-single .main-content:has(.s-product-options-grid-mode)>.price{display:none!important}
 
-/* أزرار المشاركة والمفضلة تحت الصورة بدل ما تغطي جزء منها */
-.product-single .wish-share{position:static!important;justify-content:flex-start!important;margin-top:10px;opacity:1!important}
-.product-single .wish-share>*{min-width:44px;min-height:44px}
+/* أزرار المفضلة والمشاركة في الزاوية العلوية للصورة (الصور الجديدة تاركة الزاوية فاضية) */
+.product-single .wish-share{position:absolute!important;top:16px!important;left:16px!important;right:auto!important;bottom:auto!important;margin:0!important;opacity:1!important;z-index:3;gap:6px!important;flex-direction:column!important}
+.product-single .wish-share>*{width:38px!important;height:38px!important;min-width:0;padding:0!important;display:flex!important;align-items:center;justify-content:center;border-radius:12px!important;background:rgba(17,17,17,.75)!important}
+.product-single .wish-share>* *{font-size:18px}
 .product-single .main-content h1{font-size:26px!important;font-weight:900;line-height:1.3;margin-top:6px;color:var(--fl-fg)}
 .product-single .main-content>.price{margin:10px 0 2px!important}
 .product-single .main-content>.price .total-price{font-size:34px!important;font-weight:900!important;line-height:1.1;color:var(--fl-fg)!important}

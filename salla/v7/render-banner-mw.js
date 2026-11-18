@@ -23,7 +23,7 @@ const OUT = path.join(__dirname, '..', '..', 'docs', 'live');
   </style></head><body><div class="grid"></div><div class="g1"></div><div class="g2"></div>
   <div class="ph"><div class="scr"><span class="live">● LIVE</span><div class="side">♥<b>12.4K</b>▮<b>890</b>➦<b>1.1K</b></div></div></div>
   <div class="chip c1">+10K مشاهدة</div><div class="chip c2">⚡ تنفيذ فوري</div>
-  <div class="copy"><h1>خلّ مقطعك<br><span>يشتغل لايف</span></h1><p>مشاهدات ولايكات وشير وحفظ<br>تبدأ من <b>1.99 ر.س</b></p><span class="cta">تصفّح الباقات</span></div>
+  <div class="copy"><h1>خلّ مقطعك<br><span>يطلع اكسبلور</span></h1><p>مشاهدات ولايكات وشير وحفظ<br>تبدأ من <b>1.99 ر.س</b></p><span class="cta">تصفّح الباقات</span></div>
   </body></html>`, { waitUntil: 'networkidle' });
   await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(300);
   const png = path.join(OUT, 'banner-mw.png');

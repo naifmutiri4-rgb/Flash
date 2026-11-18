@@ -1,0 +1,318 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700&display=block" rel="stylesheet">
+<style>*{box-sizing:border-box}button{font-family:inherit;cursor:pointer}a{color:inherit;text-decoration:none}.pimg svg{direction:ltr}
+:root{--bg:#0A1626;--ice:#DCEBFA;--bl:#3D7BFF;--sky:#7DE2FF;--vi:#B18CFF;--mut:#8FA6C4}
+body{font-family:'Noto Kufi Arabic',sans-serif;background:#222;margin:0}
+.scr{width:390px;background:var(--bg);color:#fff;overflow:hidden;padding-bottom:24px;position:relative}
+.scr>*{position:relative}
+.hdwrap{padding:10px 12px 0;z-index:5}.hd{display:flex;justify-content:space-between;align-items:center;padding:8px 8px 8px 8px;border-radius:20px;background:#ffffff12;border:1px solid #ffffff22;backdrop-filter:blur(16px)}
+.hd-r{display:flex;gap:6px}.hd button{width:38px;height:38px;border-radius:14px;border:1px solid #ffffff22;background:#ffffff10;color:#fff;display:grid;place-items:center;position:relative}
+.cartb{background:var(--bl)!important;border-color:var(--bl)!important;box-shadow:0 0 20px #3D7BFF99}.cartb em{position:absolute;top:-6px;left:-6px;font-style:normal;font-size:10px;background:#fff;color:var(--bg);width:17px;height:17px;border-radius:50%;display:grid;place-items:center;font-weight:700}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;padding-inline-start:4px}.logo span{width:28px;height:28px;border-radius:10px;background:linear-gradient(135deg,var(--sky),var(--bl));display:grid;place-items:center}
+.pill-ad{margin:10px auto 0;width:max-content;padding:6px 14px;border-radius:999px;background:#ffffff10;border:1px solid #ffffff22;font-size:12px;display:flex;gap:6px;align-items:center;color:var(--sky);z-index:5}.pill-ad b{color:#fff}
+.hero{height:600px;margin-top:-90px;padding-top:90px;position:relative;overflow:hidden}
+.aur{position:absolute;border-radius:50%;filter:blur(60px)}.a1{width:300px;height:220px;background:var(--vi);top:60px;left:-80px;opacity:.6}.a2{width:280px;height:260px;background:var(--sky);top:120px;right:-90px;opacity:.45}.a3{width:340px;height:200px;background:var(--bl);top:300px;left:30px;opacity:.55}
+.aur.sm{position:absolute;opacity:.35}
+.gl{position:absolute;display:grid;place-items:center;color:#fff;border-radius:30%;background:linear-gradient(135deg,#ffffff66,#ffffff10);border:1.5px solid #ffffff77;backdrop-filter:blur(10px);box-shadow:0 30px 50px -16px #00000099,inset 0 1px 0 #fff}
+.g1{width:96px;height:96px;top:120px;right:36px;transform:rotate(12deg)}.g2{width:124px;height:124px;top:170px;left:50%;margin-left:-62px;transform:rotate(-6deg)}.g3{width:70px;height:70px;top:110px;left:38px;transform:rotate(-16deg)}.g4{width:62px;height:62px;top:280px;right:60px;transform:rotate(8deg)}
+.stat{position:absolute;top:290px;left:14px;transform:scale(.92);transform-origin:left top;padding:10px 12px;border-radius:16px;background:#0A1626aa;border:1px solid #ffffff22;backdrop-filter:blur(12px);display:grid;gap:2px}.stat small{font-size:10px;color:var(--mut)}.stat b{font-size:14px}.stat span{font-size:11px;color:var(--sky);display:flex;gap:4px;align-items:center}
+.hero-copy{position:absolute;bottom:22px;inset-inline:18px}.hero-copy h1{font-size:38px;line-height:1.3;margin:0 0 8px;font-weight:700}.hero-copy em{font-style:normal;background:linear-gradient(90deg,var(--sky),var(--vi));-webkit-background-clip:text;color:transparent}.hero-copy p{margin:0 0 14px;color:#C9D7EA;font-size:14px;line-height:1.8}
+.cta{display:flex;gap:8px}.cta a{padding:12px 22px;border-radius:16px;font-weight:700;font-size:14px}.b1{background:var(--bl);box-shadow:0 10px 30px -8px var(--bl)}.b2{background:#ffffff14;border:1px solid #ffffff33}
+.sec{padding:26px 16px}.sec h2{font-size:26px;margin:0 0 14px}.ice{background:var(--ice);color:var(--bg);border-radius:28px 28px 0 0}.sub{margin:-8px 0 14px;color:#4A6488;font-size:13px}
+.glass-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.gc{border-radius:22px;overflow:hidden;background:#ffffff0d;border:1px solid #ffffff1f}.gc-img .pimg{margin:6px auto 0;border-radius:18px;overflow:hidden}
+.gc-b{padding:10px 12px;display:flex;justify-content:space-between;align-items:baseline}.gc-b b{font-size:15px}.gc-b span{font-size:11px;color:var(--mut)}.gc-b em{font-style:normal;color:var(--sky);font-size:15px;font-weight:700}
+.stack{display:grid;gap:10px}.pk{background:#ffffffaa;border:1px solid #fff;border-radius:20px;padding:14px;box-shadow:0 10px 30px -18px #0A162688}.pk.on{background:var(--bg);color:#fff;border-color:var(--bl);box-shadow:0 0 0 2px var(--bl),0 14px 30px -12px #3D7BFF}
+.pk-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}.pk-h h3{margin:0;font-size:16px}.pk-h b{font-size:20px;color:var(--bl)}.pk.on .pk-h b{color:var(--sky)}.pk-h small{font-size:11px;color:var(--mut)}
+.caps{display:flex;gap:6px}.caps span{flex:1;display:flex;gap:4px;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;padding:6px 4px;border-radius:999px;background:#0A162610}.pk.on .caps span{background:#ffffff14}
+.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.ft{display:grid;justify-items:center;gap:4px;text-align:center;padding:12px 4px;border-radius:18px;background:#ffffff0a;border:1px solid #ffffff1a}.ft span{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,#7DE2FF33,#3D7BFF33);color:var(--sky);display:grid;place-items:center}.ft b{font-size:12.5px}.ft small{font-size:10px;color:var(--mut)}
+.pp-img{padding:12px 16px 0}.pp-img .pimg{border-radius:28px;overflow:hidden}
+.pcard{margin:-40px 16px 12px;padding:16px;border-radius:26px;background:#122138e6;border:1px solid #ffffff22;backdrop-filter:blur(16px);box-shadow:0 -20px 40px -20px #000}
+.ph{display:flex;justify-content:space-between;align-items:center}.ph h1{font-size:23px;margin:0}.pr b{font-size:26px;color:var(--sky)}.pr small{color:var(--mut);margin-inline-start:4px}.ph.pad{padding:14px 16px 6px}.cnt{width:30px;height:30px;border-radius:50%;background:var(--bl);display:grid;place-items:center;font-weight:700}
+.chips{display:flex;gap:6px;margin:10px 0 14px;flex-wrap:wrap}.chips span{display:flex;gap:4px;align-items:center;font-size:11.5px;padding:5px 10px;border-radius:999px;background:#ffffff10;border:1px solid #ffffff1f}
+.pcard h3{font-size:14px;margin:0 0 10px;color:#C9D7EA}
+.capsules{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;padding-top:6px}.cp{position:relative;display:flex;flex-direction:column;align-items:center;padding:10px 4px;border-radius:999px;background:#ffffff0c;border:1px solid #ffffff22}.cp b{font-size:16px}.cp small{font-size:10.5px;color:var(--mut)}
+.cp.on{background:linear-gradient(135deg,#3D7BFF,#7DE2FF);border-color:#fff;box-shadow:0 8px 24px -6px #3D7BFF}.cp.on small{color:#0A1626}.tip{position:absolute;top:-24px;background:#fff;color:var(--bg);font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:8px;white-space:nowrap}
+.inp{display:flex;gap:8px;align-items:center;padding:14px;border-radius:16px;background:#0A1626;border:1px solid #ffffff22;color:var(--mut);direction:ltr;font-size:12px}
+.info{margin:0 16px 14px;padding:12px 14px;border-radius:18px;background:var(--ice);color:var(--bg)}.info p{margin:4px 0;display:flex;gap:8px;align-items:center;font-size:13px}.info svg{color:var(--bl);flex:none}
+.buybar{margin:0 16px;display:flex;gap:8px;padding:6px;border-radius:22px;background:#ffffff10;border:1px solid #ffffff22}.qty{display:flex;align-items:center}.qty button{width:34px;height:50px;border:0;background:none;color:#fff;font-size:18px}
+.buy{flex:1;height:54px;border:0;border-radius:18px;background:linear-gradient(90deg,#3D7BFF,#5C9BFF);color:#fff;font:700 16px 'Noto Kufi Arabic';display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 10px 30px -8px #3D7BFF,inset 0 1px 0 #ffffff66}.buy span{font-size:12px;opacity:.85;padding:3px 8px;border-radius:8px;background:#ffffff22}
+.toast{margin:6px 16px 12px;display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:18px;background:#7DE2FF22;border:1px solid #7DE2FF66;color:var(--sky)}.toast div{display:grid}.toast b{color:#fff;font-size:14px}.toast small{font-size:11px;color:#C9D7EA}
+.gcart{margin:0 16px 14px;padding:12px;border-radius:24px;background:#ffffff0d;border:1px solid #ffffff22}.ci{display:flex;gap:10px;align-items:center}.ci .pimg{border-radius:16px;overflow:hidden;flex:none}.ci-b{flex:1;display:grid;gap:2px}.ci-b small{font-size:11px;color:var(--mut)}.lnk{direction:ltr;text-align:right}.cp-p{font-size:20px;color:var(--sky)}
+.code{display:flex;justify-content:space-between;align-items:center;margin:12px 0;padding:6px 6px 6px 12px;border-radius:14px;border:1px dashed #7DE2FF77}.code span{display:flex;gap:6px;align-items:center;font-weight:700}.code button{border:0;border-radius:10px;padding:8px 14px;background:#ffffff1a;color:#fff;font:700 12px 'Noto Kufi Arabic'}
+.rows div{display:flex;justify-content:space-between;padding:8px 2px;font-size:14px}.rows .tt{border-top:1px solid #ffffff22;font-size:17px}
+.buy.wide{width:calc(100% - 32px);margin:0 16px 8px}.apay{width:calc(100% - 32px);margin:0 16px;height:50px;border-radius:18px;background:#000;color:#fff;border:1px solid #333;font:700 18px -apple-system,sans-serif}
+
+.asset{width:max-content}</style></head><body>
+<section class="scr" id="home"><div class="hdwrap"><header class="hd"><div class="logo"><span><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>فلاش ستور</div><div class="hd-r"><button><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg></button><button><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 7h16M4 12h16M4 17h10"/></svg></button><button class="cartb"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 4h2.5l2.2 11h10.6L21 7H7"/><circle cx="9.5" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg><em>1</em></button></div></header></div>
+<div class="pill-ad"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg> خصم 10% بكود <b>F10</b></div>
+<div id="hero" class="hero">
+  <div class="aur a1"></div><div class="aur a2"></div><div class="aur a3"></div>
+  <div class="gl g1"><svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor" stroke="none" ><path d="M12 20s-7.5-4.6-9.3-9.2C1.5 7.6 3.6 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.3 0 5.4 3.1 4.2 6.3C19.5 15.4 12 20 12 20Z"/></svg></div>
+  <div class="gl g2"><svg viewBox="0 0 24 24" width="58" height="58" fill="currentColor" stroke="none" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+  <div class="gl g3"><svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor" stroke="none" ><path d="M14 5l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V5Z"/></svg></div>
+  <div class="gl g4"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" stroke="none" ><path d="M6 3h12v18l-6-4.5L6 21V3Z"/></svg></div>
+  <div class="stat"><small>مثال</small><b>10,000 مشاهدة</b><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg> 12.99 ر.س · فوري</span></div>
+  <div class="hero-copy"><h1>تفاعل <em>صافٍ</em><br>لمقطعك</h1><p>مشاهدات، لايكات، شير وحفظ. تنفيذ فوري ودفع آمن عبر سلة.</p><div class="cta"><a class="b1">ابدأ الآن</a><a class="b2">الباقات</a></div></div>
+</div>
+  <div class="sec">
+    <h2>الخدمات</h2>
+    <div class="glass-grid"><a class="gc"><div class="gc-img">
+<div class="pimg" style="width:164px;height:164px">
+  <svg viewBox="0 0 500 500" width="164" height="164">
+    <defs>
+      <radialGradient id="a1views164" cx=".2" cy=".2" r=".7"><stop offset="0" stop-color="#B18CFF" stop-opacity=".9"/><stop offset="1" stop-color="#B18CFF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a2views164" cx=".85" cy=".35" r=".6"><stop offset="0" stop-color="#7DE2FF" stop-opacity=".8"/><stop offset="1" stop-color="#7DE2FF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a3views164" cx=".5" cy="1" r=".7"><stop offset="0" stop-color="#3D7BFF" stop-opacity=".9"/><stop offset="1" stop-color="#3D7BFF" stop-opacity="0"/></radialGradient>
+      <filter id="blviews164"><feGaussianBlur stdDeviation="14"/></filter>
+    </defs>
+    <rect width="500" height="500" fill="#0A1626"/>
+    <rect width="500" height="500" fill="url(#a1views164)"/><rect width="500" height="500" fill="url(#a2views164)"/><rect width="500" height="500" fill="url(#a3views164)"/>
+    <circle cx="330" cy="140" r="60" fill="#7DE2FF" opacity=".5" filter="url(#blviews164)"/>
+    <g transform="translate(250 215) rotate(-10)">
+      <rect x="-95" y="-95" width="190" height="190" rx="54" fill="#000" opacity=".25" transform="translate(16 22)" filter="url(#blviews164)"/>
+      
+  <defs>
+    <linearGradient id="giviews164" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="geviews164" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-95" y="-95" width="190" height="190" rx="53.2" fill="url(#giviews164)" stroke="url(#geviews164)" stroke-width="2"/>
+      <g transform="translate(-55 -55)" style="color:#fff"><svg viewBox="0 0 24 24" width="110" height="110" fill="currentColor" stroke="none" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></g>
+    </g>
+    <g transform="translate(100 120) rotate(14)" opacity=".85">
+  <defs>
+    <linearGradient id="giviews164b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="geviews164b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-28" y="-28" width="56" height="56" rx="15.680000000000001" fill="url(#giviews164b)" stroke="url(#geviews164b)" stroke-width="2"/><g transform="translate(-16 -16)" style="color:#fff"><svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" stroke="none" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></g></g>
+    <rect x="40" y="380" width="420" height="86" rx="24" fill="#ffffff22" stroke="#ffffff55"/>
+    <text x="436" y="434" font-family="Noto Kufi Arabic" font-size="30" font-weight="700" fill="#fff" text-anchor="end">مشاهدات تيك توك</text>
+    <text x="66" y="434" font-family="Noto Kufi Arabic" font-size="22" font-weight="700" fill="#7DE2FF">+10K</text>
+  </svg>
+</div></div><div class="gc-b"><b>مشاهدات</b><span>من <em>4.99</em> ر.س</span></div></a><a class="gc"><div class="gc-img">
+<div class="pimg" style="width:164px;height:164px">
+  <svg viewBox="0 0 500 500" width="164" height="164">
+    <defs>
+      <radialGradient id="a1likes164" cx=".2" cy=".2" r=".7"><stop offset="0" stop-color="#B18CFF" stop-opacity=".9"/><stop offset="1" stop-color="#B18CFF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a2likes164" cx=".85" cy=".35" r=".6"><stop offset="0" stop-color="#7DE2FF" stop-opacity=".8"/><stop offset="1" stop-color="#7DE2FF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a3likes164" cx=".5" cy="1" r=".7"><stop offset="0" stop-color="#3D7BFF" stop-opacity=".9"/><stop offset="1" stop-color="#3D7BFF" stop-opacity="0"/></radialGradient>
+      <filter id="bllikes164"><feGaussianBlur stdDeviation="14"/></filter>
+    </defs>
+    <rect width="500" height="500" fill="#0A1626"/>
+    <rect width="500" height="500" fill="url(#a1likes164)"/><rect width="500" height="500" fill="url(#a2likes164)"/><rect width="500" height="500" fill="url(#a3likes164)"/>
+    <circle cx="330" cy="140" r="60" fill="#7DE2FF" opacity=".5" filter="url(#bllikes164)"/>
+    <g transform="translate(250 215) rotate(-10)">
+      <rect x="-95" y="-95" width="190" height="190" rx="54" fill="#000" opacity=".25" transform="translate(16 22)" filter="url(#bllikes164)"/>
+      
+  <defs>
+    <linearGradient id="gilikes164" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="gelikes164" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-95" y="-95" width="190" height="190" rx="53.2" fill="url(#gilikes164)" stroke="url(#gelikes164)" stroke-width="2"/>
+      <g transform="translate(-55 -55)" style="color:#fff"><svg viewBox="0 0 24 24" width="110" height="110" fill="currentColor" stroke="none" ><path d="M12 20s-7.5-4.6-9.3-9.2C1.5 7.6 3.6 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.3 0 5.4 3.1 4.2 6.3C19.5 15.4 12 20 12 20Z"/></svg></g>
+    </g>
+    <g transform="translate(100 120) rotate(14)" opacity=".85">
+  <defs>
+    <linearGradient id="gilikes164b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="gelikes164b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-28" y="-28" width="56" height="56" rx="15.680000000000001" fill="url(#gilikes164b)" stroke="url(#gelikes164b)" stroke-width="2"/><g transform="translate(-16 -16)" style="color:#fff"><svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" stroke="none" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></g></g>
+    <rect x="40" y="380" width="420" height="86" rx="24" fill="#ffffff22" stroke="#ffffff55"/>
+    <text x="436" y="434" font-family="Noto Kufi Arabic" font-size="30" font-weight="700" fill="#fff" text-anchor="end">لايكات تيك توك</text>
+    <text x="66" y="434" font-family="Noto Kufi Arabic" font-size="22" font-weight="700" fill="#7DE2FF">+1K</text>
+  </svg>
+</div></div><div class="gc-b"><b>لايكات</b><span>من <em>5.99</em> ر.س</span></div></a><a class="gc"><div class="gc-img">
+<div class="pimg" style="width:164px;height:164px">
+  <svg viewBox="0 0 500 500" width="164" height="164">
+    <defs>
+      <radialGradient id="a1shares164" cx=".2" cy=".2" r=".7"><stop offset="0" stop-color="#B18CFF" stop-opacity=".9"/><stop offset="1" stop-color="#B18CFF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a2shares164" cx=".85" cy=".35" r=".6"><stop offset="0" stop-color="#7DE2FF" stop-opacity=".8"/><stop offset="1" stop-color="#7DE2FF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a3shares164" cx=".5" cy="1" r=".7"><stop offset="0" stop-color="#3D7BFF" stop-opacity=".9"/><stop offset="1" stop-color="#3D7BFF" stop-opacity="0"/></radialGradient>
+      <filter id="blshares164"><feGaussianBlur stdDeviation="14"/></filter>
+    </defs>
+    <rect width="500" height="500" fill="#0A1626"/>
+    <rect width="500" height="500" fill="url(#a1shares164)"/><rect width="500" height="500" fill="url(#a2shares164)"/><rect width="500" height="500" fill="url(#a3shares164)"/>
+    <circle cx="330" cy="140" r="60" fill="#7DE2FF" opacity=".5" filter="url(#blshares164)"/>
+    <g transform="translate(250 215) rotate(-10)">
+      <rect x="-95" y="-95" width="190" height="190" rx="54" fill="#000" opacity=".25" transform="translate(16 22)" filter="url(#blshares164)"/>
+      
+  <defs>
+    <linearGradient id="gishares164" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="geshares164" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-95" y="-95" width="190" height="190" rx="53.2" fill="url(#gishares164)" stroke="url(#geshares164)" stroke-width="2"/>
+      <g transform="translate(-55 -55)" style="color:#fff"><svg viewBox="0 0 24 24" width="110" height="110" fill="currentColor" stroke="none" ><path d="M14 5l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V5Z"/></svg></g>
+    </g>
+    <g transform="translate(100 120) rotate(14)" opacity=".85">
+  <defs>
+    <linearGradient id="gishares164b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="geshares164b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-28" y="-28" width="56" height="56" rx="15.680000000000001" fill="url(#gishares164b)" stroke="url(#geshares164b)" stroke-width="2"/><g transform="translate(-16 -16)" style="color:#fff"><svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" stroke="none" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></g></g>
+    <rect x="40" y="380" width="420" height="86" rx="24" fill="#ffffff22" stroke="#ffffff55"/>
+    <text x="436" y="434" font-family="Noto Kufi Arabic" font-size="30" font-weight="700" fill="#fff" text-anchor="end">شير تيك توك</text>
+    <text x="66" y="434" font-family="Noto Kufi Arabic" font-size="22" font-weight="700" fill="#7DE2FF">+200</text>
+  </svg>
+</div></div><div class="gc-b"><b>شير</b><span>من <em>1.99</em> ر.س</span></div></a><a class="gc"><div class="gc-img">
+<div class="pimg" style="width:164px;height:164px">
+  <svg viewBox="0 0 500 500" width="164" height="164">
+    <defs>
+      <radialGradient id="a1saves164" cx=".2" cy=".2" r=".7"><stop offset="0" stop-color="#B18CFF" stop-opacity=".9"/><stop offset="1" stop-color="#B18CFF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a2saves164" cx=".85" cy=".35" r=".6"><stop offset="0" stop-color="#7DE2FF" stop-opacity=".8"/><stop offset="1" stop-color="#7DE2FF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a3saves164" cx=".5" cy="1" r=".7"><stop offset="0" stop-color="#3D7BFF" stop-opacity=".9"/><stop offset="1" stop-color="#3D7BFF" stop-opacity="0"/></radialGradient>
+      <filter id="blsaves164"><feGaussianBlur stdDeviation="14"/></filter>
+    </defs>
+    <rect width="500" height="500" fill="#0A1626"/>
+    <rect width="500" height="500" fill="url(#a1saves164)"/><rect width="500" height="500" fill="url(#a2saves164)"/><rect width="500" height="500" fill="url(#a3saves164)"/>
+    <circle cx="330" cy="140" r="60" fill="#7DE2FF" opacity=".5" filter="url(#blsaves164)"/>
+    <g transform="translate(250 215) rotate(-10)">
+      <rect x="-95" y="-95" width="190" height="190" rx="54" fill="#000" opacity=".25" transform="translate(16 22)" filter="url(#blsaves164)"/>
+      
+  <defs>
+    <linearGradient id="gisaves164" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="gesaves164" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-95" y="-95" width="190" height="190" rx="53.2" fill="url(#gisaves164)" stroke="url(#gesaves164)" stroke-width="2"/>
+      <g transform="translate(-55 -55)" style="color:#fff"><svg viewBox="0 0 24 24" width="110" height="110" fill="currentColor" stroke="none" ><path d="M6 3h12v18l-6-4.5L6 21V3Z"/></svg></g>
+    </g>
+    <g transform="translate(100 120) rotate(14)" opacity=".85">
+  <defs>
+    <linearGradient id="gisaves164b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="gesaves164b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-28" y="-28" width="56" height="56" rx="15.680000000000001" fill="url(#gisaves164b)" stroke="url(#gesaves164b)" stroke-width="2"/><g transform="translate(-16 -16)" style="color:#fff"><svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" stroke="none" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></g></g>
+    <rect x="40" y="380" width="420" height="86" rx="24" fill="#ffffff22" stroke="#ffffff55"/>
+    <text x="436" y="434" font-family="Noto Kufi Arabic" font-size="30" font-weight="700" fill="#fff" text-anchor="end">حفظ تيك توك</text>
+    <text x="66" y="434" font-family="Noto Kufi Arabic" font-size="22" font-weight="700" fill="#7DE2FF">+200</text>
+  </svg>
+</div></div><div class="gc-b"><b>حفظ</b><span>من <em>1.99</em> ر.س</span></div></a></div>
+  </div>
+  <div class="sec ice">
+    <h2>الباقات</h2><p class="sub">كل باقة فيها الأربع خدمات مع بعض</p>
+    <div class="stack"><article class="pk "><div class="pk-h"><h3>بكج التوفير</h3><b>9.99 <small>ر.س</small></b></div>
+      <div class="caps"><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></svg> 2K</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 20s-7.5-4.6-9.3-9.2C1.5 7.6 3.6 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.3 0 5.4 3.1 4.2 6.3C19.5 15.4 12 20 12 20Z"/></svg> 250</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 5l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V5Z"/></svg> 50</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 3h12v18l-6-4.5L6 21V3Z"/></svg> 50</span></div></article><article class="pk "><div class="pk-h"><h3>بكج التوفير المطور</h3><b>17.99 <small>ر.س</small></b></div>
+      <div class="caps"><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></svg> 5K</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 20s-7.5-4.6-9.3-9.2C1.5 7.6 3.6 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.3 0 5.4 3.1 4.2 6.3C19.5 15.4 12 20 12 20Z"/></svg> 500</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 5l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V5Z"/></svg> 100</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 3h12v18l-6-4.5L6 21V3Z"/></svg> 100</span></div></article><article class="pk on"><div class="pk-h"><h3>بكج التفاعل</h3><b>29.99 <small>ر.س</small></b></div>
+      <div class="caps"><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></svg> 10K</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 20s-7.5-4.6-9.3-9.2C1.5 7.6 3.6 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.3 0 5.4 3.1 4.2 6.3C19.5 15.4 12 20 12 20Z"/></svg> 750</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 5l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V5Z"/></svg> 250</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 3h12v18l-6-4.5L6 21V3Z"/></svg> 250</span></div></article><article class="pk "><div class="pk-h"><h3>بكج الذهبي</h3><b>39.99 <small>ر.س</small></b></div>
+      <div class="caps"><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></svg> 15K</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 20s-7.5-4.6-9.3-9.2C1.5 7.6 3.6 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.3 0 5.4 3.1 4.2 6.3C19.5 15.4 12 20 12 20Z"/></svg> 1K</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 5l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V5Z"/></svg> 500</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 3h12v18l-6-4.5L6 21V3Z"/></svg> 500</span></div></article><article class="pk "><div class="pk-h"><h3>بكج اكسبلور</h3><b>54.99 <small>ر.س</small></b></div>
+      <div class="caps"><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></svg> 20K</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 20s-7.5-4.6-9.3-9.2C1.5 7.6 3.6 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.3 0 5.4 3.1 4.2 6.3C19.5 15.4 12 20 12 20Z"/></svg> 1.5K</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 5l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V5Z"/></svg> 750</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 3h12v18l-6-4.5L6 21V3Z"/></svg> 750</span></div></article></div>
+  </div>
+  <div class="sec"><div class="feats"><div class="ft"><span><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span><b>تنفيذ فوري</b><small>يبدأ بعد الدفع</small></div><div class="ft"><span><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><b>تعويض</b><small>حسب السياسة</small></div><div class="ft"><span><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><b>دفع آمن</b><small>عبر سلة</small></div><div class="ft"><span><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 5h16v11H9l-5 4V5Z"/></svg></span><b>دعم</b><small>متواصل</small></div></div></div>
+</section>
+<section class="scr" id="product"><div class="hdwrap"><header class="hd"><div class="logo"><span><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>فلاش ستور</div><div class="hd-r"><button><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg></button><button><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 7h16M4 12h16M4 17h10"/></svg></button><button class="cartb"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 4h2.5l2.2 11h10.6L21 7H7"/><circle cx="9.5" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg><em>1</em></button></div></header></div>
+<div class="pill-ad"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg> خصم 10% بكود <b>F10</b></div>
+  <div class="pp-img">
+<div class="pimg" style="width:358px;height:358px">
+  <svg viewBox="0 0 500 500" width="358" height="358">
+    <defs>
+      <radialGradient id="a1views358" cx=".2" cy=".2" r=".7"><stop offset="0" stop-color="#B18CFF" stop-opacity=".9"/><stop offset="1" stop-color="#B18CFF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a2views358" cx=".85" cy=".35" r=".6"><stop offset="0" stop-color="#7DE2FF" stop-opacity=".8"/><stop offset="1" stop-color="#7DE2FF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a3views358" cx=".5" cy="1" r=".7"><stop offset="0" stop-color="#3D7BFF" stop-opacity=".9"/><stop offset="1" stop-color="#3D7BFF" stop-opacity="0"/></radialGradient>
+      <filter id="blviews358"><feGaussianBlur stdDeviation="14"/></filter>
+    </defs>
+    <rect width="500" height="500" fill="#0A1626"/>
+    <rect width="500" height="500" fill="url(#a1views358)"/><rect width="500" height="500" fill="url(#a2views358)"/><rect width="500" height="500" fill="url(#a3views358)"/>
+    <circle cx="330" cy="140" r="60" fill="#7DE2FF" opacity=".5" filter="url(#blviews358)"/>
+    <g transform="translate(250 215) rotate(-10)">
+      <rect x="-95" y="-95" width="190" height="190" rx="54" fill="#000" opacity=".25" transform="translate(16 22)" filter="url(#blviews358)"/>
+      
+  <defs>
+    <linearGradient id="giviews358" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="geviews358" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-95" y="-95" width="190" height="190" rx="53.2" fill="url(#giviews358)" stroke="url(#geviews358)" stroke-width="2"/>
+      <g transform="translate(-55 -55)" style="color:#fff"><svg viewBox="0 0 24 24" width="110" height="110" fill="currentColor" stroke="none" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></g>
+    </g>
+    <g transform="translate(100 120) rotate(14)" opacity=".85">
+  <defs>
+    <linearGradient id="giviews358b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="geviews358b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-28" y="-28" width="56" height="56" rx="15.680000000000001" fill="url(#giviews358b)" stroke="url(#geviews358b)" stroke-width="2"/><g transform="translate(-16 -16)" style="color:#fff"><svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" stroke="none" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></g></g>
+    <rect x="40" y="380" width="420" height="86" rx="24" fill="#ffffff22" stroke="#ffffff55"/>
+    <text x="436" y="434" font-family="Noto Kufi Arabic" font-size="30" font-weight="700" fill="#fff" text-anchor="end">مشاهدات تيك توك</text>
+    <text x="66" y="434" font-family="Noto Kufi Arabic" font-size="22" font-weight="700" fill="#7DE2FF">+10K</text>
+  </svg>
+</div></div>
+  <div class="pcard">
+    <div class="ph"><h1>مشاهدات تيك توك</h1><div class="pr"><b>12.99</b><small>ر.س</small></div></div>
+    <div class="chips"><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg> فوري</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg> أجانب</span><span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg> تعويض حسب السياسة</span></div>
+    <h3>اختر عدد المشاهدات</h3>
+    <div class="capsules"><label class="cp "><b>2K</b><small>4.99</small></label><label class="cp "><b>5K</b><small>7.99</small></label><label class="cp on"><span class="tip">12.99 ر.س</span><b>10K</b><small>12.99</small></label><label class="cp "><b>40K</b><small>39.99</small></label><label class="cp "><b>80K</b><small>79.99</small></label><label class="cp "><b>100K</b><small>119.99</small></label><label class="cp "><b>200K</b><small>199.99</small></label><label class="cp "><b>500K</b><small>419.99</small></label><label class="cp "><b>1M</b><small>789.99</small></label></div>
+    <h3>رابط المقطع</h3><div class="inp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg> https://www.tiktok.com/@…/video/…</div>
+  </div>
+  <div class="info"><p><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg> الحساب لازم يكون عام وليس خاصاً.</p><p><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> نطلب الرابط فقط، ما نطلب كلمة المرور أبداً.</p></div>
+  <div class="buybar"><div class="qty"><button>−</button><span>1</span><button>+</button></div><button class="buy">أضف للسلة <span>12.99 ر.س</span></button></div>
+</section>
+<section class="scr" id="cart"><div class="hdwrap"><header class="hd"><div class="logo"><span><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>فلاش ستور</div><div class="hd-r"><button><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg></button><button><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 7h16M4 12h16M4 17h10"/></svg></button><button class="cartb"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 4h2.5l2.2 11h10.6L21 7H7"/><circle cx="9.5" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg><em>1</em></button></div></header></div>
+<div class="pill-ad"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg> خصم 10% بكود <b>F10</b></div>
+  <div class="aur a1 sm"></div><div class="aur a2 sm"></div>
+  <div class="ph pad"><h1>السلة</h1><span class="cnt">1</span></div>
+  <div class="toast"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>تمت الإضافة</b><small>مشاهدات تيك توك · 10,000</small></div></div>
+  <div class="gcart"><div class="ci">
+<div class="pimg" style="width:80px;height:80px">
+  <svg viewBox="0 0 500 500" width="80" height="80">
+    <defs>
+      <radialGradient id="a1views80" cx=".2" cy=".2" r=".7"><stop offset="0" stop-color="#B18CFF" stop-opacity=".9"/><stop offset="1" stop-color="#B18CFF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a2views80" cx=".85" cy=".35" r=".6"><stop offset="0" stop-color="#7DE2FF" stop-opacity=".8"/><stop offset="1" stop-color="#7DE2FF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a3views80" cx=".5" cy="1" r=".7"><stop offset="0" stop-color="#3D7BFF" stop-opacity=".9"/><stop offset="1" stop-color="#3D7BFF" stop-opacity="0"/></radialGradient>
+      <filter id="blviews80"><feGaussianBlur stdDeviation="14"/></filter>
+    </defs>
+    <rect width="500" height="500" fill="#0A1626"/>
+    <rect width="500" height="500" fill="url(#a1views80)"/><rect width="500" height="500" fill="url(#a2views80)"/><rect width="500" height="500" fill="url(#a3views80)"/>
+    <circle cx="330" cy="140" r="60" fill="#7DE2FF" opacity=".5" filter="url(#blviews80)"/>
+    <g transform="translate(250 215) rotate(-10)">
+      <rect x="-95" y="-95" width="190" height="190" rx="54" fill="#000" opacity=".25" transform="translate(16 22)" filter="url(#blviews80)"/>
+      
+  <defs>
+    <linearGradient id="giviews80" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="geviews80" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-95" y="-95" width="190" height="190" rx="53.2" fill="url(#giviews80)" stroke="url(#geviews80)" stroke-width="2"/>
+      <g transform="translate(-55 -55)" style="color:#fff"><svg viewBox="0 0 24 24" width="110" height="110" fill="currentColor" stroke="none" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></g>
+    </g>
+    <g transform="translate(100 120) rotate(14)" opacity=".85">
+  <defs>
+    <linearGradient id="giviews80b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="geviews80b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-28" y="-28" width="56" height="56" rx="15.680000000000001" fill="url(#giviews80b)" stroke="url(#geviews80b)" stroke-width="2"/><g transform="translate(-16 -16)" style="color:#fff"><svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" stroke="none" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></g></g>
+    <rect x="40" y="380" width="420" height="86" rx="24" fill="#ffffff22" stroke="#ffffff55"/>
+    <text x="436" y="434" font-family="Noto Kufi Arabic" font-size="30" font-weight="700" fill="#fff" text-anchor="end">مشاهدات تيك توك</text>
+    <text x="66" y="434" font-family="Noto Kufi Arabic" font-size="22" font-weight="700" fill="#7DE2FF">+10K</text>
+  </svg>
+</div><div class="ci-b"><b>مشاهدات تيك توك</b><small>10,000 مشاهدة</small><small class="lnk">tiktok.com/@…/video/…</small></div><b class="cp-p">12.99</b></div>
+  <div class="code"><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg> F10</span><button>تطبيق</button></div>
+  <div class="rows"><div><span>المجموع</span><b>12.99 ر.س</b></div><div class="tt"><span>الإجمالي</span><b>12.99 ر.س</b></div></div></div>
+  <button class="buy wide">إتمام الطلب</button><button class="apay"> Pay</button>
+</section><div class="asset">
+<div class="pimg" style="width:500px;height:500px">
+  <svg viewBox="0 0 500 500" width="500" height="500">
+    <defs>
+      <radialGradient id="a1views500" cx=".2" cy=".2" r=".7"><stop offset="0" stop-color="#B18CFF" stop-opacity=".9"/><stop offset="1" stop-color="#B18CFF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a2views500" cx=".85" cy=".35" r=".6"><stop offset="0" stop-color="#7DE2FF" stop-opacity=".8"/><stop offset="1" stop-color="#7DE2FF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="a3views500" cx=".5" cy="1" r=".7"><stop offset="0" stop-color="#3D7BFF" stop-opacity=".9"/><stop offset="1" stop-color="#3D7BFF" stop-opacity="0"/></radialGradient>
+      <filter id="blviews500"><feGaussianBlur stdDeviation="14"/></filter>
+    </defs>
+    <rect width="500" height="500" fill="#0A1626"/>
+    <rect width="500" height="500" fill="url(#a1views500)"/><rect width="500" height="500" fill="url(#a2views500)"/><rect width="500" height="500" fill="url(#a3views500)"/>
+    <circle cx="330" cy="140" r="60" fill="#7DE2FF" opacity=".5" filter="url(#blviews500)"/>
+    <g transform="translate(250 215) rotate(-10)">
+      <rect x="-95" y="-95" width="190" height="190" rx="54" fill="#000" opacity=".25" transform="translate(16 22)" filter="url(#blviews500)"/>
+      
+  <defs>
+    <linearGradient id="giviews500" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="geviews500" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-95" y="-95" width="190" height="190" rx="53.2" fill="url(#giviews500)" stroke="url(#geviews500)" stroke-width="2"/>
+      <g transform="translate(-55 -55)" style="color:#fff"><svg viewBox="0 0 24 24" width="110" height="110" fill="currentColor" stroke="none" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></g>
+    </g>
+    <g transform="translate(100 120) rotate(14)" opacity=".85">
+  <defs>
+    <linearGradient id="giviews500b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="geviews500b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <rect x="-28" y="-28" width="56" height="56" rx="15.680000000000001" fill="url(#giviews500b)" stroke="url(#geviews500b)" stroke-width="2"/><g transform="translate(-16 -16)" style="color:#fff"><svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" stroke="none" ><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></g></g>
+    <rect x="40" y="380" width="420" height="86" rx="24" fill="#ffffff22" stroke="#ffffff55"/>
+    <text x="436" y="434" font-family="Noto Kufi Arabic" font-size="30" font-weight="700" fill="#fff" text-anchor="end">مشاهدات تيك توك</text>
+    <text x="66" y="434" font-family="Noto Kufi Arabic" font-size="22" font-weight="700" fill="#7DE2FF">+10K</text>
+  </svg>
+</div></div></body></html>

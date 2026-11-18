@@ -20,6 +20,18 @@
     }
   }
 
+  // السعر الأساسي للمنتج (للخدمات المفردة 0.01) من بيانات المنتج اللي ترسمها سلة بنفس عملة الزائر، يُضاف لسعر الكمية مثل ما تحسبه السلة
+  var basePrice = null;
+  function getBase() {
+    if (basePrice !== null) return basePrice;
+    basePrice = 0;
+    var ld = document.querySelectorAll('script[type="application/ld+json"]');
+    for (var i = 0; i < ld.length; i++) {
+      try { var d = JSON.parse(ld[i].textContent), o = d && d.offers; if (o && !isNaN(parseFloat(o.price))) { basePrice = parseFloat(o.price); break; } } catch (e) { }
+    }
+    return basePrice;
+  }
+
   function selectedOf(container) {
     var input = container.querySelector('.s-product-options-grid-mode input:checked');
     if (!input) return null;
@@ -46,7 +58,7 @@
     var qtyInput = bar.querySelector('.s-quantity-input-input');
     var qty = qtyInput ? Math.max(1, parseInt(qtyInput.value, 10) || 1) : 1;
     var unit = sel ? num(sel.p) : NaN, label2 = '';
-    if (!isNaN(unit)) label2 = (Math.round(unit * qty * 100) / 100).toFixed(2) + ' ' + cur(sel.p);
+    if (!isNaN(unit)) label2 = (Math.round((unit + getBase()) * qty * 100) / 100).toFixed(2) + ' ' + cur(sel.p);
     else if (!document.querySelector('.product-single .s-product-options-grid-mode')) {
       var tp = document.querySelector('.product-single .main-content > .price .total-price');
       // سلة تحدّث السعر العلوي للباقات حسب العدد، فنعرضه كما هو بدون ضرب

@@ -95,6 +95,22 @@
     var tries = 0, iv = setInterval(function () { try { if (slowReviews() || ++tries > 40) clearInterval(iv); } catch (e) { clearInterval(iv); } }, 250);
   }
 
+  // صفحة التحميل: لما تكتمل الصفحة، كمّل الشريط من مكانه الحالي لـ 100% ثم اخفها
+  (function () {
+    var pl = document.getElementById('preloader');
+    if (!pl) return;
+    function finish() {
+      if (!document.getElementById('preloader') || pl.classList.contains('lv-done')) return;
+      var m = getComputedStyle(pl, '::after').transform, sx = 0.6;
+      var mm = m && m.match(/matrix\(([^,]+)/); if (mm) sx = Math.min(1, Math.max(0, parseFloat(mm[1])));
+      pl.style.setProperty('--lv-from', sx);
+      pl.classList.add('lv-done');
+      setTimeout(function () { pl.classList.add('lv-gone'); }, 450);
+      setTimeout(function () { if (pl.parentNode) pl.parentNode.removeChild(pl); }, 900);
+    }
+    if (document.readyState === 'complete') setTimeout(finish, 150); else window.addEventListener('load', finish);
+  })();
+
   var queued = false;
   function schedule() { if (queued) return; queued = true; requestAnimationFrame(function () { queued = false; try { update(); } catch (e) { } try { styleBuyNow(); } catch (e) { } }); }
   document.addEventListener('change', schedule, true);

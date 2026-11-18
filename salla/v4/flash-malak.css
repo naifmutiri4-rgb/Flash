@@ -36,12 +36,12 @@ body#app ::selection{background:var(--fl-p);color:var(--fl-ink)}
 .store-header .header-inner{background:var(--fl-bg)!important;border-bottom:1px solid var(--fl-line)}
 .store-header .header-inner a,.store-header .header-inner button{min-height:40px;min-width:40px}
 
-/* 3. الأزرار ------------------------------------------------------------- */
-html body#app [class*="s-button-primary"]:not([class*="outline"]){background:var(--fl-p)!important;background-image:none!important;border-color:var(--fl-p)!important;color:#111111!important;box-shadow:none!important}
-html body#app [class*="s-button-primary"]:not([class*="outline"]):hover{background:var(--fl-pl)!important;border-color:var(--fl-pl)!important}
-html body#app .s-button-primary-outline{border-color:var(--fl-p)!important;color:var(--fl-p)!important;background:transparent!important}
-html body#app .s-button-element{border-radius:var(--fl-r-sm)!important;min-height:44px;font-weight:800;transition:background-color .15s ease,transform .1s ease}
-html body#app .s-button-element:active{transform:scale(.98)}
+/* 3. الأزرار (منطقة الشراء في صفحة المنتج تبقى على شكل الثيم الأصلي) ------------------------------------------------------------- */
+html body#app [class*="s-button-primary"]:not([class*="outline"]):not(.sticky-product-bar *){background:var(--fl-p)!important;background-image:none!important;border-color:var(--fl-p)!important;color:#111111!important;box-shadow:none!important}
+html body#app [class*="s-button-primary"]:not([class*="outline"]):hover:not(.sticky-product-bar *){background:var(--fl-pl)!important;border-color:var(--fl-pl)!important}
+html body#app .s-button-primary-outline:not(.sticky-product-bar *){border-color:var(--fl-p)!important;color:var(--fl-p)!important;background:transparent!important}
+html body#app .s-button-element:not(.sticky-product-bar *){border-radius:var(--fl-r-sm)!important;min-height:44px;font-weight:800;transition:background-color .15s ease,transform .1s ease}
+html body#app .s-button-element:active:not(.sticky-product-bar *){transform:scale(.98)}
 
 /* 4. بطاقة المنتج: شكل ملاك الأصلي كما هو. هنا تصحيحات وظيفية فقط ------------- */
 /* مقاس الصورة ثابت (يمنع تحرّك الصفحة) */
@@ -104,12 +104,11 @@ salla-product-options[options*="single-option"]:not(.hydrated){min-height:555px}
 .product-single .main-content form>.is-sold{order:7}
 .product-single .main-content form>#product-tabs-faqs{order:8}
 .product-single .main-content>*{order:9}
-/* ما يشتت: الوسوم، رقم الموديل، «متوفر»، السعر المكرر، عداد الكمية */
+/* ما يشتت: الوسوم، رقم الموديل، «متوفر»، السعر المكرر */
 .product-single .main-content>.mb-3,
 .product-single .product-sku-wrapper,
 .product-single .product-availablity,
-.product-single #product-tabs-options>section.total,
-.product-single .sticky-product-bar__quantity{display:none!important}
+.product-single #product-tabs-options>section.total{display:none!important}
 /* منتجات السعر داخل الخيارات: السعر العلوي يطلع «0» فنخفيه، والسعر يبان على كل زر */
 .product-single .main-content:has(.s-product-options-grid-mode)>.price{display:none!important}
 
@@ -142,13 +141,6 @@ salla-product-options[options*="single-option"]:not(.hydrated){min-height:555px}
 .s-product-options-text .s-form-control::placeholder{color:var(--fl-mut);direction:rtl;text-align:right}
 .s-product-options-text .s-form-control:focus{border-color:var(--fl-p)!important;box-shadow:none!important}
 
-/* زر الإضافة */
-.product-single .sticky-product-bar{background:transparent!important;padding:0!important;margin-top:14px!important}
-html body#app.product-single .sticky-product-bar .s-button-primary,.product-single .sticky-product-bar .s-button-primary{background:var(--fl-p)!important;background-image:none!important;box-shadow:none!important;border-color:var(--fl-p)!important;color:#111111!important;min-height:54px;border-radius:14px!important;font-size:17px!important;font-weight:900!important}
-.product-single .s-add-product-button-mini-checkout{border-radius:14px!important}
-@media (max-width:767px){
-  .product-single .sticky-product-bar.is-sticky,.product-single .sticky-product-bar[class*="fixed"]{background:var(--fl-bg)!important;border-top:1px solid var(--fl-line);padding:10px 16px!important}
-}
 
 /* 8. وصف المنتج (HTML بسيط من محرر سلة، والشكل هنا) ------------------------- */
 .product-single article.full-description{background:transparent!important;padding:18px 0 0!important;margin-top:20px!important;border-top:1px solid var(--fl-line);max-height:none!important;color:var(--fl-fg)}
@@ -263,17 +255,11 @@ html body#app .store-header .angel-ad__item,html body#app .store-header .angel-a
 /* مسار التنقل */
 body#app .breadcrumbs,body#app nav[aria-label*="breadcrumb"],body#app .s-breadcrumb{background:var(--fl-bg)!important;border-bottom:1px solid var(--fl-line)}
 /* النص فوق الأزرار البرتقالية لازم يكون داكن (التباين كان 2.1 فقط) */
-html body#app [class*="s-button-primary"]:not([class*="outline"]) *,
-html body#app .s-button-solid.s-button-primary *,
+html body#app [class*="s-button-primary"]:not([class*="outline"]):not(.sticky-product-bar *) *,
+html body#app .s-button-solid.s-button-primary:not(.sticky-product-bar *) *,
 html body#app .s-infinite-scroll-btn,html body#app .s-infinite-scroll-btn *{color:#111111!important}
-/* زر «اشتر الآن»: إطار كامل */
-.product-single .sticky-product-bar button[class*="outline"]{border:1.5px solid var(--fl-p)!important;min-height:54px;border-radius:14px!important}
-/* «اشتر الآن» (ودجت سلة للدفع السريع، فيه Apple Pay): زرّه داخل مكوّن محمي (Shadow DOM) يرسم إطاره بنفسه،
-   فما نلمس شكله، بس نخليه يملأ مكانه بجانب «أضف للسلة» */
-.product-single salla-mini-checkout-widget.s-add-product-button-mini-checkout{display:flex!important;align-items:center;justify-content:center;flex:1 1 0}
-/* صناديق صفحة المنتج (عدد مرات الشراء، التقييمات...) بلون الهوية، والشريط حول زر الإضافة شفاف */
+/* صناديق صفحة المنتج (عدد مرات الشراء، التقييمات...) بلون الهوية */
 body#app.product-single .details:not(.full-description):not(#product-tabs-options):not(.sticky-product-bar){background-color:var(--fl-s1)!important;border:1px solid var(--fl-line);border-radius:16px!important}
-body#app.product-single .sticky-product-bar{background-color:transparent!important;border:0!important;box-shadow:none!important}
 /* «عدد مرات الشراء»: بدل الأحمر */
 .product-single .is-sold,.product-single .is-sold *{color:var(--fl-mut)!important}
 .product-single .is-sold i,.product-single .is-sold b,.product-single .is-sold strong{color:var(--fl-p)!important}
@@ -291,8 +277,6 @@ body#app .s-filters-label{min-height:40px;display:flex;align-items:center}
 }
 /* تحت عنوان الكمية تطلع كلمة «اختر» بس، فنخفيها (حقل الرابط يبقى وصفه) */
 .s-product-options-option-container:has(.s-product-options-grid-mode) .s-product-options-option-label small{display:none!important}
-/* سطر طمأنة تحت زر الإضافة */
-.product-single .sticky-product-bar::after{content:"التنفيذ آلي بعد الدفع، ونحتاج رابط المقطع فقط.";display:block;width:100%;text-align:center;color:var(--fl-mut);font-size:13px;margin-top:10px}
 
 /* 11. الفوتر ------------------------------------------------------------- */
 .store-footer{background:#0B0B0B!important;border-top:1px solid var(--fl-line)}

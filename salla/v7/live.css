@@ -334,3 +334,5 @@ body#app .s-add-product-toast__card *:not(button):not(button *){border-color:#2A
 body#app .s-add-product-toast__card img{border-radius:12px!important}
 body#app .s-add-product-toast__card [class*="price"]{color:#00E5D4!important;font-weight:800}
 html body#app .s-button-outline:not(.sticky-product-bar *),html body#app .s-button-primary-outline:not(.sticky-product-bar *){border-color:#2A2550!important;color:#fff!important;background:transparent!important;border-radius:14px!important}
+/* إخفاء الوسوم (احتياط مع إعداد الثيم show_tags) */
+body#app .product-tags,body#app [class*="product-tags"],body#app .s-product-tags{display:none!important}

@@ -41,7 +41,7 @@ const hero = `
   <div class="float f3">⚡ تنفيذ فوري</div>
   <div class="hero-copy">
     <h1>خلّ مقطعك<br><span>يشتغل لايف</span></h1>
-    <p>مشاهدات ولايكات وشير وحفظ لتيك توك، بأسعار واضحة من 1.99 ر.س</p>
+    <p>مشاهدات ولايكات وشير وحفظ لتيك توك.<br>أسعار واضحة تبدأ من <b style="color:#fff;white-space:nowrap">1.99 ر.س</b></p>
   </div>
 </div>`;
 

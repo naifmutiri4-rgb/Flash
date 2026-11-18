@@ -18,7 +18,7 @@ const PRODUCTS = {
 };
 const IMG = {};
 for (const [id, [slug]] of Object.entries(PRODUCTS)) IMG[id] = 'data:image/png;base64,' + fs.readFileSync(path.join(__dirname, 'img', slug + '.png')).toString('base64');
-const HERO = 'data:image/png;base64,' + fs.readFileSync(path.join(__dirname, '..', 'v6', 'previews', 'd1-live-hero.png')).toString('base64');
+const HERO = 'https://naifmutiri4-rgb.github.io/Flash/live/hero.webp?v=2';
 const liveCss = fs.readFileSync(path.join(__dirname, 'live.css'), 'utf8');
 const LOGO = 'data:image/png;base64,' + fs.readFileSync(path.join(__dirname, '..', '..', 'docs', 'live', 'logo.png')).toString('base64');
 
@@ -50,7 +50,7 @@ function inlineCssUrls(css, baseHref) {
 }
 const ic = s => `<i>${s}</i>`;
 const HOME_TOP = `<section class="s-block s-block--bundle-html-content"><salla-custom-component component-name="html-content">
-<div class="lv-hero"><img src="${HERO}" alt="فلاش ستور: مشاهدات ولايكات وشير وحفظ لتيك توك" width="780" height="1040"></div>
+<div class="lv-hero"><img src="${HERO}" alt="فلاش ستور: مشاهدات ولايكات وشير وحفظ لتيك توك" width="1170" height="1560" fetchpriority="high"></div>
 <div class="lv-trust"><div>${ic('⚡')}تنفيذ فوري</div><div>${ic('↺')}تعويض حسب السياسة</div><div>${ic('🔒')}دفع آمن عبر سلة</div><div>${ic('💬')}دعم متواصل</div></div>
 </salla-custom-component></section>`;
 const HOME_HOW = `<section class="s-block s-block--bundle-html-content"><salla-custom-component component-name="html-content">

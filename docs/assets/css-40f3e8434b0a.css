@@ -1,0 +1,7 @@
+
+:host { display: block; }
+.filter { filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow); }
+.s-apps-icons-list { display: flex; gap: 1rem; }
+.s-apps-icons-list.vertical { flex-direction: column; }
+.s-apps-icons-item { line-height: 1; }
+.s-apps-icons-item:hover { color: var(--color-primary); }

@@ -1,0 +1,2 @@
+
+/* معاينة: إخفاء ما يحتاج جافاسكربت، وطول البطاقات (الثيم يحسبه بالجافاسكربت) */ .swiper-button-next,.swiper-button-prev,salla-loading,.s-loading{display:none!important} .s-product-card-entry{height:auto!important;max-height:none!important;overflow:visible!important} .s-products-list-wrapper{grid-auto-rows:auto!important;grid-template-rows:none!important;align-items:start}

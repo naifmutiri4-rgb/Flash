@@ -1,0 +1,18 @@
+
+customers-also-viewed[hidden] { display: none !important; }
+.customers-also-viewed { display: block; margin: 40px 0px; }
+.customers-also-viewed__container { width: 100%; }
+.customers-also-viewed__header { margin-bottom: 24px; }
+.customers-also-viewed__title { margin: 0px; font-size: 24px; font-weight: 700; }
+.customers-also-viewed__list { display: block; width: 100%; }
+.customers-also-viewed__placeholder { display: grid; grid-template-columns: repeat(4, minmax(0px, 1fr)); gap: 1rem; }
+.customers-also-viewed__placeholder span { min-height: 14rem; border-radius: 0.75rem; background: linear-gradient(90deg, rgb(243, 244, 246) 25%, rgb(229, 231, 235), rgb(243, 244, 246) 75%) 0% 0% / 200% 100%; animation: 1.4s ease-in-out 0s infinite normal none running customers-also-viewed-loading; }
+.customers-also-viewed__message { margin: 0px; color: rgb(107, 114, 128); }
+.customers-also-viewed salla-products-slider { display: block; }
+@keyframes customers-also-viewed-loading { 
+  0% { background-position: 200% 0px; }
+  100% { background-position: -200% 0px; }
+}
+@media (max-width: 767px) {
+  .customers-also-viewed__placeholder { grid-template-columns: repeat(2, minmax(0px, 1fr)); }
+}

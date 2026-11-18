@@ -56,6 +56,8 @@ const D = JSON.parse(fs.readFileSync(path.join(ROOT, '..', '_src', 'data.json'),
 const PRICES = {};
 // كميات «الحفظ» مكتوبة أرقام بدون وحدة في المتجر، فالرقم وحده يرجع لسعر الحفظ
 for (const sg of D.singles) for (const [q, pr] of sg.tiers) { const k = q.toLocaleString('en-US'); PRICES[`${k} ${sg.unit}`] = pr; if (sg.unit === 'حفظ') PRICES[k] = pr; }
+// أسعار الباقات بالريال: [السعر، السعر قبل الخصم] كما في سلة
+const PACK_PRICES = { 1368006104: [9.99, 17.99], 1949748553: [17.99, 24.99], 1246605374: [29.99, 39.99], 950743674: [39.99, 49.99], 651289082: [54.99, 79.99] };
 const blocks = JSON.parse(fs.readFileSync(path.join(ROOT, 'v5', 'home-blocks.json'), 'utf8'));
 
 async function snap(browser, url, outName, isHome) {
@@ -90,6 +92,14 @@ async function snap(browser, url, outName, isHome) {
       if (prices[name] != null) sp.textContent = `${name} (${prices[name]} ر.س)`;
     });
   }, PRICES);
+  // سعر الباقة أعلى الصفحة: سلة ترسمه بالدولار هنا، فنكتبه بالريال (السعر والسعر قبل الخصم من المتجر)
+  const pid = (decodeURI(url).match(/p(\d+)$/) || [])[1];
+  if (PACK_PRICES[pid]) await p.evaluate(([pr, reg]) => {
+    const cur = ' <i class="sicon-sar"></i>';
+    document.querySelectorAll('.main-content > .price .total-price').forEach(e => { e.innerHTML = pr.toFixed(2) + cur; });
+    document.querySelectorAll('.main-content > .price .before-price').forEach(e => { e.innerHTML = reg.toFixed(2) + cur; });
+    const sv = document.querySelector('#save-money'); if (sv) sv.innerHTML = (reg - pr).toFixed(2) + cur;
+  }, PACK_PRICES[pid]);
   await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 400) { scrollTo(0, y); await new Promise(r => setTimeout(r, 120)); } scrollTo(0, 0); });
   await p.waitForTimeout(1200);
 
@@ -117,11 +127,11 @@ async function snap(browser, url, outName, isHome) {
       const t = buf.toString('utf8');
       // ملف «CSS مخصص» القديم المنشور (فيه كلاسات fx- القديمة): في المسودة ينستبدل بملفنا، فما نضمّنه
       if (/fx-hero__|--fx-acc|\.fx-steps/.test(t)) { console.log('  skip old custom css:', s.href.slice(0, 80)); continue; }
-      css += inlineCssUrls(t, s.href) + '\n';
+      css += '/*@@sheet*/\n' + inlineCssUrls(t, s.href) + '\n';
     }
-    else css += inlineCssUrls(s.text, s.base) + '\n';
+    else css += '/*@@sheet*/\n' + inlineCssUrls(s.text, s.base) + '\n';
   }
-  css += '/* معاينة: إخفاء ما يحتاج جافاسكربت، وطول البطاقات (الثيم يحسبه بالجافاسكربت) */ .swiper-button-next,.swiper-button-prev,salla-loading,.s-loading{display:none!important} .s-product-card-entry{height:auto!important;max-height:none!important;overflow:visible!important} .s-products-list-wrapper{grid-auto-rows:auto!important;grid-template-rows:none!important;align-items:start}\n';
+  css += '/*@@sheet*/\n/* معاينة: إخفاء ما يحتاج جافاسكربت، وطول البطاقات (الثيم يحسبه بالجافاسكربت) */ .swiper-button-next,.swiper-button-prev,salla-loading,.s-loading{display:none!important} .s-product-card-entry{height:auto!important;max-height:none!important;overflow:visible!important} .s-products-list-wrapper{grid-auto-rows:auto!important;grid-template-rows:none!important;align-items:start}\n';
 
   // HTML: بدون سكربتات، صور مضمّنة، روابط المنتجات محلية
   let html = await p.evaluate(() => {

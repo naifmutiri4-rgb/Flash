@@ -20,7 +20,7 @@ const pimg = (s, sz = 500) => `
       <rect x="-60" y="60" width="120" height="8" rx="4" fill="#ffffff22"/><rect x="-60" y="60" width="84" height="8" rx="4" fill="url(#g1${s.key}${sz})"/>
     </g>
     <g font-family="IBM Plex Sans Arabic" font-weight="800">
-      <rect x="300" y="70" width="150" height="54" rx="27" fill="${C.cy}"/><text x="375" y="105" font-size="24" text-anchor="middle" fill="${C.ink}">+${k(s.q[2][0])}</text>
+      <rect x="300" y="118" width="150" height="54" rx="27" fill="${C.cy}"/><text x="375" y="153" font-size="24" text-anchor="middle" fill="${C.ink}">+${k(s.q[2][0])}</text>
       <rect x="40" y="300" width="128" height="46" rx="23" fill="${C.pk}"/><text x="104" y="330" font-size="20" text-anchor="middle" fill="#fff">فوري ⚡</text>
     </g>
     <text x="250" y="452" font-family="IBM Plex Sans Arabic" font-size="44" font-weight="800" fill="#fff" text-anchor="middle">${s.name.replace(' تيك توك', '')}</text>
@@ -145,4 +145,36 @@ body{font-family:'IBM Plex Sans Arabic',sans-serif;background:#222;margin:0}
 .coupon{margin:0 16px 12px;display:flex;align-items:center;gap:10px;padding:8px 8px 8px 14px;border-radius:14px;border:1px dashed var(--pk)}.coupon span{color:var(--mut);font-size:13px}.coupon em{font-style:normal;font-weight:800;flex:1;font-size:16px;letter-spacing:1px}.coupon button{border:0;border-radius:10px;padding:9px 14px;background:var(--pk);color:#fff;font:800 13px 'IBM Plex Sans Arabic'}
 .sum{margin:0 16px 12px;background:var(--bg2);color:var(--bg);border-radius:18px;padding:14px 16px;display:grid;gap:8px}.sum div{display:flex;justify-content:space-between}.sum .tot{border-top:1px solid #0B0A1222;padding-top:8px;font-size:18px}.sum small{color:#6B6690;font-size:11px}
 `;
-module.exports = { id: 'd1-live', title: 'بث مباشر', font: 'IBM+Plex+Sans+Arabic:wght@400;500;700', css, body: home + product + cart, asset: pimg(singles[0], 500) };
+// صورة الباقة بنفس النظام: نفس الجوال والإطار، وبدل الأيقونة الكبيرة 4 أسطر بمحتويات الباقة
+const pimgPack = (p, sz = 500) => `
+<div class="pimg" style="width:${sz}px;height:${sz}px">
+  <svg viewBox="0 0 500 500" width="${sz}" height="${sz}">
+    <defs>
+      <linearGradient id="g1${p.key}${sz}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${C.cy}"/><stop offset="1" stop-color="${C.pk}"/></linearGradient>
+      <radialGradient id="r1${p.key}${sz}" cx=".5" cy=".42" r=".6"><stop offset="0" stop-color="#2A1F52"/><stop offset="1" stop-color="${C.bg}"/></radialGradient>
+    </defs>
+    <rect width="500" height="500" fill="url(#r1${p.key}${sz})"/>
+    <g opacity=".18" stroke="#fff" stroke-width="1">${Array.from({ length: 11 }, (_, i) => `<line x1="0" y1="${i * 50}" x2="500" y2="${i * 50}"/><line x1="${i * 50}" y1="0" x2="${i * 50}" y2="500"/>`).join('')}</g>
+    <g transform="translate(250 230) rotate(-8)">
+      <rect x="-92" y="-160" width="184" height="320" rx="30" fill="#14112A" stroke="url(#g1${p.key}${sz})" stroke-width="6"/>
+      <rect x="-76" y="-140" width="152" height="280" rx="18" fill="#1F1A3D"/>
+      <rect x="-60" y="-128" width="56" height="22" rx="11" fill="${C.pk}"/><circle cx="-48" cy="-117" r="4" fill="#fff"/>
+      <text x="-22" y="-112" fill="#fff" font-size="13" font-weight="800" text-anchor="middle" font-family="IBM Plex Sans Arabic">LIVE</text>
+      ${[['eye', p.v], ['heart', p.l], ['share', p.s], ['save', p.f]].map(([ic, val], i) => `
+      <g transform="translate(0 ${-78 + i * 52})">
+        <rect x="-62" y="-20" width="124" height="40" rx="12" fill="#ffffff10"/>
+        <g transform="translate(30 -11)" style="color:${i % 2 ? C.pk : C.cy}">${iconFill(ic, 22)}</g>
+        <text x="-50" y="8" font-family="IBM Plex Sans Arabic" font-size="21" font-weight="800" fill="#fff">${k(val)}</text>
+      </g>`).join('')}
+    </g>
+    <g font-family="IBM Plex Sans Arabic" font-weight="800">
+      <rect x="322" y="292" width="150" height="50" rx="25" fill="${C.cy}"/><text x="397" y="325" font-size="22" text-anchor="middle" direction="rtl" fill="${C.ink}">4 خدمات</text>
+      <rect x="40" y="300" width="128" height="46" rx="23" fill="${C.pk}"/><text x="104" y="330" font-size="20" text-anchor="middle" fill="#fff">فوري ⚡</text>
+    </g>
+    <text x="250" y="452" font-family="IBM Plex Sans Arabic" font-size="42" font-weight="800" fill="#fff" text-anchor="middle">${p.name}</text>
+    <text x="250" y="482" font-family="IBM Plex Sans Arabic" font-size="18" fill="${C.mut}" text-anchor="middle">فلاش ستور · تيك توك</text>
+  </svg>
+</div>`;
+
+module.exports.pimg = pimg; module.exports.pimgPack = pimgPack;
+Object.assign(module.exports, { id: 'd1-live', title: 'بث مباشر', font: 'IBM+Plex+Sans+Arabic:wght@400;500;700', css, body: home + product + cart, asset: pimg(singles[0], 500) });

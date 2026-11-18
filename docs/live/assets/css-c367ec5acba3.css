@@ -1,0 +1,9 @@
+
+.twilight-skeleton { display: block; width: 100%; background: linear-gradient(90deg, rgb(238, 238, 238) 0%, rgb(245, 245, 245) 50%, rgb(238, 238, 238) 100%) 0% 0% / 200% 100%; animation: 1.4s ease-in-out 0s infinite normal none running twilight-skeleton-shimmer; border-radius: 4px; }
+@keyframes twilight-skeleton-shimmer { 
+  0% { background-position: 200% 0px; }
+  100% { background-position: -200% 0px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .twilight-skeleton { animation: auto ease 0s 1 normal none running none; }
+}

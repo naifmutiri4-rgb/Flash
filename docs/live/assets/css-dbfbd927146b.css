@@ -1,0 +1,4 @@
+
+body { user-select: none; }
+input, textarea { user-select: auto; }
+img { pointer-events: none; -webkit-user-drag: none; }

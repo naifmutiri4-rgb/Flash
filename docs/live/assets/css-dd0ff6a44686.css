@@ -1,0 +1,17 @@
+
+personalized-shoppers-who-bought[hidden] { display: none !important; }
+.personalized-shoppers-who-bought { display: block; }
+.personalized-shoppers-who-bought__container { width: 100%; }
+.personalized-shoppers-who-bought__header { margin-bottom: 24px; }
+.personalized-shoppers-who-bought__title { margin: 0px; font-size: 24px; font-weight: 700; }
+.personalized-shoppers-who-bought__list { display: block; width: 100%; }
+.personalized-shoppers-who-bought__placeholder { display: grid; grid-template-columns: repeat(var(--psw-columns, 4),minmax(0,1fr)); gap: 1rem; }
+.personalized-shoppers-who-bought__placeholder span { min-height: 14rem; border-radius: 0.75rem; background: linear-gradient(90deg, rgb(243, 244, 246) 25%, rgb(229, 231, 235), rgb(243, 244, 246) 75%) 0% 0% / 200% 100%; animation: 1.4s ease-in-out 0s infinite normal none running personalized-shoppers-who-bought-loading; }
+.personalized-shoppers-who-bought salla-products-slider { display: block; }
+@keyframes personalized-shoppers-who-bought-loading { 
+  0% { background-position: 200% 0px; }
+  100% { background-position: -200% 0px; }
+}
+@media (max-width: 767px) {
+  .personalized-shoppers-who-bought__placeholder { grid-template-columns: repeat(2, minmax(0px, 1fr)); }
+}

@@ -1,0 +1,18 @@
+
+similar-products[hidden] { display: none !important; }
+.similar-products { display: block; margin: 40px 0px; }
+.similar-products__container { width: 100%; }
+.similar-products__header { margin-bottom: 24px; }
+.similar-products__title { margin: 0px; font-size: 24px; font-weight: 700; }
+.similar-products__list { display: block; width: 100%; }
+.similar-products__placeholder { display: grid; grid-template-columns: repeat(4, minmax(0px, 1fr)); gap: 1rem; }
+.similar-products__placeholder span { min-height: 14rem; border-radius: 0.75rem; background: linear-gradient(90deg, rgb(243, 244, 246) 25%, rgb(229, 231, 235), rgb(243, 244, 246) 75%) 0% 0% / 200% 100%; animation: 1.4s ease-in-out 0s infinite normal none running similar-products-loading; }
+.similar-products__message { margin: 0px; color: rgb(107, 114, 128); }
+.similar-products salla-products-slider { display: block; }
+@keyframes similar-products-loading { 
+  0% { background-position: 200% 0px; }
+  100% { background-position: -200% 0px; }
+}
+@media (max-width: 767px) {
+  .similar-products__placeholder { grid-template-columns: repeat(2, minmax(0px, 1fr)); }
+}

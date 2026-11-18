@@ -3,3 +3,4 @@ __pycache__/
 salla/preview/site/*.html
 !salla/preview/site/index.html
 salla/preview/*.png
+salla/v7/site/

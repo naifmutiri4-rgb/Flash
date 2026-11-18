@@ -166,3 +166,46 @@ html body#app.product-single article.full-description a{color:#D92A66!important;
 .product-single .s-product-options-grid-mode:has(>label:nth-child(12)):has(>label:nth-child(11) input:checked){--lv-p:91.67%}
 .product-single .s-product-options-grid-mode:has(>label:nth-child(12)):has(>label:nth-child(12) input:checked){--lv-p:100.0%}
 .product-single .s-product-options-grid-mode:has(>label:nth-child(12))::before{-webkit-mask:repeating-linear-gradient(to left,#000 0 calc(8.33% - 4px),transparent calc(8.33% - 4px) 8.33%);mask:repeating-linear-gradient(to left,#000 0 calc(8.33% - 4px),transparent calc(8.33% - 4px) 8.33%)}
+
+/* ===== الرئيسية ===== */
+/* عناوين أقسام المنتجات في ملاك */
+body#app .angel-products-title{padding:26px 0 12px!important}
+body#app .angel-products-title h2{color:#fff!important;font-size:clamp(24px,6.4vw,32px)!important;font-weight:800!important;line-height:1.25!important}
+body#app .angel-products-title p{color:#9A96B5!important;font-size:15px!important;line-height:1.7!important}
+body#app .angel-products-title a{color:#00E5D4!important;font-weight:700}
+
+/* قسم الباقات على الخلفية الثانية (لافندر) */
+body#app section[component-id="721318189"]{background:#EEEBFF!important;border-radius:28px 28px 0 0;padding-bottom:22px}
+body#app section[component-id="721318189"] .angel-products-title h2{color:#0B0A12!important}
+body#app section[component-id="721318189"] .angel-products-title p{color:#4F4A70!important}
+body#app section[component-id="721318189"] .angel-products-title a{color:#D92A66!important}
+body#app section[component-id="721318189"] .s-product-card-entry{background:#0B0A12!important;border-color:#0B0A12!important;box-shadow:0 14px 30px -18px #0B0A12}
+
+/* شارات الكرت (تقييم / خصم) */
+body#app .s-product-card-rating{background:#0B0A12cc!important;color:#fff!important;border-radius:999px!important}
+body#app .s-product-card-discount{background:#FF3D7F!important;color:#fff!important;border-radius:999px!important}
+body#app .s-product-card-price-before{color:#9A96B5!important}
+body#app .s-product-card-content-footer .s-button-element{min-height:44px}
+
+/* بلوكات HTML في ملاك (s-block--bundle-html-content): الهيدر، شريط الثقة، الخطوات */
+.lv-hero{display:block;margin:0 auto;max-width:520px}
+.lv-hero img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
+.lv-trust{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px 16px 24px;max-width:900px;margin:0 auto}
+@media (min-width:768px){.lv-trust{grid-template-columns:repeat(4,1fr)}}
+.lv-trust div{display:flex;align-items:center;gap:8px;background:#16142A;border:1px solid #241F45;border-radius:12px;padding:11px 10px;color:#fff;font-weight:700;font-size:13px}
+.lv-trust i{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;flex:none;background:rgba(0,229,212,.12);color:#00E5D4;font-style:normal}
+.lv-how{padding:26px 16px;max-width:900px;margin:0 auto}
+.lv-how h2{color:#fff;font-size:26px;font-weight:800;margin:0 0 14px}
+.lv-how ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media (min-width:768px){.lv-how ol{grid-template-columns:repeat(3,1fr)}}
+.lv-how li{display:flex;gap:12px;align-items:center;background:#EEEBFF;color:#0B0A12;border-radius:14px;padding:12px;font-weight:700}
+.lv-how li b{width:32px;height:32px;border-radius:50%;background:#0B0A12;color:#00E5D4;display:grid;place-items:center;flex:none}
+
+/* آراء العملاء والأسئلة */
+body#app .s-block--testimonials .s-block__title h2,body#app .s-block--faqs h2{color:#fff!important;font-weight:800!important}
+body#app .s-block--testimonials .swiper-slide>div,body#app .s-block--testimonials .s-reviews-testimonial,body#app .s-block--testimonials [class*="testimonial"]{background:#16142A!important;border-color:#241F45!important;border-radius:18px!important}
+body#app .s-block--faqs details,body#app .s-block--faqs .faq-item,body#app .s-block--faqs [class*="faq"] > div{background:#16142A!important;border:1px solid #241F45!important;border-radius:14px!important}
+body#app .s-block--faqs summary,body#app .s-block--faqs h3{color:#fff!important}
+body#app .s-block--faqs p{color:#B9B5D3!important}
+body#app .s-product-card-image .s-product-card-rating{top:8px!important;bottom:auto!important;left:8px!important;right:auto!important}
+body#app .s-product-card-image .s-product-card-discount{top:8px!important;bottom:auto!important;right:8px!important;left:auto!important}

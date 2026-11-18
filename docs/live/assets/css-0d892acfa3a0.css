@@ -1,0 +1,96 @@
+
+.fslightbox-absoluted { position: absolute; top: 0px; left: 0px; }
+.fslightbox-fade-in { animation: 0.3s cubic-bezier(0, 0, 0.7, 1) 0s 1 normal none running fslightbox-fade-in; }
+.fslightbox-fade-out { animation: 0.3s ease 0s 1 normal none running fslightbox-fade-out; }
+.fslightbox-fade-in-strong { animation: 0.3s cubic-bezier(0, 0, 0.7, 1) 0s 1 normal none running fslightbox-fade-in-strong; }
+.fslightbox-fade-out-strong { animation: 0.3s ease 0s 1 normal none running fslightbox-fade-out-strong; }
+@keyframes fslightbox-fade-in { 
+  0% { opacity: 0.65; }
+  100% { opacity: 1; }
+}
+@keyframes fslightbox-fade-out { 
+  0% { opacity: 0.35; }
+  100% { opacity: 0; }
+}
+@keyframes fslightbox-fade-in-strong { 
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+@keyframes fslightbox-fade-out-strong { 
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.fslightbox-cursor-grabbing { cursor: grabbing; }
+.fslightbox-full-dimension { width: 100%; height: 100%; }
+.fslightbox-open { overflow: hidden; height: 100%; }
+.fslightbox-flex-centered { display: flex; justify-content: center; align-items: center; }
+.fslightbox-opacity-0 { opacity: 0 !important; }
+.fslightbox-opacity-1 { opacity: 1 !important; }
+.fslightbox-scrollbarfix { padding-right: 17px; }
+.fslightbox-transform-transition { transition: transform 0.3s; }
+.fslightbox-container { font-family: Arial, sans-serif; position: fixed; top: 0px; left: 0px; background: linear-gradient(rgba(30, 30, 30, 0.9), rgb(0, 0, 0) 1810%); touch-action: pinch-zoom; z-index: 1000000000; user-select: none; -webkit-tap-highlight-color: transparent; }
+.fslightbox-container * { box-sizing: border-box; }
+.fslightbox-svg { width: 20px; height: 20px; }
+.fslightbox-svgp { transition: fill 0.15s; fill: rgb(221, 221, 221); }
+.fslightbox-nav { height: 45px; width: 100%; position: absolute; top: 0px; left: 0px; }
+.fslightboxsn { z-index: 0; display: flex; align-items: center; margin: 14px 0px 0px 11px; font-size: 15px; color: rgb(215, 215, 215); }
+.fslightboxsn span { display: inline; vertical-align: middle; }
+.fslightboxsl { margin: 0px 5px; width: 1px; height: 12px; transform: rotate(15deg); background: white; display: inline-block !important; }
+.fslightbox-toolbar { position: absolute; z-index: 3; right: 0px; top: 0px; height: 100%; display: flex; }
+.fslightbox-toolbar-button { width: 45px; height: 100%; }
+.fslightbox-fsx { width: 24px; height: 24px; }
+.fslightboxb { border: 0px; background: rgba(35, 35, 35, 0.65); cursor: pointer; }
+.fslightboxb:focus { outline: 0px; }
+.fslightboxb:focus .fslightbox-svgp { fill: rgb(255, 255, 255); }
+.fslightboxb:hover .fslightbox-svgp { fill: rgb(255, 255, 255); }
+.fslightbox-slide-btn-container { display: flex; align-items: center; padding: 12px 12px 12px 6px; position: absolute; top: 50%; cursor: pointer; z-index: 3; transform: translateY(-50%); }
+.fslightbox-slide-btn-container-next { right: 0px; padding-left: 12px; padding-right: 3px; }
+@media (min-width: 476px) {
+  .fslightbox-slide-btn-container { padding: 22px 22px 22px 6px; }
+  .fslightbox-slide-btn-container-next { padding-right: 6px !important; padding-left: 22px; }
+}
+@media (min-width: 768px) {
+  .fslightbox-slide-btn-container { padding: 30px 30px 30px 6px; }
+  .fslightbox-slide-btn-container-next { padding-left: 30px; }
+  .fslightbox-slide-btn { padding: 10px; }
+}
+.fslightbox-slide-btn-container:hover .fslightbox-svgp { fill: rgb(255, 255, 255); }
+.fslightbox-slide-btn { padding: 9px; }
+.fslightbox-slide-btn-container-previous { left: 0px; }
+@media (max-width: 475.99px) {
+  .fslightbox-slide-btn-container-previous { padding-left: 3px; }
+}
+.fslightbox-down-event-detector { position: absolute; z-index: 1; }
+.fslightbox-slide-swiping-hoverer { z-index: 4; }
+.fslightbox-invalid-file-wrapper { font-size: 22px; color: rgb(234, 235, 235); margin: auto; }
+.fslightboxv { object-fit: cover; }
+.fslightbox-youtube-iframe { border: 0px; }
+.fslightboxl { display: block; margin: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 67px; height: 67px; }
+.fslightboxl div { box-sizing: border-box; display: block; position: absolute; width: 54px; height: 54px; margin: 6px; border-width: 5px; border-style: solid; border-image: none; border-color: rgb(153, 153, 153) transparent transparent; border-radius: 50%; animation: 1.2s cubic-bezier(0.5, 0, 0.5, 1) 0s infinite normal none running fslightboxl; }
+.fslightboxl div:nth-child(1) { animation-delay: -0.45s; }
+.fslightboxl div:nth-child(2) { animation-delay: -0.3s; }
+.fslightboxl div:nth-child(3) { animation-delay: -0.15s; }
+@keyframes fslightboxl { 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.fslightbox-source { position: relative; z-index: 2; opacity: 0; }
+@media (min-width: 1200px) {
+  .fslightboxsn { margin: 15px 0px 0px 12px; font-size: 16px; display: block; }
+  .fslightboxsl { margin: 0px 6px 1px; height: 14px; }
+  .fslightbox-slide-btn { padding: 11px; }
+  .fslightbox-svg { width: 22px; height: 22px; }
+  .fslightbox-fsx { width: 26px; height: 26px; }
+  .fslightbox-fso { width: 22px; height: 22px; }
+  .fslightboxl div { width: 60px; height: 60px; border-width: 6px; border-color: rgb(153, 153, 153) transparent transparent; border-radius: 50%; }
+}
+@media (min-width: 1600px) {
+  .fslightbox-nav { height: 50px; }
+  .fslightboxsn { display: flex; margin: 19px 0px 0px 16px; font-size: 20px; }
+  .fslightboxsl { margin: 0px 7px 1px; height: 16px; width: 2px; background: rgb(215, 215, 215); }
+  .fslightbox-toolbar-button { width: 50px; }
+  .fslightbox-slide-btn { padding: 12px; }
+  .fslightbox-svg { width: 24px; height: 24px; }
+  .fslightbox-fsx { width: 28px; height: 28px; }
+  .fslightbox-fso { width: 24px; height: 24px; }
+}

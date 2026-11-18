@@ -1,0 +1,10 @@
+
+.s-hidden { display: none; }
+salla-mini-checkout-modal { position: fixed; inset: 0px; z-index: 200; overflow: hidden; min-height: 250px; }
+iframe { transition: height 0.3s, opacity 0.3s; min-height: 250px; opacity: 1; }
+iframe.transitioning { opacity: 0; }
+.s-loading::after { content: ""; display: block; position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; border-width: 4px; border-style: solid; border-color: transparent rgb(252, 158, 1) rgb(252, 158, 1); border-image: none; border-radius: 50%; animation: 1s linear 0s infinite normal none running spin; transform: translate(-50%, -50%); }
+@keyframes spin { 
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}

@@ -51,7 +51,7 @@ function inlineCssUrls(css, baseHref) {
 const ic = s => `<i>${s}</i>`;
 const HOME_TOP = `<section class="s-block s-block--bundle-html-content"><salla-custom-component component-name="html-content">
 <div class="lv-hero"><img src="${HERO}" alt="فلاش ستور: مشاهدات ولايكات وشير وحفظ لتيك توك" width="1170" height="1560" fetchpriority="high"></div>
-<div class="lv-trust"><div>${ic('⚡')}تنفيذ فوري</div><div>${ic('↺')}تعويض حسب السياسة</div><div>${ic('🔒')}دفع آمن عبر سلة</div><div>${ic('💬')}دعم متواصل</div></div>
+<div class="lv-trust"><div><i class="lv-bolt"></i>تنفيذ فوري</div><div><i class="lv-shield"></i>تعويض حسب السياسة</div><div><i class="lv-lock"></i>دفع آمن عبر سلة</div><div><i class="lv-chat"></i>دعم متواصل</div></div>
 </salla-custom-component></section>`;
 const HOME_HOW = `<section class="s-block s-block--bundle-html-content"><salla-custom-component component-name="html-content">
 <div class="lv-how"><h2>3 خطوات</h2><ol><li><b>1</b>اختر الخدمة والكمية</li><li><b>2</b>الصق رابط المقطع</li><li><b>3</b>ادفع، والتنفيذ يبدأ فوراً</li></ol></div>

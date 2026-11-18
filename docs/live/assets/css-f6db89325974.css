@@ -204,7 +204,7 @@ body#app.index .s-block--testimonials::before { content: ""; position: absolute;
 body#app.index .s-block--testimonials::after { content: ""; position: absolute; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 229, 212, 0.25), transparent 70%); bottom: -100px; right: -70px; pointer-events: none; }
 body#app.index .s-block--testimonials .container { position: relative; z-index: 1; }
 body#app.index .s-block--testimonials .s-slider-block__title h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: rgb(11, 10, 18) !important; }
-body#app.index .s-block--testimonials .s-slider-block__title h2::before { content: "● LIVE"; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; color: rgb(255, 255, 255); background: rgb(255, 61, 127); border-radius: 999px; padding: 4px 10px; line-height: 1.4; box-shadow: rgb(255, 61, 127) 0px 6px 16px -6px; animation: 1.6s ease-in-out 0s infinite normal none running lv-pulse; }
+body#app.index .s-block--testimonials .s-slider-block__title h2::before { content: "● اكسبلور"; font-size: 12px; font-weight: 800; color: rgb(255, 255, 255); background: rgb(255, 61, 127); border-radius: 999px; padding: 4px 10px; line-height: 1.4; box-shadow: rgb(255, 61, 127) 0px 6px 16px -6px; }
 @keyframes lv-pulse { 
   50% { box-shadow: rgba(255, 61, 127, 0.15) 0px 0px 0px 6px, rgb(255, 61, 127) 0px 6px 16px -6px; }
 }
@@ -313,3 +313,64 @@ body#app.index .s-block--testimonials .s-slider-block__title-left { flex: 1 1 10
 .lv-trust i.lv-lock { --lv-ic: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%224%22%20y%3D%2210%22%20width%3D%2216%22%20height%3D%2211%22%20rx%3D%222.5%22/%3E%3Cpath%20d%3D%22M8%2010V7a4%204%200%200%201%208%200v3%22/%3E%3C/svg%3E"); }
 .lv-trust i.lv-chat { --lv-ic: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%205h16v11H9l-5%204V5Z%22/%3E%3Cpath%20d%3D%22M8%209.5h8M8%2012.5h5%22/%3E%3C/svg%3E"); }
 .lv-trust div { line-height: 1.35; }
+#preloader { align-items: center; justify-content: center; animation: 0.35s ease 4s 1 normal forwards running lv-pl-out; display: flex !important; background: rgb(11, 10, 18) !important; }
+#preloader img.preloader { animation: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0s 1 normal both running lv-pl-pop; will-change: transform, opacity; }
+#preloader::before { content: ""; position: absolute; left: 50%; top: calc(50% + 100px); width: 180px; height: 8px; margin-left: -90px; border-radius: 999px; background: rgb(30, 26, 58); box-shadow: rgb(42, 37, 80) 0px 0px 0px 1px inset; }
+#preloader::after { content: ""; position: absolute; left: 50%; top: calc(50% + 100px); width: 180px; height: 8px; margin-left: -90px; border-radius: 999px; background: linear-gradient(270deg, rgb(0, 229, 212), rgb(255, 61, 127)); box-shadow: rgba(255, 61, 127, 0.55) 0px 0px 14px; transform-origin: right center; transform: scaleX(0); animation: 3.5s cubic-bezier(0.1, 0.6, 0.3, 1) 0.1s 1 normal forwards running lv-pl-bar; will-change: transform; }
+#preloader.lv-done::after { animation: 0.4s ease-out 0s 1 normal forwards running lv-pl-fill; }
+#preloader.lv-gone { animation: 0.3s ease 0s 1 normal forwards running lv-pl-out; }
+#preloader .preloader-skip { z-index: 2; }
+@keyframes lv-pl-pop { 
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes lv-pl-bar { 
+  100% { transform: scaleX(0.9); }
+}
+@keyframes lv-pl-fill { 
+  0% { transform: scaleX(var(--lv-from,.6)); }
+  100% { transform: scaleX(1); }
+}
+@keyframes lv-pl-out { 
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #preloader, #preloader img.preloader, #preloader::after { animation-duration: 0.01s; }
+  #preloader { animation-delay: 0.8s; }
+  #preloader::after { transform: none; }
+}
+body#app.index section[component-id="1938081345"] img { width: 100%; height: auto; }
+@media (max-width: 767px) {
+  body#app.index section[component-id="1938081345"] img { aspect-ratio: 800 / 1067; }
+}
+@media (min-width: 768px) {
+  body#app.index section[component-id="1938081345"] img { aspect-ratio: 1456 / 520; }
+}
+body#app.index section[component-id="822903265"] { min-height: 198px; }
+body#app.index section[component-id="997991654"] { min-height: 1200px; }
+body#app.index section[component-id="358171623"] { min-height: 880px; }
+body#app.index section[component-id="1555484643"] { min-height: 330px; }
+body#app.index section[component-id="1771505125"] { min-height: 446px; }
+@media (min-width: 768px) {
+  body#app.index section[component-id="822903265"] { min-height: 186px; }
+  body#app.index section[component-id="997991654"] { min-height: 620px; }
+  body#app.index section[component-id="358171623"] { min-height: 700px; }
+  body#app.index section[component-id="1555484643"] { min-height: 246px; }
+  body#app.index section[component-id="1771505125"] { min-height: 422px; }
+}
+body#app .store-header { min-height: 62px; }
+body#app .store-header:has(.angel-ad) { min-height: 94px; }
+@media (min-width: 768px) {
+  body#app .store-header { min-height: 74px; }
+  body#app .store-header:has(.angel-ad) { min-height: 106px; }
+}
+body#app.product-index salla-products-list { display: block; }
+body#app.product-index salla-products-list:not(:has(.s-product-card-entry)) { min-height: 1080px; }
+@media (min-width: 768px) {
+  body#app.product-index salla-products-list:not(:has(.s-product-card-entry)) { min-height: 380px; }
+}
+@media (max-width: 767px) {
+  body#app.index section[component-id="1938081345"] { padding: 0px !important; margin-top: 0px !important; }
+  body#app.index section[component-id="1938081345"] .container { padding: 0px !important; max-width: none !important; width: 100% !important; }
+  body#app.index section[component-id="1938081345"] .banner--fixed, body#app.index section[component-id="1938081345"] img { border-radius: 0px !important; }
+}

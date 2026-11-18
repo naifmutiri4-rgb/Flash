@@ -1,0 +1,5 @@
+
+:root { --font-main: 'PingARLT'; --font-secondary: 'PingARLT'; --color-primary: #FF3D7F; --color-primary-dark: #d91759; --color-primary-light: #ff63a5; --color-primary-reverse: #ffffff; --dark-bg-main: #0B0A12; --dark-text-main: #FFFFFF; --dark-text-sec: #C2BEDD; --dark-grey: #16142A; --text-btn: #0B0A12; --bg-color: #0B0A12; --header-bg: #0B0A12; --menu-bg: #0B0A12; --footer-bg: #07060D; }
+h1, h2, h3, h4, h5, h6, strong, .font-primary, .tab-trigger { font-weight: 700 !important; }
+p, .font-regular { font-weight: 400 !important; }
+.s-product-card-vertical .s-product-card-wishlist-btn button { background-color: unset !important; }

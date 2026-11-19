@@ -25,7 +25,7 @@ fs.mkdirSync(OUT, { recursive: true });
       let pic = i.closest('picture');
       if (!pic) { pic = document.createElement('picture'); i.parentNode.insertBefore(pic, i); pic.appendChild(i); }
       pic.querySelectorAll('source').forEach(x => x.remove());
-      const so = document.createElement('source'); so.media = '(min-width: 768px)'; so.srcset = i.src.replace('mobile-' + m[1], 'desktop-' + m[1]);
+      const so = document.createElement('source'); so.media = '(min-width: 768px)'; so.srcset = 'https://naifmutiri4-rgb.github.io/Flash/live/hb2/' + ({6:'paste',5:'beforeafter',3:'slider',4:'ticket',2:'reviews',1:'whatsapp'})[m[1]] + '.webp';
       pic.insertBefore(so, i); i.removeAttribute('srcset'); i.removeAttribute('sizes');
     });
     const pre = document.getElementById('preloader'); if (pre) pre.remove();

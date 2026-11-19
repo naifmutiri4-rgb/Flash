@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:Readex;font-weight:700;src:url(fonts/readex-pro-arabic-700-normal.woff2) format("woff2")}
+@font-face{font-family:Readex;font-weight:700;src:url(fonts/readex-pro-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Readex;font-weight:600;src:url(fonts/readex-pro-arabic-600-normal.woff2) format("woff2")}
+@font-face{font-family:Readex;font-weight:600;src:url(fonts/readex-pro-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+:root{--bg:#0B0A12;--card:#16142A;--line:#2A2550;--cy:#00E5D4;--pk:#FF3D7F;--mut:#C2BEDD;--yl:#FFC94D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#222;font-family:Plex,sans-serif;color:#fff}
+.b{width:1920px;height:640px;position:relative;overflow:hidden;background:var(--bg);margin-bottom:20px}
+.logo{position:absolute;top:56px;right:140px;height:74px}
+.copy{position:absolute;right:140px;top:170px;width:900px;text-align:right}
+h1{font-family:Readex;font-weight:700;font-size:104px;line-height:1.02;letter-spacing:-1px}
+.g{background:linear-gradient(90deg,var(--pk),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:10px;display:inline-block}
+.cy{color:var(--cy)}.pk{color:var(--pk)}
+.sub{font-size:30px;color:var(--mut);margin-top:22px;line-height:1.5}
+.cta{display:inline-flex;align-items:center;gap:16px;font-family:Readex;font-weight:600;font-size:30px;height:78px;padding:0 46px;border-radius:40px;margin-top:34px}
+.cta i{font-style:normal;font-size:26px}
+.c1{background:linear-gradient(90deg,var(--cy),#7FF3EA);color:var(--bg)}
+.c2{background:linear-gradient(90deg,var(--pk),#B44DFF);color:#fff}
+.c3{background:var(--yl);color:var(--bg)}
+.c4{background:var(--bg);color:#fff}
+.c5{background:#fff;color:var(--bg)}
+.chips{display:flex;gap:14px;justify-content:flex-start;margin-top:30px}
+.chip{display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 24px;border-radius:30px;background:#14122A;border:1px solid var(--line);font-weight:600;font-size:24px}
+.dot{width:12px;height:12px;border-radius:50%}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+.ring{position:absolute;border:1.5px solid rgba(0,229,212,.18);border-radius:50%}
+.phone{position:absolute;width:360px;height:720px;border-radius:56px;background:#0F0D1F;border:10px solid #1E1B38;box-shadow:0 40px 120px -20px rgba(0,0,0,.8)}
+.badge{position:absolute;display:flex;align-items:center;gap:16px;background:#fff;color:var(--bg);border-radius:26px;padding:18px 26px;box-shadow:0 24px 60px -20px rgba(0,0,0,.45)}
+.badge .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center}
+.badge b{font-family:Readex;font-weight:700;font-size:26px;display:block}
+.badge small{font-size:19px;color:#5E5A78}
+svg{display:block}
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="b" id="h1">
+  <div class="glow" style="width:620px;height:620px;left:120px;top:20px;background:#5B2BFF"></div>
+  <div class="glow" style="width:420px;height:420px;left:-60px;top:330px;background:var(--cy);opacity:.25"></div>
+  <div class="ring" style="width:860px;height:860px;left:0;top:-110px"></div>
+  <div class="ring" style="width:620px;height:620px;left:120px;top:10px"></div>
+  <div class="phone" style="left:300px;top:70px;transform:rotate(-9deg);background:linear-gradient(160deg,#1B1838,#0F0D1F)">
+    <div style="position:absolute;inset:26px 22px auto;height:470px;border-radius:30px;background:linear-gradient(160deg,#2A1F52,#14122A);overflow:hidden">
+      <div style="position:absolute;inset:0;display:grid;place-items:center">
+        <svg width="120" height="120" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.12)"/><path d="M10 8l6 4-6 4z" fill="#fff"/></svg>
+      </div>
+      <div style="position:absolute;right:16px;bottom:20px;display:flex;flex-direction:column;gap:22px;align-items:center">
+        <div style="text-align:center"><svg width="44" height="44" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20Z" fill="#FF3D7F"/></svg><div style="font-weight:700;font-size:18px">+1K</div></div>
+        <div style="text-align:center"><svg width="42" height="42" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21V3Z" fill="#FFC94D"/></svg><div style="font-weight:700;font-size:18px">+500</div></div>
+        <div style="text-align:center"><svg width="42" height="42" viewBox="0 0 24 24"><path d="M14 4l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V4Z" fill="#00E5D4"/></svg><div style="font-weight:700;font-size:18px">+500</div></div>
+      </div>
+    </div>
+    <div style="position:absolute;left:22px;right:22px;bottom:40px;height:120px;border-radius:24px;background:#14122A;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:12px">
+      <svg width="34" height="34" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" fill="none" stroke="#00E5D4" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="#00E5D4"/></svg>
+      <span style="font-family:Readex;font-weight:700;font-size:40px">15K</span>
+    </div>
+  </div>
+  <div class="badge" style="left:620px;top:120px;background:#16142A;color:#fff;border:1px solid var(--line)"><div class="ic" style="background:rgba(0,229,212,.15)"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="#00E5D4"/></svg></div><div><b>تنفيذ فوري</b><small style="color:var(--mut)">يبدأ بعد الدفع مباشرة</small></div></div>
+  <img class="logo" src="logo.png">
+  <div class="copy" style="top:150px">
+    <h1 style="font-size:96px">خلّ مقطعك<br><span class="g">يطلع اكسبلور</span></h1>
+    <p class="sub" style="margin-top:14px">مشاهدات ولايكات وشير وحفظ لمقاطع تيك توك، برابط المقطع فقط</p>
+    <a class="cta c1" style="margin-top:24px">تسوّق الباقات <i>‹</i></a>
+    <div class="chips" style="margin-top:22px">
+      <span class="chip"><i class="dot" style="background:var(--cy)"></i>مشاهدات</span>
+      <span class="chip"><i class="dot" style="background:var(--pk)"></i>لايكات</span>
+      <span class="chip"><i class="dot" style="background:#8B5CFF"></i>شير</span>
+      <span class="chip"><i class="dot" style="background:var(--yl)"></i>حفظ</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="b" id="h2">
+  <div style="position:absolute;left:-40px;top:40px;font-family:Readex;font-weight:700;font-size:560px;line-height:1;letter-spacing:-20px;color:transparent;-webkit-text-stroke:2px #241F45;direction:ltr">FLASH</div>
+  <div style="position:absolute;left:-30px;top:40px;font-family:Readex;font-weight:700;font-size:560px;line-height:1;direction:ltr;background:linear-gradient(90deg,var(--pk),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent">F</div>
+  <div style="position:absolute;left:420px;top:150px;width:500px;padding:40px 44px;border-radius:36px;background:rgba(22,20,42,.92);border:1px solid var(--line);text-align:right">
+    <p style="font-size:30px;line-height:1.75;color:#E8E6F5">الصق رابط مقطعك، اختر الخدمة<br>والتنفيذ يبدأ <span class="cy" style="font-weight:700">فوراً بعد الدفع</span><br>وخلّ الباقي علينا.</p>
+    <a class="cta c2" style="margin-top:26px">اكتشف الباقات</a>
+  </div>
+  <img class="logo" src="logo.png">
+  <div class="copy" style="top:165px;width:820px">
+    <h1 style="font-size:100px;line-height:1.1">بدون كلمة مرور.<br>بدون انتظار.<br><span class="cy">بدون تعقيد.</span></h1>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="b" id="h3" style="background:radial-gradient(900px 500px at 10% 100%,#2A1F52 0,transparent 70%),radial-gradient(700px 400px at 70% 120%,#3A1640 0,transparent 70%),var(--bg)">
+  <div id="cards" style="position:absolute;left:40px;top:96px;width:960px;height:460px">
+    <div style="position:absolute;left:0;top:40px;width:300px;height:390px;border-radius:32px;background:#16142A;border:1px solid var(--line);padding:30px;transform:rotate(-6deg)">
+      <div style="font-weight:700;font-size:24px;display:flex;gap:10px;align-items:center"><i class="dot" style="background:var(--cy)"></i>بكج التوفير</div>
+      <div style="font-family:Readex;font-weight:700;font-size:64px;margin-top:22px;direction:ltr;text-align:right">2,000</div>
+      <div style="color:var(--mut);font-size:21px;line-height:1.6">مشاهدة · 250 لايك<br>50 شير · 50 حفظ</div>
+      <div style="border-top:1px solid var(--line);margin-top:22px;padding-top:18px;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:Readex;font-weight:700;font-size:48px">9.99</span><span style="color:var(--yl);font-weight:700;font-size:22px">ر.س</span></div>
+    </div>
+    <div style="position:absolute;left:330px;top:0;width:300px;height:420px;border-radius:32px;background:linear-gradient(165deg,#5B2BFF 0,#2A1F52 55%,#123A44);border:1px solid #4A3A90;padding:30px;box-shadow:0 30px 80px -20px rgba(91,43,255,.6)">
+      <div style="font-weight:700;font-size:24px;display:flex;gap:10px;align-items:center"><i class="dot" style="background:var(--pk)"></i>بكج التفاعل</div>
+      <div style="font-family:Readex;font-weight:700;font-size:64px;margin-top:22px;direction:ltr;text-align:right">10,000</div>
+      <div style="color:#E0DCF5;font-size:21px;line-height:1.6">مشاهدة · 750 لايك<br>250 شير · 250 حفظ</div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);margin-top:22px;padding-top:18px;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:Readex;font-weight:700;font-size:48px">29.99</span><span style="color:var(--yl);font-weight:700;font-size:22px">ر.س</span></div>
+    </div>
+    <div style="position:absolute;left:660px;top:40px;width:300px;height:390px;border-radius:32px;background:#16142A;border:1px solid var(--line);padding:30px;transform:rotate(6deg)">
+      <div style="font-weight:700;font-size:24px;display:flex;gap:10px;align-items:center"><i class="dot" style="background:var(--yl)"></i>بكج اكسبلور</div>
+      <div style="font-family:Readex;font-weight:700;font-size:64px;margin-top:22px;direction:ltr;text-align:right">20,000</div>
+      <div style="color:var(--mut);font-size:21px;line-height:1.6">مشاهدة · 1,500 لايك<br>750 شير · 750 حفظ</div>
+      <div style="border-top:1px solid var(--line);margin-top:22px;padding-top:18px;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:Readex;font-weight:700;font-size:48px">54.99</span><span style="color:var(--yl);font-weight:700;font-size:22px">ر.س</span></div>
+    </div>
+  </div>
+  <img class="logo" src="logo.png">
+  <div class="copy" style="top:160px">
+    <span style="display:inline-block;background:var(--yl);color:var(--bg);font-weight:700;font-size:26px;padding:10px 24px;border-radius:14px;transform:rotate(-2deg)">خصم 10% بكود F10 🔥</span>
+    <h1 style="margin-top:22px;font-size:92px">خدماتنا تبدأ من<br><span style="color:var(--yl)">1.99</span> ر.س فقط</h1>
+    <p class="sub" style="margin-top:16px">5 باقات جاهزة · خدمة مفردة بالكمية اللي تبيها</p>
+    <a class="cta c3" style="margin-top:26px">شوف الباقات</a>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="b" id="h4" style="background:linear-gradient(120deg,#F1EEFF 0,#F6F5FF 50%,#E3FBF8 100%);color:var(--bg)">
+  <div class="phone" style="left:300px;top:70px;transform:rotate(-9deg);border-color:#14122A;background:linear-gradient(170deg,#1B1838,#0B0A12)">
+    <div style="position:absolute;top:120px;left:28px;right:28px;text-align:right;color:#fff">
+      <div style="font-size:20px;color:var(--mut)">رابط المقطع</div>
+      <div style="margin-top:10px;height:66px;border-radius:18px;background:#16142A;border:1.5px solid var(--cy);display:flex;align-items:center;padding:0 18px;direction:ltr;font-size:19px;color:#E8E6F5">tiktok.com/@you/video/…</div>
+      <div style="margin-top:26px;font-size:20px;color:var(--mut)">الخدمة</div>
+      <div style="margin-top:10px;height:66px;border-radius:18px;background:#16142A;border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:21px"><span>بكج التوفير</span><b class="cy">9.99</b></div>
+      <div style="margin-top:30px;height:68px;border-radius:20px;background:linear-gradient(90deg,var(--cy),var(--pk));display:grid;place-items:center;font-family:Readex;font-weight:700;font-size:24px;color:var(--bg)">ادفع الآن</div>
+      <div style="margin-top:30px;height:56px;border-radius:28px;background:rgba(0,229,212,.12);display:flex;align-items:center;justify-content:center;gap:10px;color:var(--cy);font-weight:700;font-size:21px">✓ بدأ التنفيذ</div>
+    </div>
+  </div>
+  <div class="badge" style="left:120px;top:150px"><div class="ic" style="background:#6C4BFF"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="#fff"/></svg></div><div><b>تنفيذ فوري</b><small>يبدأ بعد الدفع مباشرة</small></div></div>
+  <div class="badge" style="left:620px;top:430px"><div class="ic" style="background:#12C9A0"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div><div><b>دفع آمن عبر سلة</b><small>مدى · Apple Pay · STC Pay</small></div></div>
+  <img class="logo" src="logo-dark.png">
+  <div class="copy" style="top:170px">
+    <h1 style="color:var(--bg)">الصق. ادفع.<br><span style="color:#6C4BFF">انطلق.</span></h1>
+    <p class="sub" style="color:#4A4766">بدون كلمة مرور، بدون انتظار.<br>نحتاج رابط المقطع فقط، والباقي علينا.</p>
+    <a class="cta c4">ابدأ الآن</a>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="b" id="h5" style="background:radial-gradient(700px 500px at 28% 50%,#2A1F6A 0,transparent 70%),var(--bg)">
+  <div class="ring" style="width:520px;height:520px;left:280px;top:60px;border-style:dashed;border-color:rgba(255,255,255,.12)"></div>
+  <div class="ring" style="width:820px;height:820px;left:130px;top:-90px;border-color:rgba(255,255,255,.06)"></div>
+  <img src="icon.png" style="position:absolute;left:465px;top:245px;width:150px;height:150px;border-radius:38px;box-shadow:0 30px 80px -10px rgba(0,229,212,.45)">
+  <span class="chip" style="position:absolute;left:250px;top:70px"><i class="dot" style="background:var(--cy)"></i>مشاهدات</span>
+  <span class="chip" style="position:absolute;left:640px;top:70px"><i class="dot" style="background:var(--pk)"></i>لايكات</span>
+  <span class="chip" style="position:absolute;left:820px;top:290px"><i class="dot" style="background:#8B5CFF"></i>شير</span>
+  <span class="chip" style="position:absolute;left:640px;top:520px"><i class="dot" style="background:var(--yl)"></i>حفظ</span>
+  <span class="chip" style="position:absolute;left:250px;top:520px"><i class="dot" style="background:#4D8BFF"></i>باقات</span>
+  <span class="chip" style="position:absolute;left:70px;top:290px"><i class="dot" style="background:#12C9A0"></i>خدمة مفردة</span>
+  <img class="logo" src="logo.png">
+  <div class="copy" style="top:140px">
+    <h1 style="font-size:86px;line-height:1.08">كل خدمات تيك توك.<br><span class="cy">في مكان واحد.</span></h1>
+    <p class="sub" style="margin-top:28px">اختر الخدمة، الصق الرابط، وتابع مقطعك يكبر</p>
+    <div style="display:flex;gap:70px;margin-top:24px">
+      <div><div style="font-family:Readex;font-weight:700;font-size:50px;direction:ltr;text-align:right">+1,700</div><div style="color:var(--mut);font-size:22px">عميل خدمناهم</div></div>
+      <div><div style="font-family:Readex;font-weight:700;font-size:50px">4.2★</div><div style="color:var(--mut);font-size:22px">تقييمنا على سلة</div></div>
+      <div><div style="font-family:Readex;font-weight:700;font-size:50px">1.99</div><div style="color:var(--mut);font-size:22px">ر.س أقل سعر</div></div>
+    </div>
+    <a class="cta c5" style="margin-top:22px;height:72px">اختر خدمتك</a>
+  </div>
+</section>
+
+</body>
+</html>

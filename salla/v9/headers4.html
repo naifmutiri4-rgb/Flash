@@ -52,7 +52,7 @@ svg{display:block}
 .p{position:absolute;pointer-events:none}
 .scr{position:absolute;inset:14px;border-radius:44px;overflow:hidden}
 .rail{position:absolute;right:16px;bottom:120px;display:flex;flex-direction:column;gap:26px;align-items:center;z-index:3}
-.rail div{text-align:center;font-weight:700;font-size:17px}
+.rail div{text-align:center;font-weight:700;font-size:17px;direction:ltr}
 .cap{position:absolute;right:20px;left:90px;bottom:34px;z-index:3;font-size:17px;line-height:1.5;color:#fff;text-align:right}
 .pop{position:absolute;z-index:4;display:flex;align-items:center;gap:12px;padding:14px 22px;border-radius:22px;background:rgba(22,20,42,.78);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px);box-shadow:0 20px 50px -15px rgba(0,0,0,.8);font-family:Readex;font-weight:700;font-size:30px;direction:ltr}
 .pop small{font-family:Plex;font-weight:600;font-size:18px;color:var(--mut);direction:rtl}
@@ -77,17 +77,14 @@ svg{display:block}
       <filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       <radialGradient id="hit"><stop offset="0" stop-color="#fff"/><stop offset=".3" stop-color="#9FFFF7"/><stop offset="1" stop-color="#00E5D4" stop-opacity="0"/></radialGradient>
     </defs>
-    <g transform="translate(150,-30) rotate(8)">
-      <g id="bolt3d">
-        <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="url(#bs)" transform="translate(26,22)"/>
-        <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="url(#bs)" transform="translate(18,15)"/>
-        <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="url(#bs)" transform="translate(9,8)"/>
-        <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="url(#bf)" filter="url(#gl)"/>
-        <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="3"/>
-        <path d="M335 20 160 305h40L345 30Z" fill="rgba(255,255,255,.35)"/>
-      </g>
+    <g transform="translate(205,22) rotate(8) scale(.88)">
+      <g id="ext"></g>
+      <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="url(#bf)" filter="url(#gl)"/>
+      <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M338 22 168 300h34L352 34Z" fill="rgba(255,255,255,.45)"/>
+      <path d="M318 268h118L226 556Z" fill="rgba(255,255,255,.12)"/>
     </g>
-    <circle cx="430" cy="600" r="150" fill="url(#hit)" opacity=".7"/>
+    <circle cx="400" cy="610" r="170" fill="url(#hit)" opacity=".75"/><ellipse cx="400" cy="622" rx="260" ry="26" fill="#00E5D4" opacity=".25" filter="url(#gl)"/>
   </svg>
   <div id="sparks1" class="p" style="inset:0"></div>
   <div class="pop z" style="left:600px;top:120px"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" fill="none" stroke="#00E5D4" stroke-width="2.2"/><circle cx="12" cy="12" r="3" fill="#00E5D4"/></svg>+2,000<small>مشاهدة</small></div>
@@ -130,11 +127,11 @@ svg{display:block}
 <!-- ================= 3: ENGAGEMENT STORM ================= -->
 <section class="b noise vig" id="w3" style="background:radial-gradient(1000px 640px at 30% 55%,#1C0F3A 0,#0A0910 65%)">
   <div id="storm" class="p" style="inset:0"></div>
-  <div class="z" style="left:320px;top:110px;width:300px;height:600px;border-radius:52px;background:#141226;border:10px solid #23204A;box-shadow:0 60px 140px -20px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.06),0 0 120px -30px #FF3D7F;transform:rotate(-8deg)">
+  <div class="z" style="left:360px;top:80px;width:250px;height:490px;border-radius:46px;background:#141226;border:10px solid #23204A;box-shadow:0 60px 140px -20px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.06),0 0 120px -30px #FF3D7F;transform:rotate(-8deg)">
     <div class="scr" style="background:linear-gradient(170deg,#2A1F52,#0E0C1C)">
       <div style="position:absolute;top:16px;left:50%;width:90px;height:26px;margin-left:-45px;border-radius:14px;background:#000"></div>
       <div style="position:absolute;left:50%;top:40%;transform:translate(-50%,-50%)"><svg width="80" height="80" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.14)"/><path d="M10 8l6 4-6 4z" fill="#fff"/></svg></div>
-      <div class="rail"><div><svg width="38" height="38" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20Z" fill="#FF3D7F"/></svg></div></div>
+      <div class="rail" style="bottom:70px;gap:18px"><div><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20Z" fill="#FF3D7F"/></svg>+250</div><div><svg width="30" height="30" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21V3Z" fill="#FFC94D"/></svg>+50</div><div><svg width="30" height="30" viewBox="0 0 24 24"><path d="M14 4l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V4Z" fill="#fff"/></svg>+50</div></div>
     </div>
   </div>
   <img class="logo z" src="logo.png">
@@ -147,7 +144,7 @@ svg{display:block}
 
 <!-- ================= 4: GLASS PACKAGES ================= -->
 <section class="b noise" id="w4" style="background:#08070E">
-  <div class="p" style="left:-100px;top:-200px;width:1200px;height:1000px;background:conic-gradient(from 200deg at 45% 55%,#FF3D7F,#5B2BFF,#00E5D4,#FFC94D,#FF3D7F);filter:blur(120px);opacity:.55"></div>
+  <div class="p" style="left:-100px;top:-200px;width:1200px;height:1000px;background:conic-gradient(from 200deg at 45% 55%,#FF3D7F,#7A2BFF,#00E5D4,#3A1F9A,#FF3D7F);filter:blur(120px);opacity:.5"></div>
   <div class="p" style="left:0;top:0;width:1100px;height:640px;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(circle at 45% 55%,#000,transparent 70%);-webkit-mask-image:radial-gradient(circle at 45% 55%,#000,transparent 70%)"></div>
   <div class="gc z" style="left:70px;top:150px;transform:perspective(1200px) rotateY(18deg) rotate(-3deg)">
     <span style="position:absolute;top:-18px;right:24px;background:var(--pk);font-weight:700;font-size:18px;padding:6px 14px;border-radius:12px">الأكثر طلباً</span>
@@ -174,10 +171,11 @@ svg{display:block}
 </section>
 
 <script>
+(function(){const g=document.getElementById("ext");let h="";for(let i=26;i>0;i--){const t=i/26;h+=`<path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" transform="translate(${(i*1.1).toFixed(1)},${(i*0.9).toFixed(1)})" fill="rgb(${Math.round(40+60*(1-t))},${Math.round(10+20*(1-t))},${Math.round(50+30*(1-t))})"/>`}g.innerHTML=h})();
 function rnd(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}}
 (function(){
   const r=rnd(7),el=document.getElementById('sparks1');let h='';
-  for(let i=0;i<70;i++){const x=200+r()*700,y=r()*640,s=2+r()*5,c=r()<.5?'#FF3D7F':(r()<.5?'#00E5D4':'#fff');h+=`<i style="position:absolute;left:${x}px;top:${y}px;width:${s}px;height:${s}px;border-radius:50%;background:${c};box-shadow:0 0 ${s*3}px ${c};opacity:${.3+r()*.7}"></i>`}
+  for(let i=0;i<45;i++){const x=180+r()*720,y=r()*640,s=2+r()*5,c=r()<.5?'#FF3D7F':(r()<.5?'#00E5D4':'#fff');h+=`<i style="position:absolute;left:${x}px;top:${y}px;width:${s}px;height:${s}px;border-radius:50%;background:${c};box-shadow:0 0 ${s*3}px ${c};opacity:${.3+r()*.7}"></i>`}
   el.innerHTML=h;
 })();
 (function(){
@@ -193,8 +191,8 @@ function rnd(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1
     ['<path d="M6 3h12v18l-6-4.5L6 21V3Z" fill="#FFC94D"/>','#FFC94D'],
     ['<path d="M14 4l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V4Z" fill="#00E5D4"/>','#00E5D4'],
     ['<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" fill="#B9A6FF"/><circle cx="12" cy="12" r="3" fill="#1C0F3A"/>','#B9A6FF']];
-  const cx=470,cy=360;
-  for(let i=0;i<120;i++){const a=r()*Math.PI*2,d=120+Math.pow(r(),.7)*560;const x=cx+Math.cos(a)*d*1.25,y=cy+Math.sin(a)*d*.75;if(x<-40||x>1020||y<-40||y>680)continue;const s=18+r()*58*(d/680+.25);const ic=icons[Math.floor(r()*icons.length)];const bl=r()<.35?`filter:blur(${(2+r()*4).toFixed(1)}px);`:'';h+=`<svg style="position:absolute;left:${x}px;top:${y}px;transform:rotate(${(r()*60-30).toFixed(0)}deg);${bl}opacity:${(.45+r()*.55).toFixed(2)};filter:${bl?'blur(3px)':'drop-shadow(0 0 10px '+ic[1]+')'}" width="${s}" height="${s}" viewBox="0 0 24 24">${ic[0]}</svg>`}
+  const cx=485,cy=325;
+  for(let i=0;i<95;i++){const a=r()*Math.PI*2,d=120+Math.pow(r(),.7)*560;const x=cx+Math.cos(a)*d*1.25,y=cy+Math.sin(a)*d*.75;if(x<-40||x>1020||y<-40||y>680)continue;const s=18+r()*58*(d/680+.25);const ic=icons[Math.floor(r()*icons.length)];const far=r()<.3;const f=far?'blur(2.5px)':'drop-shadow(0 0 8px '+ic[1]+')';const ss=far?s*.7:s;h+=`<svg style="position:absolute;left:${x}px;top:${y}px;transform:rotate(${(r()*50-25).toFixed(0)}deg);opacity:${(far?.35:.6+r()*.4).toFixed(2)};filter:${f}" width="${ss}" height="${ss}" viewBox="0 0 24 24">${ic[0]}</svg>`}
   el.innerHTML=h;
 })();
 </script>

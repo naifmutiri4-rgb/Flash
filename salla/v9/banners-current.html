@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:Readex;font-weight:700;src:url(fonts/readex-pro-arabic-700-normal.woff2) format("woff2")}
+@font-face{font-family:Readex;font-weight:700;src:url(fonts/readex-pro-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Readex;font-weight:600;src:url(fonts/readex-pro-arabic-600-normal.woff2) format("woff2")}
+@font-face{font-family:Readex;font-weight:600;src:url(fonts/readex-pro-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+:root{--bg:#0B0A12;--card:#16142A;--line:#2A2550;--cy:#00E5D4;--pk:#FF3D7F;--mut:#C2BEDD;--yl:#FFC94D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#222;font-family:Plex,sans-serif;color:#fff}
+.b{width:1920px;height:640px;position:relative;overflow:hidden;background:var(--bg);margin-bottom:20px}
+.logo{position:absolute;top:56px;right:140px;height:74px}
+.copy{position:absolute;right:140px;top:170px;width:900px;text-align:right}
+h1{font-family:Readex;font-weight:700;font-size:104px;line-height:1.02;letter-spacing:-1px}
+.g{background:linear-gradient(90deg,var(--pk),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:10px;display:inline-block}
+.cy{color:var(--cy)}.pk{color:var(--pk)}
+.sub{font-size:30px;color:var(--mut);margin-top:22px;line-height:1.5}
+.cta{display:inline-flex;align-items:center;gap:16px;font-family:Readex;font-weight:600;font-size:30px;height:78px;padding:0 46px;border-radius:40px;margin-top:34px}
+.cta i{font-style:normal;font-size:26px}
+.c1{background:linear-gradient(90deg,var(--cy),#7FF3EA);color:var(--bg)}
+.c2{background:linear-gradient(90deg,var(--pk),#B44DFF);color:#fff}
+.c3{background:var(--yl);color:var(--bg)}
+.c4{background:var(--bg);color:#fff}
+.c5{background:#fff;color:var(--bg)}
+.chips{display:flex;gap:14px;justify-content:flex-start;margin-top:30px}
+.chip{display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 24px;border-radius:30px;background:#14122A;border:1px solid var(--line);font-weight:600;font-size:24px}
+.dot{width:12px;height:12px;border-radius:50%}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+.ring{position:absolute;border:1.5px solid rgba(0,229,212,.18);border-radius:50%}
+.phone{position:absolute;width:360px;height:720px;border-radius:56px;background:#0F0D1F;border:10px solid #1E1B38;box-shadow:0 40px 120px -20px rgba(0,0,0,.8)}
+.badge{position:absolute;display:flex;align-items:center;gap:16px;background:#fff;color:var(--bg);border-radius:26px;padding:18px 26px;box-shadow:0 24px 60px -20px rgba(0,0,0,.45)}
+.badge .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center}
+.badge b{font-family:Readex;font-weight:700;font-size:26px;display:block}
+.badge small{font-size:19px;color:#5E5A78}
+svg{display:block}
+</style>
+</head>
+<body>
+<style>
+.d{width:728px;height:90px;position:relative;overflow:hidden;background:var(--bg);margin:10px}
+.m{width:390px;height:244px;position:relative;overflow:hidden;background:var(--bg);margin:10px}
+.ab{position:absolute}
+.hd{font-family:Readex;font-weight:700;line-height:1.1;text-align:right}
+.g2{background:linear-gradient(90deg,var(--pk),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:5px}
+.bt{display:inline-flex;align-items:center;justify-content:center;font-family:Readex;font-weight:600;border-radius:999px;white-space:nowrap}
+.gr::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:3px 3px;pointer-events:none}
+.bb{position:absolute;border-radius:12px 12px 4px 12px;font-weight:600;line-height:1.4;box-shadow:0 10px 24px -12px rgba(0,0,0,.8)}
+.bb i{display:block;font-style:normal;color:#FFC94D;letter-spacing:1px}
+.bb i span{color:#C2BEDD;letter-spacing:0;margin-right:4px}
+.tk{position:absolute;background:#F7F5FF;color:#0B0A12;border-radius:10px;box-shadow:0 20px 40px -15px rgba(0,0,0,.9)}
+.rw{display:flex;justify-content:space-between;align-items:center}
+.ck{display:inline-grid;place-items:center;border-radius:50%;background:#12C9A0;color:#fff;font-weight:700;margin-left:4px}
+.wa{position:absolute;border-radius:12px;line-height:1.45}
+.vt{position:absolute;border-radius:10px;overflow:hidden;border:1px solid #2A2550}
+.vt .c{position:absolute;left:5px;right:5px;bottom:5px;border-radius:7px;background:rgba(11,10,18,.8);padding:3px 6px;text-align:right}
+.vt .c b{font-family:Readex;font-weight:700;direction:ltr;display:block}
+.m > *:not(svg){margin-top:24px}
+</style>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M10 8l6 4-6 4z" fill="#fff"/></symbol>
+<symbol id="wa" viewBox="0 0 24 24"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></symbol>
+<symbol id="bolt2" viewBox="0 0 150 130"><defs><linearGradient id="ar" x1="0" x2="1"><stop offset="0" stop-color="#FF3D7F"/><stop offset="1" stop-color="#00E5D4"/></linearGradient></defs><path d="M86 2 30 72h40l-10 56 58-74H76z" fill="url(#ar)"/></symbol>
+</defs></svg>
+
+<!-- ===== A: WhatsApp ===== -->
+<section class="d gr" id="dA" style="background:radial-gradient(360px 140px at 30% 50%,#10302C 0,var(--bg) 75%)">
+  <div class="wa" style="left:130px;top:8px;max-width:170px;background:#2A2550;padding:6px 10px;font-size:11px">السلام عليكم، متى يبدأ طلبي؟</div>
+  <div class="wa" style="left:40px;top:44px;max-width:240px;background:#0F5C4E;padding:6px 10px;font-size:11px">وعليكم السلام 👋 يبدأ آلياً بعد الدفع مباشرة</div>
+  <div class="ab" style="left:12px;top:14px;width:24px;height:24px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 0 16px -2px rgba(37,211,102,.7)"><svg width="14" height="14"><use href="#wa"/></svg></div>
+  <img class="ab" src="icon.png" style="right:22px;top:23px;width:44px;height:44px;border-radius:12px">
+  <div class="ab hd" style="right:80px;top:15px;font-size:27px">عندك سؤال؟ <span style="color:#25D366">كلّمنا واتساب</span></div>
+  <div class="ab" style="right:80px;top:55px;font-size:13px;color:var(--mut)">دعم عربي يرد عليك قبل وبعد الطلب</div>
+</section>
+<section class="m gr" id="mA" style="background:radial-gradient(260px 200px at 30% 55%,#10302C 0,var(--bg) 75%)">
+  <div class="ab" style="left:12px;top:16px;width:180px;height:166px;border-radius:16px;background:#111020;border:1px solid #2A2550;overflow:hidden">
+    <div style="height:32px;background:#16142A;display:flex;align-items:center;gap:6px;padding:0 9px;border-bottom:1px solid #2A2550;direction:rtl"><img src="icon.png" style="width:20px;height:20px;border-radius:6px"><b style="font-size:11px">فلاش ستور</b></div>
+    <div class="wa" style="right:8px;top:42px;max-width:150px;background:#2A2550;padding:5px 8px;font-size:9.5px">السلام عليكم، متى يبدأ طلبي؟</div>
+    <div class="wa" style="left:8px;top:76px;max-width:150px;background:#0F5C4E;padding:5px 8px;font-size:9.5px">وعليكم السلام 👋 يبدأ آلياً بعد الدفع مباشرة، وتقدر تتابعه من حسابك.</div>
+    <div class="wa" style="right:8px;top:136px;max-width:150px;background:#2A2550;padding:5px 8px;font-size:9.5px">ممتاز، يعطيكم العافية 🤍</div>
+  </div>
+  <img class="ab" src="logo.png" style="right:16px;top:14px;height:24px">
+  <div class="ab hd" style="right:16px;top:50px;font-size:26px">عندك سؤال؟<br><span style="color:#25D366">كلّمنا واتساب</span></div>
+  <a class="ab bt" style="right:16px;top:144px;height:32px;padding:0 16px;font-size:13px;background:#25D366;color:#06210F">تواصل معنا</a>
+</section>
+
+<!-- ===== B: Reviews ===== -->
+<section class="d gr" id="dB" style="background:radial-gradient(380px 140px at 30% 50%,#1A1340 0,var(--bg) 75%)">
+  <div class="bb" style="left:14px;top:8px;width:170px;background:#2A1F52;border:1px solid #3A2C70;padding:5px 9px;font-size:10px;transform:rotate(-3deg)">والله فوق التقيم بكل صراحه تعامل جيد ورد سريع<i style="font-size:8px">★★★★★<span>يوسف</span></i></div>
+  <div class="bb" style="left:176px;top:12px;width:140px;background:#16142A;border:1px solid #2A2550;padding:5px 9px;font-size:10px;transform:rotate(2deg)">تعاملهم ممتاز و اخلاق و سرعه استجابه خارقه<i style="font-size:8px">★★★★★<span>يزيد</span></i></div>
+  <div class="bb" style="left:70px;top:58px;width:120px;background:linear-gradient(135deg,#FF3D7F,#B44DFF);padding:4px 9px;font-size:10px;transform:rotate(-2deg)">خدمه سريعه ورائعه<i style="font-size:8px;color:#fff">★★★★★<span style="color:#FFE3EE">شذى</span></i></div>
+  <img class="ab" src="icon.png" style="right:22px;top:23px;width:44px;height:44px;border-radius:12px">
+  <div class="ab hd" style="right:80px;top:17px;font-size:24px">لا تاخذ كلامنا، <span style="color:var(--cy)">اسمع منهم.</span></div>
+  <div class="ab" style="right:80px;top:55px;font-size:13px;color:var(--mut)"><b style="color:#fff;font-family:Readex">4.2</b> <span style="color:var(--yl)">★★★★★</span> من 335 تقييم على سلة</div>
+</section>
+<section class="m gr" id="mB" style="background:radial-gradient(260px 200px at 30% 55%,#1A1340 0,var(--bg) 75%)">
+  <div class="bb" style="left:12px;top:16px;width:170px;background:#2A1F52;border:1px solid #3A2C70;padding:6px 9px;font-size:10px;transform:rotate(-3deg)">والله فوق التقيم بكل صراحه تعامل جيد ورد سريع<i style="font-size:8px">★★★★★<span>يوسف</span></i></div>
+  <div class="bb" style="left:26px;top:76px;width:160px;background:#16142A;border:1px solid #2A2550;padding:6px 9px;font-size:10px;transform:rotate(2deg)">تعاملهم ممتاز و اخلاق و سرعه استجابه خارقه<i style="font-size:8px">★★★★★<span>يزيد</span></i></div>
+  <div class="bb" style="left:16px;top:138px;width:130px;background:linear-gradient(135deg,#FF3D7F,#B44DFF);padding:5px 9px;font-size:10px;transform:rotate(-2deg)">خدمه سريعه ورائعه<i style="font-size:8px;color:#fff">★★★★★<span style="color:#FFE3EE">شذى</span></i></div>
+  <img class="ab" src="logo.png" style="right:16px;top:14px;height:24px">
+  <div class="ab hd" style="right:16px;top:48px;font-size:25px">لا تاخذ كلامنا،<br><span style="color:var(--cy)">اسمع منهم.</span></div>
+  <div class="ab" style="right:16px;top:118px;font-size:11px;color:var(--mut)"><b style="color:#fff;font-family:Readex;font-size:15px">4.2</b> <span style="color:var(--yl)">★★★★★</span> من 335 تقييم</div>
+  <a class="ab bt c5" style="right:16px;top:146px;height:32px;padding:0 16px;font-size:13px">جرّب بنفسك</a>
+</section>
+
+<!-- ===== C: Slider ===== -->
+<section class="d gr" id="dC" style="background:linear-gradient(160deg,#0B0A12 30%,#0F2230)">
+  <div class="ab" style="left:14px;top:9px;width:315px;height:72px;border-radius:14px;background:#16142A;border:1px solid #2A2550;padding:8px 14px;box-shadow:0 14px 40px -16px rgba(0,229,212,.4)">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:Readex;font-weight:700;font-size:24px;direction:ltr">10,000 <small style="font-family:Plex;font-size:11px;color:var(--mut)">مشاهدة</small></span><span style="font-family:Readex;font-weight:700;font-size:20px;color:var(--yl)">12.99 <small style="font-size:10px">ر.س</small></span></div>
+    <div style="position:relative;height:6px;border-radius:3px;background:#2A2550;margin-top:9px;direction:ltr"><div style="position:absolute;left:0;top:0;bottom:0;width:30%;border-radius:3px;background:linear-gradient(90deg,var(--pk),var(--cy))"></div><div style="position:absolute;left:30%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(0,229,212,.3)"></div></div>
+    <div style="display:flex;justify-content:space-between;margin-top:6px;color:var(--mut);font-size:9px;direction:ltr;font-weight:600"><span>2K</span><span>5K</span><span style="color:#fff">10K</span><span>40K</span><span>100K</span><span>500K</span><span>1M</span></div>
+  </div>
+  <img class="ab" src="icon.png" style="right:22px;top:23px;width:44px;height:44px;border-radius:12px">
+  <div class="ab hd" style="right:80px;top:15px;font-size:27px">اختر الكمية <span class="g2">اللي تبيها</span></div>
+  <div class="ab" style="right:80px;top:55px;font-size:13px;color:var(--mut)">من 2,000 لين مليون مشاهدة، والسعر واضح على كل كمية</div>
+</section>
+<section class="m gr" id="mC" style="background:linear-gradient(160deg,#0B0A12 30%,#0F2230)">
+  <div class="ab" style="left:12px;top:40px;width:176px;height:116px;border-radius:14px;background:#16142A;border:1px solid #2A2550;padding:10px 12px;box-shadow:0 14px 40px -16px rgba(0,229,212,.45)">
+    <div style="font-size:9px;color:var(--mut)">مشاهدات تيك توك</div>
+    <div style="font-family:Readex;font-weight:700;font-size:28px;direction:ltr;text-align:right;line-height:1.1;margin-top:2px">10,000</div>
+    <div style="font-family:Readex;font-weight:700;font-size:15px;color:var(--yl)">12.99 <small style="font-size:9px">ر.س</small></div>
+    <div style="position:relative;height:5px;border-radius:3px;background:#2A2550;margin-top:8px;direction:ltr"><div style="position:absolute;left:0;top:0;bottom:0;width:30%;border-radius:3px;background:linear-gradient(90deg,var(--pk),var(--cy))"></div><div style="position:absolute;left:30%;top:50%;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(0,229,212,.3)"></div></div>
+    <div style="display:flex;justify-content:space-between;margin-top:5px;color:var(--mut);font-size:7px;direction:ltr;font-weight:600"><span>2K</span><span style="color:#fff">10K</span><span>100K</span><span>1M</span></div>
+  </div>
+  <img class="ab" src="logo.png" style="right:16px;top:14px;height:24px">
+  <div class="ab hd" style="right:16px;top:48px;font-size:26px">اختر الكمية<br><span class="g2">اللي تبيها</span></div>
+  <a class="ab bt c3" style="right:16px;top:144px;height:32px;padding:0 16px;font-size:13px">حدّد كميتك</a>
+</section>
+
+<!-- ===== D: Ticket ===== -->
+<section class="d gr" id="dD" style="background:radial-gradient(360px 140px at 28% 50%,#1E1450 0,var(--bg) 75%)">
+  <div class="tk" style="left:12px;top:8px;width:228px;height:78px;padding:7px 12px;transform:rotate(-3deg)">
+    <div class="rw"><b style="font-family:Readex;font-size:13px">بكج التوفير</b><span style="font-family:Readex;font-weight:700;font-size:15px">9.99 <small style="font-size:8px">ر.س</small></span></div>
+    <div style="border-top:1.5px dashed #D9D5EE;margin-top:5px;padding-top:4px;display:grid;grid-template-columns:1fr 1fr;gap:3px 12px;font-size:10px">
+      <div class="rw"><span><i class="ck" style="width:11px;height:11px;font-size:7px">✓</i>مشاهدات</span><b style="direction:ltr">2,000</b></div>
+      <div class="rw"><span><i class="ck" style="width:11px;height:11px;font-size:7px">✓</i>لايكات</span><b>250</b></div>
+      <div class="rw"><span><i class="ck" style="width:11px;height:11px;font-size:7px">✓</i>شير</span><b>50</b></div>
+      <div class="rw"><span><i class="ck" style="width:11px;height:11px;font-size:7px">✓</i>حفظ</span><b>50</b></div>
+    </div>
+  </div>
+  <div class="ab" style="left:232px;top:50px;transform:rotate(-8deg);border:2px solid #FF3D7F;color:#FF3D7F;border-radius:8px;padding:2px 8px;font-family:Readex;font-weight:700;font-size:12px;background:rgba(11,10,18,.7)">بدأ التنفيذ ⚡</div>
+  <img class="ab" src="icon.png" style="right:22px;top:23px;width:44px;height:44px;border-radius:12px">
+  <div class="ab hd" style="right:80px;top:15px;font-size:27px">طلبك يبدأ <span class="g2">لحظة ما تدفع</span></div>
+  <div class="ab" style="right:80px;top:55px;font-size:13px;color:var(--mut)">تنفيذ آلي بعد الدفع مباشرة، وتتابع طلبك من حسابك</div>
+</section>
+<section class="m gr" id="mD" style="background:radial-gradient(260px 200px at 28% 55%,#1E1450 0,var(--bg) 75%)">
+  <div class="tk" style="left:16px;top:14px;width:160px;height:140px;padding:10px 12px;transform:rotate(-4deg)">
+    <b style="font-family:Readex;font-size:13px;display:block">بكج التوفير</b>
+    <div style="border-top:1.5px dashed #D9D5EE;margin-top:5px;padding-top:3px;font-size:9.5px;line-height:1.75">
+      <div class="rw"><span><i class="ck" style="width:10px;height:10px;font-size:6px">✓</i>مشاهدات</span><b style="direction:ltr">2,000</b></div>
+      <div class="rw"><span><i class="ck" style="width:10px;height:10px;font-size:6px">✓</i>لايكات</span><b>250</b></div>
+      <div class="rw"><span><i class="ck" style="width:10px;height:10px;font-size:6px">✓</i>شير</span><b>50</b></div>
+      <div class="rw"><span><i class="ck" style="width:10px;height:10px;font-size:6px">✓</i>حفظ</span><b>50</b></div>
+    </div>
+    <div class="rw" style="border-top:1.5px solid #0B0A12;margin-top:3px;padding-top:3px"><b style="font-size:10px">الإجمالي</b><b style="font-family:Readex;font-size:15px">9.99 <small style="font-size:8px">ر.س</small></b></div>
+  </div>
+  <div class="ab" style="left:40px;top:160px;transform:rotate(-6deg);border:2px solid #FF3D7F;color:#FF3D7F;border-radius:8px;padding:1px 8px;font-family:Readex;font-weight:700;font-size:11px;background:rgba(11,10,18,.75)">بدأ التنفيذ ⚡</div>
+  <img class="ab" src="logo.png" style="right:16px;top:14px;height:24px">
+  <div class="ab hd" style="right:16px;top:48px;font-size:26px">طلبك يبدأ<br><span class="g2">لحظة ما تدفع</span></div>
+  <a class="ab bt c1" style="right:16px;top:144px;height:32px;padding:0 16px;font-size:13px">اطلب الحين ‹</a>
+</section>
+
+<!-- ===== E: Before/After ===== -->
+<section class="d gr" id="dE" style="background:linear-gradient(180deg,#0B0A12,#120E26)">
+  <div class="vt" style="left:12px;top:10px;width:100px;height:70px;background:linear-gradient(170deg,#2B2A3A,#16142A);filter:saturate(.3)">
+    <span style="position:absolute;top:5px;right:6px;background:#2A2838;color:#C2BEDD;font-weight:700;font-size:8px;padding:1px 6px;border-radius:6px">قبل الطلب</span>
+    <div class="c"><b style="font-size:15px;color:#8F8BA8">1,240</b></div>
+  </div>
+  <svg class="ab" style="left:116px;top:25px" width="40" height="36"><use href="#bolt2"/></svg>
+  <div class="vt" style="left:160px;top:5px;width:124px;height:80px;background:linear-gradient(165deg,#5B2BFF,#2A1F52 55%,#0E4A4F);box-shadow:0 0 30px -6px rgba(0,229,212,.6)">
+    <span style="position:absolute;top:5px;right:6px;background:var(--cy);color:var(--bg);font-weight:700;font-size:8px;padding:1px 6px;border-radius:6px">بعد التنفيذ</span>
+    <div class="c"><b style="font-size:17px;color:var(--cy)">21,240</b></div>
+  </div>
+  <img class="ab" src="icon.png" style="right:22px;top:23px;width:44px;height:44px;border-radius:12px">
+  <div class="ab hd" style="right:80px;top:17px;font-size:24px"><span style="color:var(--cy);direction:ltr;unicode-bidi:isolate">+20,000</span> مشاهدة بطلب واحد</div>
+  <div class="ab" style="right:80px;top:55px;font-size:13px;color:var(--mut)">بكج اكسبلور: ومعها 1,500 لايك · 750 شير · 750 حفظ</div>
+</section>
+<section class="m gr" id="mE" style="background:linear-gradient(180deg,#0B0A12,#120E26)">
+  <div class="vt" style="left:12px;top:40px;width:72px;height:118px;background:linear-gradient(170deg,#2B2A3A,#16142A);filter:saturate(.3)">
+    <span style="position:absolute;top:5px;right:5px;background:#2A2838;color:#C2BEDD;font-weight:700;font-size:7px;padding:1px 5px;border-radius:5px">قبل</span>
+    <svg style="position:absolute;left:24px;top:40px" width="24" height="24"><use href="#play"/></svg>
+    <div class="c"><b style="font-size:12px;color:#8F8BA8">1,240</b></div>
+  </div>
+  <svg class="ab" style="left:86px;top:80px" width="30" height="27"><use href="#bolt2"/></svg>
+  <div class="vt" style="left:112px;top:22px;width:80px;height:152px;background:linear-gradient(165deg,#5B2BFF,#2A1F52 55%,#0E4A4F);box-shadow:0 0 30px -6px rgba(0,229,212,.6)">
+    <span style="position:absolute;top:5px;right:5px;background:var(--cy);color:var(--bg);font-weight:700;font-size:7px;padding:1px 5px;border-radius:5px">بعد</span>
+    <svg style="position:absolute;left:30px;top:52px" width="28" height="28"><use href="#play"/></svg>
+    <div class="c"><b style="font-size:14px;color:var(--cy)">21,240</b></div>
+  </div>
+  <img class="ab" src="logo.png" style="right:16px;top:14px;height:24px">
+  <div class="ab hd" style="right:16px;top:46px;font-size:30px;color:var(--cy);direction:ltr;text-align:right">+20,000</div>
+  <div class="ab hd" style="right:16px;top:84px;font-size:18px">مشاهدة بطلب واحد</div>
+  <a class="ab bt c2" style="right:16px;top:144px;height:32px;padding:0 16px;font-size:13px">شوف بكج اكسبلور</a>
+</section>
+
+<!-- ===== F: Paste/Pay (light) ===== -->
+<section class="d" id="dF" style="background:linear-gradient(120deg,#F1EEFF 0,#F6F5FF 50%,#E3FBF8 100%);color:var(--bg)">
+  <div class="ab" style="left:130px;top:6px;width:140px;height:110px;border-radius:14px;background:linear-gradient(170deg,#1B1838,#0B0A12);transform:rotate(-6deg);padding:8px 10px;color:#fff;text-align:right">
+    <div style="font-size:7px;color:var(--mut)">رابط المقطع</div>
+    <div style="margin-top:3px;height:17px;border-radius:5px;background:#16142A;border:1px solid var(--cy);font-size:7px;direction:ltr;text-align:left;padding:3px 5px">tiktok.com/@you/video/…</div>
+    <div style="margin-top:5px;height:17px;border-radius:5px;background:#16142A;border:1px solid #2A2550;font-size:8px;display:flex;justify-content:space-between;padding:2px 5px"><span>بكج التوفير</span><b style="color:var(--cy)">9.99</b></div>
+    <div style="margin-top:5px;height:17px;border-radius:6px;background:linear-gradient(90deg,var(--cy),var(--pk));display:grid;place-items:center;font-family:Readex;font-weight:700;font-size:8px;color:var(--bg)">ادفع الآن</div>
+  </div>
+  <div class="ab" style="left:14px;top:14px;display:flex;align-items:center;gap:6px;background:#fff;border-radius:10px;padding:5px 9px;box-shadow:0 8px 20px -10px rgba(0,0,0,.4)"><div style="width:20px;height:20px;border-radius:6px;background:#6C4BFF;display:grid;place-items:center"><svg width="11" height="11" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="#fff"/></svg></div><div><b style="font-family:Readex;font-size:10px;display:block">تنفيذ فوري</b><small style="font-size:7.5px;color:#5E5A78">يبدأ بعد الدفع</small></div></div>
+  <div class="ab" style="left:250px;top:44px;display:flex;align-items:center;gap:6px;background:#fff;border-radius:10px;padding:5px 9px;box-shadow:0 8px 20px -10px rgba(0,0,0,.4)"><div style="width:20px;height:20px;border-radius:6px;background:#12C9A0;display:grid;place-items:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div><div><b style="font-family:Readex;font-size:10px;display:block">دفع آمن عبر سلة</b><small style="font-size:7.5px;color:#5E5A78">مدى · Apple Pay · STC Pay</small></div></div>
+  <img class="ab" src="icon.png" style="right:22px;top:23px;width:44px;height:44px;border-radius:12px">
+  <div class="ab hd" style="right:80px;top:15px;font-size:27px;color:var(--bg)">الصق. ادفع. <span style="color:#6C4BFF">انطلق.</span></div>
+  <div class="ab" style="right:80px;top:55px;font-size:13px;color:#4A4766">بدون كلمة مرور، بدون انتظار. رابط المقطع يكفي</div>
+</section>
+<section class="m" id="mF" style="background:linear-gradient(120deg,#F1EEFF 0,#F6F5FF 50%,#E3FBF8 100%);color:var(--bg)">
+  <div class="ab" style="left:40px;top:22px;width:118px;height:200px;border-radius:20px;background:linear-gradient(170deg,#1B1838,#0B0A12);border:4px solid #14122A;transform:rotate(-8deg);padding:30px 10px 0;color:#fff;text-align:right">
+    <div style="font-size:7px;color:var(--mut)">رابط المقطع</div>
+    <div style="margin-top:3px;height:18px;border-radius:5px;background:#16142A;border:1px solid var(--cy);font-size:6.5px;direction:ltr;text-align:left;padding:4px 4px">tiktok.com/@you/…</div>
+    <div style="margin-top:6px;height:18px;border-radius:5px;background:#16142A;border:1px solid #2A2550;font-size:7.5px;display:flex;justify-content:space-between;padding:3px 5px"><span>بكج التوفير</span><b style="color:var(--cy)">9.99</b></div>
+    <div style="margin-top:7px;height:20px;border-radius:6px;background:linear-gradient(90deg,var(--cy),var(--pk));display:grid;place-items:center;font-family:Readex;font-weight:700;font-size:8px;color:var(--bg)">ادفع الآن</div>
+    <div style="margin-top:7px;height:16px;border-radius:8px;background:rgba(0,229,212,.14);display:grid;place-items:center;color:var(--cy);font-weight:700;font-size:7.5px">✓ بدأ التنفيذ</div>
+  </div>
+  <div class="ab" style="left:10px;top:40px;display:flex;align-items:center;gap:5px;background:#fff;border-radius:9px;padding:4px 7px;box-shadow:0 8px 20px -10px rgba(0,0,0,.4)"><div style="width:17px;height:17px;border-radius:5px;background:#6C4BFF;display:grid;place-items:center"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="#fff"/></svg></div><b style="font-family:Readex;font-size:9px">تنفيذ فوري</b></div>
+  <div class="ab" style="left:150px;top:164px;display:flex;align-items:center;gap:5px;background:#fff;border-radius:9px;padding:4px 7px;box-shadow:0 8px 20px -10px rgba(0,0,0,.4)"><div style="width:17px;height:17px;border-radius:5px;background:#12C9A0;display:grid;place-items:center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div><b style="font-family:Readex;font-size:9px">دفع آمن عبر سلة</b></div>
+  <img class="ab" src="logo-dark.png" style="right:16px;top:14px;height:24px">
+  <div class="ab hd" style="right:16px;top:50px;font-size:27px;color:var(--bg)">الصق. ادفع.<br><span style="color:#6C4BFF">انطلق.</span></div>
+  <a class="ab bt c4" style="right:16px;top:144px;height:32px;padding:0 16px;font-size:13px">ابدأ الآن</a>
+</section>
+</body></html>

@@ -1,0 +1,113 @@
+
+<style>
+.d{width:728px;height:90px;position:relative;overflow:hidden;background:var(--bg);margin:10px}
+.m{width:390px;height:195px;position:relative;overflow:hidden;background:var(--bg);margin:10px}
+.ab{position:absolute}
+.hd{font-family:Readex;font-weight:700;line-height:1.08}
+.g2{background:linear-gradient(90deg,var(--pk),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:4px}
+.bt{display:inline-flex;align-items:center;justify-content:center;font-family:Readex;font-weight:600;border-radius:999px;white-space:nowrap}
+.pl{position:absolute;display:flex;align-items:center;gap:5px;border-radius:10px;background:rgba(22,20,42,.85);border:1px solid rgba(255,255,255,.14);font-family:Readex;font-weight:700;direction:ltr;white-space:nowrap}
+.pl small{font-family:Plex;font-weight:600;color:var(--mut);direction:rtl}
+.mc{position:absolute;border-radius:12px;background:linear-gradient(160deg,rgba(255,255,255,.2),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(10px);text-align:right}
+.mc .n{font-weight:700;color:var(--mut)}
+.mc .q{font-family:Readex;font-weight:700;direction:ltr;text-align:right;line-height:1}
+.mc .pr{font-family:Readex;font-weight:700;color:#fff}
+.mc .pr span{color:var(--yl);font-family:Plex}
+</style>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <linearGradient id="bf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8FB5"/><stop offset=".45" stop-color="#FF3D7F"/><stop offset="1" stop-color="#00E5D4"/></linearGradient>
+  <filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <symbol id="bolt" viewBox="100 -10 400 670"><g class="ext"></g><path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="url(#bf)" filter="url(#gl)"/><path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="4" stroke-linejoin="round"/><path d="M338 22 168 300h34L352 34Z" fill="rgba(255,255,255,.45)"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20Z" fill="#FF3D7F"/></symbol>
+  <symbol id="eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" fill="none" stroke="#00E5D4" stroke-width="2.4"/><circle cx="12" cy="12" r="3" fill="#00E5D4"/></symbol>
+  <symbol id="share" viewBox="0 0 24 24"><path d="M14 4l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V4Z" fill="#B9A6FF"/></symbol>
+  <symbol id="save" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21V3Z" fill="#FFC94D"/></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M10 8l6 4-6 4z" fill="#fff"/></symbol>
+</defs></svg>
+
+<!-- ===== 1 bolt ===== -->
+<section class="d" id="d1" style="background:radial-gradient(420px 160px at 25% 50%,#2A1150 0,#0B0A12 70%)">
+  <div class="glow ab" style="width:260px;height:160px;left:120px;top:-30px;background:#FF3D7F;opacity:.35;filter:blur(40px)"></div>
+  <svg class="ab" style="left:118px;top:-12px;transform:rotate(10deg)" width="72" height="120"><use href="#bolt"/></svg>
+  <div class="pl" style="left:196px;top:14px;padding:4px 9px;font-size:13px"><svg width="14" height="14"><use href="#eye"/></svg>+2,000<small style="font-size:10px">مشاهدة</small></div>
+  <div class="pl" style="left:14px;top:14px;padding:4px 9px;font-size:13px"><svg width="13" height="13"><use href="#heart"/></svg>+250<small style="font-size:10px">لايك</small></div>
+  <div class="pl" style="left:200px;top:52px;padding:4px 9px;font-size:13px"><svg width="13" height="13"><use href="#share"/></svg>+50<small style="font-size:10px">شير</small></div>
+  <div class="pl" style="left:26px;top:54px;padding:4px 9px;font-size:13px"><svg width="12" height="12"><use href="#save"/></svg>+50<small style="font-size:10px">حفظ</small></div>
+  <img class="ab" src="icon.png" style="right:22px;top:23px;width:44px;height:44px;border-radius:12px">
+  <div class="ab hd" style="right:80px;top:16px;font-size:27px;text-align:right">خلّ مقطعك <span class="g2">يطلع اكسبلور</span></div>
+  <div class="ab" style="right:80px;top:54px;font-size:13px;color:var(--mut)">مشاهدات · لايكات · شير · حفظ، برابط المقطع فقط</div>
+  <a class="ab bt c1" style="left:370px;top:27px;height:36px;padding:0 18px;font-size:14px;display:none">ابدأ من 1.99</a>
+</section>
+<section class="m" id="m1" style="background:radial-gradient(300px 220px at 30% 60%,#2A1150 0,#0B0A12 70%)">
+  <div class="glow ab" style="width:220px;height:220px;left:10px;top:20px;background:#FF3D7F;opacity:.35;filter:blur(40px)"></div>
+  <svg class="ab" style="left:52px;top:14px;transform:rotate(8deg)" width="96" height="160"><use href="#bolt"/></svg>
+  <div class="pl" style="left:118px;top:26px;padding:3px 7px;font-size:11px"><svg width="11" height="11"><use href="#eye"/></svg>+2,000</div>
+  <div class="pl" style="left:10px;top:70px;padding:3px 7px;font-size:11px"><svg width="11" height="11"><use href="#heart"/></svg>+250</div>
+  <div class="pl" style="left:128px;top:128px;padding:3px 7px;font-size:11px"><svg width="10" height="10"><use href="#share"/></svg>+50</div>
+  <div class="pl" style="left:22px;top:150px;padding:3px 7px;font-size:11px"><svg width="10" height="10"><use href="#save"/></svg>+50</div>
+  <img class="ab" src="logo.png" style="right:16px;top:14px;height:24px">
+  <div class="ab hd" style="right:16px;top:48px;font-size:27px;text-align:right">خلّ مقطعك<br><span class="g2">يطلع اكسبلور</span></div>
+  <a class="ab bt c1" style="right:16px;top:142px;height:32px;padding:0 16px;font-size:13px">ابدأ من 1.99 ر.س ‹</a>
+</section>
+
+<!-- ===== 2 wall ===== -->
+<section class="d" id="d2" style="background:#07060C">
+  <div class="ab wall" style="left:-40px;top:-90px;width:560px;height:330px;transform:perspective(500px) rotateX(40deg) rotateZ(-14deg)"></div>
+  <div class="ab" style="inset:0;background:linear-gradient(90deg,rgba(7,6,12,0) 0,rgba(7,6,12,.1) 30%,rgba(7,6,12,.95) 52%,#07060C 60%)"></div>
+  <div class="ab" style="left:96px;top:6px;width:44px;height:78px;border-radius:9px;padding:1.5px;background:linear-gradient(160deg,#FF3D7F,#00E5D4);box-shadow:0 0 24px -2px rgba(255,61,127,.8);transform:rotate(-5deg)"><div style="width:100%;height:100%;border-radius:8px;background:radial-gradient(120% 80% at 70% 20%,#5B2BFF,#2A1F52 50%,#0B0A12);display:grid;place-items:center"><svg width="18" height="18"><use href="#play"/></svg></div></div>
+  <img class="ab" src="icon.png" style="right:22px;top:23px;width:44px;height:44px;border-radius:12px">
+  <div class="ab hd" style="right:80px;top:18px;font-size:24px;text-align:right">بين ملايين المقاطع، <span class="g2">خلّ مقطعك يبان</span></div>
+  <div class="ab" style="right:80px;top:54px;font-size:13px;color:var(--mut)">زوّد تفاعل مقطعك بالكمية اللي تبيها، والتنفيذ يبدأ بعد الدفع</div>
+</section>
+<section class="m" id="m2" style="background:#07060C">
+  <div class="ab wall" style="left:-60px;top:-40px;width:420px;height:330px;transform:perspective(500px) rotateX(40deg) rotateZ(-14deg)"></div>
+  <div class="ab" style="inset:0;background:linear-gradient(90deg,rgba(7,6,12,.1) 0,rgba(7,6,12,.2) 30%,rgba(7,6,12,.94) 50%,#07060C 60%)"></div>
+  <div class="ab" style="left:66px;top:22px;width:82px;height:146px;border-radius:14px;padding:2px;background:linear-gradient(160deg,#FF3D7F,#00E5D4);box-shadow:0 0 34px -4px rgba(255,61,127,.8);transform:rotate(-5deg)"><div style="width:100%;height:100%;border-radius:12px;background:radial-gradient(120% 80% at 70% 20%,#5B2BFF,#2A1F52 50%,#0B0A12);position:relative"><svg style="position:absolute;left:26px;top:52px" width="28" height="28"><use href="#play"/></svg><svg style="position:absolute;right:6px;bottom:30px" width="14" height="14"><use href="#heart"/></svg><svg style="position:absolute;right:7px;bottom:12px" width="12" height="12"><use href="#save"/></svg></div></div>
+  <img class="ab" src="logo.png" style="right:16px;top:14px;height:24px">
+  <div class="ab hd" style="right:16px;top:48px;font-size:23px;line-height:1.2;text-align:right">بين ملايين المقاطع<br><span class="g2">خلّ مقطعك يبان</span></div>
+  <a class="ab bt c2" style="right:16px;top:142px;height:32px;padding:0 16px;font-size:13px">تسوّق الخدمات</a>
+</section>
+
+<!-- ===== 3 storm ===== -->
+<section class="d" id="d3" style="background:radial-gradient(380px 160px at 30% 50%,#1C0F3A 0,#0A0910 70%)">
+  <div class="ab storm" data-cx="150" data-cy="45" data-w="300" data-h="90" data-n="40" data-k=".35" style="inset:0"></div>
+  <div class="ab" style="left:140px;top:8px;width:42px;height:80px;border-radius:9px;background:#141226;border:2.5px solid #23204A;box-shadow:0 0 30px -6px #FF3D7F;transform:rotate(-8deg);display:grid;place-items:center"><svg width="16" height="16"><use href="#play"/></svg></div>
+  <img class="ab" src="icon.png" style="right:22px;top:23px;width:44px;height:44px;border-radius:12px">
+  <div class="ab hd" style="right:80px;top:16px;font-size:27px;text-align:right">التفاعل يجيك <span class="g2">من كل جهة</span></div>
+  <div class="ab" style="right:80px;top:54px;font-size:13px;color:var(--mut)">لايكات، مشاهدات، شير وحفظ تنزل على مقطعك آلياً</div>
+</section>
+<section class="m" id="m3" style="background:radial-gradient(300px 220px at 30% 55%,#1C0F3A 0,#0A0910 70%)">
+  <div class="ab storm" data-cx="95" data-cy="98" data-w="190" data-h="195" data-n="45" data-k=".45" style="inset:0"></div>
+  <div class="ab" style="left:74px;top:30px;width:72px;height:140px;border-radius:14px;background:#141226;border:3px solid #23204A;box-shadow:0 0 40px -8px #FF3D7F;transform:rotate(-8deg);display:grid;place-items:center"><svg width="24" height="24"><use href="#play"/></svg></div>
+  <img class="ab" src="logo.png" style="right:16px;top:14px;height:24px">
+  <div class="ab hd" style="right:16px;top:50px;font-size:27px;text-align:right">التفاعل يجيك<br><span class="g2">من كل جهة</span></div>
+  <a class="ab bt c3" style="right:16px;top:142px;height:32px;padding:0 16px;font-size:13px">اطلب الحين</a>
+</section>
+
+<!-- ===== 4 glass ===== -->
+<section class="d" id="d4" style="background:#08070E">
+  <div class="ab" style="left:-60px;top:-160px;width:520px;height:420px;background:conic-gradient(from 200deg at 45% 55%,#FF3D7F,#7A2BFF,#00E5D4,#3A1F9A,#FF3D7F);filter:blur(50px);opacity:.55"></div>
+  <div class="mc" style="left:22px;top:12px;width:110px;height:66px;padding:7px 10px"><div class="n" style="font-size:10px">التوفير <span style="background:var(--pk);color:#fff;border-radius:5px;padding:0 4px;font-size:8px">الأكثر طلباً</span></div><div class="q" style="font-size:18px;margin-top:3px">2,000</div><div class="pr" style="font-size:15px;margin-top:3px">9.99 <span style="font-size:9px">ر.س</span></div></div>
+  <div class="mc" style="left:142px;top:7px;width:120px;height:76px;padding:8px 10px;background:linear-gradient(160deg,rgba(255,255,255,.3),rgba(255,255,255,.08))"><div class="n" style="font-size:10px;color:#fff">التفاعل</div><div class="q" style="font-size:21px;margin-top:4px">10,000</div><div class="pr" style="font-size:17px;margin-top:4px">29.99 <span style="font-size:9px">ر.س</span></div></div>
+  <div class="mc" style="left:272px;top:12px;width:110px;height:66px;padding:7px 10px"><div class="n" style="font-size:10px">اكسبلور</div><div class="q" style="font-size:18px;margin-top:3px">20,000</div><div class="pr" style="font-size:15px;margin-top:3px">54.99 <span style="font-size:9px">ر.س</span></div></div>
+  <img class="ab" src="icon.png" style="right:22px;top:23px;width:44px;height:44px;border-radius:12px">
+  <div class="ab hd" style="right:80px;top:16px;font-size:27px;text-align:right">باقة لكل <span class="g2">طموح</span></div>
+  <div class="ab" style="right:80px;top:54px;font-size:13px;color:var(--mut)">5 باقات جاهزة، أو خدمة مفردة بالكمية اللي تبيها</div>
+</section>
+<section class="m" id="m4" style="background:#08070E">
+  <div class="ab" style="left:-80px;top:-120px;width:420px;height:420px;background:conic-gradient(from 200deg at 45% 55%,#FF3D7F,#7A2BFF,#00E5D4,#3A1F9A,#FF3D7F);filter:blur(50px);opacity:.55"></div>
+  <div class="mc" style="left:12px;top:40px;width:84px;height:120px;padding:8px;transform:rotate(-4deg)"><div class="n" style="font-size:9px">التوفير</div><div class="q" style="font-size:17px;margin-top:6px">2,000</div><div style="font-size:8px;color:#E6E3F7;margin-top:2px">مشاهدة +250 لايك</div><div class="pr" style="font-size:17px;position:absolute;bottom:8px;right:8px">9.99</div></div>
+  <div class="mc" style="left:92px;top:22px;width:96px;height:146px;padding:9px;background:linear-gradient(160deg,rgba(255,255,255,.3),rgba(255,255,255,.08));z-index:2"><div class="n" style="font-size:9px;color:#fff">التفاعل</div><div class="q" style="font-size:20px;margin-top:6px">10,000</div><div style="font-size:8px;color:#E6E3F7;margin-top:2px">مشاهدة +750 لايك</div><div class="pr" style="font-size:20px;position:absolute;bottom:9px;right:9px">29.99</div></div>
+  <div class="mc" style="left:186px;top:40px;width:84px;height:120px;padding:8px;transform:rotate(4deg);display:none"></div>
+  <img class="ab" src="logo.png" style="right:16px;top:14px;height:24px">
+  <div class="ab hd" style="right:16px;top:50px;font-size:27px;text-align:right">باقة لكل<br><span class="g2">طموح</span></div>
+  <a class="ab bt c5" style="right:16px;top:142px;height:32px;padding:0 16px;font-size:13px">قارن الباقات</a>
+</section>
+
+<script>
+function rnd(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}}
+document.querySelectorAll('symbol#bolt .ext').forEach(g=>{let h='';for(let i=20;i>0;i--){const t=i/20;h+=`<path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" transform="translate(${(i*1.1).toFixed(1)},${(i*.9).toFixed(1)})" fill="rgb(${Math.round(40+60*(1-t))},${Math.round(10+20*(1-t))},${Math.round(50+30*(1-t))})"/>`}g.innerHTML=h});
+document.querySelectorAll('.wall').forEach((el,k)=>{const r=rnd(11+k);const pals=[['#3A1F6A','#120E26'],['#5B1640','#1A0C1E'],['#0E4A4F','#0B1418'],['#2A1F52','#0B0A12'],['#1F2F6A','#0A0E1E']];let h='';for(let row=0;row<4;row++)for(let col=0;col<9;col++){const p=pals[Math.floor(r()*pals.length)];h+=`<div style="position:absolute;left:${col*62}px;top:${row*110}px;width:56px;height:100px;border-radius:9px;background:linear-gradient(170deg,${p[0]},${p[1]});opacity:${(.35+r()*.45).toFixed(2)}"></div>`}el.innerHTML=h});
+document.querySelectorAll('.storm').forEach((el,k)=>{const r=rnd(23+k);const ic=['heart','save','share','eye'],col=['#FF3D7F','#FFC94D','#B9A6FF','#00E5D4'];const cx=+el.dataset.cx,cy=+el.dataset.cy,w=+el.dataset.w,hh=+el.dataset.h,n=+el.dataset.n,kk=+el.dataset.k;let h='';for(let i=0;i<n;i++){const a=r()*Math.PI*2,d=.25+Math.pow(r(),.7)*.75;const x=cx+Math.cos(a)*d*w*.55,y=cy+Math.sin(a)*d*hh*.7;const s=(8+r()*22)*kk*2;const j=Math.floor(r()*4);const far=r()<.3;h+=`<svg style="position:absolute;left:${x.toFixed(0)}px;top:${y.toFixed(0)}px;transform:rotate(${(r()*50-25).toFixed(0)}deg);opacity:${far?.35:(.6+r()*.4).toFixed(2)};filter:${far?'blur(1.5px)':'drop-shadow(0 0 4px '+col[j]+')'}" width="${s.toFixed(0)}" height="${s.toFixed(0)}"><use href="#${ic[j]}"/></svg>`}el.innerHTML=h});
+</script>
+</body></html>

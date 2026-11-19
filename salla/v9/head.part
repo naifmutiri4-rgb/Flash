@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:Readex;font-weight:700;src:url(fonts/readex-pro-arabic-700-normal.woff2) format("woff2")}
+@font-face{font-family:Readex;font-weight:700;src:url(fonts/readex-pro-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Readex;font-weight:600;src:url(fonts/readex-pro-arabic-600-normal.woff2) format("woff2")}
+@font-face{font-family:Readex;font-weight:600;src:url(fonts/readex-pro-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+:root{--bg:#0B0A12;--card:#16142A;--line:#2A2550;--cy:#00E5D4;--pk:#FF3D7F;--mut:#C2BEDD;--yl:#FFC94D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#222;font-family:Plex,sans-serif;color:#fff}
+.b{width:1920px;height:640px;position:relative;overflow:hidden;background:var(--bg);margin-bottom:20px}
+.logo{position:absolute;top:56px;right:140px;height:74px}
+.copy{position:absolute;right:140px;top:170px;width:900px;text-align:right}
+h1{font-family:Readex;font-weight:700;font-size:104px;line-height:1.02;letter-spacing:-1px}
+.g{background:linear-gradient(90deg,var(--pk),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:10px;display:inline-block}
+.cy{color:var(--cy)}.pk{color:var(--pk)}
+.sub{font-size:30px;color:var(--mut);margin-top:22px;line-height:1.5}
+.cta{display:inline-flex;align-items:center;gap:16px;font-family:Readex;font-weight:600;font-size:30px;height:78px;padding:0 46px;border-radius:40px;margin-top:34px}
+.cta i{font-style:normal;font-size:26px}
+.c1{background:linear-gradient(90deg,var(--cy),#7FF3EA);color:var(--bg)}
+.c2{background:linear-gradient(90deg,var(--pk),#B44DFF);color:#fff}
+.c3{background:var(--yl);color:var(--bg)}
+.c4{background:var(--bg);color:#fff}
+.c5{background:#fff;color:var(--bg)}
+.chips{display:flex;gap:14px;justify-content:flex-start;margin-top:30px}
+.chip{display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 24px;border-radius:30px;background:#14122A;border:1px solid var(--line);font-weight:600;font-size:24px}
+.dot{width:12px;height:12px;border-radius:50%}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+.ring{position:absolute;border:1.5px solid rgba(0,229,212,.18);border-radius:50%}
+.phone{position:absolute;width:360px;height:720px;border-radius:56px;background:#0F0D1F;border:10px solid #1E1B38;box-shadow:0 40px 120px -20px rgba(0,0,0,.8)}
+.badge{position:absolute;display:flex;align-items:center;gap:16px;background:#fff;color:var(--bg);border-radius:26px;padding:18px 26px;box-shadow:0 24px 60px -20px rgba(0,0,0,.45)}
+.badge .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center}
+.badge b{font-family:Readex;font-weight:700;font-size:26px;display:block}
+.badge small{font-size:19px;color:#5E5A78}
+svg{display:block}
+</style>
+</head>
+<body>

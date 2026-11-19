@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:Readex;font-weight:700;src:url(fonts/readex-pro-arabic-700-normal.woff2) format("woff2")}
+@font-face{font-family:Readex;font-weight:700;src:url(fonts/readex-pro-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Readex;font-weight:600;src:url(fonts/readex-pro-arabic-600-normal.woff2) format("woff2")}
+@font-face{font-family:Readex;font-weight:600;src:url(fonts/readex-pro-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Plex;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2")}
+@font-face{font-family:Plex;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+:root{--bg:#0B0A12;--card:#16142A;--line:#2A2550;--cy:#00E5D4;--pk:#FF3D7F;--mut:#C2BEDD;--yl:#FFC94D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#222;font-family:Plex,sans-serif;color:#fff}
+.b{width:1920px;height:640px;position:relative;overflow:hidden;background:var(--bg);margin-bottom:20px}
+.logo{position:absolute;top:56px;right:140px;height:74px}
+.copy{position:absolute;right:140px;top:170px;width:900px;text-align:right}
+h1{font-family:Readex;font-weight:700;font-size:104px;line-height:1.02;letter-spacing:-1px}
+.g{background:linear-gradient(90deg,var(--pk),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:10px;display:inline-block}
+.cy{color:var(--cy)}.pk{color:var(--pk)}
+.sub{font-size:30px;color:var(--mut);margin-top:22px;line-height:1.5}
+.cta{display:inline-flex;align-items:center;gap:16px;font-family:Readex;font-weight:600;font-size:30px;height:78px;padding:0 46px;border-radius:40px;margin-top:34px}
+.cta i{font-style:normal;font-size:26px}
+.c1{background:linear-gradient(90deg,var(--cy),#7FF3EA);color:var(--bg)}
+.c2{background:linear-gradient(90deg,var(--pk),#B44DFF);color:#fff}
+.c3{background:var(--yl);color:var(--bg)}
+.c4{background:var(--bg);color:#fff}
+.c5{background:#fff;color:var(--bg)}
+.chips{display:flex;gap:14px;justify-content:flex-start;margin-top:30px}
+.chip{display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 24px;border-radius:30px;background:#14122A;border:1px solid var(--line);font-weight:600;font-size:24px}
+.dot{width:12px;height:12px;border-radius:50%}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+.ring{position:absolute;border:1.5px solid rgba(0,229,212,.18);border-radius:50%}
+.phone{position:absolute;width:360px;height:720px;border-radius:56px;background:#0F0D1F;border:10px solid #1E1B38;box-shadow:0 40px 120px -20px rgba(0,0,0,.8)}
+.badge{position:absolute;display:flex;align-items:center;gap:16px;background:#fff;color:var(--bg);border-radius:26px;padding:18px 26px;box-shadow:0 24px 60px -20px rgba(0,0,0,.45)}
+.badge .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center}
+.badge b{font-family:Readex;font-weight:700;font-size:26px;display:block}
+.badge small{font-size:19px;color:#5E5A78}
+svg{display:block}
+</style>
+</head>
+<body>
+<style>
+.b .g{padding-bottom:26px;margin-bottom:-16px}
+.noise::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:3px 3px;pointer-events:none;mix-blend-mode:overlay}
+.vig::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 100% at 30% 50%,transparent 55%,rgba(0,0,0,.65));pointer-events:none;z-index:1}
+.z{position:absolute;z-index:2}
+.p{position:absolute;pointer-events:none}
+.scr{position:absolute;inset:14px;border-radius:44px;overflow:hidden}
+.rail{position:absolute;right:16px;bottom:120px;display:flex;flex-direction:column;gap:26px;align-items:center;z-index:3}
+.rail div{text-align:center;font-weight:700;font-size:17px}
+.cap{position:absolute;right:20px;left:90px;bottom:34px;z-index:3;font-size:17px;line-height:1.5;color:#fff;text-align:right}
+.pop{position:absolute;z-index:4;display:flex;align-items:center;gap:12px;padding:14px 22px;border-radius:22px;background:rgba(22,20,42,.78);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px);box-shadow:0 20px 50px -15px rgba(0,0,0,.8);font-family:Readex;font-weight:700;font-size:30px;direction:ltr}
+.pop small{font-family:Plex;font-weight:600;font-size:18px;color:var(--mut);direction:rtl}
+.wcard{position:absolute;width:150px;height:266px;border-radius:20px;overflow:hidden}
+.gc{position:absolute;width:310px;height:420px;border-radius:34px;padding:30px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px);box-shadow:0 40px 90px -30px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.35)}
+.gc .n{font-family:Readex;font-weight:700;font-size:20px;color:var(--mut)}
+.gc .q{font-family:Readex;font-weight:700;font-size:58px;direction:ltr;text-align:right;margin-top:14px;line-height:1}
+.gc ul{list-style:none;margin-top:16px;font-size:20px;color:#E6E3F7;line-height:1.75}
+.gc .pr{position:absolute;left:30px;right:30px;bottom:26px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.18);padding-top:16px}
+.gc .pr b{font-family:Readex;font-weight:700;font-size:46px}
+.gc .pr span{color:var(--yl);font-weight:700;font-size:22px}
+</style>
+
+<!-- ================= 1: LIGHTNING STRIKE ================= -->
+<section class="b noise vig" id="w1" style="background:radial-gradient(1200px 700px at 32% 40%,#22104A 0,#0B0A12 62%)">
+  <div class="glow" style="width:760px;height:760px;left:60px;top:-80px;background:radial-gradient(circle,#FF3D7F,transparent 60%);opacity:.55;filter:blur(60px)"></div>
+  <div class="glow" style="width:600px;height:600px;left:300px;top:200px;background:radial-gradient(circle,#00E5D4,transparent 60%);opacity:.4;filter:blur(70px)"></div>
+  <svg class="p" style="left:0;top:0" width="1100" height="640" viewBox="0 0 1100 640">
+    <defs>
+      <linearGradient id="bf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8FB5"/><stop offset=".45" stop-color="#FF3D7F"/><stop offset="1" stop-color="#00E5D4"/></linearGradient>
+      <linearGradient id="bs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7A1640"/><stop offset="1" stop-color="#05504B"/></linearGradient>
+      <filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <radialGradient id="hit"><stop offset="0" stop-color="#fff"/><stop offset=".3" stop-color="#9FFFF7"/><stop offset="1" stop-color="#00E5D4" stop-opacity="0"/></radialGradient>
+    </defs>
+    <g transform="translate(150,-30) rotate(8)">
+      <g id="bolt3d">
+        <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="url(#bs)" transform="translate(26,22)"/>
+        <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="url(#bs)" transform="translate(18,15)"/>
+        <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="url(#bs)" transform="translate(9,8)"/>
+        <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="url(#bf)" filter="url(#gl)"/>
+        <path d="M330 0 120 330h150L190 640 470 250H310L410 0Z" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="3"/>
+        <path d="M335 20 160 305h40L345 30Z" fill="rgba(255,255,255,.35)"/>
+      </g>
+    </g>
+    <circle cx="430" cy="600" r="150" fill="url(#hit)" opacity=".7"/>
+  </svg>
+  <div id="sparks1" class="p" style="inset:0"></div>
+  <div class="pop z" style="left:600px;top:120px"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" fill="none" stroke="#00E5D4" stroke-width="2.2"/><circle cx="12" cy="12" r="3" fill="#00E5D4"/></svg>+2,000<small>مشاهدة</small></div>
+  <div class="pop z" style="left:70px;top:250px"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20Z" fill="#FF3D7F"/></svg>+250<small>لايك</small></div>
+  <div class="pop z" style="left:640px;top:430px"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M14 4l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V4Z" fill="#B9A6FF"/></svg>+50<small>شير</small></div>
+  <div class="pop z" style="left:120px;top:480px"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21V3Z" fill="#FFC94D"/></svg>+50<small>حفظ</small></div>
+  <img class="logo z" src="logo.png">
+  <div class="copy z" style="top:160px;width:840px">
+    <h1 style="font-size:118px;line-height:1.02;letter-spacing:-2px">خلّ مقطعك<br><span class="g">يطلع اكسبلور</span></h1>
+    <p class="sub" style="margin-top:14px;font-size:29px">مشاهدات · لايكات · شير · حفظ، برابط المقطع فقط</p>
+    <a class="cta c1" style="margin-top:28px;box-shadow:0 0 0 6px rgba(0,229,212,.15),0 20px 50px -15px #00E5D4">ابدأ من 1.99 ر.س <i>‹</i></a>
+  </div>
+</section>
+
+<!-- ================= 2: FOR-YOU WALL ================= -->
+<section class="b noise" id="w2" style="background:#07060C">
+  <div id="wall" class="p" style="left:-120px;top:-60px;width:1300px;height:900px;transform:perspective(1100px) rotateX(38deg) rotateZ(-14deg);transform-origin:50% 60%"></div>
+  <div class="p" style="inset:0;background:linear-gradient(90deg,rgba(7,6,12,0) 0,rgba(7,6,12,.0) 40%,rgba(7,6,12,.92) 58%,#07060C 70%),linear-gradient(180deg,#07060C 0,rgba(7,6,12,0) 25%,rgba(7,6,12,0) 75%,#07060C 100%)"></div>
+  <div class="z" style="left:360px;top:70px;width:290px;height:516px;border-radius:30px;padding:3px;background:linear-gradient(160deg,#FF3D7F,#00E5D4);box-shadow:0 0 80px -10px rgba(255,61,127,.7),0 0 140px -20px rgba(0,229,212,.6);transform:rotate(-4deg)">
+    <div style="position:absolute;inset:3px;border-radius:27px;overflow:hidden;background:radial-gradient(120% 80% at 70% 20%,#5B2BFF,#2A1F52 45%,#0B0A12)">
+      <div style="position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 26px)"></div>
+      <div style="position:absolute;left:50%;top:44%;transform:translate(-50%,-50%)"><svg width="90" height="90" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M10 8l6 4-6 4z" fill="#fff"/></svg></div>
+      <div class="rail" style="right:12px;bottom:110px;gap:22px">
+        <div><svg width="40" height="40" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20Z" fill="#FF3D7F"/></svg>1.2K</div>
+        <div><svg width="36" height="36" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21V3Z" fill="#FFC94D"/></svg>540</div>
+        <div><svg width="36" height="36" viewBox="0 0 24 24"><path d="M14 4l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V4Z" fill="#fff"/></svg>310</div>
+      </div>
+      <div class="cap" style="left:20px;bottom:26px"><b>@مقطعك</b><br><span style="color:#D7D3EE">هذا المقطع اللي يستاهل يوصل 🔥</span></div>
+    </div>
+    <span style="position:absolute;top:-18px;right:-16px;background:var(--cy);color:var(--bg);font-family:Readex;font-weight:700;font-size:20px;padding:8px 16px;border-radius:14px;transform:rotate(6deg)">مقطعك ⚡</span>
+  </div>
+  <img class="logo z" src="logo.png">
+  <div class="copy z" style="top:170px;width:900px">
+    <h1 style="font-size:92px">بين ملايين المقاطع<br><span class="g">خلّ مقطعك يبان</span></h1>
+    <p class="sub" style="margin-top:12px">زوّد تفاعل مقطعك بالكمية اللي تبيها، والتنفيذ يبدأ بعد الدفع</p>
+    <a class="cta c2" style="margin-top:28px;box-shadow:0 20px 50px -15px #FF3D7F">تسوّق الخدمات</a>
+  </div>
+</section>
+
+<!-- ================= 3: ENGAGEMENT STORM ================= -->
+<section class="b noise vig" id="w3" style="background:radial-gradient(1000px 640px at 30% 55%,#1C0F3A 0,#0A0910 65%)">
+  <div id="storm" class="p" style="inset:0"></div>
+  <div class="z" style="left:320px;top:110px;width:300px;height:600px;border-radius:52px;background:#141226;border:10px solid #23204A;box-shadow:0 60px 140px -20px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.06),0 0 120px -30px #FF3D7F;transform:rotate(-8deg)">
+    <div class="scr" style="background:linear-gradient(170deg,#2A1F52,#0E0C1C)">
+      <div style="position:absolute;top:16px;left:50%;width:90px;height:26px;margin-left:-45px;border-radius:14px;background:#000"></div>
+      <div style="position:absolute;left:50%;top:40%;transform:translate(-50%,-50%)"><svg width="80" height="80" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.14)"/><path d="M10 8l6 4-6 4z" fill="#fff"/></svg></div>
+      <div class="rail"><div><svg width="38" height="38" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20Z" fill="#FF3D7F"/></svg></div></div>
+    </div>
+  </div>
+  <img class="logo z" src="logo.png">
+  <div class="copy z" style="top:170px;width:820px">
+    <h1 style="font-size:110px">التفاعل يجيك<br><span class="g">من كل جهة</span></h1>
+    <p class="sub" style="margin-top:12px">لايكات، مشاهدات، شير وحفظ تنزل على مقطعك آلياً</p>
+    <a class="cta c3" style="margin-top:28px;box-shadow:0 20px 50px -15px #FFC94D">اطلب الحين</a>
+  </div>
+</section>
+
+<!-- ================= 4: GLASS PACKAGES ================= -->
+<section class="b noise" id="w4" style="background:#08070E">
+  <div class="p" style="left:-100px;top:-200px;width:1200px;height:1000px;background:conic-gradient(from 200deg at 45% 55%,#FF3D7F,#5B2BFF,#00E5D4,#FFC94D,#FF3D7F);filter:blur(120px);opacity:.55"></div>
+  <div class="p" style="left:0;top:0;width:1100px;height:640px;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(circle at 45% 55%,#000,transparent 70%);-webkit-mask-image:radial-gradient(circle at 45% 55%,#000,transparent 70%)"></div>
+  <div class="gc z" style="left:70px;top:150px;transform:perspective(1200px) rotateY(18deg) rotate(-3deg)">
+    <span style="position:absolute;top:-18px;right:24px;background:var(--pk);font-weight:700;font-size:18px;padding:6px 14px;border-radius:12px">الأكثر طلباً</span>
+    <div class="n">بكج التوفير</div><div class="q">2,000</div>
+    <ul><li>مشاهدة</li><li>250 لايك · 50 شير</li><li>50 حفظ</li></ul>
+    <div class="pr"><b>9.99</b><span>ر.س</span></div>
+  </div>
+  <div class="gc z" style="left:400px;top:80px;width:340px;height:480px;background:linear-gradient(160deg,rgba(255,255,255,.26),rgba(255,255,255,.06));box-shadow:0 50px 120px -30px rgba(255,61,127,.6),inset 0 1px 0 rgba(255,255,255,.5)">
+    <div class="n" style="color:#fff">بكج التفاعل</div><div class="q" style="font-size:66px">10,000</div>
+    <ul><li>مشاهدة</li><li>750 لايك · 250 شير</li><li>250 حفظ</li></ul>
+    <div class="pr"><b style="font-size:54px">29.99</b><span>ر.س</span></div>
+  </div>
+  <div class="gc z" style="left:770px;top:150px;transform:perspective(1200px) rotateY(-18deg) rotate(3deg)">
+    <div class="n">بكج اكسبلور</div><div class="q">20,000</div>
+    <ul><li>مشاهدة</li><li>1,500 لايك · 750 شير</li><li>750 حفظ</li></ul>
+    <div class="pr"><b>54.99</b><span>ر.س</span></div>
+  </div>
+  <img class="logo z" src="logo.png">
+  <div class="copy z" style="top:180px;width:700px">
+    <h1 style="font-size:100px">باقة لكل<br><span class="g">طموح</span></h1>
+    <p class="sub" style="margin-top:12px">5 باقات جاهزة، أو خدمة مفردة بالكمية اللي تبيها</p>
+    <a class="cta c5" style="margin-top:28px">قارن الباقات</a>
+  </div>
+</section>
+
+<script>
+function rnd(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}}
+(function(){
+  const r=rnd(7),el=document.getElementById('sparks1');let h='';
+  for(let i=0;i<70;i++){const x=200+r()*700,y=r()*640,s=2+r()*5,c=r()<.5?'#FF3D7F':(r()<.5?'#00E5D4':'#fff');h+=`<i style="position:absolute;left:${x}px;top:${y}px;width:${s}px;height:${s}px;border-radius:50%;background:${c};box-shadow:0 0 ${s*3}px ${c};opacity:${.3+r()*.7}"></i>`}
+  el.innerHTML=h;
+})();
+(function(){
+  const r=rnd(11),el=document.getElementById('wall');let h='';
+  const pals=[['#3A1F6A','#120E26'],['#5B1640','#1A0C1E'],['#0E4A4F','#0B1418'],['#2A1F52','#0B0A12'],['#4A3A12','#14100A'],['#1F2F6A','#0A0E1E']];
+  for(let row=0;row<4;row++)for(let col=0;col<9;col++){const p=pals[Math.floor(r()*pals.length)];const x=col*160,y=row*290;h+=`<div class="wcard" style="left:${x}px;top:${y}px;background:linear-gradient(170deg,${p[0]},${p[1]});opacity:${.35+r()*.45}"><svg style="position:absolute;left:55px;top:110px" width="40" height="40" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.12)"/><path d="M10 8l6 4-6 4z" fill="rgba(255,255,255,.6)"/></svg><div style="position:absolute;right:10px;bottom:16px;display:grid;gap:8px"><i style="display:block;width:16px;height:16px;border-radius:50%;background:rgba(255,61,127,.7)"></i><i style="display:block;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.3)"></i><i style="display:block;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.3)"></i></div></div>`}
+  el.innerHTML=h;
+})();
+(function(){
+  const r=rnd(23),el=document.getElementById('storm');let h='';
+  const icons=[
+    ['<path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20Z" fill="#FF3D7F"/>','#FF3D7F'],
+    ['<path d="M6 3h12v18l-6-4.5L6 21V3Z" fill="#FFC94D"/>','#FFC94D'],
+    ['<path d="M14 4l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11V4Z" fill="#00E5D4"/>','#00E5D4'],
+    ['<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" fill="#B9A6FF"/><circle cx="12" cy="12" r="3" fill="#1C0F3A"/>','#B9A6FF']];
+  const cx=470,cy=360;
+  for(let i=0;i<120;i++){const a=r()*Math.PI*2,d=120+Math.pow(r(),.7)*560;const x=cx+Math.cos(a)*d*1.25,y=cy+Math.sin(a)*d*.75;if(x<-40||x>1020||y<-40||y>680)continue;const s=18+r()*58*(d/680+.25);const ic=icons[Math.floor(r()*icons.length)];const bl=r()<.35?`filter:blur(${(2+r()*4).toFixed(1)}px);`:'';h+=`<svg style="position:absolute;left:${x}px;top:${y}px;transform:rotate(${(r()*60-30).toFixed(0)}deg);${bl}opacity:${(.45+r()*.55).toFixed(2)};filter:${bl?'blur(3px)':'drop-shadow(0 0 10px '+ic[1]+')'}" width="${s}" height="${s}" viewBox="0 0 24 24">${ic[0]}</svg>`}
+  el.innerHTML=h;
+})();
+</script>
+</body></html>

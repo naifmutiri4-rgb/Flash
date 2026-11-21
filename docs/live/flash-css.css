@@ -361,3 +361,9 @@ html body#app.product-single article.full-description li strong,html body#app.pr
 html body#app.product-single article.full-description a{color:#00E5D4!important;-webkit-text-fill-color:#00E5D4}
 .lv-how li{background:#16142A;color:#FFFFFF;border:1px solid #241F45}
 .product-single .main-content>.mb-3{display:none!important}
+
+/* ===== صفحة الولاء ===== */
+.s-loyalty-program-hero-title,.s-loyalty-program-hero-description{display:none!important}
+.s-loyalty-program-points-action,.s-loyalty-program-points-action-incomplete,.s-loyalty-program-rewards-action-base,.s-loyalty-program-rewards-action{background:#FF3D7F!important;border-color:#FF3D7F!important;color:#fff!important}
+.s-loyalty-program-point-description,.s-loyalty-program-rewards-name{color:#1f2937!important}
+.s-loyalty-program-subtitle,.s-loyalty-program-points-description,.s-loyalty-program-description{color:#4b5563!important}

@@ -3,3 +3,6 @@
 .s-loyalty-program-points-action,.s-loyalty-program-points-action-incomplete,.s-loyalty-program-rewards-action-base,.s-loyalty-program-rewards-action{background:#FF3D7F!important;border-color:#FF3D7F!important;color:#fff!important}
 .s-loyalty-program-point-description,.s-loyalty-program-rewards-name{color:#1f2937!important}
 .s-loyalty-program-subtitle,.s-loyalty-program-points-description,.s-loyalty-program-description{color:#4b5563!important}
+.s-loyalty-program-hero-overlay{display:none!important}
+.s-loyalty-program-hero-background{position:relative!important}
+.s-loyalty-program-login-action{position:absolute!important;bottom:12px!important;left:50%!important;transform:translateX(-50%)!important;padding:8px 22px!important;font-size:14px!important;min-height:0!important;width:auto!important;margin:0!important}

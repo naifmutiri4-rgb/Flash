@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0B0A12">
+<title>فلاش المالية · بينتو</title>
+<link rel="stylesheet" href="../core.css">
+<style>
+body{background:radial-gradient(90% 50% at 100% 0%,rgba(0,229,212,.10),transparent 60%),radial-gradient(80% 50% at 0% 100%,rgba(255,61,127,.12),transparent 60%),var(--bg);min-height:100vh}
+.tile{background:rgba(22,20,42,.72);border:1px solid var(--line);border-radius:24px;padding:16px;position:relative;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transform-style:preserve-3d;will-change:transform}
+.tile::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(300px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.08),transparent 45%)}
+.lock{background:var(--bg)}
+.lock .grid9{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:10px;opacity:.35}
+.lock .grid9 div{border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.lock .grid9 div:nth-child(3n){background:linear-gradient(135deg,rgba(255,61,127,.35),rgba(22,20,42,.6))}
+.lock .grid9 div:nth-child(5n){background:linear-gradient(135deg,rgba(0,229,212,.3),rgba(22,20,42,.6))}
+.lock .panel{position:relative;padding:26px 20px;display:flex;flex-direction:column;align-items:center;gap:18px;background:rgba(11,10,18,.6);border:1px solid rgba(255,255,255,.14);border-radius:28px;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.lock h1{font-size:19px}
+.lock img{width:62px;border-radius:16px}
+main{max-width:1080px;margin:0 auto;padding:54px 14px 40px;opacity:0}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+header h1{font-size:22px}
+header h1 span{color:var(--pk)}
+header img{height:30px}
+.bento{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.w2{grid-column:span 2}
+.lbl{font-size:12px;color:var(--mut)}
+.big{font-size:40px;font-weight:700;line-height:1.15;margin-top:6px}
+.mid{font-size:24px;font-weight:700;margin-top:6px}
+.pill{display:inline-block;font-size:11px;padding:3px 9px;border-radius:20px;background:rgba(0,229,212,.12);color:var(--cy);margin-top:8px}
+.netT{background:linear-gradient(135deg,#FF3D7F,#8A1E52 60%,#16142A);border-color:rgba(255,122,166,.5)}
+.netT .lbl{color:rgba(255,255,255,.8)}
+.cols{display:flex;align-items:flex-end;gap:4px;height:86px;margin-top:12px}
+.cols i{flex:1;border-radius:4px 4px 2px 2px;background:linear-gradient(180deg,var(--cy),rgba(0,229,212,.15));height:0}
+.cols i.wk{background:linear-gradient(180deg,var(--pk),rgba(255,61,127,.15))}
+.donuts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.dn{text-align:center}
+.dn svg{width:100%;max-width:92px}
+.dn .t{font-size:11px;color:var(--mut);margin-top:2px;line-height:1.4}
+.best{display:flex;gap:14px;align-items:center}
+.best .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:26px;background:linear-gradient(135deg,var(--cy),var(--pk));color:#0B0A12;font-weight:700;flex:none}
+.meter{height:12px;border-radius:12px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:12px}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cy),var(--pk));border-radius:12px}
+.split{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-top:8px}
+.list{margin-top:10px;display:grid;gap:8px}
+.li{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;font-size:13px}
+.li i{width:8px;height:28px;border-radius:6px}
+.li .sb{font-size:11px;color:var(--mut)}
+.li b{font-size:15px}
+@media(min-width:860px){.bento{grid-template-columns:repeat(4,1fr)}.w2{grid-column:span 2}.tall{grid-row:span 2}.big{font-size:52px}}
+</style></head><body>
+<a class="back" href="../">‹ التصاميم</a><span class="demo-tag">بيانات تجريبية</span>
+<div class="lock" id="lock">
+ <div class="grid9"></div>
+ <div class="panel"><img src="../../logo-icon.png" alt=""><h1>أهلًا، ادخل رمزك</h1><div id="padSlot"></div></div>
+</div>
+<main id="app">
+ <header><h1>لوحة <span>فلاش</span></h1><img src="../../logo.png" alt="فلاش ستور"></header>
+ <div class="bento">
+  <section class="tile netT w2"><div class="lbl">صافي يناير</div><div class="big n" id="net">0</div><span class="pill" style="background:rgba(0,0,0,.25);color:#fff">بعد كل المصاريف</span></section>
+  <section class="tile"><div class="lbl">المبيعات</div><div class="mid n" id="sales">0</div><div class="pill" id="roas"></div></section>
+  <section class="tile"><div class="lbl">الطلبات</div><div class="mid n" id="orders">0</div><div class="pill" id="avg"></div></section>
+  <section class="tile w2 tall"><div class="lbl">هامش الربح لكل بكج</div><div class="donuts" id="donuts"></div></section>
+  <section class="tile w2"><div class="lbl">الطلبات يوم بيوم <span style="color:var(--pk)">· الوردي = خميس وجمعة</span></div><div class="cols" id="cols"></div></section>
+  <section class="tile w2"><div class="best"><div class="ic">١</div><div><div class="lbl">الأعلى صافي هذا الشهر</div><div class="mid" id="bestN"></div><div class="lbl" id="bestS"></div></div></div></section>
+  <section class="tile w2"><div class="lbl">ميزانية الإعلان</div><div class="meter"><i id="meter"></i></div><div class="split"><span id="spent"></span><span id="left"></span></div></section>
+  <section class="tile w2"><div class="lbl">وين راحت الفلوس</div><div class="list" id="flow"></div></section>
+ </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../core.js"></script>
+<script>
+const {P,days,per,T,BUDGET,FIXED,fmt,countUp,lock,padHTML,reduce}=FIN;
+document.querySelector(".grid9").innerHTML=Array.from({length:24},()=>"<div></div>").join("");
+document.getElementById("padSlot").outerHTML=padHTML;
+const C=2*Math.PI*36;
+document.getElementById("donuts").innerHTML=per.map(p=>`<div class="dn"><svg viewBox="0 0 92 92"><circle cx="46" cy="46" r="36" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="9"/><circle class="arc" data-m="${p.margin}" cx="46" cy="46" r="36" fill="none" stroke="${p.color}" stroke-width="9" stroke-linecap="round" transform="rotate(-90 46 46)" stroke-dasharray="${C}" stroke-dashoffset="${C}"/><text x="46" y="52" text-anchor="middle" fill="#fff" font-size="18" font-weight="700" class="pt">0%</text></svg><div class="t"></div></div>`).join("");
+document.querySelectorAll(".dn .t").forEach((t,i)=>t.textContent=per[i].name.replace("بكج ",""));
+const mx=Math.max(...days.map(d=>d.orders));
+document.getElementById("cols").innerHTML=days.map(d=>{const w=d.date.getDay();return `<i class="${(w===4||w===5)?'wk':''}" data-h="${d.orders/mx*100}"></i>`}).join("");
+const b=per[0];document.getElementById("bestN").textContent=b.name;
+document.getElementById("bestS").textContent=`صافي ${fmt(b.net)} ريال · ${fmt(b.qty)} طلب`;
+document.getElementById("spent").textContent=`صرفت ${fmt(T.ad)}`;document.getElementById("left").textContent=`باقي ${fmt(T.budgetLeft)} من ${fmt(BUDGET)}`;
+const flow=[["المورد",T.cost,"#3EA8FF"],["رسوم سلة",T.fees,"#7C5CFF"],["الإعلان",T.ad,"#FFC94D"],["مصاريف ثابتة",FIXED,"#C2BEDD"],["صافي لك",T.net,"#00E5D4"]];
+document.getElementById("flow").innerHTML=flow.map(f=>`<div class="li"><i style="background:${f[2]}"></i><div>${f[0]}<div class="sb">${Math.round(f[1]/T.sales*100)}% من المبيعات</div></div><b class="n">${fmt(f[1])}</b></div>`).join("");
+document.getElementById("roas").textContent=`العائد ${fmt(T.roas,1)}x`;document.getElementById("avg").textContent=`متوسط السلة ${fmt(T.sales/T.orders,1)}`;
+// spotlight + tilt
+document.querySelectorAll(".tile").forEach(t=>{t.addEventListener("pointermove",e=>{const r=t.getBoundingClientRect();t.style.setProperty("--mx",(e.clientX-r.left)+"px");t.style.setProperty("--my",(e.clientY-r.top)+"px");
+ if(!reduce&&window.gsap&&e.pointerType==="mouse")gsap.to(t,{rotateY:((e.clientX-r.left)/r.width-.5)*6,rotateX:-((e.clientY-r.top)/r.height-.5)*6,transformPerspective:800,duration:.4})});
+ t.addEventListener("pointerleave",()=>window.gsap&&gsap.to(t,{rotateX:0,rotateY:0,duration:.5}))});
+function open(){
+ const app=document.getElementById("app"),meter=document.getElementById("meter");
+ countUp(document.getElementById("net"),T.net);countUp(document.getElementById("sales"),T.sales);countUp(document.getElementById("orders"),T.orders);
+ const arcs=document.querySelectorAll(".arc"),cols=document.querySelectorAll(".cols i");
+ if(reduce||!window.gsap){app.style.opacity=1;arcs.forEach(a=>{a.setAttribute("stroke-dashoffset",C*(1-a.dataset.m));a.nextElementSibling.textContent=Math.round(a.dataset.m*100)+"%"});cols.forEach(c=>c.style.height=c.dataset.h+"%");meter.style.width=(T.budgetUsed*100)+"%";return}
+ gsap.to(app,{opacity:1,duration:.3});
+ gsap.from(".tile",{y:40,opacity:0,scale:.94,duration:.8,stagger:{each:.07,from:"start"},ease:"back.out(1.4)"});
+ arcs.forEach((a,i)=>{const o={v:0};gsap.to(o,{v:+a.dataset.m,duration:1.4,delay:.6+i*.1,ease:"power3.out",onUpdate:()=>{a.setAttribute("stroke-dashoffset",C*(1-o.v));a.nextElementSibling.textContent=Math.round(o.v*100)+"%"}})});
+ gsap.to(cols,{height:i=>cols[i].dataset.h+"%",duration:.9,stagger:.025,delay:.7,ease:"power2.out"});
+ gsap.to("#meter",{width:(T.budgetUsed*100)+"%",duration:1.4,delay:.9,ease:"power3.out"});
+ gsap.from(".li",{x:30,opacity:0,stagger:.08,delay:1,duration:.5});
+}
+if(window.gsap&&!reduce){gsap.from(".lock .grid9 div",{scale:.6,opacity:0,stagger:{each:.03,from:"center",grid:"auto"},duration:.6,ease:"back.out(2)"});gsap.from(".lock .panel",{y:30,opacity:0,duration:.7,delay:.3})}
+lock(document.getElementById("lock"),open);
+</script>
+</body></html>

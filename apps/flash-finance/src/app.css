@@ -732,3 +732,4 @@ html[data-theme="light"] .ptabs button.on{box-shadow:0 1px 3px rgba(22,20,42,.12
 .spin{border-top-color:var(--acc)}
 .dooric__glow{background:linear-gradient(180deg,#fff,var(--sec) 55%,rgba(var(--sec-rgb),.2))}
 </style>
+<style>.warn-t{color:#FFB86B}html[data-theme="light"] .warn-t{color:#A15C00}</style>

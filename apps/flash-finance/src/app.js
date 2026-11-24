@@ -1,4 +1,6 @@
 <script>
+document.documentElement.classList.add("bento");
+
 const SEC=()=>document.documentElement.getAttribute("data-theme")==="light"?"#5B4BC4":"#9D8CFF";
 
 (function(){
@@ -226,24 +228,24 @@ function pageHome(){
   const lastOrders=R.orders.slice(0,6);logAlerts(alerts);
   const repBanner=Number(t.slice(8))<=5?(()=>{const pm=addMonths(monthStart(t),-1);const P2=calc(pm,monthEnd(pm)).T;return`<div class="card" style="border-color:rgba(var(--sec-rgb),.35)"><div class="row" style="justify-content:space-between;gap:12px;flex-wrap:wrap"><div><h3 style="margin:0">تقرير ${esc(mLabel(pm))} جاهز</h3><div class="muted small">مبيعات <b class="n">${fmt(P2.rev,0)}</b> · إعلان <b class="n">${fmt(P2.adsAll,0)}</b> · صافي <b class="n ${P2.net<0?"neg":"pos"}">${fmt(P2.net,0)}</b> ر.س</div></div><div class="row" style="gap:8px"><button class="btn sm cy" data-act="rep-pdf">${ic("doc")}تنزيل PDF</button><button class="btn sm ghost" data-act="rep-xlsx">${ic("xls")}إكسل</button></div></div></div>`})():"";
   return`${repBanner}${hasData()?"":onboarding()}
-  <div class="grid g21">
-   <div class="card hero"><div class="row" style="justify-content:space-between"><span class="live ${liveOn()?"":"off"}"><i></i>${liveOn()?"مباشر":"غير متصل"}</span>${srcTag(1,1)}</div>
-    <div class="grid g3" style="margin-top:14px;gap:12px">
-     <div class="kpi big" style="grid-column:1/-1"><div class="l">صافي اليوم · ${esc(dLabel(t))}</div><div class="v ${TD.net<0?"neg":""}"><span class="n" data-count="${TD.net}" data-dec="2">${fmt(TD.net,2)}</span><small>ر.س</small></div></div>
-     <div class="kpi"><div class="l">مبيعات اليوم</div><div class="v" style="font-size:22px">${money(TD.rev,2)}</div></div>
-     <div class="kpi"><div class="l">طلبات اليوم</div><div class="v" style="font-size:22px">${money(TD.orders)}</div></div>
-     <div class="kpi"><div class="l">إعلان اليوم</div><div class="v" style="font-size:22px">${money(TD.adsAll,2)}</div></div>
-    </div></div>
-   <div class="card"><h3>هدف الشهر <small>${esc(mLabel(t))}</small></h3>
-    <div class="ring-wrap">${ring(ms.rev/g.monthlySales,fmt(ms.rev/g.monthlySales*100,1)+"%","من "+fmt(g.monthlySales))}
-    <div class="list small" style="flex:1;min-width:0"><div>المبيعات: <b>${money(ms.rev)}</b> ر.س</div><div>التوقع بنهاية الشهر بنفس الوتيرة: <b>${money(proj)}</b> <span class="tag fc">توقع</span></div><div>المطلوب يوميًا للهدف: <b>${money(Math.max(0,(g.monthlySales-ms.rev)/Math.max(1,mDays-dayN+1)))}</b></div></div></div></div>
-  </div>
-  <div class="grid g4">
-   ${(()=>{const D14=Array.from({length:14},(_,i)=>calc(addDays(t,i-13),addDays(t,i-13)).T);S._d14=D14;return""})()}${kpi("الإيرادات",R.T.rev,{d:delta(R.T.rev,P.T.rev)+" عن الفترة السابقة",dot:SEC(),sp:S._d14.map(x=>x.rev)})}
-   ${kpi("صافي الأرباح",R.T.net,{d:delta(R.T.net,P.T.net)+" عن الفترة السابقة",dot:"#FF3D7F",cls:R.T.net<0?"neg":"",sp:S._d14.map(x=>x.net)})}
-   ${kpi("الطلبات",R.T.orders,{unit:"",d:delta(R.T.orders,P.T.orders),sp:S._d14.map(x=>x.orders)})}
-   ${kpi("العائد على الإعلان",R.T.roas,{unit:"x",dec:2,d:"مبيعات سلة ÷ الإعلان · "+delta(R.T.roas,P.T.roas),sp:S._d14.map(x=>x.adsAll?x.rev/x.adsAll:0)})}
-  </div>
+   ${(()=>{const D14=Array.from({length:14},(_,i)=>calc(addDays(t,i-13),addDays(t,i-13)).T);S._d14=D14;return""})()}
+   <div class="bnt bnt-home">
+    ${kpi("صافي الأرباح",R.T.net,{d:delta(R.T.net,P.T.net)+" عن الفترة السابقة · "+esc(r.label),cls:"b-big t-dark"+(R.T.net<0?" neg":""),sp:S._d14.map(x=>x.net)})}
+    ${kpi("الإيرادات",R.T.rev,{d:delta(R.T.rev,P.T.rev),cls:"t-peach",sp:S._d14.map(x=>x.rev)})}
+    ${kpi("الطلبات",R.T.orders,{unit:"",d:delta(R.T.orders,P.T.orders),cls:"t-sky",sp:S._d14.map(x=>x.orders)})}
+    ${kpi("العائد على الإعلان",R.T.roas,{unit:"x",dec:2,d:"مبيعات سلة ÷ الإعلان",cls:"t-yellow"+(isFinite(R.T.roas)&&R.T.roas<1?" warn":""),sp:S._d14.map(x=>x.adsAll?x.rev/x.adsAll:0)})}
+    <div class="card kpi t-lilac b-goal"><div class="l">هدف الشهر · ${esc(mLabel(t))}</div><div class="v"><span class="n">${fmt(Math.min(999,ms.rev/g.monthlySales*100),1)}</span><small>%</small></div>
+     <div class="goal-meter"><i style="width:${Math.max(1.5,Math.min(100,ms.rev/g.monthlySales*100))}%"></i></div>
+     <div class="d">${money(ms.rev)} من ${fmt(g.monthlySales)} · المتوقع ${money(proj)}</div></div>
+    <div class="card b-today"><div class="bt-h"><span class="live ${liveOn()?"":"off"}"><i></i>${liveOn()?"مباشر":"غير متصل"}</span><b>اليوم · ${esc(dLabel(t))}</b>${srcTag(1,1)}</div>
+     <div class="bt-g">
+      <div><small>صافي اليوم</small><b class="n ${TD.net<0?"neg":""}">${fmt(TD.net,2)}</b></div>
+      <div><small>مبيعات اليوم</small><b class="n">${money(TD.rev,2)}</b></div>
+      <div><small>طلبات اليوم</small><b class="n">${money(TD.orders)}</b></div>
+      <div><small>إعلان اليوم</small><b class="n">${money(TD.adsAll,2)}</b></div>
+      <div><small>المطلوب يوميًا للهدف</small><b class="n">${money(Math.max(0,(g.monthlySales-ms.rev)/Math.max(1,mDays-dayN+1)))}</b></div>
+     </div></div>
+   </div>
   <div class="grid g21">
    <div class="card"><h3>الإيرادات والصافي يوم بيوم <small>${esc(r.label)}</small></h3>
     ${R.T.rev||R.T.adsAll?lineChart({labels:R.days.map(d=>dLabel(d)),series:[{name:"الإيرادات",vals:R.days.map(d=>R.D[d].rev),color:SEC(),area:true},{name:"الصافي",vals:R.days.map(d=>R.D[d].net),color:"#FF3D7F"}]}):emptyState("ما فيه حركة في هذي الفترة","بعد المزامنة تظهر المبيعات والصافي هنا.")}
@@ -748,8 +750,7 @@ function pageAds(){
   else if(last14.roas>=g.roasUp&&last14.margin>=g.margin){sug=b.daily*(1+g.stepUp);why=`العائد ${fmt(last14.roas,2)}x والهامش ${fmt(last14.margin*100,0)}% فوق الحد، فالقاعدة تقترح رفع ${fmt(g.stepUp*100,0)}%.`}
   else if(last14.roas>=g.roasHold){why=`العائد ${fmt(last14.roas,2)}x: القاعدة تقترح التثبيت حتى يوصل ${fmt(g.roasUp,1)}x مع هامش ${fmt(g.margin*100,0)}%.`}
   else{why=`العائد ${fmt(last14.roas,2)}x أقل من ${fmt(g.roasHold,1)}x: القاعدة تقترح عدم الرفع.`}
-  return`<div class="grid g4">${kpi("صرف الإعلانات",T.adsAll,{dec:2,dot:"#FF3D7F",d:srcTag(0,1)+(T.adsManual?` · أخرى ${fmt(T.adsManual,2)}`:"")})}${kpi("العائد على الإعلان ROAS",T.roas,{unit:"x",dec:2,dot:SEC(),d:"كل مبيعات سلة ÷ صرف الإعلان"})}${kpi("تكلفة الطلب CPA",T.cpa,{dec:2,d:"صرف الإعلان ÷ طلبات سلة"})}${kpi("ROAS طلبات تيك توك",ttRoas,{unit:"x",dec:2,d:`مبيعات سلة الجاية من تيك توك (${fmt(ttN)} طلب) ÷ الصرف`})}</div>
-  <div class="grid g4">${kpi("الظهور",T.imp,{unit:""})}${kpi("الضغطات",T.clk,{unit:""})}${kpi("نسبة الضغط CTR",T.ctr*100,{unit:"%",dec:2})}${kpi("تكلفة 1,000 ظهور CPM",T.cpm,{dec:2})}</div>
+  return`<div class="bnt bnt-sec">${kpi("صرف الإعلانات",T.adsAll,{dec:2,dot:"#FF3D7F",d:srcTag(0,1)+(T.adsManual?` · أخرى ${fmt(T.adsManual,2)}`:"")})}${kpi("العائد على الإعلان ROAS",T.roas,{unit:"x",dec:2,dot:SEC(),d:"كل مبيعات سلة ÷ صرف الإعلان"})}${kpi("تكلفة الطلب CPA",T.cpa,{dec:2,d:"صرف الإعلان ÷ طلبات سلة"})}${kpi("ROAS طلبات تيك توك",ttRoas,{unit:"x",dec:2,d:`مبيعات سلة الجاية من تيك توك (${fmt(ttN)} طلب) ÷ الصرف`})}${kpi("الظهور",T.imp,{unit:""})}${kpi("الضغطات",T.clk,{unit:""})}${kpi("نسبة الضغط CTR",T.ctr*100,{unit:"%",dec:2})}${kpi("تكلفة 1,000 ظهور CPM",T.cpm,{dec:2})}</div>
   <div class="grid g21">
    <div class="card"><h3>الصرف مقابل المبيعات يوم بيوم <small>${esc(r.label)}</small></h3>${T.adsAll||T.rev?lineChart({labels:R.days.map(d=>dLabel(d)),series:[{name:"مبيعات سلة",vals:R.days.map(d=>R.D[d].rev),color:SEC(),area:true},{name:"الإعلان",vals:R.days.map(d=>R.D[d].ads),color:"#FF3D7F"}]}):emptyState("ما فيه صرف إعلاني في الفترة","")}<div class="legend"><span><i style="background:${SEC()}"></i>مبيعات سلة</span><span><i style="background:#FF3D7F"></i>الإنفاق الإعلاني</span></div></div>
    <div class="card"><h3>خطة الميزانية <small>${esc(b.start)} → ${esc(b.end)}</small></h3><div class="ring-wrap">${ring(used/b.total,fmt(used/b.total*100,0)+"%","مصروف من "+fmt(b.total))}<div class="list small"><div>المتبقي: <b class="n">${fmt(b.total-used,2)}</b></div><div>بمعدل صرف آخر 7 أيام تكفي: <b class="n">${(()=>{const w=calc(addDays(t,-6),t).T.adsAll/7;return w>0?fmt(Math.max(0,(b.total-used)/w),0)+" يوم":"—"})()}</b></div><div>اليومي: <b class="n">${fmt(b.daily,2)}</b></div><div>الخطة تحتاج <b class="n">${fmt(b.daily*plannedDays)}</b> لـ ${plannedDays} يوم ${b.daily*plannedDays>b.total?'<span class="tag pk">أعلى من الميزانية</span>':'<span class="tag cy">ضمن الميزانية</span>'}</div></div></div>
@@ -1031,10 +1032,10 @@ function renderNav(){
 /* ---- theme (dark = store look, light for sunlight) ---- */
 const SUN='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',MOON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg>';
 function applyTheme(t){S._lastSig=null;setTimeout(()=>{try{applyUi()}catch(e){}},0);document.documentElement.setAttribute("data-theme",t);const b=document.getElementById("themeBtn");if(b){b.innerHTML=t==="light"?MOON:SUN;b.setAttribute("aria-label",t==="light"?"الوضع الداكن":"الوضع الفاتح")}}
-function themePref(){try{return localStorage.getItem("ff-theme")||"dark"}catch(e){return"dark"}}
+function themePref(){try{return localStorage.getItem("ff-theme-b")||"dark"}catch(e){return"dark"}}
 const mqLight=window.matchMedia?matchMedia("(prefers-color-scheme: light)"):null;
 function resolveTheme(p){return p==="auto"?(mqLight&&mqLight.matches?"light":"dark"):p}
-function setThemePref(p){try{localStorage.setItem("ff-theme",p)}catch(x){}applyTheme(resolveTheme(p));render()}
+function setThemePref(p){try{localStorage.setItem("ff-theme-b",p)}catch(x){}applyTheme(resolveTheme(p));render()}
 (function(){applyTheme(resolveTheme(themePref()));if(mqLight&&mqLight.addEventListener)mqLight.addEventListener("change",()=>{if(themePref()==="auto"){applyTheme(resolveTheme("auto"));render()}});
   document.addEventListener("click",(e)=>{if(e.target.closest&&e.target.closest("#themeBtn")){setThemePref(document.documentElement.getAttribute("data-theme")==="light"?"dark":"light");return}
     const t=e.target.closest&&e.target.closest("[data-theme-set]");if(t)setThemePref(t.dataset.themeSet)})})();
@@ -1166,7 +1167,7 @@ function alertLogModal(){const days=Object.keys(S.alertLog).sort().reverse().sli
 let rq=0;function render(){cancelAnimationFrame(rq);rq=requestAnimationFrame(doRender)}
 function doRender(){CALC_MEMO=new Map();COST_MEMO=new Map();
   const ready=S.loaded.has("config")&&S.loaded.has("products");
-  renderNav();const route=ROUTES.find(r=>r[0]===S.route)||ROUTES[0];$("#ptitle").textContent=route[1];
+  renderNav();const route=ROUTES.find(r=>r[0]===S.route)||ROUTES[0];$("#ptitle").textContent=route[1];document.body.dataset.route=route[0];
   $("#periodSeg").querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.p===S.period));
   $("#customBox").hidden=S.period!=="custom";
   const v=$("#view");const focusId=document.activeElement&&document.activeElement.id;const selS=document.activeElement&&document.activeElement.selectionStart;

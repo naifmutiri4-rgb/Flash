@@ -804,3 +804,150 @@ label.chk input{flex:none;width:20px;height:20px;margin-top:2px;accent-color:var
 .kpi svg.spark circle{fill:var(--sec)!important;stroke:none!important}
 .kpi.neg svg.spark .sl{stroke:var(--pk-l)!important}.kpi.neg svg.spark .sa{fill:rgba(255,61,127,.10)!important}.kpi.neg svg.spark circle{fill:var(--pk-l)!important}
 </style>
+<style>
+/* ================= BENTO skin =================
+   light = warm cream with pastel tiles; dark = espresso with muted pastels.
+   Each section has its own pastel (body[data-route]). */
+html.bento[data-theme="light"]{--bg:#FFF5E6;--surface:#FFFFFF;--surface-2:#FFF9F1;--light:#2B1B12;--mut:#5E4A3E;--mut-2:#8A715F;
+ --line:#F0E2CF;--line-2:#E6D3BA;--glass:rgba(255,255,255,.92);--glass-2:rgba(255,255,255,.8);--glass-line:rgba(43,27,18,.08);
+ --pk:#D81B60;--pk-d:#B8154F;--pk-l:#D6336C;--bad:#C62850;--warn:#B8154F;--good:#0F7B5F;--sec:#6A55D1;--sec-rgb:106,85,209;--cy:var(--sec);
+ --ink-rgb:255,250,243;--hi-rgb:43,27,18;--glass-rgb:255,255,255;
+ --t-dark:#2B1B12;--t-dark-ink:#FFF5E6;--t-peach:#FAD4C0;--t-sky:#D9E7F2;--t-yellow:#FFE08A;--t-lilac:#E6DDF7;--t-mint:#D4F0E0;--t-rose:#FFD6E2;--t-sand:#EFE6DA;--t-ink:#2B1B12;--t-mut:rgba(43,27,18,.62)}
+html.bento[data-theme="dark"]{--bg:#17110D;--surface:#221914;--surface-2:#2A1F18;--light:#FFF1E2;--mut:#D8C3AE;--mut-2:#A48C77;
+ --line:#3A2C22;--line-2:#4A392C;--glass:rgba(34,25,20,.92);--glass-2:rgba(34,25,20,.8);--glass-line:rgba(255,241,226,.08);
+ --sec:#B9A8FF;--sec-rgb:185,168,255;--cy:var(--sec);--ink-rgb:23,17,13;--hi-rgb:255,241,226;--glass-rgb:34,25,20;
+ --t-dark:#0D0907;--t-dark-ink:#FFF1E2;--t-peach:#4A3026;--t-sky:#25333F;--t-yellow:#4A3D16;--t-lilac:#342C48;--t-mint:#1F3A30;--t-rose:#482733;--t-sand:#33291F;--t-ink:#FFF1E2;--t-mut:rgba(255,241,226,.66)}
+html.bento body{background:var(--bg)}
+html.bento .bgfx{display:none}
+html.bento .card{border-radius:24px}
+html.bento[data-theme="light"] .card,html.bento[data-theme="light"] .side,html.bento[data-theme="light"] .topbar{box-shadow:0 1px 2px rgba(43,27,18,.05),0 10px 28px -18px rgba(43,27,18,.22);border-color:var(--line)}
+
+/* grid */
+.bnt{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:14px;margin-bottom:18px}
+.bnt>.kpi{border:0!important;border-radius:28px!important;padding:20px!important;background:var(--t-sand);color:var(--t-ink);box-shadow:none!important;min-height:150px;display:flex;flex-direction:column}
+.bnt>.kpi .l{color:var(--t-mut);font-weight:700;font-size:14px}
+.bnt>.kpi .v{color:var(--t-ink);font-size:34px}
+.bnt>.kpi .v small,.bnt>.kpi .d{color:var(--t-mut)}
+.bnt>.kpi .d{margin-top:auto;padding-top:8px}
+.bnt>.kpi .dot{display:none}
+.bnt>.kpi .kic{background:rgba(255,255,255,.45)!important;box-shadow:none!important}
+html.bento[data-theme="dark"] .bnt>.kpi .kic{background:rgba(255,255,255,.08)!important}
+.bnt>.kpi .kic svg{stroke:var(--t-ink)!important}
+.bnt>.kpi svg.spark .sl{stroke:var(--t-ink)!important;opacity:.75}
+.bnt>.kpi svg.spark .sa{fill:rgba(var(--hi-rgb),.06)!important}
+.bnt>.kpi svg.spark circle{fill:var(--t-ink)!important}
+.bnt>.kpi.neg .v,.bnt>.kpi.warn .v{color:var(--pk)}
+.t-peach{background:var(--t-peach)!important}.t-sky{background:var(--t-sky)!important}.t-yellow{background:var(--t-yellow)!important}.t-lilac{background:var(--t-lilac)!important}
+/* the big dark tile */
+.bnt>.kpi.b-big{grid-column:span 2;grid-row:span 2;background:var(--t-dark)!important;color:var(--t-dark-ink);min-height:316px}
+.bnt>.kpi.b-big .l,.bnt>.kpi.b-big .d,.bnt>.kpi.b-big .v small{color:rgba(255,241,226,.7)}
+.bnt>.kpi.b-big .v{font-size:58px;color:var(--t-dark-ink)}
+.bnt>.kpi.b-big.neg .v{color:#FF8FB1}
+.bnt>.kpi.b-big .kic{background:rgba(255,255,255,.1)!important}.bnt>.kpi.b-big .kic svg{stroke:#FFF1E2!important}
+.bnt>.kpi.b-big svg.spark{height:96px!important;margin:14px -20px -20px!important;width:calc(100% + 40px)!important}
+.bnt>.kpi.b-big svg.spark .sl{stroke:#FF8FB1!important;opacity:1;stroke-width:2.2}
+.bnt>.kpi.b-big svg.spark .sa{fill:rgba(255,143,177,.16)!important}
+.bnt>.kpi.b-big svg.spark circle{fill:#FF8FB1!important}
+.bnt>.kpi.b-big:not(.neg) svg.spark .sl{stroke:#8FE3C6!important}.bnt>.kpi.b-big:not(.neg) svg.spark .sa{fill:rgba(143,227,198,.14)!important}.bnt>.kpi.b-big:not(.neg) svg.spark circle{fill:#8FE3C6!important}
+/* goal tile */
+.b-goal .goal-meter{height:10px;border-radius:10px;background:rgba(var(--hi-rgb),.12);margin-top:10px;overflow:hidden;position:relative}
+.b-goal .goal-meter i{background:var(--t-ink)!important;border-radius:10px}
+/* today strip */
+.b-today{grid-column:1/-1;border-radius:28px!important;padding:18px 20px!important}
+.b-today .bt-h{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}.b-today .bt-h b{font-size:16px}
+.b-today .bt-h .src,.b-today .bt-h>span:last-child{margin-inline-start:auto}
+.b-today .bt-g{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.b-today .bt-g>div{background:var(--surface-2);border-radius:18px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.b-today .bt-g small{color:var(--mut-2);font-size:12px}.b-today .bt-g b{font-size:20px;font-weight:800}
+/* section colour on page bentos */
+body[data-route="ads"] .bnt-sec>.kpi{background:var(--t-rose)}
+body[data-route="revenue"] .bnt-sec>.kpi,body[data-route="orders"] .bnt-sec>.kpi{background:var(--t-peach)}
+body[data-route="products"] .bnt-sec>.kpi{background:var(--t-yellow)}
+body[data-route="suppliers"] .bnt-sec>.kpi{background:var(--t-sky)}
+body[data-route="pnl"] .bnt-sec>.kpi,body[data-route="reports"] .bnt-sec>.kpi{background:var(--t-lilac)}
+body[data-route="goals"] .bnt-sec>.kpi{background:var(--t-mint)}
+body[data-route="expenses"] .bnt-sec>.kpi{background:var(--t-sand)}
+.bnt-sec>.kpi:nth-child(2){grid-column:span 2;grid-row:span 2;background:var(--t-dark)!important;color:var(--t-dark-ink)}
+.bnt-sec>.kpi:nth-child(2) .l,.bnt-sec>.kpi:nth-child(2) .d,.bnt-sec>.kpi:nth-child(2) .v small{color:rgba(255,241,226,.7)}
+.bnt-sec>.kpi:nth-child(2) .v{font-size:58px;color:var(--t-dark-ink)}
+.bnt-sec>.kpi:nth-child(2) .kic{background:rgba(255,255,255,.1)!important}.bnt-sec>.kpi:nth-child(2) .kic svg{stroke:#FFF1E2!important}
+.bnt-sec>.kpi:last-child{grid-column:span 2}
+/* nav: each section gets its colour dot */
+html.bento .nav a{position:relative}
+html.bento .nav a::before{content:"";width:8px;height:8px;border-radius:50%;flex:none;order:3;background:var(--sd,transparent);margin-inline-start:auto}
+html.bento .nav a[href="#revenue"],html.bento .nav a[href="#orders"]{--sd:#F2A27F}
+html.bento .nav a[href="#products"]{--sd:#F2C744}
+html.bento .nav a[href="#suppliers"]{--sd:#7FB2D9}
+html.bento .nav a[href="#ads"]{--sd:#F58BAA}
+html.bento .nav a[href="#expenses"]{--sd:#C9B49B}
+html.bento .nav a[href="#pnl"],html.bento .nav a[href="#reports"]{--sd:#A792E6}
+html.bento .nav a[href="#goals"]{--sd:#7ACFA5}
+/* tabs as pills */
+html.bento .ptabs{border-radius:999px;padding:5px;gap:4px}
+html.bento .ptabs button{border-radius:999px}
+html.bento .ptabs button.on{background:var(--t-dark)!important;color:var(--t-dark-ink)!important;box-shadow:none!important}
+/* phone */
+@media (max-width:700px){
+ .bnt{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .bnt>.kpi{min-height:128px;padding:16px!important;border-radius:22px!important}
+ .bnt>.kpi .v{font-size:26px}
+ .bnt>.kpi.b-big,.bnt-sec>.kpi:nth-child(2){grid-column:1/-1;grid-row:auto;min-height:200px}
+ .bnt>.kpi.b-big .v,.bnt-sec>.kpi:nth-child(2) .v{font-size:44px}
+ .bnt-sec>.kpi:last-child{grid-column:auto}
+ .b-today .bt-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .b-today .bt-g>div:first-child{grid-column:1/-1}
+}
+@media (min-width:701px) and (max-width:1100px){.b-today .bt-g{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+<style>.bnt>.kpi{overflow:hidden;position:relative}
+.b-goal .goal-meter i{position:absolute;top:0;bottom:0;inset-inline-start:0;inset-inline-end:auto;height:100%}</style>
+<style>
+/* ===== Bento in the store's own colours (theme «ملاك» settings) =====
+   bg #0B0A12 · cards #16142A · borders #241F45 · text #FFFFFF / #C2BEDD · primary #FF3D7F · promo #D41E5A · footer #07060D · logo teal */
+html.bento[data-theme="dark"]{--bg:#0B0A12;--surface:#16142A;--surface-2:#1C1936;--light:#FFFFFF;--mut:#C2BEDD;--mut-2:#8E89B3;
+ --line:#241F45;--line-2:#2A2550;--glass:rgba(22,20,42,.92);--glass-2:rgba(22,20,42,.8);--glass-line:rgba(255,255,255,.08);
+ --pk:#FF3D7F;--pk-d:#D41E5A;--pk-l:#FF7AA6;--good:#00E5D4;--sec:#9D8CFF;--sec-rgb:157,140,255;--cy:var(--sec);
+ --ink-rgb:11,10,18;--hi-rgb:238,235,255;--glass-rgb:22,20,42;
+ --t-dark:#07060D;--t-dark-ink:#FFFFFF;--t-ink:#FFFFFF;--t-mut:#C2BEDD;--tile:#16142A}
+html.bento[data-theme="light"]{--bg:#F4F3FA;--surface:#FFFFFF;--surface-2:#F7F6FD;--light:#16142A;--mut:#47436A;--mut-2:#5F5B80;
+ --line:#E2DFF0;--line-2:#CFCAE6;--glass:rgba(255,255,255,.9);--glass-2:rgba(255,255,255,.8);--glass-line:rgba(22,20,42,.08);
+ --pk:#D81B60;--pk-d:#B8154F;--pk-l:#E04A80;--good:#00857B;--sec:#5B4BC4;--sec-rgb:91,75,196;--cy:var(--sec);
+ --ink-rgb:255,255,255;--hi-rgb:22,20,42;--glass-rgb:255,255,255;
+ --t-dark:#0B0A12;--t-dark-ink:#FFFFFF;--t-ink:#16142A;--t-mut:#5F5B80;--tile:#FFFFFF}
+/* tile tints: the store's pink, the logo's teal, violet and blue */
+.t-peach{--tc:0,229,212}.t-sky{--tc:62,168,255}.t-yellow{--tc:124,107,255}.t-lilac{--tc:255,61,127}
+body[data-route="ads"]{--sc:255,61,127}body[data-route="revenue"],body[data-route="orders"]{--sc:0,229,212}
+body[data-route="products"],body[data-route="pnl"],body[data-route="reports"]{--sc:124,107,255}
+body[data-route="suppliers"]{--sc:62,168,255}body[data-route="goals"]{--sc:0,229,212}body[data-route="expenses"]{--sc:194,190,221}
+.bnt>.kpi.t-peach,.bnt>.kpi.t-sky,.bnt>.kpi.t-yellow,.bnt>.kpi.t-lilac{background:linear-gradient(160deg,rgba(var(--tc),.22),rgba(var(--tc),.04) 70%),var(--tile)!important;box-shadow:inset 0 0 0 1px rgba(var(--tc),.30)!important}
+.bnt-sec>.kpi:not(:nth-child(2)){background:linear-gradient(160deg,rgba(var(--sc,157,140,255),.20),rgba(var(--sc,157,140,255),.04) 70%),var(--tile)!important;box-shadow:inset 0 0 0 1px rgba(var(--sc,157,140,255),.28)!important}
+.bnt>.kpi .kic{background:rgba(var(--tc,var(--sc,157,140,255)),.16)!important}
+.bnt>.kpi .kic svg{stroke:rgb(var(--tc,var(--sc,157,140,255)))!important}
+.bnt>.kpi:not(.b-big) svg.spark .sl{stroke:rgb(var(--tc,var(--sc,157,140,255)))!important;opacity:1}
+.bnt>.kpi:not(.b-big) svg.spark .sa{fill:rgba(var(--tc,var(--sc,157,140,255)),.14)!important}
+.bnt>.kpi:not(.b-big) svg.spark circle{fill:rgb(var(--tc,var(--sc,157,140,255)))!important}
+.b-goal .goal-meter{background:rgba(var(--hi-rgb),.10)}.b-goal .goal-meter i{background:linear-gradient(90deg,#00E5D4,#FF3D7F)!important}
+/* the big tile: footer black with the logo's teal→pink edge */
+.bnt>.kpi.b-big,.bnt-sec>.kpi:nth-child(2){background:radial-gradient(120% 90% at 100% 0%,rgba(255,61,127,.20),transparent 60%),radial-gradient(90% 80% at 0% 100%,rgba(0,229,212,.14),transparent 60%),var(--t-dark)!important;
+ box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 20px 50px -30px rgba(255,61,127,.55)!important}
+.bnt>.kpi.b-big::after,.bnt-sec>.kpi:nth-child(2)::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+ background:linear-gradient(135deg,#00E5D4,#7C6BFF 50%,#FF3D7F);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.7}
+.bnt>.kpi.b-big .l,.bnt>.kpi.b-big .d,.bnt>.kpi.b-big .v small,.bnt-sec>.kpi:nth-child(2) .l,.bnt-sec>.kpi:nth-child(2) .d,.bnt-sec>.kpi:nth-child(2) .v small{color:#C2BEDD!important}
+.bnt>.kpi.b-big .v,.bnt-sec>.kpi:nth-child(2) .v{color:#FFFFFF}
+.bnt>.kpi.b-big.neg .v{color:#FF3D7F}
+.bnt>.kpi.b-big:not(.neg) svg.spark .sl{stroke:#00E5D4!important}.bnt>.kpi.b-big:not(.neg) svg.spark .sa{fill:rgba(0,229,212,.14)!important}.bnt>.kpi.b-big:not(.neg) svg.spark circle{fill:#00E5D4!important}
+.bnt>.kpi.b-big.neg svg.spark .sl{stroke:#FF3D7F!important}.bnt>.kpi.b-big.neg svg.spark .sa{fill:rgba(255,61,127,.16)!important}.bnt>.kpi.b-big.neg svg.spark circle{fill:#FF3D7F!important}
+.bnt>.kpi.neg:not(.b-big) .v,.bnt>.kpi.warn .v{color:var(--pk)}
+/* store background: the same faint grid the banners use */
+html.bento[data-theme="dark"] body{background-color:#0B0A12;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px}
+html.bento[data-theme="dark"] .bgfx{display:block;opacity:.55}
+/* tabs & nav in store pink */
+html.bento .ptabs button.on{background:var(--pk-d)!important;color:#fff!important}
+html.bento .nav a[href="#revenue"],html.bento .nav a[href="#orders"],html.bento .nav a[href="#goals"]{--sd:#00E5D4}
+html.bento .nav a[href="#products"],html.bento .nav a[href="#pnl"],html.bento .nav a[href="#reports"]{--sd:#7C6BFF}
+html.bento .nav a[href="#suppliers"]{--sd:#3EA8FF}
+html.bento .nav a[href="#ads"]{--sd:#FF3D7F}
+html.bento .nav a[href="#expenses"]{--sd:#C2BEDD}
+.b-today{background:var(--surface)!important}
+.b-today .bt-g>div{background:rgba(var(--hi-rgb),.04);box-shadow:inset 0 0 0 1px var(--line)}
+</style>

@@ -374,9 +374,9 @@ function money(v) {
 function orderText(p) {
   const ev = p.event || p.type || "";
   const d = p.data || p.order || p;
-  const id = d.reference_id || d.id || d.order_id || "";
-  const total = money(d.amounts?.total ?? d.total ?? d.amount ?? d.price);
-  const items = (d.items || d.products || []).slice(0, 6).map((i) => `• ${tgEsc(i.name || i.product?.name || "منتج")} × ${tgEsc(i.quantity ?? 1)}`).join("\n");
+  const id = d.order?.reference_id || d.order_reference_id || d.reference_id || d.order_id || d.id || "";
+  const total = money(d.amounts?.total ?? d.total ?? d.total_amount ?? d.order?.amounts?.total ?? d.amount ?? d.price);
+  const items = (d.items || d.products || d.order?.items || []).slice(0, 6).map((i) => `• ${tgEsc(i.name || i.product?.name || "منتج")} × ${tgEsc(i.quantity ?? 1)}`).join("\n");
   const city = d.customer?.city || d.shipping?.address?.city || d.customer_city || "";
   const pay = d.payment_method || d.payment?.method || "";
   const status = d.status?.name || d.status?.customized?.name || (typeof d.status === "string" ? d.status : "");
@@ -386,7 +386,7 @@ function orderText(p) {
   if (city) lines.push(`📍 ${tgEsc(city)}`);
   if (pay) lines.push(`💳 ${tgEsc(pay)}`);
   if (status) lines.push(`الحالة: ${tgEsc(status)}`);
-  if (ev && ev !== "order.created") lines.push(`<i>${tgEsc(ev)}</i>`);
+  if (ev && !/order\.created|invoice|receipt|ايصال|إيصال/i.test(ev)) lines.push(`<i>${tgEsc(ev)}</i>`);
   return { id: String(id || ""), text: lines.join("\n") };
 }
 async function handleHook(request, env, url) {
@@ -413,7 +413,7 @@ async function handleHook(request, env, url) {
   }
   let p; try { p = JSON.parse(raw); } catch { return new Response("Bad JSON", { status: 400 }); }
   const ev = p.event || p.type || "";
-  if (ev && !/order\.created|order_created|new_order/i.test(ev)) return new Response("ignored", { status: 200 });
+  if (ev && !/order\.created|order_created|new_order|invoice|receipt|ايصال|إيصال|فاتورة/i.test(ev)) return new Response("ignored", { status: 200 });
   const { id, text } = orderText(p);
   if (id && env.FLASH_KV) { const k = `tg:${id}`; if (await env.FLASH_KV.get(k)) return new Response("dup", { status: 200 }); await env.FLASH_KV.put(k, "1", { expirationTtl: 172800 }); }
   await tgSend(env, text);

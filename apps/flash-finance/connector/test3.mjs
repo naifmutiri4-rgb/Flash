@@ -14,3 +14,5 @@ const bad=await w.fetch(new Request('https://x.workers.dev/hook/wrong',{method:'
 const sig=await w.fetch(new Request(base,{method:'POST',body:JSON.stringify(order)}),{...env,SALLA_WEBHOOK_SECRET:'s'});
 console.log(r.status,await r.text(),'|dup',await r2.text(),'|upd',await r3.text(),'|chat',await c.text(),'|test',t.status,'|wrong',bad.status,'|sig',sig.status);
 console.log(sent.length);console.log(sent[0].text);
+const inv={event:'invoice.created',data:{id:5,order_id:777,total:{amount:29.99},items:[{name:'بكج التفاعل',quantity:1}]}};
+const ri=await w.fetch(new Request(base,{method:'POST',body:JSON.stringify(inv)}),env);console.log('invoice',ri.status,await ri.text(),'|',sent[sent.length-1].text.split('\n')[0]);

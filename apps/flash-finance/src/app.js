@@ -1499,11 +1499,11 @@ async function sha256Hex(t){const b=await crypto.subtle.digest("SHA-256",new Tex
     const ok=(await sha256Hex(L.salt+":"+v))===L.hash;
     if(!ok){btn.disabled=false;fails++;inp.value="";paint();guard.classList.remove("sad");void guard.offsetWidth;guard.classList.add("sad");form.classList.remove("shake");void form.offsetWidth;form.classList.add("shake");
       if(fails>=5){lockUntil=Date.now()+30000;fails=0;msg.textContent="محاولات كثيرة، انتظر 30 ثانية"}else msg.textContent=`الرمز غلط، باقي ${5-fails} محاولات`;inp.focus();return}
-    inp.blur();show=true;guard.classList.remove("cover","peek");pupils.forEach(p=>p.style.transform="translate(0,-2px)");
+    show=false;eye.classList.remove("showing");inp.blur();guard.classList.remove("cover","peek");pupils.forEach(p=>p.style.transform="translate(0,-2px)");
     if(!reduce){btn.classList.add("dooropen");await wait(380);btn.classList.add("walking","out");await wait(760);btn.classList.remove("walking","dooropen");
       guard.classList.add("is-happy");$("#gateT").textContent="يا هلا!";$("#gateS").textContent="يالله نشوف أرقام اليوم";await wait(750)}
     try{sessionStorage.setItem("ff-in","1")}catch(x){}
-    g.classList.add("gone");S.animate=true;render();lastAct=Date.now();setTimeout(()=>{g.hidden=true},1000)});
+    g.classList.add("gone");S.animate=true;render();lastAct=Date.now();setTimeout(()=>{g.hidden=true;inp.value="";paint()},1000)});
   paint();
   /* auto-lock after 10 minutes idle, or 10 minutes in background; manual lock button */
   const IDLE=10*6e4;let lastAct=Date.now(),hiddenAt=0;

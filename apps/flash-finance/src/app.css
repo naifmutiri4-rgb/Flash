@@ -951,3 +951,28 @@ html.bento .nav a[href="#expenses"]{--sd:#C2BEDD}
 .b-today{background:var(--surface)!important}
 .b-today .bt-g>div{background:rgba(var(--hi-rgb),.04);box-shadow:inset 0 0 0 1px var(--line)}
 </style>
+<style>
+/* ===== every section: number cards become Bento tiles in the section colour ===== */
+body[data-route="summary"]{--sc:157,140,255}
+html.bento .content .grid>.kpi.card:not(.bnt *){border:0!important;border-radius:26px!important;padding:18px!important;min-height:128px;
+ background:linear-gradient(160deg,rgba(var(--sc,157,140,255),.20),rgba(var(--sc,157,140,255),.04) 70%),var(--tile)!important;
+ box-shadow:inset 0 0 0 1px rgba(var(--sc,157,140,255),.28)!important;display:flex;flex-direction:column}
+html.bento .content .grid>.kpi.card .l{color:var(--t-mut);font-weight:700}
+html.bento .content .grid>.kpi.card .v{color:var(--t-ink)}
+html.bento .content .grid>.kpi.card.neg .v{color:var(--pk)}
+html.bento .content .grid>.kpi.card .d{margin-top:auto;padding-top:8px}
+html.bento .content .grid>.kpi.card .dot{display:none}
+html.bento .content .grid>.kpi.card .kic{background:rgba(var(--sc,157,140,255),.16)!important;box-shadow:none!important}
+html.bento .content .grid>.kpi.card .kic svg{stroke:rgb(var(--sc,157,140,255))!important}
+html.bento .content .grid>.kpi.card svg.spark .sl{stroke:rgb(var(--sc,157,140,255))!important}
+html.bento .content .grid>.kpi.card svg.spark .sa{fill:rgba(var(--sc,157,140,255),.14)!important}
+/* first number on each page stands out a little */
+html.bento .content>.grid:first-of-type>.kpi.card:first-child{background:radial-gradient(120% 90% at 100% 0%,rgba(var(--sc,157,140,255),.30),transparent 60%),var(--t-dark)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 18px 40px -28px rgba(var(--sc,157,140,255),.8)!important}
+html.bento .content>.grid:first-of-type>.kpi.card:first-child .v{color:#fff}
+html.bento .content>.grid:first-of-type>.kpi.card:first-child .l,html.bento .content>.grid:first-of-type>.kpi.card:first-child .d,html.bento .content>.grid:first-of-type>.kpi.card:first-child .v small{color:#C2BEDD}
+html.bento .content>.grid:first-of-type>.kpi.card:first-child.neg .v{color:#FF3D7F}
+/* section headers carry the section colour */
+html.bento .card>h3:first-child::before{background:rgb(var(--sc,255,61,127))}
+html.bento body[data-route="home"] .card>h3:first-child::before{background:var(--pk)}
+@media (max-width:700px){html.bento .content .grid>.kpi.card:not(.bnt *){min-height:112px;border-radius:22px!important;padding:15px!important}}
+</style>

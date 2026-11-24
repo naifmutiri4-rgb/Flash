@@ -733,3 +733,26 @@ html[data-theme="light"] .ptabs button.on{box-shadow:0 1px 3px rgba(22,20,42,.12
 .dooric__glow{background:linear-gradient(180deg,#fff,var(--sec) 55%,rgba(var(--sec-rgb),.2))}
 </style>
 <style>.warn-t{color:#FFB86B}html[data-theme="light"] .warn-t{color:#A15C00}</style>
+<style>
+/* ===== interface guideline fixes ===== */
+.skip{position:fixed;top:8px;right:8px;z-index:200;padding:10px 16px;border-radius:12px;background:var(--surface-2);color:var(--light);border:1px solid var(--line-2);transform:translateY(-160%);transition:transform .2s}
+.skip:focus-visible{transform:none}
+#view:focus{outline:none}
+button,a,[role=button],.seg button,.ptabs button,input,select,label{touch-action:manipulation}
+html{-webkit-tap-highlight-color:transparent}
+.modal,.modal .card,.side{overscroll-behavior:contain}
+h1,h2,h3,.empty b{text-wrap:balance}
+.note,.alert div,.muted.small,p{text-wrap:pretty}
+.n,td,th,.kpi .v{font-variant-numeric:tabular-nums}
+select.inp{background-color:var(--surface);color:var(--light)}
+.btn:active,.seg button:active,.ptabs button:active{transform:translateY(1px)}
+@media (prefers-reduced-motion:reduce){.skip{transition:none}.btn:active{transform:none}}
+</style>
+<style>
+/* forms: inputs line up even when a label wraps; hint text sits under the input */
+.plan-form{align-items:start}.plan-form .field{display:flex;flex-direction:column;gap:6px}
+.plan-form .field>label{min-height:2.7em;display:flex;align-items:flex-end;line-height:1.35}
+.plan-form .field>.muted.small{margin-top:-2px}
+label.chk{display:flex;align-items:flex-start;gap:10px;cursor:pointer;line-height:1.5;min-height:auto!important}
+label.chk input{flex:none;width:20px;height:20px;margin-top:2px;accent-color:var(--pk-d)}
+</style>

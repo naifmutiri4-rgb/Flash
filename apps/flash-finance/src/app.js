@@ -70,7 +70,7 @@ const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
 const ago=(iso)=>{if(!iso)return "لم تتم";const m=Math.round((Date.now()-new Date(iso).getTime())/6e4);if(m<1)return "الآن";if(m<60)return `قبل ${m} د`;const h=Math.round(m/60);if(h<48)return `قبل ${h} س`;return `قبل ${Math.round(h/24)} يوم`};
 let toastT;function toast(msg,kind="ok"){const t=$("#toast");t.textContent=msg;t.className="toast on "+kind;clearTimeout(toastT);toastT=setTimeout(()=>t.className="toast "+kind,3200)}
 function cfg(){const c=S.config||{};return{...DEF_CONFIG,...c,fees:{...DEF_CONFIG.fees,...(c.fees||{})},rates:{...DEF_CONFIG.rates,...(c.rates||{})},adBudget:{...DEF_CONFIG.adBudget,...(c.adBudget||{})}}}
-function goals(){return{...DEF_GOALS,...(S.goals||{})}}
+function goals(){const g={...DEF_GOALS,...(S.goals||{})};if(g.plan&&g.plan.useAsGoal){try{const e=planExpected();if(isFinite(e.rev)&&e.rev>0)g.monthlySales=Math.round(e.rev)}catch(x){}}return g}
 
 /* ===================== periods ===================== */
 function range(key=S.period){
@@ -856,6 +856,47 @@ function pageReports(){
    </div></div></div>${experimentsCard()}${peakCard(A)}${customersCard(r,A)}${cacCard(r,A)}${geoCard(A)}${togetherCard()}${ratingsCard()}${backupsCard()}`;
 }
 
+
+/* ================= monthly plan: you enter the drivers, the month calculates itself ================= */
+function planDefaults(){const t=riyadhToday(),T=calc(addDays(t,-29),t).T,od=T.orders/30;const b=cfg().adBudget||{};
+  return{ordMin:Math.max(1,Math.round(od*0.8)),ordMax:Math.max(Math.max(1,Math.round(od*0.8))+1,Math.round(od*1.5)),basket:+(isFinite(T.aov)?T.aov:10).toFixed(2),
+    supCost:+(T.orders?T.cost/T.orders:1).toFixed(2),adsMonth:Math.round((+b.daily||T.adsAll/30)*30),other:Math.round(T.exp),refundPct:0,growthPct:0,useAsGoal:false}}
+function planOf(){const d=planDefaults(),p=(S.goals&&S.goals.plan)||{};const o={...d};for(const k of Object.keys(d))if(p[k]!=null&&p[k]!=="")o[k]=p[k];return o}
+function planCalc(p,ordersPerDay){const days=dim(riyadhToday());const n=ordersPerDay*days;const rev=n*p.basket;const refunds=rev*(+p.refundPct||0)/100;const sup=n*p.supCost;const fees=n*feeOf(p.basket);
+  const fixed=(S.recurring||[]).filter(r=>r.active!==false).reduce((s,r)=>s+(+r.amount||0),0);const ads=+p.adsMonth||0,other=+p.other||0;
+  const net=rev-refunds-sup-fees-ads-fixed-other;const perOrder=p.basket-p.supCost-feeOf(p.basket)-p.basket*(+p.refundPct||0)/100;
+  return{opd:ordersPerDay,n,rev,refunds,sup,fees,ads,fixed,other,net,margin:rev?net/rev:NaN,roas:ads?rev/ads:NaN,cpa:n?ads/n:NaN,perOrder,beDay:perOrder>0?(ads+fixed+other)/perOrder/days:NaN}}
+function planExpected(){const p=planOf();return planCalc(p,(+p.ordMin+ +p.ordMax)/2)}
+function planTable(p){const lo=planCalc(p,+p.ordMin),hi=planCalc(p,+p.ordMax),mid=planCalc(p,(+p.ordMin+ +p.ordMax)/2);
+  const t=riyadhToday(),ms=monthStart(t),dayN=+t.slice(8),M=calc(ms,t).T;const act=planCalc({...p,basket:isFinite(M.aov)?M.aov:p.basket,supCost:M.orders?M.cost/M.orders:p.supCost,adsMonth:M.adsAll/dayN*dim(t),other:M.exp/dayN*dim(t)},M.orders/dayN);
+  const cols=[["أقل",lo],["المتوقع",mid],["أعلى",hi],["وتيرتك الحين",act]];
+  const row=(l,f,dec=0,cls)=>`<tr><td>${l}</td>${cols.map(([,c],i)=>{const v=f(c);const k=typeof cls==="function"?cls(v):"";return`<td class="n ${k} ${i===1?"pl-mid":""}" data-label="${cols[i][0]}">${isFinite(v)?fmt(v,dec):"—"}</td>`}).join("")}</tr>`;
+  const neg=(v)=>v<0?"neg":"pos";
+  return`<div class="tbl-wrap"><table class="rsp plan-tbl"><thead><tr><th></th>${cols.map(([l],i)=>`<th class="n ${i===1?"pl-mid":""}">${l}</th>`).join("")}</tr></thead><tbody>
+   ${row("طلبات باليوم",c=>c.opd,1)}${row("طلبات بالشهر",c=>c.n)}
+   ${row("<b>الدخل الشهري</b>",c=>c.rev)}${row("تكلفة المزود",c=>-c.sup)}${row("رسوم سلة",c=>-c.fees)}${+p.refundPct?row("تعويضات واسترجاع",c=>-c.refunds):""}
+   ${row("الإعلانات",c=>-c.ads)}${row("الاشتراكات الثابتة",c=>-c.fixed)}${+p.other||act.other?row("مصاريف ثانية",c=>-c.other):""}
+   ${row("<b>الصافي</b>",c=>c.net,0,neg)}${row("هامش الربح %",c=>c.margin*100,0,neg)}${row("العائد على الإعلان ROAS",c=>c.roas,2)}${row("تكلفة الطلب من الإعلان",c=>c.cpa,2)}
+   </tbody></table></div>
+   <div class="pd-grid" style="margin-top:12px"><div class="pd-box"><small>يبقى لك من الطلب قبل الإعلان</small><b class="n ${mid.perOrder<0?"neg":""}">${fmt(mid.perOrder,2)}</b></div><div class="pd-box"><small>طلبات يوميًا عشان ما تخسر</small><b class="n">${isFinite(mid.beDay)?fmt(Math.ceil(mid.beDay)):"—"}</b></div>
+   <div class="pd-box"><small>أقصى تكلفة إعلان للطلب</small><b class="n">${fmt(Math.max(0,mid.perOrder),2)}</b></div><div class="pd-box"><small>الشهر الجاي بنمو ${fmt(+p.growthPct||0,0)}%</small><b class="n">${fmt(mid.rev*(1+(+p.growthPct||0)/100),0)}</b></div></div>`}
+function planCard(){const p=planOf();const f=(id,l,v,step,hint)=>`<div class="field"><label for="pl-${id}">${l}</label><input class="inp n" id="pl-${id}" data-pl="${id}" type="number" step="${step}" min="0" value="${esc(v)}">${hint?`<div class="muted small">${hint}</div>`:""}</div>`;
+  const fixed=(S.recurring||[]).filter(r=>r.active!==false).reduce((s,r)=>s+(+r.amount||0),0);
+  return`<div class="card" id="planCard"><h3>خطة الشهر <small>تكتب الأرقام، والدخل والصافي يتحسبون لحالهم</small></h3>
+   <form class="form plan-form" id="planForm">
+    ${f("ordMin","أقل عدد طلبات باليوم",p.ordMin,1)}${f("ordMax","أعلى عدد طلبات باليوم",p.ordMax,1)}
+    ${f("basket","متوسط قيمة الطلب (ر.س)",p.basket,0.01,"فعلي آخر 30 يوم: "+fmt(planDefaults().basket,2))}${f("supCost","متوسط تكلفة المزود للطلب",p.supCost,0.01,"فعلي آخر 30 يوم: "+fmt(planDefaults().supCost,2))}
+    ${f("adsMonth","الصرف الإعلاني بالشهر",p.adsMonth,1,"ميزانيتك اليومية × 30 = "+fmt(planDefaults().adsMonth))}${f("other","مصاريف ثانية بالشهر",p.other,1,"تصميم، أدوات… (الاشتراكات الثابتة تنحسب لحالها: "+fmt(fixed)+")")}
+    ${f("refundPct","تعويضات واسترجاع % من المبيعات",p.refundPct,0.5)}${f("growthPct","النمو المتوقع للشهر الجاي %",p.growthPct,1)}
+    <div class="field" style="grid-column:1/-1"><label class="row" style="gap:8px;cursor:pointer"><input type="checkbox" id="pl-goal" ${p.useAsGoal?"checked":""}> خلّ «الدخل الشهري المتوقع» هو هدف الشهر (بدل الرقم الثابت)</label></div>
+    <div class="row" style="grid-column:1/-1;gap:8px"><button class="btn pri" type="submit">${ic("save")}حفظ الخطة</button><button class="btn ghost" type="button" data-act="plan-reset">رجّعها لأرقامي الفعلية</button></div>
+   </form>
+   <div id="planOut" style="margin-top:14px">${planTable(p)}</div>
+   <div class="note" style="margin-top:10px">رسوم سلة تنحسب لحالها من متوسط الطلب، والاشتراكات من صفحة المصاريف. «وتيرتك الحين» تحسب الشهر كامل بنفس أرقامك من بداية الشهر لليوم، عشان تقارن خطتك بالواقع.</div></div>`}
+function readPlanForm(){const p={...planOf()};document.querySelectorAll("[data-pl]").forEach(i=>{p[i.dataset.pl]=+i.value||0});const g=document.getElementById("pl-goal");if(g)p.useAsGoal=g.checked;return p}
+document.addEventListener("input",(e)=>{if(e.target&&e.target.dataset&&e.target.dataset.pl!=null){const o=document.getElementById("planOut");if(o)o.innerHTML=planTable(readPlanForm())}});
+document.addEventListener("submit",(e)=>{if(e.target&&e.target.id==="planForm"){e.preventDefault();const p=readPlanForm();if(p.ordMax<p.ordMin){toast("أعلى عدد طلبات لازم يكون أكبر من الأقل","err");return}
+  const g={...(S.goals||{}),plan:p};S.goals=g;write(()=>S.db.doc("meta/goals").set(g),"انحفظت الخطة").then(()=>{S._lastSig=null;render()})}},true);
 function goalPlanCard(){const g=goals(),t=riyadhToday(),G=+g.monthlySales||0;if(!G)return"";const R=calc(addDays(t,-29),t).T;const nd=30;
   const od=R.orders/nd,aov=R.aov,contrib=contribOf(R),cpa=R.orders?R.adsAll/R.orders:NaN;const fixed=R.rec+R.exp;
   const sc=(name,a,c,note)=>{const need=G/nd/a;const maxCpa=c-(+g.margin||0)*a;return{name,aov:a,need,mult:od>0?need/od:Infinity,maxCpa,note}};
@@ -871,7 +912,7 @@ function pageGoals(){
   const dl=g.deadline+"-01";const monthsLeft=Math.max(1,(Number(dl.slice(0,4))-Number(t.slice(0,4)))*12+(Number(dl.slice(5,7))-Number(t.slice(5,7))));
   const base=Math.max(1,lm.rev||ms.rev/Number(t.slice(8))*dim(t));const growth=Math.pow(g.monthlySales/base,1/monthsLeft)-1;
   const months=[],act=[],req=[];for(let i=-3;i<=monthsLeft;i++){const s=addMonths(t,i);months.push(MONTHS_AR[+s.slice(5,7)-1].slice(0,3)+" "+s.slice(2,4));if(i<=0){const e=i===0?t:monthEnd(s);act.push(calc(s,e).T.rev)}else act.push(null);req.push(i>=-1?base*Math.pow(1+growth,i+1):null)}
-  return`${goalPlanCard()}<div class="grid g3">
+  return`${planCard()}${goalPlanCard()}<div class="grid g3">
    <div class="card hero"><h3>هدف المبيعات الشهرية</h3><div class="kpi big"><div class="v"><span class="n">${fmt(g.monthlySales)}</span><small>ر.س / شهر</small></div><div class="d">بنهاية ${esc(mLabel(dl))} · باقي ${monthsLeft} شهر</div></div>
     <div class="goal-meter" style="margin-top:14px"><i data-w="${Math.min(100,ms.rev/g.monthlySales*100)}"></i></div><div class="row small" style="justify-content:space-between;margin-top:6px"><span>هذا الشهر <b class="n">${fmt(ms.rev)}</b></span><b class="n">${fmt(ms.rev/g.monthlySales*100,1)}%</b></div></div>
    <div class="card"><h3>النمو المطلوب</h3><div class="kpi"><div class="v"><span class="n">${fmt(growth*100,1)}%</span><small>شهريًا</small></div><div class="d">من مبيعات أساس <span class="n">${fmt(base)}</span> ر.س إلى الهدف خلال ${monthsLeft} شهر</div></div></div>
@@ -1353,6 +1394,7 @@ document.addEventListener("click",async(e)=>{const a=e.target.closest("[data-act
   if(act==="rec-add")return recModal();if(act==="rec-edit")return recModal(S.recurring.find(x=>x.id===id));
   if(act==="rec-del")return confirmBox("حذف هذا الاشتراك؟ ينشال من حساب كل الفترات.",()=>write(()=>S.db.doc("recurring/"+id).delete(),"انحذف"));
   if(act==="prod-sel")return selectProd(id);
+  if(act==="plan-reset"){const g={...(S.goals||{})};delete g.plan;S.goals=g;return write(()=>S.db.doc("meta/goals").set(g),"رجعت الخطة لأرقامك الفعلية").then(()=>{S._lastSig=null;render()})}
   if(act==="alert-log")return alertLogModal();
   if(act==="spd-set"){const key=a.dataset.sup+":"+a.dataset.id;const cur=(S.config&&S.config.manualSpeeds||{})[key];const h=cur?Math.floor(cur.m/60):"",mi=cur?cur.m%60:"";
     const m=modal(`<h3>السرعة التقريبية</h3><div class="muted small" style="margin-bottom:10px">${esc(a.dataset.sup)} · رقم <b class="n">${esc(a.dataset.id)}</b><br>${esc(String(a.dataset.name||"").slice(0,90))}</div>

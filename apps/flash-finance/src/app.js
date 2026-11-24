@@ -15,11 +15,11 @@ const DAYS_AR=["الأحد","الإثنين","الثلاثاء","الأربعا�
 const MONTHS_AR=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
 const ROUTES=[
  ["home","الرئيسية","home","نظرة عامة"],["summary","الملخص المالي","pie",""],
- ["revenue","المبيعات","trend","البيع"],["orders","الطلبات","receipt",""],["products","المنتجات والموردين","box",""],
+ ["revenue","المبيعات","trend","البيع"],["orders","الطلبات","receipt",""],["products","المنتجات والأسعار","box",""],["suppliers","المزودين والخدمات","plug",""],
  ["ads","الإعلانات","mega","الصرف"],["expenses","المصاريف والاشتراكات","wallet",""],
  ["pnl","الأرباح والخسائر","scale","التحليل"],["reports","التحليلات والعملاء","bars",""],["goals","الأهداف","target",""],
  ["prefs","الإعدادات","gear","النظام"]];
-const ICONS={
+const ICONS={plug:'<path d="M9 2v6M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/>',
  receipt:'<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>',
  bars:'<path d="M4 20h16"/><rect x="5" y="11" width="3" height="7" rx="1"/><rect x="10.5" y="6" width="3" height="12" rx="1"/><rect x="16" y="9" width="3" height="9" rx="1"/>',
  home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
@@ -188,7 +188,8 @@ const KPI_IC=[[/ROAS|العائد/,"trend",[SEC(),"#3EA8FF"]],[/CPA|تكلفة �
  [/قيمة السلة|قيمة الطلب/,"cart",["#7C6BFF",SEC()]],[/متوسط|يومي|يوميًا/,"cal",["#7C6BFF",SEC()]],[/إيراد|مبيعات|المبيعات/,"dollar",[SEC(),"#3EA8FF"]],[/عدد الطلبات|الطلبات|المشتريات|طلب/,"receipt",["#7C6BFF","#FF3D7F"]],
  [/تكلفة|المنتجات|المورد/,"box",["#3EA8FF","#7C6BFF"]],[/مصروف|اشتراك/,"wallet",["#FF7AA6","#7C6BFF"]],[/هدف/,"target",[SEC(),"#FF3D7F"]]];
 const kpiIcon=(l)=>{const m=KPI_IC.find(x=>x[0].test(l))||[0,"pie",[SEC(),"#FF3D7F"]];return`<span class="kic" style="--g1:${m[2][0]};--g2:${m[2][1]}">${ic(m[1])}</span>`};
-const kpi=(l,v,{d="",cls="",unit="ر.س",dec=0,dot="",count=true,raw=false}={})=>`<div class="card kpi hov ${cls}">${kpiIcon(l)}<div class="l">${dot?`<i class="dot" style="background:${dot};box-shadow:0 0 8px ${dot}"></i>`:""}${esc(l)}</div><div class="v">${raw?v:`<span class="n" ${count&&isFinite(v)?`data-count="${v}" data-dec="${dec}"`:""}>${isFinite(v)?fmt(v,dec):"—"}</span>`}${unit?`<small>${esc(unit)}</small>`:""}</div>${d?`<div class="d">${d}</div>`:""}</div>`;
+const spark=(vals)=>{const v=vals.map(x=>isFinite(x)?x:0);if(v.length<2||v.every(x=>x===0))return"";const mn=Math.min(...v),mx=Math.max(...v),rg=mx-mn||1,W=120,H=28;const pts=v.map((x,i)=>[i/(v.length-1)*W,H-2-(x-mn)/rg*(H-4)]);const d=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join("");const last=pts[pts.length-1];return`<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true"><path class="sa" d="${d}L${W} ${H}L0 ${H}Z"/><path class="sl" d="${d}"/><circle cx="${last[0]}" cy="${last[1]}" r="2.4"/></svg>`};
+const kpi=(l,v,{d="",cls="",unit="ر.س",dec=0,dot="",count=true,raw=false,sp=null}={})=>`<div class="card kpi hov ${cls}${sp?" has-sp":""}">${kpiIcon(l)}<div class="l">${dot?`<i class="dot" style="background:${dot};box-shadow:0 0 8px ${dot}"></i>`:""}${esc(l)}</div><div class="v">${raw?v:`<span class="n" ${count&&isFinite(v)?`data-count="${v}" data-dec="${dec}"`:""}>${isFinite(v)?fmt(v,dec):"—"}</span>`}${unit?`<small>${esc(unit)}</small>`:""}</div>${d?`<div class="d">${d}</div>`:""}${sp?spark(sp):""}</div>`;
 const srcTag=(salla,tt)=>`<span class="src"><i></i>${salla?"سلة":""}${salla&&tt?" + ":""}${tt?"تيك توك":""}</span>`;
 function emptyState(title,body,btn=""){return`<div class="empty"><b>${esc(title)}</b><div class="small">${esc(body)}</div>${btn}</div>`}
 function hasData(){return Object.keys(S.salla).length>0||Object.keys(S.ads).length>0}
@@ -238,10 +239,10 @@ function pageHome(){
     <div class="list small" style="flex:1;min-width:0"><div>المبيعات: <b>${money(ms.rev)}</b> ر.س</div><div>التوقع بنهاية الشهر بنفس الوتيرة: <b>${money(proj)}</b> <span class="tag fc">توقع</span></div><div>المطلوب يوميًا للهدف: <b>${money(Math.max(0,(g.monthlySales-ms.rev)/Math.max(1,mDays-dayN+1)))}</b></div></div></div></div>
   </div>
   <div class="grid g4">
-   ${kpi("الإيرادات",R.T.rev,{d:delta(R.T.rev,P.T.rev)+" عن الفترة السابقة",dot:SEC()})}
-   ${kpi("صافي الأرباح",R.T.net,{d:delta(R.T.net,P.T.net)+" عن الفترة السابقة",dot:"#FF3D7F",cls:R.T.net<0?"neg":""})}
-   ${kpi("الطلبات",R.T.orders,{unit:"",d:delta(R.T.orders,P.T.orders)})}
-   ${kpi("العائد على الإعلان",R.T.roas,{unit:"x",dec:2,d:"مبيعات سلة ÷ الإعلان · "+delta(R.T.roas,P.T.roas)})}
+   ${(()=>{const D14=Array.from({length:14},(_,i)=>calc(addDays(t,i-13),addDays(t,i-13)).T);S._d14=D14;return""})()}${kpi("الإيرادات",R.T.rev,{d:delta(R.T.rev,P.T.rev)+" عن الفترة السابقة",dot:SEC(),sp:S._d14.map(x=>x.rev)})}
+   ${kpi("صافي الأرباح",R.T.net,{d:delta(R.T.net,P.T.net)+" عن الفترة السابقة",dot:"#FF3D7F",cls:R.T.net<0?"neg":"",sp:S._d14.map(x=>x.net)})}
+   ${kpi("الطلبات",R.T.orders,{unit:"",d:delta(R.T.orders,P.T.orders),sp:S._d14.map(x=>x.orders)})}
+   ${kpi("العائد على الإعلان",R.T.roas,{unit:"x",dec:2,d:"مبيعات سلة ÷ الإعلان · "+delta(R.T.roas,P.T.roas),sp:S._d14.map(x=>x.adsAll?x.rev/x.adsAll:0)})}
   </div>
   <div class="grid g21">
    <div class="card"><h3>الإيرادات والصافي يوم بيوم <small>${esc(r.label)}</small></h3>
@@ -549,7 +550,7 @@ function supplierPerfCard(){const L=Object.values(S.links||{});if(!L.length)retu
   return`<div class="card"><h3>أداء المزود <small>من الطلبات المربوطة</small></h3><div class="tbl-wrap"><table class="rsp"><thead><tr><th>المزود</th><th class="n">طلبات</th><th class="n">مكتمل</th><th class="n">جزئي</th><th class="n">ملغي</th><th class="n">خصم فعلي</th></tr></thead><tbody>${Object.entries(by).map(([s,b])=>`<tr><td data-label="المزود">${esc(s)}</td><td class="n" data-label="طلبات">${fmt(b.n)}</td><td class="n" data-label="مكتمل">${fmt(b.done)} (${fmt(b.n?b.done/b.n*100:0,0)}%)</td><td class="n" data-label="جزئي">${fmt(b.part)}</td><td class="n ${b.canc?"neg":""}" data-label="ملغي">${fmt(b.canc)}</td><td class="n" data-label="خصم فعلي">${fmt(b.charge,2)}</td></tr>`).join("")}</tbody></table></div></div>`}
 
 const FIND_Q={views:"تيك مشاهدات",likes:"تيك لايكات",shares:"تيك شير",saves:"تيك حفظ"};
-function cheaperCard(){const SV=svcMap(),rt=cfg().rates;if(!S.mcp)return"";const rows=[];const on=tabOn("products","suppliers");
+function cheaperCard(){const SV=svcMap(),rt=cfg().rates;if(!S.mcp)return"";const rows=[];const on=tabOn("suppliers","hunt");
   SVC_TYPES.forEach(([k,l])=>{const ck=SV[k].sup+":"+SV[k].id;if(on&&!S.svc.has(ck))lookupSvc(SV[k].sup,SV[k].id);const cur=S.svc.get(ck);const curObj=cur&&typeof cur==="object"?cur:null;
     const curRate=+rt[k]||0;const curRefill=curObj?!!curObj.refill:false;const curSp=curObj?speedOf(curObj,1000,SV[k].sup):null;const curT=curSp&&(curSp.src==="panel"||curSp.src==="manual")?curSp.min:null;
     const found=[];SUPPLIERS.forEach(([s])=>{const key=`find2:${s}:${k}`;if(on)sallaFreeExt(key,s,FIND_Q[k],k);const d=extData(key);((d&&d.items)||[]).forEach(it=>found.push({...it,sup:s}))});
@@ -577,14 +578,15 @@ function sallaFreeExt(key,sup,q,k){if(!S.mcp)return;ext(key,async()=>{const ex=[
   try{for(let off=0;off<100;off+=50){const r=await S.mcp.callTool(SUP,"supplier_services",{supplier:sup,query:q,exclude:ex,offset:off,limit:50},{cache:{staleTime:36e5,gcTime:864e5}});const p=r.payload||{};items=items.concat(p.items||[]);if(p.next_offset==null)break}}
   catch(e){const r=await S.mcp.callTool(SUP,"supplier_services",{supplier:sup,query:q,limit:50},{cache:{staleTime:36e5,gcTime:864e5}});items=(r.payload||{}).items||[]}
   return{items:items.filter(it=>findOk(it,k))}},6*36e5)}
-function pageProducts(){
+function pageSuppliers(){return pageProducts("sup")}
+function pageProducts(mode){const SUP=mode==="sup";
   const r=range(),R=calc(r.from,r.to),c=cfg(),ps=productsList();
   const seen=Object.keys(R.byProd).filter(n=>!findProduct(n));
   const SV=svcMap();setTimeout(ensureCatalog,0);
   const PP={};for(const o of R.orders){const c=orderCost(o),its=o.items||[];const prof=o.amount-c.cost-feeOf(o.amount);its.forEach(it=>{PP[it.name]=(PP[it.name]||0)+prof/(its.length||1)})}
   const profOf=(p)=>PP[p.name]!=null?PP[p.name]:0;
   const bestId=(ps.map(p=>({id:p.id,v:profOf(p)})).sort((a,b)=>b.v-a.v)[0]||{}).id;
-  return`${supplierCard()}${topupCard()}${supUsageCard()}<div class="card"><h3>خدمات المورد وأسعارها <small>اكتب رقم الخدمة ويطلع سعرها لكل 1,000 تلقائي</small></h3>
+  return`${SUP?`${supplierCard()}${topupCard()}${supUsageCard()}<div class="card"><h3>خدمات المورد وأسعارها <small>اكتب رقم الخدمة ويطلع سعرها لكل 1,000 تلقائي</small></h3>
    <form id="ratesForm" class="svc-list">${SVC_TYPES.map(([k,l])=>`<div class="svc-row">
      <div class="svc-t">${l}</div>
      <div class="field"><label for="sv-sup-${k}">المزود</label><select class="inp" id="sv-sup-${k}" data-svc="${k}">${SUPPLIERS.map(s=>`<option value="${s[0]}" ${SV[k].sup===s[0]?"selected":""}>${s[1]}</option>`).join("")}</select></div>
@@ -599,12 +601,12 @@ function pageProducts(){
    <div class="field"><label for="cat-sup">المزود</label><select class="inp" id="cat-sup"><option value="">الكل</option>${SUPPLIERS.map(s=>`<option value="${s[0]}">${s[1]}</option>`).join("")}</select></div>
    <div class="field"><label for="cat-sort">الترتيب</label><select class="inp" id="cat-sort"><option value="price">الأرخص أول</option><option value="time">الأسرع أول</option><option value="best">الأرخص والأسرع</option></select></div></div>
    <div id="cat-res" class="list" style="margin-top:12px"></div></div>
-  ${seen.length?`<div class="alert pk"><i class="ic"></i><div>منتجات انباعت وما لها تكلفة: ${seen.map(n=>`<button class="btn sm ghost" data-act="prod-new" data-name="${esc(n)}">${esc(n)} ${ic("plus")}</button>`).join(" ")}</div></div>`:""}
+  `:""}${!SUP?`${seen.length?`<div class="alert pk"><i class="ic"></i><div>منتجات انباعت وما لها تكلفة: ${seen.map(n=>`<button class="btn sm ghost" data-act="prod-new" data-name="${esc(n)}">${esc(n)} ${ic("plus")}</button>`).join(" ")}</div></div>`:""}
   <div class="card"><h3>تكلفة المنتجات <small>تلقائي من الخدمات الأربع فوق، ما تحتاج تعدل شي</small></h3>
    ${ps.length?`<div class="tbl-wrap"><table class="wide"><thead><tr><th>المنتج</th><th>النوع</th><th class="n">السعر</th><th>المحتوى</th><th class="n">تكلفة المورد</th><th class="n">رسوم سلة</th><th class="n">صافي الوحدة</th><th>الهامش</th><th class="n">انباع (${esc(r.label)})</th><th class="n">أقصى تكلفة إعلان للطلب</th><th class="n">ربح الفترة</th></tr></thead><tbody>${ps.map(p=>{
      const pr=+p.price||+p.refPrice||0,hasR=p.rules&&p.rules.length,cost=prodCostOf(p),fee=feeOf(pr),net=pr-cost-fee,m=pr?net/pr:0,sold=(R.byProd[p.name]||{}).qty||0;const ct=p.contents||{};
      return`<tr><td>${esc(p.name)}</td><td>${p.type==="pack"?'<span class="tag cy">بكج</span>':'<span class="tag">منفرد</span>'}</td><td class="n">${fmt(pr,2)}${p.type!=="pack"?' <span class="muted small">مرجعي</span>':""}</td><td class="small">${hasR?`<div class="rules-mini">${p.rules.map(x=>`<div><b>${esc(RULE_NAME[x.type]||x.type)}</b> ${p.type==="pack"?`<span class="n">${fmt(x.qty)}</span> · `:""}${esc(x.supplier)} <span class="n">#${esc(x.serviceId)}</span> · <span class="n">${fmt(x.rate_sar,4)}</span></div>`).join("")}</div>${p.needsReview?'<span class="tag pk">راجع القواعد</span>':""}`:p.type==="pack"?[["views","مشاهدة"],["likes","لايك"],["shares","شير"],["saves","حفظ"]].filter(([k])=>+ct[k]).map(([k,l])=>`<span class="n">${fmt(ct[k])}</span> ${l}`).join(" · "):(p.tiers&&p.tiers.length?(()=>{const t=nearestTier(p,pr);const rt=cfg().rates[p.service];return`${t?`<span class="n">${fmt(t.qty)}</span> ${esc(({views:"مشاهدة",likes:"لايك",shares:"شير",saves:"حفظ"})[p.service]||"")} بـ <span class="n">${fmt(t.price,2)}</span> · `:""}سعر الألف <span class="n">${fmt(rt,4)}</span><div class="muted small">${p.tiers.length} كمية، وتكلفة كل طلب من كميته الفعلية في الفاتورة</div>`})():`تكلفة <span class="n">${fmt((+p.costPct||0)*100,1)}%</span> من السعر`)}</td><td class="n">${fmt(cost,2)}</td><td class="n">${fmt(fee,2)}</td><td class="n ${net<0?"neg":"pos"}">${fmt(net,2)}</td><td style="min-width:120px"><div class="row" style="flex-wrap:nowrap"><div class="bar" style="flex:1"><i data-w="${Math.max(0,m*100)}"></i></div><b class="n">${fmt(m*100,0)}%</b></div></td><td class="n">${fmt(sold)}</td><td class="n" data-label="أقصى تكلفة إعلان للطلب"><b>${fmt(net,2)}</b></td><td class="n ${profOf(p)>0?"pos":profOf(p)<0?"neg":""}" data-label="ربح الفترة">${fmt(profOf(p),2)}${p.id===bestId&&profOf(p)>0?' <span class="tag cy">الأربح</span>':""}</td></tr>`}).join("")}</tbody></table></div>`:emptyState("ما فيه منتجات","أضف منتجاتك وتكلفتها.")}
-   <div class="note" style="margin-top:12px">غيّر رقم خدمة اللايكات أو الشير أو الحفظ أو المشاهدات فوق، وتتحدث تكلفة كل المنتجات لحالها. الطلبات القديمة تبقى على سعرها وقتها.</div></div>${simulatorCard()}${couponsCard(r)}${cartsCard(r)}${supplierPerfCard()}${cheaperCard()}${priceChangesCard()}`;
+   <div class="note" style="margin-top:12px">غيّر رقم خدمة اللايكات أو الشير أو الحفظ أو المشاهدات فوق، وتتحدث تكلفة كل المنتجات لحالها. الطلبات القديمة تبقى على سعرها وقتها.</div></div>`:""}${!SUP?`${simulatorCard()}${couponsCard(r)}${cartsCard(r)}`:`${supplierPerfCard()}${cheaperCard()}${priceChangesCard()}`}`;
 }
 function supplierState(){if(S.supBal){const low=cfg().supplierLow||20;const vals=Object.values(S.supBal).filter(b=>b&&b.balance_sar!=null);if(vals.length){const bal=vals.reduce((a,b)=>a+b.balance_sar,0);return{has:true,real:true,bal,low:vals.some(b=>b.balance_sar<low),tx:S.supplier,lows:vals.filter(b=>b.balance_sar<low)}}}const tx=S.supplier.slice().sort((a,b)=>(a.date+(a.createdAt||"")).localeCompare(b.date+(b.createdAt||"")));
   const snaps=tx.filter(x=>x.type==="snapshot");const last=snaps[snaps.length-1];const t=riyadhToday();
@@ -635,7 +637,7 @@ function wk(tool,args,key,ttl){if(!S.mcp)return;return ext(key,async()=>{const r
 const wkOff=(k)=>{const e=S.ext[k];return!!(e&&e.err&&!e.data&&!["server_unavailable","rate_limited","timeout"].includes(e.code))};
 const wkWhy=(k)=>{const e=S.ext[k]||{};if(/FLASH_KV/.test(e.err||""))return"السجل التلقائي مو مفعّل في Cloudflare: يحتاج ربط KV باسم FLASH_KV و Cron كل 15 دقيقة.";
   return`أدوات السجل الجديدة في موصل Flash Suppliers مو مسموحة في Claude للحين. افتح <a href="https://claude.ai/customize/connectors" target="_blank" rel="noopener noreferrer">إعدادات الموصلات</a> ← Flash Suppliers ← واسمح للأدوات: supplier_topups و supplier_daily و supplier_price_changes و supplier_log_status. لو ما ظهرت، افصل الموصل واربطه من جديد.`};
-function supUsageCard(){const t=riyadhToday(),from=addDays(t,-29);const k=`wk:daily:${from}`;if(tabOn("products","services"))wk("supplier_daily",{from,to:t},k,15*6e4);
+function supUsageCard(){const t=riyadhToday(),from=addDays(t,-29);const k=`wk:daily:${from}`;if(tabOn("suppliers","balance"))wk("supplier_daily",{from,to:t},k,15*6e4);
   const d=extData(k);const rows=(d&&d.days)||[];const off=wkOff(k);
   if(off)return`<div class="card"><h3>استهلاك المزودين يوميًا</h3><div class="alert pk"><i class="ic"></i><div>${wkWhy(k)}</div></div></div>`;
   if(!rows.length)return`<div class="card"><h3>استهلاك المزودين يوميًا</h3>${loadingRow(k,"أجيب السجل…")||`<div class="muted small">السجل بدأ للحين. أول يوم كامل يطلع بكرة.</div>`}</div>`;
@@ -646,10 +648,10 @@ function supUsageCard(){const t=riyadhToday(),from=addDays(t,-29);const k=`wk:da
      return`<div style="margin-bottom:12px"><div class="row" style="justify-content:space-between"><b>${esc(s)}</b><span class="muted small">المجموع <b class="n">${fmt(tot,2)}</b> · المتوسط <b class="n">${fmt(tot/nd,2)}</b> باليوم</span></div>
       <div class="ubars">${days.map(dd=>{const r=by[dd];const u=r?+r.used||0:0;return`<i title="${esc(dd)}: ${fmt(u,2)} ر.س${r&&+r.topup?` · شحن ${fmt(+r.topup,2)}`:""}" style="height:${r?Math.max(3,u/mx*100):0}%" class="${r&&+r.topup?"tp":""}"></i>`}).join("")}</div></div>`}).join("")}
    <div class="row small" style="gap:14px"><span><i class="lg-d" style="background:var(--cy)"></i> استهلاك</span><span><i class="lg-d" style="background:var(--pk)"></i> يوم فيه شحن</span></div></div>`}
-function priceChangesCard(){const k="wk:px";if(tabOn("products","suppliers"))wk("supplier_price_changes",{},k,30*6e4);const d=extData(k);if(wkOff(k))return`<div class="card"><h3>تغيّر أسعار خدماتك عند المورد</h3><div class="alert pk"><i class="ic"></i><div>${wkWhy(k)}</div></div></div>`;const L=(d&&d.changes)||[];
+function priceChangesCard(){const k="wk:px";if(tabOn("suppliers","hunt"))wk("supplier_price_changes",{},k,30*6e4);const d=extData(k);if(wkOff(k))return`<div class="card"><h3>تغيّر أسعار خدماتك عند المورد</h3><div class="alert pk"><i class="ic"></i><div>${wkWhy(k)}</div></div></div>`;const L=(d&&d.changes)||[];
   return`<div class="card"><h3>تغيّر أسعار خدماتك عند المورد <small>يفحصها الموصل كل يوم</small></h3>${loadingRow(k,"أجيب السجل…")}
    ${L.length?`<div class="list">${L.slice(0,15).map(x=>`<div class="li" style="grid-template-columns:minmax(0,1fr) auto"><div><b>${esc(x.supplier)} #${esc(x.id)}</b> <span class="muted small">${esc(x.date)} · ${esc(String(x.name||"").slice(0,60))}</span></div><span class="n ${x.after_sar>x.before_sar?"neg":"pos"}">${fmt(x.before_sar,4)} ← <b>${fmt(x.after_sar,4)}</b> (${x.change_pct>0?"+":""}${fmt(x.change_pct,1)}%)</span></div>`).join("")}</div>`:(d?`<div class="muted small">ما تغيّر سعر أي خدمة من خدماتك من بداية السجل.</div>`:"")}</div>`}
-function topupCard(){const t=riyadhToday(),ms=monthStart(t),pm=addMonths(ms,-1),pe=monthEnd(pm);const wkKey="wk:topups";if(tabOn("products","services"))wk("supplier_topups",{},wkKey,5*6e4);
+function topupCard(){const t=riyadhToday(),ms=monthStart(t),pm=addMonths(ms,-1),pe=monthEnd(pm);const wkKey="wk:topups";if(tabOn("suppliers","balance"))wk("supplier_topups",{},wkKey,5*6e4);
   const wkData=extData(wkKey);const fromWk=!!(wkData&&Array.isArray(wkData.topups));
   const L=[...(S.supplier||[]).filter(x=>x.type==="topup"&&!(fromWk&&x.auto)),...(fromWk?wkData.topups.map(x=>({type:"topup",supplier:x.supplier,amount:x.amount_sar,date:x.date,createdAt:x.at,time:x.time||"",wk:true,note:`${fmt(x.before_sar,2)} ← ${fmt(x.after_sar,2)}`})):[])];
   const supOf=(x)=>x.supplier||x.sup;const sum=(k,a,b)=>L.filter(x=>supOf(x)===k&&x.date>=a&&x.date<=b).reduce((s,x)=>s+(+x.amount||0),0);
@@ -1012,7 +1014,7 @@ function pagePrefs(){
    <div class="li" style="grid-template-columns:1fr">التوقعات تنحفظ لحالها وما تدخل في أي رقم فعلي.</div></div></div>
   </div>${healthCard()}${customizeCard()}`;
 }
-const PAGES={home:pageHome,summary:pageSummary,revenue:pageRevenue,expenses:pageExpenses,products:pageProducts,ads:pageAds,orders:pageOrders,pnl:pagePnl,reports:pageReports,goals:pageGoals,prefs:pagePrefs};
+const PAGES={home:pageHome,summary:pageSummary,revenue:pageRevenue,expenses:pageExpenses,products:pageProducts,suppliers:pageSuppliers,ads:pageAds,orders:pageOrders,pnl:pagePnl,reports:pageReports,goals:pageGoals,prefs:pagePrefs};
 
 /* ===================== render ===================== */
 function liveOn(){if(S.lastLive&&Date.now()-S.lastLive<3*6e4)return true;const l=S.sync.lastSalla;return !!l&&(Date.now()-new Date(l).getTime())<10*6e4}
@@ -1058,7 +1060,8 @@ function loadCache(){try{const c=JSON.parse(localStorage.getItem(CK)||"null");if
 
 /* tabs inside long pages: blocks are grouped by their heading; anything unmatched stays on the first tab */
 const PAGE_TABS={
- products:[["services","الخدمات",["رصيد المورد","شحن المزودين","استهلاك المزودين","خدمات المورد","ابحث في خدمات"]],["cost","التكلفة والأسعار",["تكلفة المنتجات","محاكي الأسعار"]],["offers","العروض والسلات",["أداء الكوبونات","السلات المتروكة"]],["suppliers","المزودين",["أداء المزود","صائد الخدمة","تغيّر أسعار"]]],
+ products:[["cost","التكلفة والأسعار",["تكلفة المنتجات","محاكي الأسعار"]],["offers","العروض والسلات",["أداء الكوبونات","السلات المتروكة"]]],
+ suppliers:[["balance","الرصيد والشحن",["رصيد المورد","شحن المزودين","استهلاك المزودين"]],["services","الخدمات الأربع",["خدمات المورد","ابحث في خدمات"]],["hunt","صائد الخدمة",["أداء المزود","صائد الخدمة","تغيّر أسعار"]]],
  reports:[["compare","المقارنة",["مقارنة الفترات","متوسط الإيرادات حسب اليوم"]],["customers","العملاء",["العملاء","تكلفة جلب العميل","المدن والدول","منتجات يشتريها","التقييمات"]],["times","الأوقات",["أوقات البيع"]],["tests","التجارب",["سجل التجارب"]],["files","الملفات",["التصدير","النسخ الاحتياطية"]]],
  ads:[["overview","نظرة عامة",["الصرف مقابل المبيعات","خطة الميزانية","وش أعلن عنه"]],["campaigns","الحملات",["كل حملة","أفضل الفيديوهات"]],["hours","الساعات",["ساعات الإعلان"]],["days","الأيام",["تفاصيل الأيام"]]],
  expenses:[["list","المصاريف",["تسجيل مصروف","المصروفات المسجلة","حسب التصنيف","الاشتراكات"]],["owner","السحوبات والكاش",["السحوبات"]]]};
@@ -1192,10 +1195,10 @@ function afterRender(){
   S.animate=false;
   if(S.route==="orders"&&S.mcp){const r=range();refreshLinks(ordersIn(r.from,r.to));readInvoiceQty(ordersIn(r.from,r.to))}
   if(S.mcp&&["ads","reports","home"].includes(S.route)){const r=range();readOrderMeta(ordersIn(r.from,r.to))}
-  if(S.route==="products"&&S.mcp)refreshGlobalRates();
+  if((S.route==="products"||S.route==="suppliers")&&S.mcp)refreshGlobalRates();
   if(S.db&&S.config&&!bkDone)setTimeout(autoBackup,4000);
   if(S.route==="reports"&&S.db&&!S.backups)listBackups();
-  if(S.route==="products"&&!Object.keys(S.speeds).length)loadSpeeds();
+  if(S.route==="suppliers"&&!Object.keys(S.speeds).length)loadSpeeds();
   if(S.focusAmt){S.focusAmt=false;setTimeout(()=>{const f=$("#ex-amt");if(f){f.scrollIntoView({block:"center"});f.focus()}},120)}
 }
 

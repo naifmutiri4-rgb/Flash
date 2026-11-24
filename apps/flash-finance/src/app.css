@@ -778,3 +778,29 @@ label.chk input{flex:none;width:20px;height:20px;margin-top:2px;accent-color:var
 .card>h3:first-child{align-items:center;gap:10px;flex-wrap:wrap}
 .card>h3:first-child small{font-weight:600}
 </style>
+<style>
+/* 14-day trend under home KPIs */
+.kpi.has-sp{padding-bottom:12px}
+.kpi svg.spark{display:block;position:static!important;opacity:1!important;transform:none!important;width:100%;height:28px;margin-top:10px;inset:auto!important}
+.kpi .spark .sl{fill:none;stroke:var(--sec);stroke-width:1.6;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.kpi .spark .sa{fill:rgba(var(--sec-rgb),.12);stroke:none}
+.kpi .spark circle{fill:var(--sec)}
+.kpi.neg .spark .sl{stroke:var(--pk-l)}.kpi.neg .spark .sa{fill:rgba(255,61,127,.10)}.kpi.neg .spark circle{fill:var(--pk-l)}
+</style>
+<style>
+/* topbar: a long page title must not push the period buttons off screen */
+@media (min-width:701px){
+  .topbar .period{min-width:0;flex:0 1 auto}
+  .topbar .period .seg{max-width:100%;overflow-x:auto;scrollbar-width:none}
+  .topbar .period .seg::-webkit-scrollbar{display:none}
+  .topbar .period .seg button{flex:none}
+}
+@media (min-width:701px) and (max-width:1366px){.gsearch input{width:150px}}
+</style>
+<style>
+.kpi svg.spark{filter:none!important;border-radius:0!important;background:none!important;box-shadow:none!important;animation:none!important;mix-blend-mode:normal!important;z-index:auto!important}
+.kpi svg.spark .sl{fill:none!important;stroke:var(--sec)!important}
+.kpi svg.spark .sa{fill:rgba(var(--sec-rgb),.12)!important;stroke:none!important}
+.kpi svg.spark circle{fill:var(--sec)!important;stroke:none!important}
+.kpi.neg svg.spark .sl{stroke:var(--pk-l)!important}.kpi.neg svg.spark .sa{fill:rgba(255,61,127,.10)!important}.kpi.neg svg.spark circle{fill:var(--pk-l)!important}
+</style>

@@ -1,0 +1,25 @@
+import worker from './worker.js';
+const calls=[];
+globalThis.fetch=async(url,opt)=>{const p=Object.fromEntries(new URLSearchParams(opt.body));calls.push([url,p.action,p.key]);
+  const cur=url.includes('drd3m')?'USD':'SAR';
+  if(p.action==='balance')return new Response(JSON.stringify({balance:"12.5",currency:cur}));
+  if(p.action==='services')return new Response(JSON.stringify([{service:10816,name:"لايكات تيك توك",category:"تيك توك لايكات",rate:"0.71",min:"10",max:"10000000",type:"Default",refill:true,average_time:"20 ساعات 51 دقيقة"},{service:12033,name:"مشاهدات تيك توك",category:"تيك توك مشاهدات",rate:"0.007",min:"100",max:"2147483647"}]));
+  if(p.action==='status'){const o={};p.orders.split(',').forEach(id=>o[id]=id==='9'?{error:"Incorrect order ID"}:{charge:"0.1995",start_count:"10",status:"Completed",remains:"0",currency:cur});return new Response(JSON.stringify(o))}
+  return new Response(JSON.stringify({error:"Incorrect request"}))};
+const env={DRD3M_KEY:"k1",SMMCPAN_KEY:"k2",CONNECTOR_TOKEN:"abcdefghijklmnop1234"};
+const base='https://x.workers.dev/mcp/'+env.CONNECTOR_TOKEN;
+const call=async(body,path=base)=>{const r=await worker.fetch(new Request(path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)}),env);const t=await r.text();let b=null;try{b=JSON.parse(t)}catch(e){};return [r.status,b]};
+const ok=(n,c,i='')=>console.log(c?'PASS':'FAIL',n,i);
+let [s,j]=await call({jsonrpc:"2.0",id:1,method:"initialize",params:{protocolVersion:"2025-06-18",capabilities:{},clientInfo:{name:"t",version:"1"}}});ok('initialize',s===200&&j.result.protocolVersion==="2025-06-18"&&j.result.capabilities.tools);
+[s]=await call({jsonrpc:"2.0",method:"notifications/initialized"});ok('notification 202',s===202);
+[s,j]=await call({jsonrpc:"2.0",id:2,method:"tools/list"});ok('tools/list',j.result.tools.length===7&&j.result.tools.every(t=>t.annotations.readOnlyHint));
+[s,j]=await call({jsonrpc:"2.0",id:3,method:"tools/call",params:{name:"supplier_balance",arguments:{supplier:"all"}}});ok('balance',j.result.structuredContent.balances[0].balance_sar===46.875&&j.result.structuredContent.balances[1].balance_sar===12.5,JSON.stringify(j.result.structuredContent.balances));
+[s,j]=await call({jsonrpc:"2.0",id:4,method:"tools/call",params:{name:"supplier_services",arguments:{supplier:"drd3m",ids:["10816"]}}});ok('services by id',j.result.structuredContent.items[0].rate_sar===2.6625,JSON.stringify(j.result.structuredContent.items[0]));
+[s,j]=await call({jsonrpc:"2.0",id:5,method:"tools/call",params:{name:"supplier_services",arguments:{supplier:"drd3m",query:"تيك توك"}}});ok('services search sorted',j.result.structuredContent.items[0].id==="12033");
+[s,j]=await call({jsonrpc:"2.0",id:6,method:"tools/call",params:{name:"supplier_order_status",arguments:{supplier:"smmcpan",orders:["5","9"]}}});ok('status multi',j.result.structuredContent.orders["5"].charge_sar===0.1995&&j.result.structuredContent.orders["9"].error,JSON.stringify(j.result.structuredContent.orders));
+[s,j]=await call({jsonrpc:"2.0",id:7,method:"tools/call",params:{name:"supplier_add_order",arguments:{}}});ok('no write tools',!!j.error);
+[s]=await call({jsonrpc:"2.0",id:8,method:"tools/list"},'https://x.workers.dev/mcp/wrongtoken');ok('wrong token 404',s===404);
+[s,j]=await call([{jsonrpc:"2.0",id:9,method:"ping"},{jsonrpc:"2.0",method:"notifications/x"}]);ok('batch',Array.isArray(j)&&j.length===1);
+[s,j]=await call({jsonrpc:"2.0",id:11,method:"tools/call",params:{name:"supplier_services",arguments:{supplier:"drd3m",query:"تيك توك",exclude:["مشاهدات"],limit:1,offset:0}}});ok('exclude + paging',j.result.structuredContent.items.length===1&&j.result.structuredContent.items[0].id==="10816"&&j.result.structuredContent.total_matches===1,JSON.stringify(j.result.structuredContent.items.map(x=>x.id)));
+ok('keys never returned',!JSON.stringify(j).includes('k1'));
+console.log('panel calls',calls.length,'keys sent',[...new Set(calls.map(c=>c[2]))]);

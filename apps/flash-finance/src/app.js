@@ -52,7 +52,7 @@ const S={dbState:"pending",db:null,mcp:null,dl:null,user:null,canWrite:true,
 /* ===================== utils ===================== */
 const $=(s,r=document)=>r.querySelector(s);
 const esc=(v)=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const fmt=(v,d=0)=>(isFinite(v)?Number(v):0).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmt=(v,d=0)=>{let n=isFinite(v)?Number(v):0;if(Math.abs(n)<0.5*Math.pow(10,-d))n=0;return n.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d})};
 const money=(v,d=0)=>`<span class="n">${fmt(v,d)}</span>`;
 const pct=(v,d=0)=>isFinite(v)?`<span class="n">${fmt(v*100,d)}%</span>`:"—";
 const riyadhToday=()=>new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Riyadh"}).format(new Date());

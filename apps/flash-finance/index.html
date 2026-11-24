@@ -756,6 +756,28 @@ select.inp{background-color:var(--surface);color:var(--light)}
 label.chk{display:flex;align-items:flex-start;gap:10px;cursor:pointer;line-height:1.5;min-height:auto!important}
 label.chk input{flex:none;width:20px;height:20px;margin-top:2px;accent-color:var(--pk-d)}
 </style>
+<style>
+/* ===== tables & sections polish ===== */
+@media (min-width:701px){.ptitle{flex:0 0 auto;overflow:visible}}
+/* orders card: supplier box and actions share one row */
+@media (min-width:701px) and (max-width:1760px){
+  table.wide td:nth-last-child(2):has(input){grid-column:span 2}
+  table.wide td:nth-last-child(2):has(input)+td:last-child:has(.btn){grid-column:span 2;align-self:end}
+  table.wide td:nth-last-child(2):has(input)+td:last-child .row{justify-content:flex-start}
+  table.wide td:first-child{padding-bottom:10px;border-bottom:1px solid var(--line)}
+}
+/* real tables: quiet header, row hover, aligned numbers */
+.tbl-wrap table thead th{font-size:12px;font-weight:700;color:var(--mut-2);letter-spacing:.2px}
+@media (hover:hover) and (pointer:fine){
+  .tbl-wrap table:not(.wide) tbody tr{transition:background-color .15s}
+  .tbl-wrap table:not(.wide) tbody tr:hover{background:rgba(var(--sec-rgb),.06)}
+}
+@media (min-width:1761px){.tbl-wrap table.wide tbody tr:hover{background:rgba(var(--sec-rgb),.06)}}
+.tbl-wrap td.n,.tbl-wrap th.n{white-space:nowrap}
+/* section headers: title + meta on one baseline, meta never squeezes the title */
+.card>h3:first-child{align-items:center;gap:10px;flex-wrap:wrap}
+.card>h3:first-child small{font-weight:600}
+</style>
 <div class="bgfx" aria-hidden="true"><i></i><i></i><b></b></div>
 <div class="shell" dir="rtl" lang="ar">
  <aside class="side" id="side" aria-label="القائمة الرئيسية">
@@ -874,7 +896,7 @@ const S={dbState:"pending",db:null,mcp:null,dl:null,user:null,canWrite:true,
 /* ===================== utils ===================== */
 const $=(s,r=document)=>r.querySelector(s);
 const esc=(v)=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const fmt=(v,d=0)=>(isFinite(v)?Number(v):0).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmt=(v,d=0)=>{let n=isFinite(v)?Number(v):0;if(Math.abs(n)<0.5*Math.pow(10,-d))n=0;return n.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d})};
 const money=(v,d=0)=>`<span class="n">${fmt(v,d)}</span>`;
 const pct=(v,d=0)=>isFinite(v)?`<span class="n">${fmt(v*100,d)}%</span>`:"—";
 const riyadhToday=()=>new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Riyadh"}).format(new Date());

@@ -31,11 +31,12 @@
 2. شغّل `python3 build.py` عشان يتحدث `index.html`.
 3. انشر `index.html` على نفس رابط الـ Artifact في Claude.
 
-## الموصل (Cloudflare Worker) — نسخة 2.0
+## الموصل (Cloudflare Worker) — نسخة 2.1
 
 - **الأسرار:** `DRD3M_KEY`، `SMMCPAN_KEY`، `CONNECTOR_TOKEN`.
 - **السجل التلقائي:** ربط KV باسم `FLASH_KV`، و Cron Trigger كل 15 دقيقة. يسجّل الشحن والاستهلاك اليومي وتغيّر أسعار الخدمات.
 - **الأدوات (كلها قراءة):** الرصيد، الخدمات وأسعارها، حالة الطلبات، سجل الشحن، الحركة اليومية، تغيّر الأسعار، حالة السجل.
+- **إشعار تيليجرام (اختياري):** الأسرار `TELEGRAM_TOKEN` و `TELEGRAM_CHAT_ID` و `HOOK_TOKEN`، ورابط الويب هوك `/hook/<HOOK_TOKEN>`.
 - الموصل ما يقدر ينشئ أو يلغي طلبات، فحتى لو انكشف رابطه ما يصرف شي.
 
 الاختبارات: `node connector/test.mjs` و `node connector/test2.mjs`.

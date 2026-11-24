@@ -1,5 +1,5 @@
 /**
- * Flash Suppliers — MCP connector for drd3m and smmcpan (read-only), version 2.0.
+ * Flash Suppliers — MCP connector for drd3m and smmcpan (read-only), version 2.1.
  *
  * Secrets (Settings → Variables and Secrets):
  *   DRD3M_KEY, SMMCPAN_KEY, CONNECTOR_TOKEN
@@ -11,6 +11,12 @@
  *   - each balance increase as a top-up (or a refund from the supplier)
  *   - a daily row per supplier: opening, closing, topped up, used
  *   - once a day, the price of the watched services, and any change
+ * New in 2.1 (optional): a Telegram message for every new Salla order.
+ *   Secrets: TELEGRAM_TOKEN (from @BotFather), TELEGRAM_CHAT_ID, HOOK_TOKEN (16+ random characters)
+ *   Optional: SALLA_WEBHOOK_SECRET (checks the X-Salla-Signature header)
+ *   Webhook URL to give Salla:  https://<worker>.workers.dev/hook/<HOOK_TOKEN>
+ *   Find your chat id:         https://<worker>.workers.dev/hook/<HOOK_TOKEN>/chatid  (after you send the bot any message)
+ *   Send a test message:       https://<worker>.workers.dev/hook/<HOOK_TOKEN>/test
  * The connector URL is unchanged:  https://<worker>.workers.dev/mcp/<CONNECTOR_TOKEN>
  * Read-only by design: it cannot place, cancel or refill orders.
  */
@@ -344,12 +350,83 @@ function json(body, status = 200, extra = {}) {
 // accept the KV binding as FLASH_KV or FLASH-KV
 const withKV = (env) => (env.FLASH_KV || !env["FLASH-KV"] ? env : { ...env, FLASH_KV: env["FLASH-KV"] });
 
+
+// ---------- 2.1: Telegram message for each new order ----------
+const tgEsc = (s) => String(s ?? "").replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+async function tgSend(env, text) {
+  const r = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_TOKEN}/sendMessage`, {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: "HTML", disable_web_page_preview: true }),
+  });
+  return r.ok;
+}
+async function hmacHex(secret, body) {
+  const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(body));
+  return [...new Uint8Array(sig)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+function money(v) {
+  if (v == null) return "";
+  if (typeof v === "object") return money(v.amount ?? v.value);
+  const n = Number(v); return isFinite(n) ? n.toFixed(2) : String(v);
+}
+// Salla's order payload, read defensively (other apps that forward orders also work if they use similar names)
+function orderText(p) {
+  const ev = p.event || p.type || "";
+  const d = p.data || p.order || p;
+  const id = d.reference_id || d.id || d.order_id || "";
+  const total = money(d.amounts?.total ?? d.total ?? d.amount ?? d.price);
+  const items = (d.items || d.products || []).slice(0, 6).map((i) => `• ${tgEsc(i.name || i.product?.name || "منتج")} × ${tgEsc(i.quantity ?? 1)}`).join("\n");
+  const city = d.customer?.city || d.shipping?.address?.city || d.customer_city || "";
+  const pay = d.payment_method || d.payment?.method || "";
+  const status = d.status?.name || d.status?.customized?.name || (typeof d.status === "string" ? d.status : "");
+  const lines = [`🛒 <b>طلب جديد${id ? ` #${tgEsc(id)}` : ""}</b>`];
+  if (total) lines.push(`💰 ${tgEsc(total)} ر.س`);
+  if (items) lines.push(items);
+  if (city) lines.push(`📍 ${tgEsc(city)}`);
+  if (pay) lines.push(`💳 ${tgEsc(pay)}`);
+  if (status) lines.push(`الحالة: ${tgEsc(status)}`);
+  if (ev && ev !== "order.created") lines.push(`<i>${tgEsc(ev)}</i>`);
+  return { id: String(id || ""), text: lines.join("\n") };
+}
+async function handleHook(request, env, url) {
+  const base = `/hook/${env.HOOK_TOKEN}`;
+  if (!env.TELEGRAM_TOKEN) return new Response("Set TELEGRAM_TOKEN in the Worker secrets.", { status: 500 });
+  if (url.pathname === `${base}/chatid`) {
+    const r = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_TOKEN}/getUpdates`);
+    const j = await r.json().catch(() => ({}));
+    const chats = [...new Map((j.result || []).map((u) => u.message?.chat || u.channel_post?.chat).filter(Boolean).map((c) => [c.id, c])).values()];
+    if (!chats.length) return new Response("ما وصل البوت أي رسالة. افتح البوت في تيليجرام، اضغط Start وأرسل له أي كلمة، وبعدين حدّث هذي الصفحة.", { status: 200, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+    return new Response(chats.map((c) => `TELEGRAM_CHAT_ID = ${c.id}   (${c.title || c.first_name || ""})`).join("\n"), { status: 200, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+  }
+  if (!env.TELEGRAM_CHAT_ID) return new Response("Set TELEGRAM_CHAT_ID in the Worker secrets.", { status: 500 });
+  if (url.pathname === `${base}/test`) {
+    const ok = await tgSend(env, "✅ ربط تيليجرام شغّال. بيوصلك هنا كل طلب جديد من سلة.");
+    return new Response(ok ? "تم الإرسال، شيك تيليجرام." : "ما انرسلت. تأكد من TELEGRAM_TOKEN و TELEGRAM_CHAT_ID.", { status: ok ? 200 : 502, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+  }
+  if (url.pathname !== base) return new Response("Not found", { status: 404 });
+  if (request.method !== "POST") return new Response("Method Not Allowed", { status: 405, headers: { Allow: "POST" } });
+  const raw = await request.text();
+  if (env.SALLA_WEBHOOK_SECRET) {
+    const got = (request.headers.get("x-salla-signature") || "").toLowerCase();
+    if (!got || got !== (await hmacHex(env.SALLA_WEBHOOK_SECRET, raw))) return new Response("Bad signature", { status: 401 });
+  }
+  let p; try { p = JSON.parse(raw); } catch { return new Response("Bad JSON", { status: 400 }); }
+  const ev = p.event || p.type || "";
+  if (ev && !/order\.created|order_created|new_order/i.test(ev)) return new Response("ignored", { status: 200 });
+  const { id, text } = orderText(p);
+  if (id && env.FLASH_KV) { const k = `tg:${id}`; if (await env.FLASH_KV.get(k)) return new Response("dup", { status: 200 }); await env.FLASH_KV.put(k, "1", { expirationTtl: 172800 }); }
+  await tgSend(env, text);
+  return new Response("ok", { status: 200 });
+}
+
 export default {
   async fetch(request, env) {
     env = withKV(env);
     const url = new URL(request.url);
     const token = env.CONNECTOR_TOKEN;
     if (url.pathname === "/" || url.pathname === "") return new Response("Flash Suppliers connector is running.", { status: 200 });
+    if (env.HOOK_TOKEN && env.HOOK_TOKEN.length >= 16 && url.pathname.startsWith(`/hook/${env.HOOK_TOKEN}`)) return handleHook(request, env, url);
     if (!token || token.length < 16) return new Response("Set CONNECTOR_TOKEN (16+ characters) in the Worker secrets.", { status: 500 });
     if (url.pathname !== `/mcp/${token}`) return new Response("Not found", { status: 404 });
     if (request.method === "GET") return new Response("Method Not Allowed", { status: 405, headers: { Allow: "POST" } });

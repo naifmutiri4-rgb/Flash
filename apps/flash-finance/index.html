@@ -665,6 +665,22 @@ html[data-theme="light"] .ptabs button.on{background:#fff;box-shadow:0 1px 3px r
 </style>
 <style>.linkbtn{all:unset;cursor:pointer;color:var(--cy);font-weight:700;font-size:12px;text-decoration:underline;text-underline-offset:3px}.linkbtn:focus-visible{outline:2px solid var(--cy);outline-offset:2px}</style>
 <style>.ubars{display:grid;grid-template-columns:repeat(30,minmax(0,1fr));gap:2px;height:70px;align-items:end;margin-top:8px;direction:ltr}.ubars i{display:block;background:var(--cy);border-radius:3px 3px 0 0;opacity:.85}.ubars i.tp{background:var(--pk)}</style>
+<style>
+#view{zoom:var(--ui-scale,1)}
+html.compact .card{padding:12px 14px}
+html.compact #view>div{gap:10px!important}
+html.compact .grid{gap:10px}
+html.compact .kpi .v{font-size:clamp(18px,2.2vw,24px)}
+.ai-form{display:flex;gap:8px}.ai-form .inp{flex:1;min-width:0}
+.chipq{font:inherit;font-size:13px;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line-2);background:rgba(var(--hi-rgb),.04);color:var(--light);cursor:pointer}
+.chipq:hover{border-color:var(--cy)}
+.ai-out{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.ai-q{align-self:flex-start;max-width:90%;padding:8px 12px;border-radius:12px;background:rgba(var(--hi-rgb),.06);font-weight:700}
+.ai-a{white-space:pre-wrap;line-height:1.8;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(var(--ink-rgb),.35)}
+.hl{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:9px;font-weight:800}
+.hl.ok{background:rgba(62,224,143,.14);color:#3ee08f}.hl.warn{background:rgba(255,200,87,.15);color:#ffc857}.hl.bad{background:rgba(255,61,127,.15);color:var(--pk)}.hl.info{background:rgba(var(--hi-rgb),.08);color:var(--mut)}
+html[data-theme="light"] .hl.ok{color:#0f8a50}html[data-theme="light"] .hl.warn{color:#A35F00}
+</style>
 <div class="bgfx" aria-hidden="true"><i></i><i></i><b></b></div>
 <div class="shell" dir="rtl" lang="ar">
  <aside class="side" id="side" aria-label="القائمة الرئيسية">
@@ -951,7 +967,7 @@ function pageHome(){
    const rt=extData("rat:90");if(rt&&rt.totals&&+rt.totals.negative>0)alerts.push(["pk",`عندك ${fmt(+rt.totals.negative)} تقييم سلبي ومتوسط التقييم ${fmt(+rt.totals.average_rating,1)} من 5. رد عليها من سلة.`]);
    const cp=extData(`coup:${r.from}:${r.to}`);const full=((cp&&cp.rows)||[]).filter(x=>x.details&&x.details.coupon_type==="P"&&+x.details.coupon_amount>=100&&+x.orders>0);full.forEach(x=>alerts.push(["pk",`كوبون ${x.label} خصمه 100% وانستخدم ${fmt(+x.orders)} مرة في الفترة (طلبات مجانية). عطّله لو مو مقصود.`]))}
   if(S.mcp){sallaRep("reports_ratings_summary",{period:"last_90_days"},"rat:90");sallaRep("reports_sales_by",{dimension:"coupon",from_date:r.from,to_date:r.to,limit:50},`coup:${r.from}:${r.to}`)}
-  const lastOrders=R.orders.slice(0,6);
+  const lastOrders=R.orders.slice(0,6);logAlerts(alerts);
   const repBanner=Number(t.slice(8))<=5?(()=>{const pm=addMonths(monthStart(t),-1);const P2=calc(pm,monthEnd(pm)).T;return`<div class="card" style="border-color:rgba(0,229,212,.35)"><div class="row" style="justify-content:space-between;gap:12px;flex-wrap:wrap"><div><h3 style="margin:0">تقرير ${esc(mLabel(pm))} جاهز</h3><div class="muted small">مبيعات <b class="n">${fmt(P2.rev,0)}</b> · إعلان <b class="n">${fmt(P2.adsAll,0)}</b> · صافي <b class="n ${P2.net<0?"neg":"pos"}">${fmt(P2.net,0)}</b> ر.س</div></div><div class="row" style="gap:8px"><button class="btn sm cy" data-act="rep-pdf">${ic("doc")}تنزيل PDF</button><button class="btn sm ghost" data-act="rep-xlsx">${ic("xls")}إكسل</button></div></div></div>`})():"";
   return`${repBanner}${hasData()?"":onboarding()}
   <div class="grid g21">
@@ -976,7 +992,7 @@ function pageHome(){
    <div class="card"><h3>الإيرادات والصافي يوم بيوم <small>${esc(r.label)}</small></h3>
     ${R.T.rev||R.T.adsAll?lineChart({labels:R.days.map(d=>dLabel(d)),series:[{name:"الإيرادات",vals:R.days.map(d=>R.D[d].rev),color:"#00E5D4",area:true},{name:"الصافي",vals:R.days.map(d=>R.D[d].net),color:"#FF3D7F"}]}):emptyState("ما فيه حركة في هذي الفترة","بعد المزامنة تظهر المبيعات والصافي هنا.")}
     <div class="legend"><span><i style="background:#00E5D4"></i>الإيرادات</span><span><i style="background:#FF3D7F"></i>الصافي</span></div></div>
-   <div class="card"><h3>تنبيهات</h3><div class="list">${alerts.length?alerts.map(a=>`<div class="alert ${a[0]}"><i class="ic"></i><div>${esc(a[1])}</div></div>`).join(""):`<div class="alert mu"><i class="ic"></i><div>ما فيه تنبيهات للفترة.</div></div>`}</div></div>
+   <div class="card"><h3>تنبيهات <button type="button" class="btn sm ghost" data-act="alert-log">السجل</button></h3><div class="list">${alerts.length?alerts.map(a=>`<div class="alert ${a[0]}"><i class="ic"></i><div>${esc(a[1])}</div></div>`).join(""):`<div class="alert mu"><i class="ic"></i><div>ما فيه تنبيهات للفترة.</div></div>`}</div></div>
   </div>
   <div class="card"><h3>آخر الطلبات <small><a href="#orders">كل الطلبات</a></small></h3>${lastOrders.length?`<div class="list">${lastOrders.map(o=>{const c=orderCost(o);const net=o.amount-c.cost-feeOf(o.amount);return`<div class="li ${S.newIds.has(String(o.id))?"new":""}"><div style="min-width:0"><div class="t">${esc((o.items||[]).map(i=>i.name+(i.qty>1?" ×"+i.qty:"")).join("، ")||"طلب")}</div><div class="s"><span class="n">#${esc(o.ref)}</span> · ${esc(dLabel(o.day))} ${esc(o.t||"")}</div></div><div style="text-align:left"><div class="n" style="font-weight:800">${fmt(o.amount,2)}</div><div class="s pos n">+${fmt(net,2)}</div></div></div>`}).join("")}</div>`:emptyState("ما فيه طلبات بعد","تظهر طلبات سلة هنا بعد المزامنة.")}</div>`;
 }
@@ -1001,7 +1017,7 @@ function pageSummary(){
    <div class="card"><h3>وين راحت كل ريال</h3>${R.rev?`<div style="display:flex;height:22px;border-radius:12px;overflow:hidden;gap:2px;margin:6px 0 14px">${parts.map(p=>`<i title="${esc(p[0])}" style="flex:${Math.max(.001,p[1]/tot)};background:${p[2]}"></i>`).join("")}</div><div class="list">${parts.map(p=>`<div class="li"><div class="row"><i style="width:10px;height:10px;border-radius:3px;background:${p[2]}"></i><span>${esc(p[0])}</span></div><div><b class="n">${fmt(p[1])}</b> <span class="muted small n">${fmt(p[1]/R.rev*100,0)}%</span></div></div>`).join("")}</div>`:emptyState("ما فيه إيرادات في الفترة","")}</div>
    <div class="card"><h3>المؤشرات</h3><div class="grid g2" style="gap:10px">
     ${[["هامش الربح",pct(R.margin,1),pct(P.margin,1)],["العائد على الإعلان ROAS",isFinite(R.roas)?`<span class="n">${fmt(R.roas,2)}x</span>`:"—",isFinite(P.roas)?fmt(P.roas,2)+"x":"—"],["تكلفة اكتساب الطلب CPA",isFinite(R.cpa)?money(R.cpa,2):"—",isFinite(P.cpa)?fmt(P.cpa,2):"—"],["نقطة التعادل",isFinite(R.breakEven)?`<span class="n">${fmt(R.breakEven,1)}</span> طلب/يوم`:"—",`أنت الحين ${fmt(R.perDayOrders,1)} طلب/يوم`]].map(x=>`<div class="li" style="grid-template-columns:1fr"><div class="s">${x[0]}</div><div style="font-weight:800;font-size:20px">${x[1]}</div><div class="s">${typeof x[2]==="string"&&x[2].startsWith("أنت")?esc(x[2]):"السابق: "+x[2]}</div></div>`).join("")}
-   </div></div></div>${forecastCard()}`;
+   </div></div></div>${aiCard()}${forecastCard()}${obligationsCard()}`;
 }
 function pageRevenue(){
   const r=range(),R=calc(r.from,r.to),t=riyadhToday();
@@ -1057,7 +1073,7 @@ const SUPPLIERS=[["drd3m","دكتور دعم (drd3m)"],["smmcpan","smmcpan"]];
 const SVC_TYPES=[["views","مشاهدات"],["likes","لايكات"],["shares","شير"],["saves","حفظ"]];
 const DEF_SVC={views:{sup:"drd3m",id:"12033"},likes:{sup:"drd3m",id:"10816"},shares:{sup:"drd3m",id:"5633"},saves:{sup:"drd3m",id:"9350"}};
 function svcMap(){const s=(S.config&&S.config.services)||{};const o={};SVC_TYPES.forEach(([k])=>o[k]={...DEF_SVC[k],...(s[k]||{})});return o}
-S.oq={};S.om={};S.ext={};S.experiments=[];S.owner=[];S.svc=new Map();S.supErr=null;S.supBal=null;S.supBalAt=0;S.links={};
+S.oq={};S.om={};S.ext={};S.experiments=[];S.owner=[];S.ai={q:"",a:"",busy:false,hist:[]};S.alertLog={};S.svc=new Map();S.supErr=null;S.supBal=null;S.supBalAt=0;S.links={};
 const fmtMins=(m)=>m==null?"—":m<60?`${m} دقيقة`:m<1440?`${Math.round(m/60*10)/10} ساعة`:`${Math.round(m/1440*10)/10} يوم`;
 function supMsg(e){const c=e&&e.code;if(c==="server_not_connected")return"موصل Flash Suppliers مو مضاف في claude.ai";if(c==="needs_reauth")return"أعد ربط موصل Flash Suppliers";
   if(c==="not_in_manifest"||c==="approval_required"||c==="consent_required")return"وافق على استخدام موصل المزودين";if(c==="tool_error")return"المزود رفض الطلب: "+String(e.message||"").slice(0,100);return"تعذّر الاتصال بموصل المزودين"}
@@ -1656,7 +1672,7 @@ function pagePrefs(){
    <div class="li" style="grid-template-columns:1fr">الطلبات بعملة ثانية (مثل الدينار) تتحول للريال بسعر الصرف المسجل في سلة.</div>
    <div class="li" style="grid-template-columns:1fr">الاشتراكات الشهرية تتوزع على أيام الشهر، فأي فترة تاخذ نصيبها بس.</div>
    <div class="li" style="grid-template-columns:1fr">التوقعات تنحفظ لحالها وما تدخل في أي رقم فعلي.</div></div></div>
-  </div>`;
+  </div>${healthCard()}${customizeCard()}`;
 }
 const PAGES={home:pageHome,summary:pageSummary,revenue:pageRevenue,expenses:pageExpenses,products:pageProducts,ads:pageAds,orders:pageOrders,pnl:pagePnl,reports:pageReports,goals:pageGoals,prefs:pagePrefs};
 
@@ -1674,7 +1690,7 @@ function renderNav(){
 
 /* ---- theme (dark = store look, light for sunlight) ---- */
 const SUN='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',MOON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg>';
-function applyTheme(t){S._lastSig=null;document.documentElement.setAttribute("data-theme",t);const b=document.getElementById("themeBtn");if(b){b.innerHTML=t==="light"?MOON:SUN;b.setAttribute("aria-label",t==="light"?"الوضع الداكن":"الوضع الفاتح")}}
+function applyTheme(t){S._lastSig=null;setTimeout(()=>{try{applyUi()}catch(e){}},0);document.documentElement.setAttribute("data-theme",t);const b=document.getElementById("themeBtn");if(b){b.innerHTML=t==="light"?MOON:SUN;b.setAttribute("aria-label",t==="light"?"الوضع الداكن":"الوضع الفاتح")}}
 function themePref(){try{return localStorage.getItem("ff-theme")||"dark"}catch(e){return"dark"}}
 const mqLight=window.matchMedia?matchMedia("(prefers-color-scheme: light)"):null;
 function resolveTheme(p){return p==="auto"?(mqLight&&mqLight.matches?"light":"dark"):p}
@@ -1720,6 +1736,92 @@ function applyTabs(root){const defs=PAGE_TABS[S.route];if(!defs||!root)return;co
 document.addEventListener("click",(e)=>{const b=e.target.closest&&e.target.closest("[data-ptab]");if(!b)return;const k=b.dataset.ptab;S.tabs[S.route]=k;try{localStorage.setItem("ff-tabs",JSON.stringify(S.tabs))}catch(x){}
   const root=b.closest(".ptabs").parentElement;[...root.children].forEach(el=>{if(el.dataset&&el.dataset.tab)el.hidden=el.dataset.tab!==k});b.parentElement.querySelectorAll("button").forEach(x=>{x.classList.toggle("on",x===b);x.setAttribute("aria-selected",x===b)});
   S._lastSig=null;render();window.scrollTo({top:0,behavior:"smooth"})});
+
+/* ================= 1. ask about your numbers ================= */
+function aiContext(){const t=riyadhToday(),ms=monthStart(t),pm=addMonths(ms,-1);const pack=(T)=>({sales:+T.rev.toFixed(2),orders:T.orders,avg_basket:isFinite(T.aov)?+T.aov.toFixed(2):null,supplier_cost:+T.cost.toFixed(2),salla_fees:+T.fees.toFixed(2),ads:+T.adsAll.toFixed(2),fixed_and_other:+T.other.toFixed(2),net:+T.net.toFixed(2),roas:isFinite(T.roas)?+T.roas.toFixed(2):null,cost_per_order_from_ads:T.orders?+(T.adsAll/T.orders).toFixed(2):null});
+  const per={today:pack(calc(t,t).T),last_7_days:pack(calc(addDays(t,-6),t).T),prev_7_days:pack(calc(addDays(t,-13),addDays(t,-7)).T),this_month_to_date:pack(calc(ms,t).T),last_month:pack(calc(pm,monthEnd(pm)).T)};
+  const M=calc(ms,t);const prods={};for(const o of M.orders){const c=orderCost(o),its=o.items||[];const pf=o.amount-c.cost-feeOf(o.amount);its.forEach(it=>{const p=prods[it.name]=prods[it.name]||{sold:0,sales:0,profit_before_ads:0};p.sold+=it.qty||1;p.sales+=o.amount/its.length;p.profit_before_ads+=pf/its.length})}
+  Object.values(prods).forEach(p=>{p.sales=+p.sales.toFixed(2);p.profit_before_ads=+p.profit_before_ads.toFixed(2)});
+  const camps={};M.orders.forEach(o=>{if(o.attr&&o.attr.ch==="tiktok"){const k=o.attr.camp||"?";camps[k]=camps[k]||{orders:0,sales:0};camps[k].orders++;camps[k].sales+=o.amount}});
+  const ttc=extData(`tt:AUCTION_CAMPAIGN:${ms}:${t}`)||[];ttc.forEach(c=>{if(+c.spend>0){camps[c.campaign_name]=camps[c.campaign_name]||{orders:0,sales:0};camps[c.campaign_name].spend=+(+c.spend).toFixed(2)}});
+  const bal={};if(S.supBal)Object.values(S.supBal).forEach(b=>{if(b&&b.balance_sar!=null)bal[b.supplier]=+b.balance_sar.toFixed(2)});
+  const g=goals();return{today:t,currency:"SAR",periods:per,products_this_month:prods,tiktok_campaigns_this_month:camps,supplier_balances:bal,
+    service_rates_per_1000:cfg().rates,goal_monthly_sales:g.monthlySales,goal_margin:g.margin,fixed_monthly:(S.recurring||[]).filter(r=>r.active!==false).map(r=>({name:r.title,amount:+r.amount}))}}
+async function askAI(q){q=String(q||"").trim().slice(0,300);if(!q||!S.sample||S.ai.busy)return;S.ai={...S.ai,q,a:"",busy:true,err:""};paintAI();
+  const sys="أنت مستشار مالي لمتجر فلاش ستور (خدمات تيك توك: مشاهدات ولايكات وشير وحفظ) على منصة سلة. جاوب باللهجة السعودية، باختصار ووضوح، من الأرقام المرفقة فقط. لا تخترع أي رقم. إذا المعلومة مو موجودة قل كذا. اذكر الأرقام بالريال. اختم بخطوة أو خطوتين عمليتين. لا تقترح تغيير أسعار أو إعلانات كأنها تمت؛ اقترحها فقط.";
+  const msgs=[];(S.ai.hist||[]).slice(-4).forEach(h=>{msgs.push({role:"user",content:h.q});msgs.push({role:"assistant",content:h.a})});
+  msgs.push({role:"user",content:sys+"\n\nالأرقام (JSON):\n"+JSON.stringify(aiContext())+"\n\nالسؤال: "+q});
+  try{const r=await S.sample(msgs,{modelTier:"default",cache:false,onText:({text})=>{S.ai.a=text;paintAI(true)}});S.ai.a=r.text;S.ai.hist=[...(S.ai.hist||[]),{q,a:r.text}].slice(-4)}
+  catch(e){S.ai.err=e&&e.code==="rate_limited"?"كثرت الأسئلة، جرّب بعد دقيقة.":e&&e.code==="not_granted"?"ما انسمح للصفحة تسأل Claude. فعّلها من صلاحيات الصفحة.":"ما قدرت أجاوب الحين، جرّب مرة ثانية."}
+  S.ai.busy=false;paintAI()}
+function aiInner(){const A=S.ai;return`${A.q?`<div class="ai-q">${esc(A.q)}</div>`:""}${A.busy&&!A.a?`<div class="muted small"><i class="spin" style="width:12px;height:12px;vertical-align:middle"></i> أفكر في أرقامك…</div>`:""}${A.a?`<div class="ai-a">${esc(A.a)}</div>`:""}${A.err?`<div class="neg small">${esc(A.err)}</div>`:""}`}
+function paintAI(){const el=document.getElementById("aiOut");if(el)el.innerHTML=aiInner();const b=document.getElementById("aiGo");if(b)b.disabled=!!S.ai.busy}
+function aiCard(){if(!S.sample)return"";const chips=["ليش تغيّر الصافي هالأسبوع؟","وش أربح منتج هالشهر؟","كم طلب أحتاج يوميًا عشان أغطي الإعلان؟","وش أسوي عشان أرفع الربح؟","أي حملة تخسّرني؟"];
+  return`<div class="card"><h3>اسأل عن أرقامك <small>يجاوب Claude من أرقام التطبيق نفسها</small></h3>
+   <form class="ai-form" id="aiForm"><input class="inp" id="aiQ" maxlength="300" placeholder="مثال: ليش نزل الصافي هالأسبوع؟" autocomplete="off" aria-label="سؤالك"><button class="btn pri" id="aiGo" type="submit" ${S.ai.busy?"disabled":""}>اسأل</button></form>
+   <div class="row" style="gap:6px;margin-top:8px">${chips.map(c=>`<button type="button" class="chipq" data-aiq="${esc(c)}">${esc(c)}</button>`).join("")}</div>
+   <div id="aiOut" class="ai-out">${aiInner()}</div></div>`}
+document.addEventListener("submit",(e)=>{if(e.target&&e.target.id==="aiForm"){e.preventDefault();const i=document.getElementById("aiQ");askAI(i.value);i.value=""}},true);
+document.addEventListener("click",(e)=>{const c=e.target.closest&&e.target.closest("[data-aiq]");if(c)askAI(c.dataset.aiq)});
+
+/* ================= 2. what is due in the next 30 days ================= */
+function obligationsCard(){const t=riyadhToday(),end=addDays(t,30),items=[];
+  for(const r of (S.recurring||[])){if(r.active===false)continue;const day=Math.min(28,Math.max(1,+r.chargeDay||1));for(let m=0;m<2;m++){const base=addMonths(monthStart(t),m);const d=base.slice(0,8)+String(day).padStart(2,"0");if(d>t&&d<=end&&(!r.startMonth||d.slice(0,7)>=r.startMonth)&&(!r.endMonth||d.slice(0,7)<=r.endMonth))items.push({date:d,label:r.title||"اشتراك",amount:+r.amount||0,kind:"sub",guess:!r.chargeDay})}}
+  const b=cfg().adBudget;const w7=calc(addDays(t,-6),t).T.adsAll/7;const adDaily=w7>0?w7:(+b.daily||0);if(adDaily>0)items.push({date:end,label:`الإعلانات (${fmt(adDaily,2)} باليوم × 30)`,amount:adDaily*30,kind:"ads",spread:true});
+  SUPPLIERS.forEach(([k])=>{const rw=runwayOf(k);if(rw&&rw.daily>0){const need=Math.max(0,rw.daily*30-rw.bal);if(need>0){const runOut=isFinite(rw.days)?addDays(t,Math.max(0,Math.floor(rw.days))):t;items.push({date:runOut<t?t:runOut,label:`شحن ${k} (يخلص الرصيد تقريبًا)`,amount:need,kind:"sup"})}}});
+  items.sort((a,b)=>a.date.localeCompare(b.date));const total=items.reduce((s,x)=>s+x.amount,0);const fixed=items.filter(x=>!x.spread).reduce((s,x)=>s+x.amount,0);
+  return`<div class="card"><h3>التزامات الـ 30 يوم الجاية <small>من ${esc(dLabel(t))} إلى ${esc(dLabel(end))}</small></h3>
+   <div class="pd-grid"><div class="pd-box"><small>المجموع المتوقع</small><b class="n">${fmt(total,0)}</b></div><div class="pd-box"><small>منها مبالغ بتاريخ محدد</small><b class="n">${fmt(fixed,0)}</b></div><div class="pd-box"><small>الإعلانات (موزعة على الأيام)</small><b class="n">${fmt(adDaily*30,0)}</b></div><div class="pd-box"><small>مبيعاتك المتوقعة لنفس المدة</small><b class="n">${fmt(calc(addDays(t,-29),t).T.rev,0)}</b></div></div>
+   ${items.length?`<div class="list" style="margin-top:12px">${items.map(x=>`<div class="li" style="grid-template-columns:86px minmax(0,1fr) auto"><span class="n small muted">${x.spread?"طول الشهر":esc(dLabel(x.date))}</span><div><b>${esc(x.label)}</b>${x.guess?' <span class="muted small">(يوم الخصم غير محدد، افترضت يوم 1)</span>':""}</div><b class="n neg">${fmt(x.amount,2)}</b></div>`).join("")}</div>`:`<div class="muted small" style="margin-top:10px">ما فيه التزامات معروفة.</div>`}
+   <div class="muted small" style="margin-top:8px">حدّد يوم خصم كل اشتراك من المصاريف ← الاشتراكات ← تعديل، عشان تطلع التواريخ صح.</div></div>`}
+
+/* ================= 3. data health ================= */
+function healthCard(){const t=riyadhToday(),ms=monthStart(t);const R=calc(ms,t);const rows=[];
+  const age=(iso)=>iso?Math.round((Date.now()-new Date(iso).getTime())/6e4):null;
+  const sa=age(S.sync&&S.sync.lastSalla),ta=age(S.sync&&S.sync.lastTikTok);
+  rows.push([sa!=null&&sa<=180?"ok":"warn","آخر مزامنة مع سلة",sa==null?"ما صارت":sa<1?"الحين":`قبل ${fmtMins(sa)}`,sa!=null&&sa<=180?"":`<button class="btn sm cy" data-act="sync-salla">مزامنة</button>`]);
+  rows.push([ta!=null&&ta<=360?"ok":"warn","آخر مزامنة مع تيك توك",ta==null?"ما صارت":ta<1?"الحين":`قبل ${fmtMins(ta)}`,ta!=null&&ta<=360?"":`<button class="btn sm cy" data-act="sync-tiktok">مزامنة</button>`]);
+  rows.push([R.unknownN?"bad":"ok","منتجات بدون تكلفة",R.unknownN?`${R.unknownN} طلب هالشهر`:"ولا واحد",R.unknownN?`<a class="btn sm ghost" href="#products">أضفها</a>`:""]);
+  rows.push([R.estN?"warn":"ok","طلبات تكلفتها تقديرية",R.estN?`${R.estN} طلب (ما انقرت كميتها من الفاتورة للحين)`:"ولا واحد",R.estN?`<a class="btn sm ghost" href="#orders">افتح الطلبات</a>`:""]);
+  const noSrc=R.orders.filter(o=>!o.attr).length;rows.push([noSrc?"warn":"ok","طلبات مصدرها غير معروف",noSrc?`${noSrc} طلب، يتحدد تلقائي وأنت فاتح الرئيسية أو الإعلانات`:"كلها معروفة",""]);
+  const ex=((S.config&&S.config.excludedOrders)||[]).length,exc=((S.config&&S.config.excludedCustomers)||[]).length;rows.push(["info","طلبات مستبعدة من الحسابات",`${ex} طلب${exc?` + طلبات ${exc} عميل`:""}`,ex?`<a class="btn sm ghost" href="#orders">راجعها</a>`:""]);
+  const wkd=extData("wk:topups");if(!wkd&&S.mcp)wk("supplier_topups",{},"wk:topups",5*6e4);rows.push([wkd&&Array.isArray(wkd.topups)?"ok":wkOff("wk:topups")?"warn":"info","السجل التلقائي للمزودين",wkd&&Array.isArray(wkd.topups)?"شغّال كل 15 دقيقة":wkOff("wk:topups")?"مو مفعّل في Cloudflare":"أتحقق…",""]);
+  const old=Object.entries((S.config&&S.config.manualSpeeds)||{}).filter(([,v])=>v&&v.at&&diffDays(v.at,t)>30);rows.push([old.length?"warn":"ok","سرعات كتبتها بنفسك",old.length?`${old.length} عمرها أكثر من 30 يوم`:"محدّثة",old.length?`<a class="btn sm ghost" href="#products">حدّثها</a>`:""]);
+  const lb=(S.backups||[])[0];rows.push([lb?"ok":"info","آخر نسخة احتياطية",lb?esc(String(lb.at||lb.id).slice(0,10)):"تنحفظ تلقائي كل أسبوع",""]);
+  if(!S.backups&&S.db)listBackups();
+  const ic2={ok:"✓",warn:"!",bad:"×",info:"i"};
+  return`<div class="card"><h3>فحص صحة البيانات <small>يتأكد إن الأرقام كاملة وصحيحة</small></h3><div class="list">${rows.map(r=>`<div class="li hl-row" style="grid-template-columns:auto minmax(0,1fr) auto"><span class="hl ${r[0]}" aria-hidden="true">${ic2[r[0]]}</span><div><b>${esc(r[1])}</b><div class="muted small">${r[2]}</div></div><div>${r[3]}</div></div>`).join("")}</div></div>`}
+
+/* ================= 4. customise (this device only) ================= */
+const HOME_SECS=[["today","اليوم وهدف الشهر"],["kpis","أرقام الفترة"],["chart","الرسم والتنبيهات"],["orders","آخر الطلبات"]];
+function uiPrefs(){let u={};try{u=JSON.parse(localStorage.getItem("ff-ui")||"{}")}catch(e){}return{scale:u.scale||1,density:u.density||"comfy",accent:u.accent||"cy",order:Array.isArray(u.order)?u.order:HOME_SECS.map(x=>x[0]),hidden:Array.isArray(u.hidden)?u.hidden:[]}}
+function saveUi(p){try{localStorage.setItem("ff-ui",JSON.stringify(p))}catch(e){}applyUi();S._lastSig=null;render()}
+const ACCENTS={cy:["فيروزي",null,null],pk:["وردي","#FF3D7F","#D81B60"],pu:["بنفسجي","#9B8CFF","#5B47D6"],go:["ذهبي","#FFC857","#A86B00"]};
+function applyUi(){const u=uiPrefs(),r=document.documentElement;r.style.setProperty("--ui-scale",u.scale);r.classList.toggle("compact",u.density==="compact");
+  const a=ACCENTS[u.accent]||ACCENTS.cy;const light=r.getAttribute("data-theme")==="light";if(a[1]){r.style.setProperty("--cy",light?a[2]:a[1]);r.style.setProperty("--good",light?a[2]:a[1])}else{r.style.removeProperty("--cy");r.style.removeProperty("--good")}}
+function applyHome(root){if(S.route!=="home"||!root)return;const u=uiPrefs();[...root.children].forEach(el=>{let k=null;if(el.querySelector(".card.hero"))k="today";else if(el.classList.contains("g4")&&el.querySelector(".kpi"))k="kpis";else if([...el.querySelectorAll("h3")].some(h=>h.textContent.includes("الإيرادات والصافي")))k="chart";else if([...el.querySelectorAll("h3")].some(h=>h.textContent.includes("آخر الطلبات")))k="orders";
+  if(!k)return;el.style.order=String(u.order.indexOf(k)+1);if(u.hidden.includes(k))el.hidden=true})}
+function customizeCard(){const u=uiPrefs();const seg=(name,opts,cur)=>`<div class="seg theme-seg" role="radiogroup">${opts.map(([v,l])=>`<button type="button" role="radio" aria-checked="${String(cur)===String(v)}" class="${String(cur)===String(v)?"on":""}" data-ui="${name}" data-v="${v}">${esc(l)}</button>`).join("")}</div>`;
+  return`<div class="card"><h3>التخصيص <small>ينحفظ في هذا الجهاز بس</small></h3>
+   <div class="field"><label>حجم الخط</label>${seg("scale",[["0.92","صغير"],["1","عادي"],["1.1","كبير"]],u.scale)}</div>
+   <div class="field" style="margin-top:10px"><label>الكثافة</label>${seg("density",[["comfy","مريح"],["compact","مضغوط"]],u.density)}</div>
+   <div class="field" style="margin-top:10px"><label>لون التمييز</label>${seg("accent",Object.entries(ACCENTS).map(([k,v])=>[k,v[0]]),u.accent)}</div>
+   <div class="field" style="margin-top:10px"><label>أقسام الرئيسية</label><div class="list">${u.order.map((k,i)=>{const l=(HOME_SECS.find(x=>x[0]===k)||[k,k])[1];const hid=u.hidden.includes(k);return`<div class="li" style="grid-template-columns:minmax(0,1fr) auto"><label class="row" style="gap:8px;cursor:pointer"><input type="checkbox" data-ui-show="${k}" ${hid?"":"checked"}> ${esc(l)}</label><div class="row" style="gap:6px"><button type="button" class="btn sm ghost" data-ui-move="${k}" data-d="-1" ${i===0?"disabled":""} aria-label="لفوق">▲</button><button type="button" class="btn sm ghost" data-ui-move="${k}" data-d="1" ${i===u.order.length-1?"disabled":""} aria-label="لتحت">▼</button></div></div>`}).join("")}</div></div>
+   <div class="row" style="margin-top:10px"><button type="button" class="btn sm ghost" data-ui-reset="1">رجّع الافتراضي</button></div></div>`}
+document.addEventListener("click",(e)=>{const b=e.target.closest&&e.target.closest("[data-ui],[data-ui-move],[data-ui-reset]");if(!b)return;const u=uiPrefs();
+  if(b.dataset.ui){u[b.dataset.ui]=b.dataset.ui==="scale"?+b.dataset.v:b.dataset.v}
+  else if(b.dataset.uiMove){const i=u.order.indexOf(b.dataset.uiMove),j=i+(+b.dataset.d);if(j>=0&&j<u.order.length){[u.order[i],u.order[j]]=[u.order[j],u.order[i]]}}
+  else{try{localStorage.removeItem("ff-ui")}catch(x){}applyUi();S._lastSig=null;render();return}
+  saveUi(u)});
+document.addEventListener("change",(e)=>{const c=e.target.closest&&e.target.closest("[data-ui-show]");if(!c)return;const u=uiPrefs();const k=c.dataset.uiShow;u.hidden=c.checked?u.hidden.filter(x=>x!==k):[...new Set([...u.hidden,k])];saveUi(u)});
+
+/* ================= 5. alerts log ================= */
+let alertT;
+function logAlerts(list){if(!S.db||S.canWrite===false||!list.length)return;clearTimeout(alertT);alertT=setTimeout(async()=>{const t=riyadhToday();const cur=(S.alertLog[t]&&S.alertLog[t].items)||[];const have=new Set(cur.map(x=>x.text));
+  const add=list.filter(a=>a[0]!=="mu"&&a[0]!=="cy"||/وصلت هدف|طلب كبير/.test(a[1])).filter(a=>!have.has(a[1])).map(a=>({kind:a[0],text:a[1],at:new Date().toISOString()}));if(!add.length)return;
+  const items=[...cur,...add].slice(-60);S.alertLog[t]={day:t,items};try{await S.db.doc("alert_log/"+t).set({day:t,items})}catch(e){}},2500)}
+function alertLogModal(){const days=Object.keys(S.alertLog).sort().reverse().slice(0,30);
+  modal(`<h3>سجل التنبيهات <small class="muted">آخر 30 يوم</small></h3>${days.length?days.map(d=>`<div style="margin-top:10px"><b>${esc(dLabel(d))}</b>${S.alertLog[d].items.map(x=>`<div class="alert ${esc(x.kind)}" style="margin-top:6px"><i class="ic"></i><div>${esc(x.text)} <span class="muted small n">${esc(String(x.at||"").slice(11,16))}</span></div></div>`).join("")}</div>`).join(""):`<div class="muted">ما فيه تنبيهات محفوظة للحين.</div>`}<div class="row" style="margin-top:14px"><button class="btn ghost" type="button" data-close>إغلاق</button></div>`)}
 let rq=0;function render(){cancelAnimationFrame(rq);rq=requestAnimationFrame(doRender)}
 function doRender(){CALC_MEMO=new Map();COST_MEMO=new Map();
   const ready=S.loaded.has("config")&&S.loaded.has("products");
@@ -1734,7 +1836,7 @@ function doRender(){CALC_MEMO=new Map();COST_MEMO=new Map();
   const sig=S.route+"|"+S.period+"|"+(document.documentElement.dataset.theme||"")+"|"+html;
   if(!S.animate&&S._lastSig===sig&&v.firstElementChild){S.noKeep=false;return}
   S._lastSig=sig;
-  v.innerHTML=`<div class="${S.animate?"page":""}">${html}</div>`;applyTabs(v.firstElementChild);
+  v.innerHTML=`<div class="${S.animate?"page":""}">${html}</div>`;applyTabs(v.firstElementChild);applyHome(v.firstElementChild);
   for(const [id,val] of Object.entries(keep)){const el=document.getElementById(id);if(el&&v.contains(el)&&el.value!==val)el.value=val}
   S.noKeep=false;
   if(focusId){const el=document.getElementById(focusId);if(el&&el.tagName==="INPUT"&&el.type==="text"||el&&el.id==="oq"){el.focus();try{el.setSelectionRange(selS,selS)}catch(e){}}}
@@ -1768,6 +1870,7 @@ function subscribe(){
   db.doc("meta/lock").onSnapshot(s=>{S.lock=s.exists?s.data():null;S.loaded.add("lock")},()=>S.loaded.add("lock"));
   db.doc("meta/sync").onSnapshot(s=>{S.sync=s.exists?{...s.data()}:{};mark("sync");startLive()},err("sync"));
   coll("owner_moves","owner",s=>{S.owner=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>String(b.date).localeCompare(String(a.date)))});
+  coll("alert_log","alertlog",s=>{const o={};s.docs.forEach(d=>o[d.id]=d.data());S.alertLog=o});
   coll("experiments","experiments",s=>{S.experiments=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>String(b.date).localeCompare(String(a.date)))});
   coll("order_info","oi",s=>{const o={};s.docs.forEach(d=>o[d.id]=d.data());S.oiDocs=o;S._omNew={};S._oqNew={};Object.values(o).forEach(d=>{Object.assign(S._omNew,d.m||{});Object.assign(S._oqNew,d.q||{})});mergeInfo()});
   coll("order_meta","om",s=>{const o={};s.docs.forEach(d=>o[d.id]=d.data());S._omOld=o;mergeInfo()});
@@ -1931,10 +2034,11 @@ function recModal(x){x=x||{};const t=riyadhToday();const m=modal(`<h3>${x.id?"ت
   <div class="field" style="grid-column:1/-1"><label for="rc-t">البند</label><input class="inp" id="rc-t" required maxlength="60" value="${esc(x.title||"")}"></div>
   <div class="field"><label for="rc-a">المبلغ الشهري</label><input class="inp n" id="rc-a" type="number" step="0.01" min="0.01" required value="${esc(x.amount??"")}"></div>
   <div class="field"><label for="rc-s">يبدأ من شهر</label><input class="inp" id="rc-s" type="month" value="${esc(x.startMonth||t.slice(0,7))}"></div>
+  <div class="field"><label for="rc-day">يوم الخصم من الشهر</label><input class="inp n" id="rc-day" type="number" min="1" max="28" placeholder="مثال: 15" value="${esc(x.chargeDay??"")}"></div>
   <div class="field"><label for="rc-e">ينتهي (اختياري)</label><input class="inp" id="rc-e" type="month" value="${esc(x.endMonth||"")}"></div>
   <div class="field"><label for="rc-on">الحالة</label><select class="inp" id="rc-on"><option value="1" ${x.active!==false?"selected":""}>فعّال</option><option value="0" ${x.active===false?"selected":""}>موقوف</option></select></div>
   <div class="row" style="grid-column:1/-1"><button class="btn pri" type="submit">${ic("save")}حفظ</button><button class="btn ghost" type="button" data-close>إلغاء</button></div></form>`);
-  m.querySelector("#recForm").onsubmit=async(e)=>{e.preventDefault();const b=e.submitter;if(b)b.disabled=true;const doc={title:m.querySelector("#rc-t").value.trim(),amount:+m.querySelector("#rc-a").value,startMonth:m.querySelector("#rc-s").value||null,endMonth:m.querySelector("#rc-e").value||null,active:m.querySelector("#rc-on").value==="1"};
+  m.querySelector("#recForm").onsubmit=async(e)=>{e.preventDefault();const b=e.submitter;if(b)b.disabled=true;const doc={title:m.querySelector("#rc-t").value.trim(),amount:+m.querySelector("#rc-a").value,startMonth:m.querySelector("#rc-s").value||null,endMonth:m.querySelector("#rc-e").value||null,active:m.querySelector("#rc-on").value==="1",chargeDay:+m.querySelector("#rc-day").value||null};
     if(await write(()=>S.db.doc("recurring/"+(x.id||uid())).set(doc),"انحفظ"))m.remove();else if(b)b.disabled=false}}
 function fcModal(x){x=x||{};const t=riyadhToday();const m=modal(`<h3>${x.id?"تعديل توقع":"توقع جديد"} <span class="tag fc">توقع</span></h3><form class="form" id="fcForm">
   <div class="field"><label for="fc-m">الشهر</label><input class="inp" id="fc-m" type="month" required value="${esc(x.month||addMonths(t,1).slice(0,7))}"></div>
@@ -1996,6 +2100,7 @@ document.addEventListener("click",async(e)=>{const a=e.target.closest("[data-act
   if(act==="rec-add")return recModal();if(act==="rec-edit")return recModal(S.recurring.find(x=>x.id===id));
   if(act==="rec-del")return confirmBox("حذف هذا الاشتراك؟ ينشال من حساب كل الفترات.",()=>write(()=>S.db.doc("recurring/"+id).delete(),"انحذف"));
   if(act==="prod-sel")return selectProd(id);
+  if(act==="alert-log")return alertLogModal();
   if(act==="spd-set"){const key=a.dataset.sup+":"+a.dataset.id;const cur=(S.config&&S.config.manualSpeeds||{})[key];const h=cur?Math.floor(cur.m/60):"",mi=cur?cur.m%60:"";
     const m=modal(`<h3>السرعة التقريبية</h3><div class="muted small" style="margin-bottom:10px">${esc(a.dataset.sup)} · رقم <b class="n">${esc(a.dataset.id)}</b><br>${esc(String(a.dataset.name||"").slice(0,90))}</div>
       <div class="muted small" style="margin-bottom:10px">افتح الخدمة في موقع ${esc(a.dataset.sup)} وانسخ «السرعة التقريبية» اللي تحت الكمية.</div>
@@ -2120,6 +2225,7 @@ async function sha256Hex(t){const b=await crypto.subtle.digest("SHA-256",new Tex
   cl.use("db").then(db=>{S.db=db;S.dbState=db?"ok":"none";if(db)subscribe();else render()},()=>{S.dbState="none";render()});
   cl.use("mcp").then(m=>{S.mcp=m;startLive();startSupplierWatch();render()});
   cl.use("downloads").then(d=>S.dl=d);
+  cl.use("sample").then(s=>{S.sample=s;S._lastSig=null;render()},()=>{});
   cl.use("user").then(async u=>{S.user=u;if(u){try{const w=await u.can("data.write");if(w===false){S.canWrite=false;toast("عندك صلاحية عرض فقط","err")}}catch(e){}}});
 })();
 })();

@@ -688,6 +688,17 @@ html[data-theme="light"] .hl.ok{color:#0f8a50}html[data-theme="light"] .hl.warn{
 html[data-theme="light"] .plan-tbl .pl-mid{background:rgba(0,133,123,.08)}
 </style>
 <style>@media (max-width:700px){.plan-form{grid-template-columns:1fr 1fr!important;gap:10px}.plan-form .field label{font-size:13px}.plan-form .muted.small{font-size:11.5px}}</style>
+<style>
+.camp-list{display:flex;flex-direction:column;gap:12px}
+.camp{border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(var(--hi-rgb),.02)}
+.camp-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.camp-g{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.camp-g.sub{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);grid-template-columns:repeat(5,minmax(0,1fr))}
+.ck{display:flex;flex-direction:column;gap:2px;min-width:0}.ck small{font-size:12px;color:var(--mut-2)}.ck b{font-size:15px}
+.camp-g.sub .ck b{font-size:14px;font-weight:700}
+@media (max-width:1100px){.camp-g{grid-template-columns:repeat(3,minmax(0,1fr))}.camp-g.sub{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:700px){.camp-g,.camp-g.sub{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
 <div class="bgfx" aria-hidden="true"><i></i><i></i><b></b></div>
 <div class="shell" dir="rtl" lang="ar">
  <aside class="side" id="side" aria-label="القائمة الرئيسية">
@@ -1183,11 +1194,11 @@ async function readOrderMeta(orders){if(!S.mcp||!S.db||metaBusy)return;metaBusy=
   finally{metaBusy=false}}
 /* cached live extras (TikTok campaigns/ads, coupons, carts, ratings, returning customers) */
 async function ext(key,fn,ttl=10*6e4){const c=S.ext[key];if(c&&(c.loading||Date.now()-c.at<ttl))return c;S.ext[key]={loading:true,at:Date.now(),data:c&&c.data};
-  try{const d=await fn();S.ext[key]={at:Date.now(),data:d}}catch(e){S.ext[key]={at:Date.now(),data:c&&c.data,err:e&&e.code?mcpMsg(e,""):String(e&&e.message||e)}}render();return S.ext[key]}
+  try{const d=await fn();S.ext[key]={at:Date.now(),data:d}}catch(e){S.ext[key]={at:Date.now(),data:c&&c.data,code:e&&e.code||"",err:e&&e.code?mcpMsg(e,"الموصل"):String(e&&e.message||e)}}render();return S.ext[key]}
 const extData=(k)=>S.ext[k]&&S.ext[k].data;
 function ttLevel(level,from,to){const key=`tt:${level}:${from}:${to}`;const idDim=level==="AUCTION_AD"?"ad_id":"campaign_id";
   return ext(key,async()=>{const res=await S.mcp.callTool(TIKTOK,"report_integrated_get",{advertiser_id:cfg().tiktokAdvertiser,report_type:"BASIC",data_level:level,dimensions:[idDim],
-    metrics:level==="AUCTION_AD"?["ad_name","campaign_name","spend","impressions","clicks","ctr","complete_payment"]:["campaign_name","spend","impressions","clicks","ctr","complete_payment"],
+    metrics:level==="AUCTION_AD"?["ad_name","campaign_name","spend","impressions","clicks","ctr","complete_payment"]:["campaign_name","spend","impressions","reach","frequency","clicks","ctr","cpc","cpm","total_landing_page_view","video_play_actions","average_video_play","video_views_p100","likes","shares","profile_visits","complete_payment"],
     start_date:from,end_date:to,page_size:200,filtering:[{field_name:level==="AUCTION_AD"?"ad_status":"campaign_status",filter_type:"IN",filter_value:'["STATUS_ALL"]'}]},{cache:{staleTime:6e5,gcTime:36e5}});
     const p=res.payload||{};if(p.code&&p.code!==0)throw new Error(p.message||"TikTok");return((p.data&&p.data.list)||[]).map(r=>({id:(r.dimensions||{})[idDim],...r.metrics}))})}
 function sallaRep(tool,args,key){return ext(key,async()=>{const r=await S.mcp.callTool(SALLA,tool,args,{cache:{staleTime:6e5,gcTime:36e5}});return r.payload})}
@@ -1384,10 +1395,12 @@ async function detectTopups(){const wd=extData("wk:topups");if(wd&&Array.isArray
 
 /* the connector's own 15-minute log (version 2.0): top-ups, daily usage, price changes */
 function wk(tool,args,key,ttl){if(!S.mcp)return;return ext(key,async()=>{const r=await S.mcp.callTool(SUP,tool,args,{cache:false});return r.payload},ttl||10*6e4)}
-const wkOff=(k)=>{const e=S.ext[k];return e&&e.err&&/FLASH_KV|not_in_manifest|Unknown tool|unknown tool/i.test(e.err+"")};
+const wkOff=(k)=>{const e=S.ext[k];return!!(e&&e.err&&!e.data&&!["server_unavailable","rate_limited","timeout"].includes(e.code))};
+const wkWhy=(k)=>{const e=S.ext[k]||{};if(/FLASH_KV/.test(e.err||""))return"السجل التلقائي مو مفعّل في Cloudflare: يحتاج ربط KV باسم FLASH_KV و Cron كل 15 دقيقة.";
+  return`أدوات السجل الجديدة في موصل Flash Suppliers مو مسموحة في Claude للحين. افتح <a href="https://claude.ai/customize/connectors" target="_blank" rel="noopener noreferrer">إعدادات الموصلات</a> ← Flash Suppliers ← واسمح للأدوات: supplier_topups و supplier_daily و supplier_price_changes و supplier_log_status. لو ما ظهرت، افصل الموصل واربطه من جديد.`};
 function supUsageCard(){const t=riyadhToday(),from=addDays(t,-29);const k=`wk:daily:${from}`;if(tabOn("products","services"))wk("supplier_daily",{from,to:t},k,15*6e4);
   const d=extData(k);const rows=(d&&d.days)||[];const off=wkOff(k);
-  if(off)return`<div class="card"><h3>استهلاك المزودين يوميًا</h3><div class="muted small">يحتاج السجل التلقائي في الموصل (نسخة 2.0): مخزن KV باسم FLASH_KV و Cron كل 15 دقيقة. الخطوات في صفحة نسخ الكود.</div></div>`;
+  if(off)return`<div class="card"><h3>استهلاك المزودين يوميًا</h3><div class="alert pk"><i class="ic"></i><div>${wkWhy(k)}</div></div></div>`;
   if(!rows.length)return`<div class="card"><h3>استهلاك المزودين يوميًا</h3>${loadingRow(k,"أجيب السجل…")||`<div class="muted small">السجل بدأ للحين. أول يوم كامل يطلع بكرة.</div>`}</div>`;
   const sups=[...new Set(rows.map(r=>r.supplier))];const days=[];for(let i=29;i>=0;i--)days.push(addDays(t,-i));
   const mx=Math.max(0.01,...rows.map(r=>+r.used||0));
@@ -1396,7 +1409,7 @@ function supUsageCard(){const t=riyadhToday(),from=addDays(t,-29);const k=`wk:da
      return`<div style="margin-bottom:12px"><div class="row" style="justify-content:space-between"><b>${esc(s)}</b><span class="muted small">المجموع <b class="n">${fmt(tot,2)}</b> · المتوسط <b class="n">${fmt(tot/nd,2)}</b> باليوم</span></div>
       <div class="ubars">${days.map(dd=>{const r=by[dd];const u=r?+r.used||0:0;return`<i title="${esc(dd)}: ${fmt(u,2)} ر.س${r&&+r.topup?` · شحن ${fmt(+r.topup,2)}`:""}" style="height:${r?Math.max(3,u/mx*100):0}%" class="${r&&+r.topup?"tp":""}"></i>`}).join("")}</div></div>`}).join("")}
    <div class="row small" style="gap:14px"><span><i class="lg-d" style="background:var(--cy)"></i> استهلاك</span><span><i class="lg-d" style="background:var(--pk)"></i> يوم فيه شحن</span></div></div>`}
-function priceChangesCard(){const k="wk:px";if(tabOn("products","suppliers"))wk("supplier_price_changes",{},k,30*6e4);const d=extData(k);if(wkOff(k))return"";const L=(d&&d.changes)||[];
+function priceChangesCard(){const k="wk:px";if(tabOn("products","suppliers"))wk("supplier_price_changes",{},k,30*6e4);const d=extData(k);if(wkOff(k))return`<div class="card"><h3>تغيّر أسعار خدماتك عند المورد</h3><div class="alert pk"><i class="ic"></i><div>${wkWhy(k)}</div></div></div>`;const L=(d&&d.changes)||[];
   return`<div class="card"><h3>تغيّر أسعار خدماتك عند المورد <small>يفحصها الموصل كل يوم</small></h3>${loadingRow(k,"أجيب السجل…")}
    ${L.length?`<div class="list">${L.slice(0,15).map(x=>`<div class="li" style="grid-template-columns:minmax(0,1fr) auto"><div><b>${esc(x.supplier)} #${esc(x.id)}</b> <span class="muted small">${esc(x.date)} · ${esc(String(x.name||"").slice(0,60))}</span></div><span class="n ${x.after_sar>x.before_sar?"neg":"pos"}">${fmt(x.before_sar,4)} ← <b>${fmt(x.after_sar,4)}</b> (${x.change_pct>0?"+":""}${fmt(x.change_pct,1)}%)</span></div>`).join("")}</div>`:(d?`<div class="muted small">ما تغيّر سعر أي خدمة من خدماتك من بداية السجل.</div>`:"")}</div>`}
 function topupCard(){const t=riyadhToday(),ms=monthStart(t),pm=addMonths(ms,-1),pe=monthEnd(pm);const wkKey="wk:topups";if(tabOn("products","services"))wk("supplier_topups",{},wkKey,5*6e4);
@@ -1451,15 +1464,18 @@ function loadingRow(k,msg){const e=S.ext[k];if(!S.mcp)return`<div class="muted s
 function campaignCard(r,R){const k=`tt:AUCTION_CAMPAIGN:${r.from}:${r.to}`;if(S.mcp&&tabOn("ads","campaigns"))ttLevel("AUCTION_CAMPAIGN",r.from,r.to);const list=extData(k)||[];
   const BE=contribOf(R.T);const by={};
   for(const o of R.orders){const camp=o.attr&&o.attr.ch==="tiktok"?(o.attr.camp||"(حملة غير معروفة)"):null;if(!camp)continue;const c=orderCost(o);by[camp]=by[camp]||{n:0,rev:0,prof:0};by[camp].n++;by[camp].rev+=o.amount;by[camp].prof+=o.amount-c.cost-feeOf(o.amount)}
-  const rows=list.map(x=>({name:x.campaign_name,spend:+x.spend||0,pur:+x.complete_payment||0,ctr:+x.ctr||0,clk:+x.clicks||0}));
-  const names=new Set(rows.map(x=>x.name));Object.keys(by).forEach(n=>{if(!names.has(n))rows.push({name:n,spend:0,pur:0,ctr:0,clk:0})});
+  const rows=list.map(x=>({name:x.campaign_name,spend:+x.spend||0,pur:+x.complete_payment||0,ctr:+x.ctr||0,clk:+x.clicks||0,imp:+x.impressions||0,reach:+x.reach||0,freq:+x.frequency||0,cpc:+x.cpc||0,cpm:+x.cpm||0,lpv:+x.total_landing_page_view||0,vplay:+x.video_play_actions||0,avgPlay:+x.average_video_play||0,full:+x.video_views_p100||0,likes:+x.likes||0,shares:+x.shares||0,visits:+x.profile_visits||0}));
+  const names=new Set(rows.map(x=>x.name));Object.keys(by).forEach(n=>{if(!names.has(n))rows.push({name:n,spend:0,pur:0,ctr:0,clk:0,imp:0})});
   rows.forEach(x=>{const s=by[x.name]||{n:0,rev:0,prof:0};x.n=s.n;x.rev=s.rev;x.profit=s.prof-x.spend;x.cpa=s.n?x.spend/s.n:(x.spend>0?Infinity:NaN)});
   const shown=rows.filter(x=>x.spend>0||x.n>0).sort((a,b)=>b.spend-a.spend);const pend=R.orders.filter(o=>!o.attr).length;
   const flag=(x)=>{const f=[];if(x.ctr>15&&x.clk>50)f.push('<span class="tag pk">ضغطات مشبوهة</span>');if(x.spend>0&&!x.n)f.push('<span class="tag pk">ولا طلب</span>');else if(isFinite(BE)&&x.cpa>BE)f.push('<span class="tag pk">تخسّر</span>');else if(x.n&&x.profit>0)f.push('<span class="tag cy">تربّح</span>');return f.join(" ")};
   return`<div class="card"><h3>كل حملة: مبيعاتها الحقيقية من سلة <small>${esc(r.label)}</small></h3>
    <div class="note" style="margin-bottom:10px">كل الأرقام هنا من سلة: الطلبات والمبيعات حسب الحملة المسجّلة على كل طلب، والصرف بس من تيك توك. ROAS = مبيعات سلة ÷ الصرف. الحملة تربّح إذا تكلفة الطلب أقل من <b class="n">${isFinite(BE)?fmt(BE,2):"—"}</b> ر.س (اللي يبقى لك من الطلب قبل الإعلان).${pend?` · <span class="muted">${pend} طلب لسه ما انعرف مصدره، يتحدد خلال دقائق.</span>`:""}</div>
    ${loadingRow(k,"أجيب الحملات من تيك توك…")}
-   ${shown.length?`<div class="tbl-wrap"><table class="rsp"><thead><tr><th>الحملة</th><th class="n">الصرف</th><th class="n">طلبات سلة</th><th class="n">مبيعات سلة</th><th class="n">ROAS (سلة)</th><th class="n">تكلفة الطلب</th><th class="n">الربح بعد الإعلان</th><th></th></tr></thead><tbody>${shown.map(x=>`<tr><td data-label="الحملة">${esc(x.name)}</td><td class="n" data-label="الصرف">${fmt(x.spend,2)}</td><td class="n" data-label="طلبات سلة">${fmt(x.n)}</td><td class="n" data-label="مبيعات سلة">${fmt(x.rev,2)}</td><td class="n ${x.spend&&x.rev/x.spend<1?"neg":"pos"}" data-label="ROAS (سلة)">${x.spend?fmt(x.rev/x.spend,2)+"x":"—"}</td><td class="n ${isFinite(BE)&&x.cpa>BE?"neg":""}" data-label="تكلفة الطلب">${isFinite(x.cpa)?fmt(x.cpa,2):x.cpa===Infinity?"∞":"—"}</td><td class="n ${x.profit<0?"neg":"pos"}" data-label="الربح بعد الإعلان">${fmt(x.profit,2)}</td><td data-label="الحالة">${flag(x)}</td></tr>`).join("")}</tbody></table></div>`:(S.ext[k]&&S.ext[k].data?emptyState("ما فيه حملات بصرف في الفترة","غيّر الفترة."):"")}</div>`}
+   ${shown.length?`<div class="camp-list">${shown.map(x=>{const conv=x.clk?x.n/x.clk*100:NaN;const kv=(l,v)=>`<div class="ck"><small>${l}</small><b class="n">${v}</b></div>`;
+     return`<div class="camp"><div class="camp-h"><b>${esc(x.name)}</b><span>${flag(x)}</span></div>
+      <div class="camp-g">${kv("الصرف",fmt(x.spend,2))}${kv("طلبات سلة",fmt(x.n))}${kv("مبيعات سلة",fmt(x.rev,2))}${kv("ROAS (سلة)",x.spend?fmt(x.rev/x.spend,2)+"x":"—")}${kv("تكلفة الطلب",isFinite(x.cpa)?fmt(x.cpa,2):x.cpa===Infinity?"∞":"—")}${kv("الربح بعد الإعلان",`<span class="${x.profit<0?"neg":"pos"}">${fmt(x.profit,2)}</span>`)}</div>
+      ${x.imp?`<div class="camp-g sub">${kv("الظهور",fmt(x.imp))}${kv("الوصول",fmt(x.reach))}${kv("التكرار",fmt(x.freq,2))}${kv("الضغطات",fmt(x.clk))}${kv("CTR",fmt(x.ctr,2)+"%")}${kv("تكلفة الضغطة",fmt(x.cpc,2))}${kv("تكلفة 1,000 ظهور",fmt(x.cpm,2))}${kv("زيارات الصفحة",fmt(x.lpv))}${kv("تحويل الضغطة لطلب",isFinite(conv)?fmt(conv,1)+"%":"—")}${kv("مشاهدات الفيديو",fmt(x.vplay))}${kv("متوسط المشاهدة",fmt(x.avgPlay,1)+" ث")}${kv("كملوا الفيديو",fmt(x.full))}${kv("لايكات / شير",fmt(x.likes)+" / "+fmt(x.shares))}${kv("زيارات الحساب",fmt(x.visits))}${kv("تيك توك سجّل شراء",fmt(x.pur))}</div>`:""}</div>`}).join("")}</div>`:(S.ext[k]&&S.ext[k].data?emptyState("ما فيه حملات بصرف في الفترة","غيّر الفترة."):"")}</div>`}
 function creativeCard(r){const k=`tt:AUCTION_AD:${r.from}:${r.to}`;if(S.mcp&&tabOn("ads","campaigns"))ttLevel("AUCTION_AD",r.from,r.to);const list=(extData(k)||[]).map(x=>({name:x.ad_name,camp:x.campaign_name,spend:+x.spend||0,pur:+x.complete_payment||0,ctr:+x.ctr||0})).filter(x=>x.spend>0);
   list.forEach(x=>x.cpa=x.pur?x.spend/x.pur:Infinity);list.sort((a,b)=>(a.cpa-b.cpa)||(b.pur-a.pur));
   return`<div class="card"><h3>أفضل الفيديوهات <small>من تيك توك · سلة تسجّل اسم الحملة بس، ما تسجّل الفيديو</small></h3>${loadingRow(k,"أجيب الإعلانات…")}
@@ -1833,7 +1849,7 @@ function healthCard(){const t=riyadhToday(),ms=monthStart(t);const R=calc(ms,t);
   rows.push([R.estN?"warn":"ok","طلبات تكلفتها تقديرية",R.estN?`${R.estN} طلب (ما انقرت كميتها من الفاتورة للحين)`:"ولا واحد",R.estN?`<a class="btn sm ghost" href="#orders">افتح الطلبات</a>`:""]);
   const noSrc=R.orders.filter(o=>!o.attr).length;rows.push([noSrc?"warn":"ok","طلبات مصدرها غير معروف",noSrc?`${noSrc} طلب، يتحدد تلقائي وأنت فاتح الرئيسية أو الإعلانات`:"كلها معروفة",""]);
   const ex=((S.config&&S.config.excludedOrders)||[]).length,exc=((S.config&&S.config.excludedCustomers)||[]).length;rows.push(["info","طلبات مستبعدة من الحسابات",`${ex} طلب${exc?` + طلبات ${exc} عميل`:""}`,ex?`<a class="btn sm ghost" href="#orders">راجعها</a>`:""]);
-  const wkd=extData("wk:topups");if(!wkd&&S.mcp)wk("supplier_topups",{},"wk:topups",5*6e4);rows.push([wkd&&Array.isArray(wkd.topups)?"ok":wkOff("wk:topups")?"warn":"info","السجل التلقائي للمزودين",wkd&&Array.isArray(wkd.topups)?"شغّال كل 15 دقيقة":wkOff("wk:topups")?"مو مفعّل في Cloudflare":"أتحقق…",""]);
+  const wkd=extData("wk:topups");if(!wkd&&S.mcp)wk("supplier_topups",{},"wk:topups",5*6e4);rows.push([wkd&&Array.isArray(wkd.topups)?"ok":wkOff("wk:topups")?"warn":"info","السجل التلقائي للمزودين",wkd&&Array.isArray(wkd.topups)?"شغّال كل 15 دقيقة":wkOff("wk:topups")?wkWhy("wk:topups"):"أتحقق…",""]);
   const old=Object.entries((S.config&&S.config.manualSpeeds)||{}).filter(([,v])=>v&&v.at&&diffDays(v.at,t)>30);rows.push([old.length?"warn":"ok","سرعات كتبتها بنفسك",old.length?`${old.length} عمرها أكثر من 30 يوم`:"محدّثة",old.length?`<a class="btn sm ghost" href="#products">حدّثها</a>`:""]);
   const lb=(S.backups||[])[0];rows.push([lb?"ok":"info","آخر نسخة احتياطية",lb?esc(String(lb.at||lb.id).slice(0,10)):"تنحفظ تلقائي كل أسبوع",""]);
   if(!S.backups&&S.db)listBackups();

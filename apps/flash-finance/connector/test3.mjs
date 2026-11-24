@@ -1,7 +1,7 @@
 import w from './worker.js';
 const sent=[];const kv=new Map();
 globalThis.fetch=async(u,o)=>{if(String(u).includes('/sendMessage')){sent.push(JSON.parse(o.body));return new Response('{}',{status:200})}
- if(String(u).includes('/getUpdates'))return new Response(JSON.stringify({result:[{message:{chat:{id:12345,first_name:"Naif"}}}]}));return new Response('{}')};
+ if(String(u).includes('/getUpdates'))return new Response(JSON.stringify({result:[{message:{chat:{id:12345,first_name:"Owner"}}}]}));return new Response('{}')};
 const env={CONNECTOR_TOKEN:'x'.repeat(20),HOOK_TOKEN:'h'.repeat(20),TELEGRAM_TOKEN:'t',TELEGRAM_CHAT_ID:'1',FLASH_KV:{get:async k=>kv.get(k)??null,put:async(k,v)=>kv.set(k,v)}};
 const base='https://x.workers.dev/hook/'+'h'.repeat(20);
 const order={event:'order.created',data:{id:99,reference_id:301418224,amounts:{total:{amount:54.99,currency:'SAR'}},items:[{name:'بكج اكسبلور <b>',quantity:1}],customer:{city:'الرياض'},payment_method:'mada',status:{name:'بإنتظار المراجعة'}}};
